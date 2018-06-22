@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {include file="public/static" /}
+</head>
+<body>
+<div class="main-wrap">
+    <!--菜单-->
+    {include file="public/menu" /}
+    <!--菜单-->
+    <div class="content-wrap">
+        <!--头部-->
+        {include file="public/header" /}
+        <!--头部-->
+        <main class="main-cont content mCustomScrollbar">
+            <div class="page-wrap">
+                <!--开始::内容-->
+                <section class="page-hd">
+                    <header style="clearfix">
+                        {include file="public/nav" /}
+                        <!--<button onclick="add()" class="btn btn-primary fr">{$Think.lang.add}</button>-->
+                        <!--<a onclick="window.history.back();"><button class="btn btn-primary fr">返回上层</button></a>-->
+                        <!--<script>
+                            function add() {
+                                $.get('{:url("Admin/add_admin")}', function (data) {
+                                    if (data.status == 400) {
+                                        layer.msg(data.tips);
+                                    } else {
+                                        location.href = "{:url('Admin/add_admin')}";
+                                    }
+                                })
+                            }
+                        </script>-->
+                    </header>
+                    <hr>
+
+                </section>
+
+                <table class="table table-bordered table-striped table-hover">
+                    <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>名称</th>
+                        <th>状态</th>
+                        <th>权限组</th>
+                        <th>最后登陆时间</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {volist name="info" id="v"}
+                    <tr class="cen">
+                        <td>{$v.id}</td>
+                        <td >{$v.username}</td>
+                        <td >{$v.status}</td>
+                        {notempty name="$v['group_name']"}
+                        {volist name="v.group_name" id="vv"}
+                        <td>{$vv.title}</td>
+                        {/volist}
+                        {else /}
+                        <td>暂无</td>
+                        {/notempty}
+                        <td>{$v.last_time}</td>
+                        <td>
+                            <a href="javascript:void(0)" onclick="editor(this,{$v.id})" title="{$Think.lang.editor}" class="mr-5 icon-edit">{$Think.lang.editor}</a>
+                            <!--<a title="详情" class="mr-5">详情</a>-->
+                            <!--<a href="javascript:void(0)" onclick="del(this,{$v.id})" title="{$Think.lang.del}">{$Think.lang.del}</a>-->
+                        </td>
+                    </tr>
+                    {/volist}
+                    </tbody>
+                </table>
+                <!--开始::结束-->
+            </div>
+        </main>
+        <!--底部-->
+        {include file="public/footer" /}
+        <!--底部-->
+    </div>
+</div>
+<script type="text/javascript">
+    // 删除数据方法
+    /*function del(obj, id) {
+        layer.confirm('确定删除吗？', {
+            title:'系统提示',
+            btn: ['确定','取消']
+        }, function(){
+            $.post('{:url("")}', {id: id}, function (data) {
+                // 判断是否成功
+                if (data.status == 200) {
+                    $(obj).parent().parent().remove();
+                    layer.msg(data.tips);
+                    setTimeout("location.reload();",500);
+                } else if (data.status == 400) {
+                    layer.msg(data.tips);
+                } else if (data.status == 600) {
+                    layer.msg(data.tips);
+                }
+            });
+        });
+    }*/
+
+    // 编辑数据方法
+    function editor(obj, id) {
+        $.get('{:url("Admin/editor_my")}',{id:id}, function (data) {
+            // 判断是否成功
+            if (data.status == 400) {
+                layer.msg(data.tips);
+            } else {
+                location.href = "{:url('Admin/editor_my')}" + "?id=" + id;
+            }
+        });
+    }
+</script>
+</body>
+</html>

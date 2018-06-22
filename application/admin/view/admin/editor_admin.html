@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {include file="public/static" /}
+</head>
+<body>
+<div class="main-wrap">
+    <!--菜单-->
+    {include file="public/menu" /}
+    <!--菜单-->
+    <div class="content-wrap">
+        <!--头部-->
+        {include file="public/header" /}
+        <!--头部-->
+        <main class="main-cont content mCustomScrollbar">
+            <div class="page-wrap">
+                <!--开始::内容-->
+                <section class="page-hd">
+                    <header style="clearfix">
+                        {include file="public/nav" /}
+                        <a href="{:url('Admin/admin_index')}"><button class="btn btn-primary fr icon-undo">{$Think.lang.back}</button></a>
+                        <!--<a onclick="window.history.back();"><button class="btn btn-primary fr">返回上层</button></a>-->
+                    </header>
+                    <hr>
+
+                </section>
+
+                <div class="panel panel-default">
+                    <!--<div class="panel-hd">按钮</div>-->
+                    <div class="panel-bd">
+                        <div class="card">
+                            <div class="card-header">
+                                <ul class="tab-nav">
+                                    <li class="active">基本信息</li>
+                                    <li>修改密码</li>
+                                    <li>权限组</li>
+                                </ul>
+                            </div>
+                            <!--基本信息-->
+                            <div class="tab-cont" style="display: block;">
+                                <form id="form_data">
+                                    <input type="hidden" name="id" value="{$info.id}">
+                                    <div class="form-group-col-2">
+                                        <div class="form-label">名称：</div>
+                                        <div class="form-cont">
+                                            <input type="text" value="{$info.username}" name="username" class="form-control form-boxed" style="width:300px;">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group-col-2">
+                                        <div class="form-label">QQ：</div>
+                                        <div class="form-cont">
+                                            <input type="text" placeholder="" value="{$info.qq}" name="qq" class="form-control form-boxed" style="width:300px;">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group-col-2">
+                                        <div class="form-label">微信：</div>
+                                        <div class="form-cont">
+                                            <input type="text" placeholder="" value="{$info.wx}" name="wx" class="form-control form-boxed" style="width:300px;">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group-col-2">
+                                        <div class="form-label">手机：</div>
+                                        <div class="form-cont">
+                                            <input type="text" placeholder="" value="{$info.phone}" name="phone" class="form-control form-boxed" style="width:300px;">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group-col-2">
+                                        <div class="form-label">地址：</div>
+                                        <div class="form-cont">
+                                            <input type="text" placeholder="" value="{$info.address}" name="address" class="form-control form-boxed" style="width:300px;">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group-col-2">
+                                        <div class="form-label">登陆状态：</div>
+                                        <div class="form-cont">
+                                            <label class="radio">
+                                                <input type="radio" name="status" value="1" {eq name="1" value="$info.status"}checked{/eq}  />
+                                                <span>正常</span>
+                                            </label>
+                                            <label class="radio">
+                                                <input type="radio" name="status" value="0" {eq name="0" value="$info.status"}checked{/eq} />
+                                                <span>禁止</span>
+                                            </label>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group-col-2">
+                                        <div class="form-label">用户信息：</div>
+                                        <div class="form-cont">
+                                            <!-- 加载编辑器的容器 -->
+                                            <script id="intro" name="intro" type="text/plain">{$info.intro|raw}</script>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group-col-2">
+                                        <div class="form-label"></div>
+                                        <div class="form-cont">
+                                            <input type="button" onclick="ajax_submit()" class="btn btn-primary" value="提交表单" />
+                                            <!--<input type="reset" class="btn btn-disabled" value="禁止" />-->
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <!--修改密码-->
+                            <div class="tab-cont">
+                                <form id="form_password">
+                                    <input type="hidden" name="id" value="{$info.id}">
+                                    <div class="form-group-col-2">
+                                        <div class="form-label">新密码：</div>
+                                        <div class="form-cont">
+                                            <input type="password" placeholder="新密码" id="password" name="password" class="form-control form-boxed" style="width:300px;">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group-col-2">
+                                        <div class="form-label">确认密码：</div>
+                                        <div class="form-cont">
+                                            <input type="password" placeholder="再次输入密码" id="password_rep" class="form-control form-boxed" style="width:300px;">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group-col-2">
+                                        <div class="form-label"></div>
+                                        <div class="form-cont">
+                                            <input type="button" onclick="ajax_submit_password()" class="btn btn-primary" value="提交表单" />
+                                            <!--<input type="reset" class="btn btn-disabled" value="禁止" />-->
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <!--权限组-->
+                            <div class="tab-cont">
+                                <form id="form_group">
+                                    <input type="hidden" name="uid" value="{$info.id}">
+                                    <div class="form-group-col-2">
+                                        <div class="form-label">名称：</div>
+                                        <div class="form-cont">
+                                            <input type="text" value="{$info.username}" name="username" class="form-control form-boxed" disabled style="width:300px;">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group-col-2">
+                                        <div class="form-label">权限组：</div>
+                                        <div class="form-cont" >
+                                            <select style="width:auto;" name="group_id">
+                                                {volist name="group" id = "v"}
+                                                <option value="{$v.id}" {eq name="v.id" value="$group_access.group_id"}selected{/eq} >
+                                                    {$v.title}
+                                                </option>
+                                                {/volist}
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group-col-2">
+                                        <div class="form-label"></div>
+                                        <div class="form-cont">
+                                            <input type="button" onclick="ajax_submit_group()" class="btn btn-primary" value="提交表单" />
+                                            <!--<input type="reset" class="btn btn-disabled" value="禁止" />-->
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--开始::结束-->
+            </div>
+        </main>
+        {include file="public/footer" /}
+    </div>
+</div>
+</body>
+<!-- 实例化编辑器 -->
+<script type="text/javascript">
+    var ue = UE.getEditor('intro', {
+//        toolbars: [
+//            ['fullscreen', 'source', 'undo', 'redo', 'bold']
+//        ],
+        initialFrameWidth :1200,//初始化编辑器宽度，默认1000
+        initialFrameHeight :400,//初始化编辑器高度，默认320
+        autoHeightEnabled: true,//是否自动长高，默认true
+        autoFloatEnabled: true,//是否保持toolbar的位置不动，默认true
+    });
+    //修改基本信息
+    function ajax_submit() {
+        var form_data = $('#form_data').serializeArray();
+        console.log(form_data);
+        $.post('{:url("Admin/editor_admin_do")}', form_data, function (data) {
+//            console.log(data);
+            if (data.status == 200) {
+                layer.msg(data.tips);
+                setTimeout("location.reload();",500);
+            } else {
+                layer.msg(data.tips);
+            }
+        })
+        //console.log(a);
+    }
+
+    //修改密码
+    function ajax_submit_password() {
+        if($('#password').val() == ''){
+            layer.msg('请填写新密码');
+            return false;
+        }
+        if($('#password').val() != $('#password_rep').val()){
+            layer.msg('两次密码不一致');
+            return false;
+        }
+        var form_data = $('#form_password').serializeArray();
+//        console.log(form_data);
+        $.post('{:url("Admin/editor_password_do")}', form_data, function (data) {
+            if (data.status == 200) {
+                layer.msg(data.tips);
+                setTimeout("location.reload();",500);
+            } else {
+                layer.msg(data.tips);
+            }
+        })
+    }
+
+</script>
+
+</html>

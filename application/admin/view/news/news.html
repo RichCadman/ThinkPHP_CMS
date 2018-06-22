@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {include file="public/static" /}
+</head>
+<body>
+<div class="main-wrap">
+    <!--菜单-->
+    {include file="public/menu" /}
+    <!--菜单-->
+    <div class="content-wrap">
+        <!--头部-->
+        {include file="public/header" /}
+        <!--头部-->
+        <main class="main-cont content mCustomScrollbar">
+            <div class="page-wrap">
+                <!--开始::内容-->
+                <section class="page-hd">
+                    <header style="clearfix">
+                        {include file="public/nav" /}
+                        <button onclick="add()" class="btn btn-primary fr icon-plus">{$Think.lang.add}</button>
+                        <!--<a onclick="window.history.back();"><button class="btn btn-primary fr">返回上层</button></a>-->
+                        <script>
+                            function add() {
+                                $.get('{:url("News/add_news")}', function (data) {
+                                    if (data.status == 400) {
+                                        layer.msg(data.tips);
+                                    } else {
+                                        location.href = "{:url('News/add_news')}";
+                                    }
+                                })
+                            }
+                        </script>
+                    </header>
+                    <hr>
+
+                </section>
+
+                <div class="clear mt-20" style="padding-bottom: 20px;margin-top: -10px">
+                    <!--<div class="fl">-->
+                        <!--<button class="btn btn-secondary"><i class="icon-double-angle-left"></i>上一周</button>-->
+                        <!--<button class="btn btn-secondary">下一周<i class="icon-double-angle-right"></i></button>-->
+                    <!--</div>-->
+                    <div class="fr input-group">
+                        <form action="" method="get">
+                            <input type="text" name="search" class="form-control" placeholder="搜索资讯标题..." style="width:290px;"/>
+                            <button type="submit" class="btn btn-secondary-outline">搜索</button>
+                        </form>
+
+                    </div>
+                </div>
+                <table class="table table-bordered table-striped table-hover">
+                    <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>标题</th>
+                        <!--<th>配图</th>-->
+                        <th>所属分类</th>
+                        <th>作者</th>
+                        <th>点击量</th>
+                        <th>编辑时间</th>
+                        <th>状态</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {volist name="info" id="v"}
+                    <tr class="cen">
+                        <td>{$v.id}</td>
+                        <td >{$v.title}</td>
+                        <!--<td>-->
+                            <!--<a href="__UPLOAD__/{$v.news_img}" target="_blank">-->
+                                <!--<img src="__UPLOAD__/{$v.news_img}" style="width: 50px;height: 50px;" alt="">-->
+                            <!--</a>-->
+                        <!--</td>-->
+                        {notempty name="$v['news_type']"}
+                            {//volist name="v.news_type" id="vv"}
+                                <td>{$v.news_type.news_type_name}</td>
+                            {///volist}
+                        {else /}
+                            <td>暂无分类</td>
+                        {/notempty}
+                        <td>{$v.author}</td>
+                        <td>{$v.click_num}</td>
+                        <td>{$v.update_time}</td>
+                        <td>{$v.state}</td>
+                        <td>
+                            <a href="javascript:void(0)" onclick="comment(this,{$v.id})" title="{$Think.lang.comment}" class="mr-5 icon-comments">{$Think.lang.comment}</a>
+                            <a href="javascript:void(0)" onclick="editor(this,{$v.id})" title="{$Think.lang.editor}" class="mr-5 icon-edit">{$Think.lang.editor}</a>
+                            <!--<a title="详情" class="mr-5">详情</a>-->
+                            <a href="javascript:void(0)" onclick="del(this,{$v.id})" title="{$Think.lang.del}" class="icon-trash">{$Think.lang.del}</a>
+                        </td>
+                    </tr>
+                    {/volist}
+                    </tbody>
+                </table>
+                {$info|raw}
+
+                <!--开始::结束-->
+            </div>
+        </main>
+        <!--底部-->
+        {include file="public/footer" /}
+        <!--底部-->
+    </div>
+</div>
+<script type="text/javascript">
+    // 删除数据方法
+    function del(obj, id) {
+        layer.confirm('确定删除吗？', {
+            title: '系统提示',
+            btn: ['确定', '取消']
+        }, function () {
+            $.post('{:url("News/del_news")}', {id: id}, function (data) {
+                // 判断是否成功
+                if (data.status == 200) {
+                    $(obj).parent().parent().remove();
+                    layer.msg(data.tips);
+                    setTimeout("location.reload();", 500);
+                } else if (data.status == 400) {
+                    layer.msg(data.tips);
+                } else if (data.status == 600) {
+                    layer.msg(data.tips);
+                }
+            });
+        });
+    }
+
+    // 编辑数据方法
+    function editor(obj, id) {
+        $.get('{:url("News/editor_news")}',{id:id}, function (data) {
+            // 判断是否成功
+            if (data.status == 400) {
+                layer.msg(data.tips);
+            } else {
+                location.href = "{:url('News/editor_news')}" + "?id=" + id;
+            }
+        });
+    }
+
+    // 查看评论方法
+    function comment(obj, id) {
+        $.get('{:url("Comment/comment")}',{news_id:id}, function (data) {
+            // 判断是否成功
+            if (data.status == 400) {
+                layer.msg(data.tips);
+            } else {
+                location.href = "{:url('Comment/comment')}" + "?news_id=" + id;
+            }
+        });
+    }
+</script>
+</body>
+</html>

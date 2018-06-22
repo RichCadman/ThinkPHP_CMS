@@ -1,0 +1,78 @@
+<header class="top-hd">
+    <div class="hd-lt">
+        <a class="icon-reorder"></a>
+    </div>
+    <div class="hd-rt">
+        <ul>
+            <li>
+                <a href="{$system.home_url}" target="_blank"><i class="icon-home"></i>{$Think.lang.go_home}</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)" id="clearCache"><i class="icon-random"></i>{$Think.lang.clear_cache}</a>
+            </li>
+            <li>
+                <a href="javascript:location.reload();"><i class="icon-repeat"></i>{$Think.lang.reload}</a>
+            </li>
+            {if condition="$Think.session.admin.id == 1"}
+            <li>
+                <a href="javascript:void(0)" id="restore"><i class="icon-refresh"></i>{$Think.lang.restore}</a>
+            </li>
+            {/if}
+            <li>
+                <a><i class="icon-user"></i>管理员:<em>{$Think.session.admin.username}</em></a>
+            </li>
+            <li>
+                <a href="javascript:void(0)" id="JsSignOut"><i class="icon-signout"></i>{$Think.lang.login_out}</a>
+            </li>
+        </ul>
+    </div>
+</header>
+<script>
+    //安全退出
+    $('#JsSignOut').click(function(){
+        layer.confirm('确定登出管理中心？', {
+            title:'系统提示',
+            btn: ['确定','取消']
+        }, function(){
+            location.href = '{:url("Login/login")}';
+        });
+    });
+
+    //清空缓存
+    $('#clearCache').click(function(){
+        layer.confirm('确定清除缓存文件？', {
+            title:'系统提示',
+            btn: ['确定','取消']
+        }, function(){
+            $.post('{:url("Index/clear_cache")}', function (data) {
+                if (data.status == 200) {
+                    layer.msg(data.tips);
+                } else {
+                    layer.msg(data.tips);
+                }
+            })
+        },function(){
+            layer.msg('Request Error !');
+        });
+    });
+
+    //一键还原
+    $('#restore').click(function(){
+        layer.confirm('该操作将会恢复系统默认权限，仅针对管理员，确认操作吗？', {
+            title:'系统提示',
+            btn: ['确定','取消']
+        }, function(){
+            $.post('{:url("System/restore")}', function (data) {
+                if (data.status == 200) {
+                    layer.msg(data.tips);
+                    setTimeout("location.reload();",2000);
+                } else {
+                    layer.msg(data.tips);
+                }
+            })
+        },function(){
+            layer.msg('Request Error !');
+        });
+    });
+
+</script>

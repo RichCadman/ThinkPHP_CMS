@@ -1,0 +1,44 @@
+<div class="side-nav">
+    <div class="side-logo">
+        <div class="logo">
+				<span class="logo-ico">
+					<i class="i-l-1"></i>
+					<i class="i-l-2"></i>
+					<i class="i-l-3"></i>
+				</span>
+            <strong>{$system.title}</strong>
+        </div>
+    </div>
+
+    <nav class="side-menu content mCustomScrollbar" data-mcs-theme="minimal-dark">
+        <h2>
+            <a href="{:url('Index/index')}" class="InitialPage"><i class="icon-dashboard"></i>数据概况</a>
+        </h2>
+        <!--菜单-->
+        <ul>
+            {volist name="menu" id="v"}
+                <!--判断是否有权限显示-->
+                {if condition="in_array($v['id'],$menu_arr)"}
+                    <li class="{$display == $v['controller'] ? 'open' : ''}">
+                        <dl>
+                            <dt>
+                                <i class="{$v.icon}"></i>{$v.title}<i class="icon-angle-right"></i>
+                            </dt>
+                            {if condition="$v['items']"}
+                                {volist name="v.items" id="vv"}
+                                    <!--判断是否有权限显示-->
+                                    {if condition="in_array($vv['id'],$rule_arr)"}
+                                        <dd>
+                                            <a href="{:url($vv.controller.'/'.$vv.function)}">{$vv.title}</a>
+                                        </dd>
+                                    {/if}
+                                {/volist}
+                            {/if}
+                        </dl>
+                    </li>
+                {/if}
+            {/volist}
+        </ul>
+    </nav>
+    <footer class="side-footer">© DeathGhost 版权所有</footer>
+</div>

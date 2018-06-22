@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {include file="public/static" /}
+</head>
+<body>
+<div class="main-wrap">
+    <!--菜单-->
+    {include file="public/menu" /}
+    <!--菜单-->
+    <div class="content-wrap">
+        <!--头部-->
+        {include file="public/header" /}
+        <!--头部-->
+        <main class="main-cont content mCustomScrollbar">
+            <div class="page-wrap">
+                <!--开始::内容-->
+                <section class="page-hd">
+                    <header style="clearfix">
+                        {include file="public/nav" /}
+                    </header>
+                    <hr>
+
+                </section>
+
+                <table class="table table-bordered table-striped table-hover">
+                    <thead>
+                    <tr>
+                        <th>备份序号</th>
+                        <th>备份名称</th>
+                        <th>备份大小</th>
+                        <th>备份时间</th>
+                        <th>操作</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {volist name="info" id="v" key="k"}
+                    <tr class="cen">
+                        <td>{$k}</td>
+                        <td>{$v.name}</td>
+                        <td>{$v.size}</td>
+                        <td>{$v.time}</td>
+                        <td>
+                            <a href="{:url('Database/dowonload',['filename' => $v.name])}" title="{$Think.lang.download}" class="mr-5 icon-download-alt">{$Think.lang.download}</a>
+                            <a href="javascript:void(0)" onclick="restore(this,{$v.name|mb_substr=0,14})" title="{$Think.lang.database_restore}"
+                               class="mr-5 icon-refresh">{$Think.lang.database_restore}</a>
+                            <!--<a title="详情" class="mr-5">详情</a>-->
+                            <a href="javascript:void(0)" onclick="del(this,{$v.name|mb_substr=0,14})" class="icon-trash" title="{$Think.lang.del}">{$Think.lang.del}</a>
+                        </td>
+                    </tr>
+                    {/volist}
+                    </tbody>
+                </table>
+                <!--开始::结束-->
+            </div>
+        </main>
+        <!--底部-->
+        {include file="public/footer" /}
+        <!--底部-->
+    </div>
+</div>
+<script type="text/javascript">
+    // 恢复数据
+    function restore(obj,filename) {
+        layer.confirm('确定还原数据吗？', {
+            title: '系统提示',
+            btn: ['确定', '取消']
+        }, function () {
+            filename = filename + ".sql";
+            $.post('{:url("Database/restore")}', {filename: filename}, function (data) {
+                // 判断是否成功
+                if (data.status == 200) {
+                    layer.msg(data.tips);
+                    //setTimeout("location.reload();", 500);
+                } else {
+                    layer.msg(data.tips);
+                }
+            });
+        });
+    }
+
+    // 删除数据方法
+    function del(obj, filename) {
+        layer.confirm('确定删除备份吗？', {
+            title: '系统提示',
+            btn: ['确定', '取消']
+        }, function () {
+            filename = filename + ".sql";
+            $.post('{:url("Database/delete_database")}', {filename: filename}, function (data) {
+                // 判断是否成功
+                if (data.status == 200) {
+                    $(obj).parent().parent().remove();
+                    layer.msg(data.tips);
+                    setTimeout("location.reload();", 500);
+                } else {
+                    layer.msg(data.tips);
+                }
+            });
+        });
+    }
+
+
+</script>
+</body>
+</html>

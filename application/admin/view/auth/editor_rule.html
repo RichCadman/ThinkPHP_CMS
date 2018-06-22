@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {include file="public/static" /}
+</head>
+<body>
+<div class="main-wrap">
+    <!--菜单-->
+    {include file="public/menu" /}
+    <!--菜单-->
+    <div class="content-wrap">
+        <!--头部-->
+        {include file="public/header" /}
+        <!--头部-->
+        <main class="main-cont content mCustomScrollbar">
+            <div class="page-wrap">
+                <!--开始::内容-->
+                <section class="page-hd">
+                    <header style="clearfix">
+                        {include file="public/nav" /}
+                        <a href="{:url('Auth/rule_index')}"><button class="btn btn-primary fr icon-undo">{$Think.lang.back}</button></a>
+                        <!--<a onclick="window.history.back();"><button class="btn btn-primary fr">返回上层</button></a>-->
+                    </header>
+                    <hr>
+
+                </section>
+
+                <form id="form_data">
+                    <input type="hidden" name="id" value="{$info.id}">
+                    <div class="form-group-col-2">
+                        <div class="form-label">规则名称：</div>
+                        <div class="form-cont">
+                            <input type="text" placeholder="权限管理" name="title" value="{$info.title}" class="form-control form-boxed" style="width:300px;">
+                        </div>
+                    </div>
+
+                    <div class="form-group-col-2">
+                        <div class="form-label">规则：</div>
+                        <div class="form-cont">
+                            <input type="text" placeholder="Admin/Auth" name="name" value="{$info.name}" class="form-control form-boxed" style="width:300px;">
+                        </div>
+                    </div>
+
+                    <div class="form-group-col-2">
+                        <div class="form-label">父级规则：</div>
+                        <div class="form-cont" >
+                            <select style="width:auto;" name="p_id">
+                                <option value="0">顶级规则</option>
+                                {volist name="rule" id = "v"}
+                                <option value="{$v.id}" {eq name="v.id" value="$info.p_id"}selected{/eq} >|--{$v.title}</option>
+                                {/volist}
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group-col-2">
+                        <div class="form-label">导航：</div>
+                        <div class="form-cont">
+                            <input type="text" placeholder="权限管理" name="nav" value="{$info.nav}" class="form-control form-boxed" style="width:300px;">
+                        </div>
+                    </div>
+
+                    <div class="form-group-col-2">
+                        <div class="form-label">是否显示：</div>
+                        <div class="form-cont">
+                            <label class="radio">
+                                <input type="radio" name="is_visible" value="1" {eq name="1" value="$info.is_visible"}checked{/eq}  />
+                                <span>显示</span>
+                            </label>
+                            <label class="radio">
+                                <input type="radio" name="is_visible" value="2" {eq name="2" value="$info.is_visible"}checked{/eq} />
+                                <span>隐藏</span>
+                            </label>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group-col-2">
+                        <div class="form-label">菜单图标：</div>
+                        <div class="form-cont">
+                            <input type="text" placeholder="icon-leaf" name="icon" value="{$info.icon}" class="form-control form-boxed " style="width:300px;">
+                            <button type="button" class="btn btn-primary JopenMaskPanel">选择</button>
+                        </div>
+                    </div>
+
+                    <div class="form-group-col-2">
+                        <div class="form-label">控制器标识：</div>
+                        <div class="form-cont">
+                            <input type="text" placeholder="Auth" name="controller" value="{$info.controller}" class="form-control form-boxed" style="width:300px;">
+                        </div>
+                    </div>
+
+                    <div class="form-group-col-2">
+                        <div class="form-label">方法标识：</div>
+                        <div class="form-cont">
+                            <input type="text" placeholder="auth" name="function" value="{$info.function}" class="form-control form-boxed" style="width:300px;">
+                        </div>
+                    </div>
+
+                    <div class="form-group-col-2">
+                        <div class="form-label">排序：</div>
+                        <div class="form-cont">
+                            <input type="number" placeholder="越大越靠前" name="show_order" value="{$info.show_order}" class="form-control form-boxed" style="width:300px;">
+                        </div>
+                    </div>
+
+                    <div class="form-group-col-2">
+                        <div class="form-label"></div>
+                        <div class="form-cont">
+                            <input type="button" onclick="ajax_submit()" class="btn btn-primary" value="提交表单" />
+                            <!--<input type="reset" class="btn btn-disabled" value="禁止" />-->
+                        </div>
+                    </div>
+                </form>
+                <!--开始::结束-->
+            </div>
+        </main>
+        <!--底部-->
+        {include file="public/footer" /}
+        <!--底部-->
+    </div>
+</div>
+
+<div class="mask"></div>
+<div class="dialog" style="width: 1400px;">
+    <div class="dialog-hd">
+        <strong class="lt-title">系统图标</strong>
+        <a class="rt-operate icon-remove JclosePanel" title="关闭"></a>
+    </div>
+    <div class="dialog-bd" >
+        <!--start::-->
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+
+            </thead>
+            <tbody>
+            <!--1-->
+            <tr class="cen">
+                <td><i class="icon-glass">icon-glass</i></td>
+                <td><i class="icon-music">icon-music</i></td>
+                <td><i class="icon-search">icon-search</i></td>
+                <td><i class="icon-envelope-alt">icon-envelope-alt</i></td>
+                <td><i class="icon-heart">icon-heart</i></td>
+                <td><i class="icon-star">icon-star</i></td>
+                <td><i class="icon-star-empty">icon-star-empty</i></td>
+                <td><i class="icon-user">icon-user</i></td>
+                <td><i class="icon-film">icon-film</i></td>
+                <td><i class="icon-th-large">icon-th-large</i></td>
+
+            </tr>
+            <!--2-->
+            <tr class="cen">
+                <td><i class="icon-th">icon-th</i></td>
+                <td><i class="icon-th-list">icon-th-list</i></td>
+                <td><i class="icon-ok">icon-ok</i></td>
+                <td><i class="icon-remove">icon-remove</i></td>
+                <td><i class="icon-zoom-in">icon-zoom-in</i></td>
+                <td><i class="icon-zoom-out">icon-zoom-out</i></td>
+                <td><i class="icon-comments">icon-comments</i></td>
+                <td><i class="icon-signal">icon-signal</i></td>
+                <td><i class="icon-comments-alt">icon-comments-alt</i></td>
+                <td><i class="icon-trash">icon-trash</i></td>
+            </tr>
+            <!--3-->
+            <tr class="cen">
+                <td><i class="icon-home">icon-home</i></td>
+                <td><i class="icon-file-alt">icon-file-alt</i></td>
+                <td><i class="icon-time">icon-time</i></td>
+                <td><i class="icon-road">icon-road</i></td>
+                <td><i class="icon-download-alt">icon-download-alt</i></td>
+                <td><i class="icon-download">icon-download</i></td>
+                <td><i class="icon-upload">icon-upload</i></td>
+                <td><i class="icon-inbox">icon-inbox</i></td>
+                <td><i class="icon-play-circle">icon-play-circle</i></td>
+                <td><i class="icon-credit-card">icon-credit-card</i></td>
+            </tr>
+            <!--4-->
+            <tr class="cen">
+                <td><i class="icon-refresh">icon-refresh</i></td>
+                <td><i class="icon-list-alt">icon-list-alt</i></td>
+                <td><i class="icon-lock">icon-lock</i></td>
+                <td><i class="icon-flag">icon-flag</i></td>
+                <td><i class="icon-headphones">icon-headphones</i></td>
+                <td><i class="icon-volume-off">icon-volume-off</i></td>
+                <td><i class="icon-volume-down">icon-volume-down</i></td>
+                <td><i class="icon-volume-up">icon-volume-up</i></td>
+                <td><i class="icon-qrcode">icon-qrcode</i></td>
+                <td><i class="icon-barcode">icon-barcode</i></td>
+            </tr>
+            <!--5-->
+            <tr class="cen">
+                <td><i class="icon-dashboard">icon-dashboard</i></td>
+                <td><i class="icon-tags">icon-tags</i></td>
+                <td><i class="icon-book">icon-book</i></td>
+                <td><i class="icon-bookmark">icon-bookmark</i></td>
+                <td><i class="icon-print">icon-print</i></td>
+                <td><i class="icon-camera">icon-camera</i></td>
+                <td><i class="icon-pinterest">icon-pinterest</i></td>
+                <td><i class="icon-envelope">icon-envelope</i></td>
+                <td><i class="icon-eye-open">icon-eye-open</i></td>
+                <td><i class="icon-google-plus">icon-google-plus</i></td>
+            </tr>
+            <!--6-->
+            <tr class="cen">
+                <td><i class="icon-folder-close">icon-folder-close</i></td>
+                <td><i class="icon-gift">icon-gift</i></td>
+                <td><i class="icon-globe">icon-globe</i></td>
+                <td><i class="icon-group">icon-group</i></td>
+                <td><i class="icon-align-justify">icon-align-justify</i></td>
+                <td><i class="icon-list">icon-list</i></td>
+                <td><i class="icon-indent-left">icon-indent-left</i></td>
+                <td><i class="icon-indent-right">icon-indent-right</i></td>
+                <td><i class="icon-facetime-video">icon-facetime-video</i></td>
+                <td><i class="icon-picture">icon-picture</i></td>
+            </tr>
+            <!--7-->
+            <tr class="cen">
+                <td><i class="icon-pencil">icon-pencil</i></td>
+                <td><i class="icon-map-marker">icon-map-marker</i></td>
+                <td><i class="icon-adjust">icon-adjust</i></td>
+                <td><i class="icon-tint">icon-tint</i></td>
+                <td><i class="icon-edit">icon-edit</i></td>
+                <td><i class="icon-share">icon-share</i></td>
+                <td><i class="icon-check">icon-check</i></td>
+                <td><i class="icon-move">icon-move</i></td>
+                <td><i class="icon-external-link">icon-external-link</i></td>
+                <td><i class="icon-link">icon-link</i></td>
+            </tr>
+            <!--8-->
+            <tr class="cen">
+                <td><i class="icon-table">icon-table</i></td>
+                <td><i class="icon-plane">icon-plane</i></td>
+                <td><i class="icon-shopping-cart">icon-shopping-cart</i></td>
+                <td><i class="icon-sitemap">icon-sitemap</i></td>
+                <td><i class="icon-thumbs-up">icon-thumbs-up</i></td>
+                <td><i class="icon-legal">icon-legal</i></td>
+                <td><i class="icon-undo">icon-undo</i></td>
+                <td><i class="icon-trophy">icon-trophy</i></td>
+                <td><i class="icon-truck">icon-truck</i></td>
+                <td><i class="icon-rss">icon-rss</i></td>
+            </tr>
+            <!--9-->
+            <tr class="cen">
+                <td><i class="icon-cogs">icon-cogs</i></td>
+                <td><i class="icon-comment">icon-comment</i></td>
+                <td><i class="icon-comment-alt">icon-comment-alt</i></td>
+                <td><i class="icon-wrench">icon-wrench</i></td>
+                <td><i class="icon-table">icon-table</i></td>
+                <td><i class="icon-phone">icon-phone</i></td>
+                <td><i class="icon-phone-sign">icon-phone-sign</i></td>
+                <td><i class="icon-facebook-sign">icon-facebook-sign</i></td>
+                <td><i class="icon-twitter-sign">icon-twitter-sign</i></td>
+                <td><i class="icon-github">icon-github</i></td>
+            </tr>
+            </tbody>
+        </table>
+        <!--end::-->
+    </div>
+    <!--<div class="dialog-ft">-->
+    <!--<button class="btn btn-info JyesBtn">确认</button>-->
+    <!--<button class="btn btn-secondary JnoBtn">关闭</button>-->
+    <!--</div>-->
+</div>
+
+<script>
+    function ajax_submit() {
+
+        var form_data = $('#form_data').serializeArray();
+        $.post('{:url("Auth/editor_rule_do")}', form_data, function (data) {
+//            console.log(data);
+            if (data.status == 200) {
+                layer.msg(data.tips);
+                setTimeout("location.reload();",500);
+            } else {
+                layer.msg(data.tips);
+            }
+        })
+        //console.log(a);
+    }
+</script>
+</body>
+</html>
