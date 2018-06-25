@@ -12,6 +12,7 @@ use app\common\model\Group;
 use app\common\model\GroupAccess;
 use app\common\model\Rule;
 use app\common\model\System;
+use \app\common\model\Admin;
 use think\Controller;
 use think\Request;
 
@@ -23,14 +24,24 @@ class Base extends Controller
         if (!session('?admin')) {
             $this->redirect('Login/login');
         }
+
         //系统配置
         $system = System::find();
         //渲染输出
         $this->assign(array(
             'system' => $system,
         ));
+        $admin = session('admin');
+        $admin_id = $admin['id'];
+        //验证唯一登陆
+        if($system['check_login'] == 1){
+            $adminInfo = Admin::get($admin_id);
+            if($admin['unique_id'] != $adminInfo['unique_id']){
+                echo "<script>alert('账号在别处登陆!');window.location='/admin/Login/login'</script>";
+            }
+        }
 
-        /*定义常量 */
+        /*定义常量*/
         define('MODULE_NAME', request()->module());
         define('CONTROLLER_NAME', request()->controller());
         define('ACTION_NAME', request()->action());
@@ -58,8 +69,6 @@ class Base extends Controller
         //渲染输出
         $this->assign('menu',$menu);
         //查询当前用户的所属权限组
-        $admin = session('admin');
-        $admin_id = $admin['id'];
         $group_access_info = GroupAccess::where(['uid' => $admin_id])->cache(3600)->find();
 
         //获取用户组ID

@@ -76,6 +76,21 @@
                                         </div>
                                     </div>
 
+                                    <div class="form-group-col-2">
+                                        <div class="form-label" title="唯一登陆">唯一登陆：</div>
+                                        <div class="form-cont">
+                                            <label class="radio">
+                                                <input type="radio" name="check_login" value="1" {eq name="1" value="$info.check_login"}checked{/eq} />
+                                                <span>开启</span>
+                                            </label>
+                                            <label class="radio">
+                                                <input type="radio" name="check_login" value="0" {eq name="0" value="$info.check_login"}checked{/eq} />
+                                                <span>关闭</span>
+                                            </label>
+
+                                        </div>
+                                    </div>
+
                                     <!--<div class="form-group-col-2">-->
                                         <!--<div class="form-label">是否显示：</div>-->
                                         <!--<div class="form-cont">-->
