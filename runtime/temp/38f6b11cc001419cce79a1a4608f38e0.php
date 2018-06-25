@@ -1,4 +1,4 @@
-<?php /*a:6:{s:66:"E:\www-web\ThinkPHP_CMS\application\admin\view\auth\add_group.html";i:1529550076;s:65:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\static.html";i:1529542576;s:63:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\menu.html";i:1528855708;s:65:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\header.html";i:1529387612;s:62:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\nav.html";i:1528625773;s:65:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\footer.html";i:1529573972;}*/ ?>
+<?php /*a:6:{s:63:"H:\web\ThinkPHP_CMS\application\admin\view\admin\editor_my.html";i:1529550063;s:61:"H:\web\ThinkPHP_CMS\application\admin\view\public\static.html";i:1529542576;s:59:"H:\web\ThinkPHP_CMS\application\admin\view\public\menu.html";i:1528855708;s:61:"H:\web\ThinkPHP_CMS\application\admin\view\public\header.html";i:1529387612;s:58:"H:\web\ThinkPHP_CMS\application\admin\view\public\nav.html";i:1528625773;s:61:"H:\web\ThinkPHP_CMS\application\admin\view\public\footer.html";i:1529573972;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -178,50 +178,114 @@
         <a href="">首页</a> > <a href=""><?php echo htmlentities($controller_name); ?></a> > <a href=""><?php echo htmlentities($action_name); ?></a>
     </p>
 </div>
-                        <a href="<?php echo url('Auth/group_index'); ?>"><button class="btn btn-primary fr icon-undo"><?php echo htmlentities(app('lang')->get('back')); ?></button></a>
+                        <a href="<?php echo url('Admin/my'); ?>"><button class="btn btn-primary fr icon-undo"><?php echo htmlentities(app('lang')->get('back')); ?></button></a>
                         <!--<a onclick="window.history.back();"><button class="btn btn-primary fr">返回上层</button></a>-->
                     </header>
                     <hr>
 
                 </section>
-                <form id="form_data">
-                    <div class="form-group-col-2">
-                        <div class="form-label">权限组名称：</div>
-                        <div class="form-cont">
-                            <input type="text" placeholder="例：管理员、经理" id="title" name="title" class="form-control form-boxed" style="width:300px;">
-                        </div>
-                    </div>
-                    <div class="form-group-col-2">
-                        <table class=" mb-15" style="line-height: 40px">
-                            <thead>
-                            </thead>
-                            <tbody>
-                            <?php if(is_array($info) || $info instanceof \think\Collection || $info instanceof \think\Paginator): $k = 0; $__LIST__ = $info;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($k % 2 );++$k;?>
-                            <tr class="cen">
-                                <td  class="lt"><input type="checkbox" class="xunz_box" data-id="<?php echo htmlentities($k); ?>" data-select="0" /><?php echo htmlentities($v['title']); ?>：&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;</td>
-                                <?php if($v['items']): if(is_array($v['items']) || $v['items'] instanceof \think\Collection || $v['items'] instanceof \think\Paginator): $i = 0; $__LIST__ = $v['items'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vv): $mod = ($i % 2 );++$i;?>
-                                <td  class="lt"><input type="checkbox" class="input_box" data-id="<?php echo htmlentities($k); ?>" name="rules[]" value="<?php echo htmlentities($vv['id']); ?>" /><?php echo htmlentities($vv['title']); ?>&nbsp;&nbsp;</td>
-                                <?php endforeach; endif; else: echo "" ;endif; endif; ?>
-                            </tr>
-                            <?php endforeach; endif; else: echo "" ;endif; ?>
-                            </tbody>
-                        </table>
-                    </div>
-                    <hr>
-                    <br>
-                    <div class="form-group-col-2">
-                        <div class="form-label"></div>
-                        <div class="form-cont">
-                            <input type="button" onclick="ajax_submit()" class="btn btn-primary" value="提交表单" />
-                            <!--<input type="reset" class="btn btn-disabled" value="禁止" />-->
-                        </div>
-                    </div>
-                </form>
 
+                <div class="panel panel-default">
+                    <!--<div class="panel-hd">按钮</div>-->
+                    <div class="panel-bd">
+                        <div class="card">
+                            <div class="card-header">
+                                <ul class="tab-nav">
+                                    <li class="active">基本信息</li>
+                                    <li>修改密码</li>
+                                </ul>
+                            </div>
+                            <!--基本信息-->
+                            <div class="tab-cont" style="display: block;">
+                                <form id="form_data">
+                                    <input type="hidden" name="id" value="<?php echo htmlentities($info['id']); ?>">
+                                    <div class="form-group-col-2">
+                                        <div class="form-label">名称：</div>
+                                        <div class="form-cont">
+                                            <input type="text" value="<?php echo htmlentities($info['username']); ?>" name="username" class="form-control form-boxed" style="width:300px;">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group-col-2">
+                                        <div class="form-label">QQ：</div>
+                                        <div class="form-cont">
+                                            <input type="text" placeholder="" value="<?php echo htmlentities($info['qq']); ?>" name="qq" class="form-control form-boxed" style="width:300px;">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group-col-2">
+                                        <div class="form-label">微信：</div>
+                                        <div class="form-cont">
+                                            <input type="text" placeholder="" value="<?php echo htmlentities($info['wx']); ?>" name="wx" class="form-control form-boxed" style="width:300px;">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group-col-2">
+                                        <div class="form-label">手机：</div>
+                                        <div class="form-cont">
+                                            <input type="text" placeholder="" value="<?php echo htmlentities($info['phone']); ?>" name="phone" class="form-control form-boxed" style="width:300px;">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group-col-2">
+                                        <div class="form-label">地址：</div>
+                                        <div class="form-cont">
+                                            <input type="text" placeholder="" value="<?php echo htmlentities($info['address']); ?>" name="address" class="form-control form-boxed" style="width:300px;">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group-col-2">
+                                        <div class="form-label">用户信息：</div>
+                                        <div class="form-cont">
+                                            <!-- 加载编辑器的容器 -->
+                                            <script id="intro" name="intro" type="text/plain"><?php echo $info['intro']; ?></script>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group-col-2">
+                                        <div class="form-label"></div>
+                                        <div class="form-cont">
+                                            <input type="button" onclick="ajax_submit()" class="btn btn-primary" value="提交表单" />
+                                            <!--<input type="reset" class="btn btn-disabled" value="禁止" />-->
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <!--修改密码-->
+                            <div class="tab-cont">
+                                <form id="form_password">
+                                    <input type="hidden" name="id" value="<?php echo htmlentities($info['id']); ?>">
+                                    <div class="form-group-col-2">
+                                        <div class="form-label">新密码：</div>
+                                        <div class="form-cont">
+                                            <input type="password" placeholder="新密码" id="password" name="password" class="form-control form-boxed" style="width:300px;">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group-col-2">
+                                        <div class="form-label">确认密码：</div>
+                                        <div class="form-cont">
+                                            <input type="password" placeholder="再次输入密码" id="password_rep" class="form-control form-boxed" style="width:300px;">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group-col-2">
+                                        <div class="form-label"></div>
+                                        <div class="form-cont">
+                                            <input type="button" onclick="ajax_submit_password()" class="btn btn-primary" value="提交表单" />
+                                            <!--<input type="reset" class="btn btn-disabled" value="禁止" />-->
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <!--权限组-->
+                        </div>
+                    </div>
+                </div>
                 <!--开始::结束-->
             </div>
         </main>
-        <!--底部-->
         <footer class="btm-ft">
     <p class="clear">
         <span class="fl">©Copyright 2016 <a href="#" title="DeathGhost" target="_blank">DeathGhost.cn</a></span>
@@ -263,19 +327,25 @@
         });
     }
 </script>
-        <!--底部-->
     </div>
 </div>
-<script>
+</body>
+<!-- 实例化编辑器 -->
+<script type="text/javascript">
+    var ue = UE.getEditor('intro', {
+//        toolbars: [
+//            ['fullscreen', 'source', 'undo', 'redo', 'bold']
+//        ],
+        initialFrameWidth :1200,//初始化编辑器宽度，默认1000
+        initialFrameHeight :400,//初始化编辑器高度，默认320
+        autoHeightEnabled: true,//是否自动长高，默认true
+        autoFloatEnabled: true,//是否保持toolbar的位置不动，默认true
+    });
+    //修改基本信息
     function ajax_submit() {
-
         var form_data = $('#form_data').serializeArray();
 //        console.log(form_data);
-        if(form_data[0].value == ""){
-            layer.msg('名称不能为空');
-            return false;
-        }
-        $.post('<?php echo url("Auth/add_group_do"); ?>', form_data, function (data) {
+        $.post('<?php echo url("Admin/editor_admin_do"); ?>', form_data, function (data) {
 //            console.log(data);
             if (data.status == 200) {
                 layer.msg(data.tips);
@@ -286,22 +356,45 @@
         })
         //console.log(a);
     }
-</script>
-<script>
-    $('.xunz_box').click(function () {
-        var select = $(this).data('id');
-        var ifSelect = parseInt($(this).data('select'));
-        if(!ifSelect){
-            $(this).parents('tr').find('.input_box').prop('checked',true);
-            $(this).parents('tr').find('.input_box').parent().addClass('checked');
-            $(this).data('select',1)
+
+    //修改密码
+    function ajax_submit_password() {
+        if($('#password').val() == ''){
+            layer.msg('请填写新密码');
+            return false;
         }
-        else {
-            $(this).parents('tr').find('.input_box').prop('checked',false);
-            $(this).parents('tr').find('.input_box').parent().removeClass('checked');
-            $(this).data('select',0)
+        if($('#password').val() != $('#password_rep').val()){
+            layer.msg('两次密码不一致');
+            return false;
         }
-    });
+        var form_data = $('#form_password').serializeArray();
+//        console.log(form_data);
+        $.post('<?php echo url("Admin/editor_password_do"); ?>', form_data, function (data) {
+            if (data.status == 200) {
+                layer.msg(data.tips);
+                setTimeout("location.reload();",500);
+            } else {
+                layer.msg(data.tips);
+            }
+        })
+        //console.log(a);
+    }
+
+    //修改权限组
+    function ajax_submit_group() {
+        var form_data = $('#form_group').serializeArray();
+        console.log(form_data);
+        $.post('<?php echo url("Admin/editor_group_do"); ?>', form_data, function (data) {
+            if (data.status == 200) {
+                layer.msg(data.tips);
+                setTimeout("location.reload();",500);
+            } else {
+                layer.msg(data.tips);
+            }
+        })
+        //console.log(a);
+    }
+
 </script>
-</body>
+
 </html>

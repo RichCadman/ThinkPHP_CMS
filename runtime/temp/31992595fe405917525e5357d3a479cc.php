@@ -1,4 +1,4 @@
-<?php /*a:6:{s:66:"E:\www-web\ThinkPHP_CMS\application\admin\view\auth\add_group.html";i:1529550076;s:65:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\static.html";i:1529542576;s:63:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\menu.html";i:1528855708;s:65:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\header.html";i:1529387612;s:62:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\nav.html";i:1528625773;s:65:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\footer.html";i:1529573972;}*/ ?>
+<?php /*a:6:{s:57:"H:\web\ThinkPHP_CMS\application\admin\view\news\news.html";i:1529569462;s:61:"H:\web\ThinkPHP_CMS\application\admin\view\public\static.html";i:1529542576;s:59:"H:\web\ThinkPHP_CMS\application\admin\view\public\menu.html";i:1528855708;s:61:"H:\web\ThinkPHP_CMS\application\admin\view\public\header.html";i:1529387612;s:58:"H:\web\ThinkPHP_CMS\application\admin\view\public\nav.html";i:1528625773;s:61:"H:\web\ThinkPHP_CMS\application\admin\view\public\footer.html";i:1529573972;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -178,45 +178,83 @@
         <a href="">首页</a> > <a href=""><?php echo htmlentities($controller_name); ?></a> > <a href=""><?php echo htmlentities($action_name); ?></a>
     </p>
 </div>
-                        <a href="<?php echo url('Auth/group_index'); ?>"><button class="btn btn-primary fr icon-undo"><?php echo htmlentities(app('lang')->get('back')); ?></button></a>
+                        <button onclick="add()" class="btn btn-primary fr icon-plus"><?php echo htmlentities(app('lang')->get('add')); ?></button>
                         <!--<a onclick="window.history.back();"><button class="btn btn-primary fr">返回上层</button></a>-->
+                        <script>
+                            function add() {
+                                $.get('<?php echo url("News/add_news"); ?>', function (data) {
+                                    if (data.status == 400) {
+                                        layer.msg(data.tips);
+                                    } else {
+                                        location.href = "<?php echo url('News/add_news'); ?>";
+                                    }
+                                })
+                            }
+                        </script>
                     </header>
                     <hr>
 
                 </section>
-                <form id="form_data">
-                    <div class="form-group-col-2">
-                        <div class="form-label">权限组名称：</div>
-                        <div class="form-cont">
-                            <input type="text" placeholder="例：管理员、经理" id="title" name="title" class="form-control form-boxed" style="width:300px;">
-                        </div>
+
+                <div class="clear mt-20" style="padding-bottom: 20px;margin-top: -10px">
+                    <!--<div class="fl">-->
+                        <!--<button class="btn btn-secondary"><i class="icon-double-angle-left"></i>上一周</button>-->
+                        <!--<button class="btn btn-secondary">下一周<i class="icon-double-angle-right"></i></button>-->
+                    <!--</div>-->
+                    <div class="fr input-group">
+                        <form action="" method="get">
+                            <input type="text" name="search" class="form-control" placeholder="搜索资讯标题..." style="width:290px;"/>
+                            <button type="submit" class="btn btn-secondary-outline">搜索</button>
+                        </form>
+
                     </div>
-                    <div class="form-group-col-2">
-                        <table class=" mb-15" style="line-height: 40px">
-                            <thead>
-                            </thead>
-                            <tbody>
-                            <?php if(is_array($info) || $info instanceof \think\Collection || $info instanceof \think\Paginator): $k = 0; $__LIST__ = $info;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($k % 2 );++$k;?>
-                            <tr class="cen">
-                                <td  class="lt"><input type="checkbox" class="xunz_box" data-id="<?php echo htmlentities($k); ?>" data-select="0" /><?php echo htmlentities($v['title']); ?>：&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;</td>
-                                <?php if($v['items']): if(is_array($v['items']) || $v['items'] instanceof \think\Collection || $v['items'] instanceof \think\Paginator): $i = 0; $__LIST__ = $v['items'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vv): $mod = ($i % 2 );++$i;?>
-                                <td  class="lt"><input type="checkbox" class="input_box" data-id="<?php echo htmlentities($k); ?>" name="rules[]" value="<?php echo htmlentities($vv['id']); ?>" /><?php echo htmlentities($vv['title']); ?>&nbsp;&nbsp;</td>
-                                <?php endforeach; endif; else: echo "" ;endif; endif; ?>
-                            </tr>
-                            <?php endforeach; endif; else: echo "" ;endif; ?>
-                            </tbody>
-                        </table>
-                    </div>
-                    <hr>
-                    <br>
-                    <div class="form-group-col-2">
-                        <div class="form-label"></div>
-                        <div class="form-cont">
-                            <input type="button" onclick="ajax_submit()" class="btn btn-primary" value="提交表单" />
-                            <!--<input type="reset" class="btn btn-disabled" value="禁止" />-->
-                        </div>
-                    </div>
-                </form>
+                </div>
+                <table class="table table-bordered table-striped table-hover">
+                    <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>标题</th>
+                        <!--<th>配图</th>-->
+                        <th>所属分类</th>
+                        <th>作者</th>
+                        <th>点击量</th>
+                        <th>编辑时间</th>
+                        <th>状态</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php if(is_array($info) || $info instanceof \think\Collection || $info instanceof \think\Paginator): $i = 0; $__LIST__ = $info;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($i % 2 );++$i;?>
+                    <tr class="cen">
+                        <td><?php echo htmlentities($v['id']); ?></td>
+                        <td ><?php echo htmlentities($v['title']); ?></td>
+                        <!--<td>-->
+                            <!--<a href="/static/upload/<?php echo htmlentities($v['news_img']); ?>" target="_blank">-->
+                                <!--<img src="/static/upload/<?php echo htmlentities($v['news_img']); ?>" style="width: 50px;height: 50px;" alt="">-->
+                            <!--</a>-->
+                        <!--</td>-->
+                        <?php if(!(empty($v['news_type']) || (($v['news_type'] instanceof \think\Collection || $v['news_type'] instanceof \think\Paginator ) && $v['news_type']->isEmpty()))): ?>
+                            
+                                <td><?php echo htmlentities($v['news_type']['news_type_name']); ?></td>
+                            
+                        <?php else: ?>
+                            <td>暂无分类</td>
+                        <?php endif; ?>
+                        <td><?php echo htmlentities($v['author']); ?></td>
+                        <td><?php echo htmlentities($v['click_num']); ?></td>
+                        <td><?php echo htmlentities($v['update_time']); ?></td>
+                        <td><?php echo htmlentities($v['state']); ?></td>
+                        <td>
+                            <a href="javascript:void(0)" onclick="comment(this,<?php echo htmlentities($v['id']); ?>)" title="<?php echo htmlentities(app('lang')->get('comment')); ?>" class="mr-5 icon-comments"><?php echo htmlentities(app('lang')->get('comment')); ?></a>
+                            <a href="javascript:void(0)" onclick="editor(this,<?php echo htmlentities($v['id']); ?>)" title="<?php echo htmlentities(app('lang')->get('editor')); ?>" class="mr-5 icon-edit"><?php echo htmlentities(app('lang')->get('editor')); ?></a>
+                            <!--<a title="详情" class="mr-5">详情</a>-->
+                            <a href="javascript:void(0)" onclick="del(this,<?php echo htmlentities($v['id']); ?>)" title="<?php echo htmlentities(app('lang')->get('del')); ?>" class="icon-trash"><?php echo htmlentities(app('lang')->get('del')); ?></a>
+                        </td>
+                    </tr>
+                    <?php endforeach; endif; else: echo "" ;endif; ?>
+                    </tbody>
+                </table>
+                <?php echo $info; ?>
 
                 <!--开始::结束-->
             </div>
@@ -266,42 +304,51 @@
         <!--底部-->
     </div>
 </div>
-<script>
-    function ajax_submit() {
-
-        var form_data = $('#form_data').serializeArray();
-//        console.log(form_data);
-        if(form_data[0].value == ""){
-            layer.msg('名称不能为空');
-            return false;
-        }
-        $.post('<?php echo url("Auth/add_group_do"); ?>', form_data, function (data) {
-//            console.log(data);
-            if (data.status == 200) {
-                layer.msg(data.tips);
-                setTimeout("location.reload();",500);
-            } else {
-                layer.msg(data.tips);
-            }
-        })
-        //console.log(a);
+<script type="text/javascript">
+    // 删除数据方法
+    function del(obj, id) {
+        layer.confirm('确定删除吗？', {
+            title: '系统提示',
+            btn: ['确定', '取消']
+        }, function () {
+            $.post('<?php echo url("News/del_news"); ?>', {id: id}, function (data) {
+                // 判断是否成功
+                if (data.status == 200) {
+                    $(obj).parent().parent().remove();
+                    layer.msg(data.tips);
+                    setTimeout("location.reload();", 500);
+                } else if (data.status == 400) {
+                    layer.msg(data.tips);
+                } else if (data.status == 600) {
+                    layer.msg(data.tips);
+                }
+            });
+        });
     }
-</script>
-<script>
-    $('.xunz_box').click(function () {
-        var select = $(this).data('id');
-        var ifSelect = parseInt($(this).data('select'));
-        if(!ifSelect){
-            $(this).parents('tr').find('.input_box').prop('checked',true);
-            $(this).parents('tr').find('.input_box').parent().addClass('checked');
-            $(this).data('select',1)
-        }
-        else {
-            $(this).parents('tr').find('.input_box').prop('checked',false);
-            $(this).parents('tr').find('.input_box').parent().removeClass('checked');
-            $(this).data('select',0)
-        }
-    });
+
+    // 编辑数据方法
+    function editor(obj, id) {
+        $.get('<?php echo url("News/editor_news"); ?>',{id:id}, function (data) {
+            // 判断是否成功
+            if (data.status == 400) {
+                layer.msg(data.tips);
+            } else {
+                location.href = "<?php echo url('News/editor_news'); ?>" + "?id=" + id;
+            }
+        });
+    }
+
+    // 查看评论方法
+    function comment(obj, id) {
+        $.get('<?php echo url("Comment/comment"); ?>',{news_id:id}, function (data) {
+            // 判断是否成功
+            if (data.status == 400) {
+                layer.msg(data.tips);
+            } else {
+                location.href = "<?php echo url('Comment/comment'); ?>" + "?news_id=" + id;
+            }
+        });
+    }
 </script>
 </body>
 </html>

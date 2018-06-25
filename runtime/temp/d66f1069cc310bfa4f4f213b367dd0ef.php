@@ -1,4 +1,4 @@
-<?php /*a:6:{s:66:"E:\www-web\ThinkPHP_CMS\application\admin\view\auth\add_group.html";i:1529550076;s:65:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\static.html";i:1529542576;s:63:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\menu.html";i:1528855708;s:65:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\header.html";i:1529387612;s:62:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\nav.html";i:1528625773;s:65:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\footer.html";i:1529573972;}*/ ?>
+<?php /*a:6:{s:65:"H:\web\ThinkPHP_CMS\application\admin\view\auth\editor_group.html";i:1529550089;s:61:"H:\web\ThinkPHP_CMS\application\admin\view\public\static.html";i:1529542576;s:59:"H:\web\ThinkPHP_CMS\application\admin\view\public\menu.html";i:1528855708;s:61:"H:\web\ThinkPHP_CMS\application\admin\view\public\header.html";i:1529387612;s:58:"H:\web\ThinkPHP_CMS\application\admin\view\public\nav.html";i:1528625773;s:61:"H:\web\ThinkPHP_CMS\application\admin\view\public\footer.html";i:1529573972;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -185,12 +185,29 @@
 
                 </section>
                 <form id="form_data">
+                    <input type="hidden" name="id" value="<?php echo htmlentities($group['id']); ?>">
                     <div class="form-group-col-2">
                         <div class="form-label">权限组名称：</div>
                         <div class="form-cont">
-                            <input type="text" placeholder="例：管理员、经理" id="title" name="title" class="form-control form-boxed" style="width:300px;">
+                            <input type="text" placeholder="例：管理员、经理" id="title" name="title" value="<?php echo htmlentities($group['title']); ?>" class="form-control form-boxed" style="width:300px;">
                         </div>
                     </div>
+
+                    <div class="form-group-col-2">
+                        <div class="form-label">状态：</div>
+                        <div class="form-cont">
+                            <label class="radio">
+                                <input type="radio" name="status" value="1" <?php if(1 == $group['status']): ?>checked<?php endif; ?>  />
+                                <span>正常</span>
+                            </label>
+                            <label class="radio">
+                                <input type="radio" name="status" value="0" <?php if(0 == $group['status']): ?>checked<?php endif; ?> />
+                                <span>禁用</span>
+                            </label>
+
+                        </div>
+                    </div>
+
                     <div class="form-group-col-2">
                         <table class=" mb-15" style="line-height: 40px">
                             <thead>
@@ -198,10 +215,22 @@
                             <tbody>
                             <?php if(is_array($info) || $info instanceof \think\Collection || $info instanceof \think\Paginator): $k = 0; $__LIST__ = $info;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($k % 2 );++$k;?>
                             <tr class="cen">
-                                <td  class="lt"><input type="checkbox" class="xunz_box" data-id="<?php echo htmlentities($k); ?>" data-select="0" /><?php echo htmlentities($v['title']); ?>：&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;</td>
+                                <td  class="lt">
+                                    <input type="checkbox" class="xunz_box" data-id="<?php echo htmlentities($k); ?>" data-select="0" />
+                                    <?php echo htmlentities($v['title']); ?>：&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                                </td>
                                 <?php if($v['items']): if(is_array($v['items']) || $v['items'] instanceof \think\Collection || $v['items'] instanceof \think\Paginator): $i = 0; $__LIST__ = $v['items'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vv): $mod = ($i % 2 );++$i;?>
-                                <td  class="lt"><input type="checkbox" class="input_box" data-id="<?php echo htmlentities($k); ?>" name="rules[]" value="<?php echo htmlentities($vv['id']); ?>" /><?php echo htmlentities($vv['title']); ?>&nbsp;&nbsp;</td>
-                                <?php endforeach; endif; else: echo "" ;endif; endif; ?>
+                                        <td  class="lt">
+                                            <input type="checkbox" class="input_box" data-id="<?php echo htmlentities($k); ?>" name="rules[]" value="<?php echo htmlentities($vv['id']); ?>"
+                                            <?php 
+                                                if (in_array($vv['id'],$str)){
+                                                    echo " checked ";
+                                                }
+                                             ?>
+                                            />
+                                            <?php echo htmlentities($vv['title']); ?>&nbsp;&nbsp;
+                                        </td>
+                                    <?php endforeach; endif; else: echo "" ;endif; endif; ?>
                             </tr>
                             <?php endforeach; endif; else: echo "" ;endif; ?>
                             </tbody>
@@ -275,12 +304,16 @@
             layer.msg('名称不能为空');
             return false;
         }
-        $.post('<?php echo url("Auth/add_group_do"); ?>', form_data, function (data) {
+        $.post('<?php echo url("Auth/editor_group_do"); ?>', form_data, function (data) {
 //            console.log(data);
             if (data.status == 200) {
                 layer.msg(data.tips);
                 setTimeout("location.reload();",500);
-            } else {
+            } else if(data.status == 400) {
+                layer.msg(data.tips);
+            } else if(data.status == 600) {
+                layer.msg(data.tips);
+            } else if(data.status == 800) {
                 layer.msg(data.tips);
             }
         })

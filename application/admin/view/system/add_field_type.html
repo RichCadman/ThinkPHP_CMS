@@ -18,28 +18,24 @@
                 <section class="page-hd">
                     <header style="clearfix">
                         {include file="public/nav" /}
-                        <!--<a href="{:url('News/news')}">
-                            <button class="btn btn-primary fr icon-undo">{$Think.lang.back}</button>
-                        </a>-->
-                        <a onclick="window.history.back();"><button class="btn btn-primary fr">返回上层</button></a>
+                        <!--<a href="{:url('News/news')}">-->
+                        <!--<button class="btn btn-primary fr icon-undo">{$Think.lang.back}</button>-->
+                        <!--</a>-->
+                        <a onclick="window.history.back();"><button class="btn btn-primary fr icon-undo">返回上层</button></a>
                     </header>
                     <hr>
 
                 </section>
 
                 <form id="form_data" enctype="multipart/form-data">
-                    <!--id-->
-                    <input type="hidden" name="id" value="{$info.id}">
 
                     <div class="form-group-col-2">
-                        <div class="form-label">评论内容：</div>
+                        <div class="form-label">字段类型：</div>
                         <div class="form-cont">
-                            <textarea name="comment_content" id="" cols="30" rows="4" style="width:100%;">{$info.comment_content}</textarea>
-
+                            <input type="text" placeholder="例如：varchar(255)、int(11)" name="field_type" class="form-control form-boxed"
+                                   style="width:300px;">
                         </div>
                     </div>
-
-
 
                     <div class="form-group-col-2">
                         <div class="form-label"></div>
@@ -57,6 +53,7 @@
         <!--底部-->
     </div>
 </div>
+
 <script>
     function ajax_submit() {
 
@@ -65,12 +62,15 @@
          layer.msg('请上传图片');
          return false;
          }*/
-        $.post('{:url("Comment/editor_comment_do")}', form_data, function (data) {
+        //console.log(form_data);
+        $.post('{:url("System/add_field_type_do")}', form_data, function (data) {
+            console.log(data);
             if (data.status == 200) {
                 layer.msg(data.tips);
                 setTimeout("location.reload();", 500);
             } else {
                 layer.msg(data.tips);
+//                setTimeout("location.reload();", 500);
             }
         })
     }

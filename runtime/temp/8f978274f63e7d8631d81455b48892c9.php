@@ -1,4 +1,4 @@
-<?php /*a:6:{s:66:"E:\www-web\ThinkPHP_CMS\application\admin\view\auth\add_group.html";i:1529550076;s:65:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\static.html";i:1529542576;s:63:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\menu.html";i:1528855708;s:65:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\header.html";i:1529387612;s:62:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\nav.html";i:1528625773;s:65:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\footer.html";i:1529573972;}*/ ?>
+<?php /*a:6:{s:65:"H:\web\ThinkPHP_CMS\application\admin\view\users\editor_user.html";i:1529572126;s:61:"H:\web\ThinkPHP_CMS\application\admin\view\public\static.html";i:1529542576;s:59:"H:\web\ThinkPHP_CMS\application\admin\view\public\menu.html";i:1528855708;s:61:"H:\web\ThinkPHP_CMS\application\admin\view\public\header.html";i:1529387612;s:58:"H:\web\ThinkPHP_CMS\application\admin\view\public\nav.html";i:1528625773;s:61:"H:\web\ThinkPHP_CMS\application\admin\view\public\footer.html";i:1529573972;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -178,46 +178,142 @@
         <a href="">首页</a> > <a href=""><?php echo htmlentities($controller_name); ?></a> > <a href=""><?php echo htmlentities($action_name); ?></a>
     </p>
 </div>
-                        <a href="<?php echo url('Auth/group_index'); ?>"><button class="btn btn-primary fr icon-undo"><?php echo htmlentities(app('lang')->get('back')); ?></button></a>
-                        <!--<a onclick="window.history.back();"><button class="btn btn-primary fr">返回上层</button></a>-->
+                        <!--<a href="<?php echo url('News/news'); ?>">-->
+                            <!--<button class="btn btn-primary fr icon-undo"><?php echo htmlentities(app('lang')->get('back')); ?></button>-->
+                        <!--</a>-->
+                        <a onclick="window.history.back();"><button class="btn btn-primary fr icon-undo">返回上层</button></a>
                     </header>
                     <hr>
 
                 </section>
-                <form id="form_data">
+
+                <form id="form_data" enctype="multipart/form-data">
+                    <input type="hidden" name="id" value="<?php echo htmlentities($info['id']); ?>">
                     <div class="form-group-col-2">
-                        <div class="form-label">权限组名称：</div>
+                        <div class="form-label">用户名：</div>
                         <div class="form-cont">
-                            <input type="text" placeholder="例：管理员、经理" id="title" name="title" class="form-control form-boxed" style="width:300px;">
+                            <input type="text" value="<?php echo htmlentities($info['username']); ?>" name="username" class="form-control form-boxed"
+                                   style="width:300px;">
                         </div>
                     </div>
+
                     <div class="form-group-col-2">
-                        <table class=" mb-15" style="line-height: 40px">
-                            <thead>
-                            </thead>
-                            <tbody>
-                            <?php if(is_array($info) || $info instanceof \think\Collection || $info instanceof \think\Paginator): $k = 0; $__LIST__ = $info;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($k % 2 );++$k;?>
-                            <tr class="cen">
-                                <td  class="lt"><input type="checkbox" class="xunz_box" data-id="<?php echo htmlentities($k); ?>" data-select="0" /><?php echo htmlentities($v['title']); ?>：&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;</td>
-                                <?php if($v['items']): if(is_array($v['items']) || $v['items'] instanceof \think\Collection || $v['items'] instanceof \think\Paginator): $i = 0; $__LIST__ = $v['items'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vv): $mod = ($i % 2 );++$i;?>
-                                <td  class="lt"><input type="checkbox" class="input_box" data-id="<?php echo htmlentities($k); ?>" name="rules[]" value="<?php echo htmlentities($vv['id']); ?>" /><?php echo htmlentities($vv['title']); ?>&nbsp;&nbsp;</td>
-                                <?php endforeach; endif; else: echo "" ;endif; endif; ?>
-                            </tr>
-                            <?php endforeach; endif; else: echo "" ;endif; ?>
-                            </tbody>
-                        </table>
+                        <div class="form-label">积分：</div>
+                        <div class="form-cont">
+                            <input type="number" value="<?php echo htmlentities($info['integral']); ?>" name="integral" class="form-control form-boxed"
+                                   style="width:300px;">
+                        </div>
                     </div>
-                    <hr>
-                    <br>
+
+                    <div class="form-group-col-2">
+                        <div class="form-label">手机号：</div>
+                        <div class="form-cont">
+                            <input type="number" value="<?php echo htmlentities($info['phone']); ?>" name="phone" class="form-control form-boxed"
+                                   style="width:300px;">
+                        </div>
+                    </div>
+
+                    <div class="form-group-col-2">
+                        <div class="form-label">邮箱：</div>
+                        <div class="form-cont">
+                            <input type="text" value="<?php echo htmlentities($info['email']); ?>" name="email" class="form-control form-boxed"
+                                   style="width:300px;">
+                        </div>
+                    </div>
+
+                    <div class="form-group-col-2">
+                        <div class="form-label">QQ：</div>
+                        <div class="form-cont">
+                            <input type="text" value="<?php echo htmlentities($info['qq']); ?>" name="qq" class="form-control form-boxed"
+                                   style="width:300px;">
+                        </div>
+                    </div>
+
+                    <div class="form-group-col-2">
+                        <div class="form-label">微信：</div>
+                        <div class="form-cont">
+                            <input type="text" value="<?php echo htmlentities($info['wx']); ?>" name="wx" class="form-control form-boxed"
+                                   style="width:300px;">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group-col-2">
+                        <div class="form-label">状态：</div>
+                        <div class="form-cont">
+                            <label class="radio">
+                                <input type="radio" name="state" value="1" <?php if(1 == $info['state']): ?>checked<?php endif; ?> />
+                                <span>正常</span>
+                            </label>
+                            <label class="radio">
+                                <input type="radio" name="state" value="0" <?php if(0 == $info['state']): ?>checked<?php endif; ?> />
+                                <span>禁用</span>
+                            </label>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group-col-2">
+                        <div class="form-label">头像：</div>
+                        <div class="form-cont">
+                            <input type="file" name="filename" id="upload" class="form-control form-boxed"
+                                   style="width:300px;">
+                            <!--<button type="button" class="btn btn-primary" id="upload">上传</button>-->
+                            <input type="hidden" name="photo" id="photo" disabled="disabled" value="">
+                        </div>
+                    </div>
+
+                    <div class="form-group-col-2">
+                        <div class="form-label">原头像：</div>
+                        <div class="form-cont">
+                            <a href="/static/upload/<?php echo htmlentities($info['photo']); ?>" target="_blank">
+                                <img src="/static/upload/<?php echo htmlentities($info['photo']); ?>" style="width:200px;height:200px;" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <script>
+                        //图片上传
+                        $('#upload').change(function () {
+                            $.ajaxFileUpload({
+                                url: "<?php echo url('News/upload_img'); ?>", //你处理上传文件的服务端
+                                secureuri: false,
+                                fileElementId: 'upload',//与页面处理代码中file相对应的ID值
+                                type: "post",
+                                processData: false,
+                                contentType: false,
+                                dataType: 'json', //返回数据类型:看后端返回的是什么数据,在IE下后端要设置请求头的Content-Type:text/html; charset=UTF-8
+                                success: function (data) {
+                                    if (data.status == 200) {
+                                        layer.msg(data.tips);
+                                        $('#photo').removeAttr("disabled");
+                                        $('#photo').val(data.url);
+                                    } else {
+                                        layer.msg(data.tips);
+                                    }
+                                },
+                                error: function (data, status, e) { //提交失败自动执行的处理函数
+                                    layer.msg(e);
+                                }
+                            })
+                        });
+                    </script>
+
+                    <div class="form-group-col-2">
+                        <div class="form-label">地址：</div>
+                        <div class="form-cont">
+                            <textarea name="address" id="" cols="30" rows="4" style="width:1200px;"><?php echo htmlentities($info['address']); ?></textarea>
+
+                        </div>
+                    </div>
+
                     <div class="form-group-col-2">
                         <div class="form-label"></div>
                         <div class="form-cont">
-                            <input type="button" onclick="ajax_submit()" class="btn btn-primary" value="提交表单" />
+                            <input type="button" onclick="ajax_submit()" class="btn btn-primary" value="提交表单"/>
                             <!--<input type="reset" class="btn btn-disabled" value="禁止" />-->
                         </div>
                     </div>
                 </form>
-
                 <!--开始::结束-->
             </div>
         </main>
@@ -270,38 +366,20 @@
     function ajax_submit() {
 
         var form_data = $('#form_data').serializeArray();
-//        console.log(form_data);
-        if(form_data[0].value == ""){
-            layer.msg('名称不能为空');
-            return false;
-        }
-        $.post('<?php echo url("Auth/add_group_do"); ?>', form_data, function (data) {
-//            console.log(data);
+        /*if(form_data[0].value == ''){
+         layer.msg('请上传图片');
+         return false;
+         }*/
+        $.post('<?php echo url("Users/editor_user_do"); ?>', form_data, function (data) {
             if (data.status == 200) {
                 layer.msg(data.tips);
-                setTimeout("location.reload();",500);
+                setTimeout("location.reload();", 500);
             } else {
                 layer.msg(data.tips);
             }
         })
-        //console.log(a);
     }
-</script>
-<script>
-    $('.xunz_box').click(function () {
-        var select = $(this).data('id');
-        var ifSelect = parseInt($(this).data('select'));
-        if(!ifSelect){
-            $(this).parents('tr').find('.input_box').prop('checked',true);
-            $(this).parents('tr').find('.input_box').parent().addClass('checked');
-            $(this).data('select',1)
-        }
-        else {
-            $(this).parents('tr').find('.input_box').prop('checked',false);
-            $(this).parents('tr').find('.input_box').parent().removeClass('checked');
-            $(this).data('select',0)
-        }
-    });
+
 </script>
 </body>
 </html>

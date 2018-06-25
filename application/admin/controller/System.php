@@ -8,6 +8,7 @@
  */
 
 namespace app\admin\controller;
+use app\common\model\FieldConfig;
 use app\common\model\Group;
 use app\common\model\Log;
 use app\common\model\Rule;
@@ -126,6 +127,139 @@ class System extends Base
             }else{
                 $msg['status'] = 400;
                 $msg['tips'] = '清空失败';
+                return json($msg);
+            }
+        } else {
+            $msg['status'] = 600;
+            $msg['tips'] = '权限不足';
+            return json($msg);
+        }
+    }
+
+    //字段类型配置
+    public function field_type()
+    {
+        $Auth = new \auth\Auth;
+        $userinfo = session('admin');
+        $uid = $userinfo['id'];
+        $res = $Auth->check(MODULE_NAME . '/' . CONTROLLER_NAME . '/' . ACTION_NAME, $uid);
+        if ($res) {
+            $info = FieldConfig::order('id desc')->paginate(15);
+            $this->assign(array(
+                'info' => $info,
+                'display' => 'System',
+                'current' => 'field_type',
+            ));
+            return view();
+        } else {
+            echo "<script>alert('权限不足！');window.history.back();</script>";
+        }
+    }
+
+    //添加字段类型
+    public function add_field_type()
+    {
+        $Auth = new \auth\Auth;
+        $userinfo = session('admin');
+        $uid = $userinfo['id'];
+        $res = $Auth->check(MODULE_NAME . '/' . CONTROLLER_NAME . '/' . ACTION_NAME, $uid);
+        if ($res) {
+            $this->assign(array(
+                'display' => 'System',
+                'current' => 'add_field_type',
+            ));
+            return view();
+        } else {
+            $msg['status'] = 400;
+            $msg['tips'] = '权限不足';
+            return json($msg);
+        }
+    }
+
+    //添加
+    public function add_field_type_do()
+    {
+        if (IS_POST) {
+            $data = input('post.');
+            $res = FieldConfig::create($data);
+            if ($res) {
+                //添加日志
+                Logs::write('添加字段类型','添加');
+                $msg['status'] = 200;
+                $msg['tips'] = '添加成功';
+                return json($msg);
+            }else{
+                $msg['status'] = 400;
+                $msg['tips'] = '添加失败';
+                return json($msg);
+            }
+        } else {
+            $msg['status'] = 600;
+            $msg['tips'] = '请求类型错误';
+            return json($msg);
+        }
+    }
+
+    //编辑字段类型
+    public function editor_field_type()
+    {
+        $Auth = new \auth\Auth;
+        $userinfo = session('admin');
+        $uid = $userinfo['id'];
+        $res = $Auth->check(MODULE_NAME . '/' . CONTROLLER_NAME . '/' . ACTION_NAME, $uid);
+        if ($res) {
+            //资讯内容
+            $info = FieldConfig::get(input('get.id/d'));
+            $this->assign(array(
+                'display' => 'System',
+                'current' => 'editor_field_type',
+                'info' => $info
+            ));
+            return view();
+        } else {
+            $msg['status'] = 400;
+            $msg['tips'] = '权限不足';
+            return json($msg);
+        }
+    }
+
+    //编辑
+    public function editor_field_type_do()
+    {
+        $data = input('post.');
+        $res = FieldConfig::where(['id' => $data['id']])->update($data);
+        if ($res) {
+            //添加日志
+            Logs::write('编辑字段类型','编辑');
+            $msg['status'] = 200;
+            $msg['tips'] = '编辑成功';
+            return json($msg);
+        }else{
+            $msg['status'] = 400;
+            $msg['tips'] = '编辑失败';
+            return json($msg);
+        }
+    }
+
+    //删除字段类型
+    public function del_field_type()
+    {
+        $Auth = new \auth\Auth;
+        $userinfo = session('admin');
+        $uid = $userinfo['id'];
+        $res = $Auth->check(MODULE_NAME . '/' . CONTROLLER_NAME . '/' . ACTION_NAME, $uid);
+        if ($res) {
+            $id = input('post.id/d');
+            $del_res = FieldConfig::where(['id' => $id])->delete();
+            if($del_res){
+                //添加日志
+                Logs::write('删除字段类型','删除');
+                $msg['status'] = 200;
+                $msg['tips'] = '删除成功';
+                return json($msg);
+            }else{
+                $msg['status'] = 400;
+                $msg['tips'] = '删除失败';
                 return json($msg);
             }
         } else {

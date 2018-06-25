@@ -9,6 +9,10 @@ return[
     'comment'                           =>  '评论',
     'no_check'                          =>  '未审核',
     'check_success'                     =>  '审核通过',
+    'add_field'                         =>  '添加字段',
+    'editor_field'                      =>  '编辑表字段',
+    'add_table'                         =>  '添加表',
+    'add_field_type'                    =>  '添加字段类型',
 
     //后台header
     'go_home'                           =>  '前台访问',

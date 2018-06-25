@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {include file="public/static" /}
+</head>
+<body>
+<div class="main-wrap">
+    <!--菜单-->
+    {include file="public/menu" /}
+    <!--菜单-->
+    <div class="content-wrap">
+        <!--头部-->
+        {include file="public/header" /}
+        <!--头部-->
+        <main class="main-cont content mCustomScrollbar">
+            <div class="page-wrap">
+                <!--开始::内容-->
+                <section class="page-hd">
+                    <header style="clearfix">
+                        {include file="public/nav" /}
+                        <button onclick="add()" class="btn btn-primary fr icon-plus">{$Think.lang.add_field}</button>
+                        <a onclick="window.history.back();"><button class="btn btn-primary fr icon-undo">返回上层</button></a>
+                        <script>
+                            function add() {
+                                var tableName = $('#tableName').val();
+                                $.get('{:url("Database/add_filed")}',{tableName:tableName}, function (data) {
+                                    if (data.status == 400) {
+                                        layer.msg(data.tips);
+                                    } else {
+                                        location.href = "{:url('Database/add_filed')}" + "?tableName=" + tableName;
+                                    }
+                                })
+                            }
+                        </script>
+                    </header>
+                    <hr>
+
+                </section>
+
+                <table class="table table-bordered table-striped table-hover">
+                    <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>字段名</th>
+                        <th>类型</th>
+                        <th>是否为NULL</th>
+                        <th>主键类型</th>
+                        <th>默认值</th>
+                        <th>自增长</th>
+                        <th>备注</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {volist name="info" id="v" key="k"}
+                    <tr class="cen">
+                        <td>{$k}</td>
+                        <td >{$v.Field}</td>
+                        <td >{$v.Type}</td>
+                        <td>{$v.Null}</td>
+                        <td>{$v.Key}</td>
+                        <td>{$v.Default}</td>
+                        <td>{$v.Extra}</td>
+                        <td>{$v.Comment}</td>
+                        <td>
+                            <a href="javascript:void(0)" onclick="editor(this,'{$v.Field}')" title="{$Think.lang.editor}" class="mr-5 icon-edit">{$Think.lang.editor}</a>
+                            <!--<a title="详情" class="mr-5">详情</a>-->
+                            <a href="javascript:void(0)" onclick="del(this,'{$v.Field}')" title="{$Think.lang.del}" class="icon-trash">{$Think.lang.del}</a>
+                        </td>
+                    </tr>
+                    {/volist}
+                    </tbody>
+                </table>
+                <!--开始::结束-->
+            </div>
+        </main>
+        <!--底部-->
+        {include file="public/footer" /}
+        <!--底部-->
+    </div>
+</div>
+<!--表名-->
+<input type="hidden" id="tableName" value="{$tableName}">
+<script type="text/javascript">
+    // 删除数据方法
+    function del(obj, field) {
+        layer.confirm('确定删除吗？', {
+            title: '系统提示',
+            btn: ['确定', '取消']
+        }, function () {
+            var tableName = $('#tableName').val();
+            $.post('{:url("Database/del_field")}', {tableName: tableName,field:field}, function (data) {
+                //console.log(data);
+                // 判断是否成功
+                if (data.status == 200) {
+                    $(obj).parent().parent().remove();
+                    layer.msg(data.tips);
+                    setTimeout("location.reload();", 500);
+                } else {
+                    layer.msg(data.tips);
+                }
+            });
+        });
+    }
+
+    // 编辑数据方法
+    function editor(obj, field) {
+        var tableName = $('#tableName').val();
+        $.get('{:url("Database/editor_field")}', {tableName: tableName,field:field}, function (data) {
+            // 判断是否成功
+            if (data.status == 400) {
+                layer.msg(data.tips);
+            } else {
+                location.href = "{:url('Database/editor_field')}" + "?tableName=" + tableName + "&field=" + field;
+            }
+        });
+    }
+
+</script>
+</body>
+</html>

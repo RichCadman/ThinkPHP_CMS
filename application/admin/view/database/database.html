@@ -19,14 +19,15 @@
                     <header style="clearfix">
                         {include file="public/nav" /}
                         <button onclick="backups()" class="btn btn-primary fr icon-save">{$Think.lang.backups}</button>
+                        <button onclick="add()" class="btn btn-primary fr icon-plus">{$Think.lang.add_table}</button>
                         <!--<a onclick="window.history.back();"><button class="btn btn-primary fr">返回上层</button></a>-->
                         <script>
                             function add() {
-                                $.get('{:url("Admin/add_admin")}', function (data) {
+                                $.get('{:url("Database/add_table")}', function (data) {
                                     if (data.status == 400) {
                                         layer.msg(data.tips);
                                     } else {
-                                        location.href = "{:url('Admin/add_admin')}";
+                                        location.href = "{:url('Database/add_table')}";
                                     }
                                 })
                             }
@@ -45,7 +46,7 @@
                         <th>引擎</th>
                         <th>备注</th>
                         <th>创建时间</th>
-
+                        <th>操作</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -58,11 +59,12 @@
                         <td>{$v.Comment}</td>
                         <td>{$v.Create_time}</td>
 
-                        <!--<td>-->
-                            <!--<a href="javascript:void(0)" onclick="editor(this,{//$v.id})" title="{$Think.lang.editor}" class="mr-5">{$Think.lang.editor}</a>-->
-                            <!--&lt;!&ndash;<a title="详情" class="mr-5">详情</a>&ndash;&gt;-->
-                            <!--<a href="javascript:void(0)" onclick="del(this,{//$v.id})" title="{$Think.lang.del}">{$Think.lang.del}</a>-->
-                        <!--</td>-->
+                        <td>
+                            <a href="javascript:void(0)" onclick="editor(this,'{$v.Name}')" title="{$Think.lang.editor_field}" class="mr-5 icon-edit">{$Think.lang.editor_field}</a>
+                            <a href="javascript:void(0)" onclick="editor_table(this,'{$v.Name}')" title="{$Think.lang.editor}" class="mr-5 icon-edit">{$Think.lang.editor}</a>
+                            <!--<a title="详情" class="mr-5">详情</a>-->
+                            <a href="javascript:void(0)" onclick="del(this,'{$v.Name}')" title="{$Think.lang.del}" class="icon-trash">{$Think.lang.del}</a>
+                        </td>
                     </tr>
                     {/volist}
                     </tbody>
@@ -91,6 +93,49 @@
                     layer.msg(data.tips);
                 }
             });
+        });
+    }
+
+    // 删除数据方法
+    function del(obj, tableName) {
+        layer.confirm('确定删除吗？', {
+            title: '系统提示',
+            btn: ['确定', '取消']
+        }, function () {
+            $.post('{:url("Database/del_table")}', {tableName: tableName}, function (data) {
+                // 判断是否成功
+                if (data.status == 200) {
+                    $(obj).parent().parent().remove();
+                    layer.msg(data.tips);
+                    setTimeout("location.reload();", 500);
+                } else {
+                    layer.msg(data.tips);
+                }
+            });
+        });
+    }
+
+    // 编辑表字段方法
+    function editor(obj, tableName) {
+        $.get('{:url("Database/table_field")}', {tableName: tableName}, function (data) {
+            // 判断是否成功
+            if (data.status == 400) {
+                layer.msg(data.tips);
+            } else {
+                location.href = "{:url('Database/table_field')}" + "?tableName=" + tableName;
+            }
+        });
+    }
+
+    // 编辑数据表方法
+    function editor_table(obj, tableName) {
+        $.get('{:url("Database/editor_table")}', {tableName: tableName}, function (data) {
+            // 判断是否成功
+            if (data.status == 400) {
+                layer.msg(data.tips);
+            } else {
+                location.href = "{:url('Database/editor_table')}" + "?tableName=" + tableName;
+            }
         });
     }
 

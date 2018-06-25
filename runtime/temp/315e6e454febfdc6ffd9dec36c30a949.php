@@ -1,4 +1,4 @@
-<?php /*a:6:{s:66:"E:\www-web\ThinkPHP_CMS\application\admin\view\auth\add_group.html";i:1529550076;s:65:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\static.html";i:1529542576;s:63:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\menu.html";i:1528855708;s:65:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\header.html";i:1529387612;s:62:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\nav.html";i:1528625773;s:65:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\footer.html";i:1529573972;}*/ ?>
+<?php /*a:6:{s:73:"E:\www-web\ThinkPHP_CMS\application\admin\view\database\editor_field.html";i:1529662565;s:65:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\static.html";i:1529542576;s:63:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\menu.html";i:1528855708;s:65:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\header.html";i:1529387612;s:62:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\nav.html";i:1528625773;s:65:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\footer.html";i:1529573972;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -178,46 +178,92 @@
         <a href="">首页</a> > <a href=""><?php echo htmlentities($controller_name); ?></a> > <a href=""><?php echo htmlentities($action_name); ?></a>
     </p>
 </div>
-                        <a href="<?php echo url('Auth/group_index'); ?>"><button class="btn btn-primary fr icon-undo"><?php echo htmlentities(app('lang')->get('back')); ?></button></a>
-                        <!--<a onclick="window.history.back();"><button class="btn btn-primary fr">返回上层</button></a>-->
+                        <!--<a href="<?php echo url('News/news'); ?>">-->
+                            <!--<button class="btn btn-primary fr icon-undo"><?php echo htmlentities(app('lang')->get('back')); ?></button>-->
+                        <!--</a>-->
+                        <a onclick="window.history.back();"><button class="btn btn-primary fr icon-undo">返回上层</button></a>
                     </header>
                     <hr>
 
                 </section>
-                <form id="form_data">
+
+                <form id="form_data" enctype="multipart/form-data">
+                    <!--表名-->
+                    <input type="hidden" name="tableName" value="<?php echo htmlentities($tableName); ?>">
+                    <!--旧字段名-->
+                    <input type="hidden" name="oldField" value="<?php echo htmlentities($info['Field']); ?>">
+
                     <div class="form-group-col-2">
-                        <div class="form-label">权限组名称：</div>
+                        <div class="form-label">字段名：</div>
                         <div class="form-cont">
-                            <input type="text" placeholder="例：管理员、经理" id="title" name="title" class="form-control form-boxed" style="width:300px;">
+                            <input type="text" value="<?php echo htmlentities($info['Field']); ?>" name="Field" class="form-control form-boxed"
+                                   style="width:300px;">
                         </div>
                     </div>
+
                     <div class="form-group-col-2">
-                        <table class=" mb-15" style="line-height: 40px">
-                            <thead>
-                            </thead>
-                            <tbody>
-                            <?php if(is_array($info) || $info instanceof \think\Collection || $info instanceof \think\Paginator): $k = 0; $__LIST__ = $info;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($k % 2 );++$k;?>
-                            <tr class="cen">
-                                <td  class="lt"><input type="checkbox" class="xunz_box" data-id="<?php echo htmlentities($k); ?>" data-select="0" /><?php echo htmlentities($v['title']); ?>：&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;</td>
-                                <?php if($v['items']): if(is_array($v['items']) || $v['items'] instanceof \think\Collection || $v['items'] instanceof \think\Paginator): $i = 0; $__LIST__ = $v['items'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vv): $mod = ($i % 2 );++$i;?>
-                                <td  class="lt"><input type="checkbox" class="input_box" data-id="<?php echo htmlentities($k); ?>" name="rules[]" value="<?php echo htmlentities($vv['id']); ?>" /><?php echo htmlentities($vv['title']); ?>&nbsp;&nbsp;</td>
-                                <?php endforeach; endif; else: echo "" ;endif; endif; ?>
-                            </tr>
-                            <?php endforeach; endif; else: echo "" ;endif; ?>
-                            </tbody>
-                        </table>
+                        <div class="form-label">字段类型：</div>
+                        <div class="form-cont">
+                            <select style="width:auto;" name="Type">
+                                <option value="0">暂无匹配</option>
+                                <?php if(is_array($fieldType) || $fieldType instanceof \think\Collection || $fieldType instanceof \think\Paginator): $i = 0; $__LIST__ = $fieldType;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($i % 2 );++$i;?>
+                                <option value="<?php echo htmlentities($v); ?>" <?php if($v == $info['Type']): ?>selected<?php endif; ?> ><?php echo htmlentities($v); ?></option>
+                                <?php endforeach; endif; else: echo "" ;endif; ?>
+                            </select>
+                        </div>
                     </div>
-                    <hr>
-                    <br>
+
+                    <div class="form-group-col-2">
+                        <div class="form-label" title="是否可为NULL">是否可为NULL：</div>
+                        <div class="form-cont">
+                            <select style="width:auto;" name="Null">
+                                <?php if(is_array($IsNull) || $IsNull instanceof \think\Collection || $IsNull instanceof \think\Paginator): $i = 0; $__LIST__ = $IsNull;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($i % 2 );++$i;?>
+                                    <option value="<?php echo htmlentities($v); ?>" <?php if($key == $info['Null']): ?>selected<?php endif; ?> ><?php echo htmlentities($v); ?></option>
+                                <?php endforeach; endif; else: echo "" ;endif; ?>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group-col-2">
+                        <div class="form-label">主键类型：</div>
+                        <div class="form-cont">
+                            <input type="text" value="<?php echo htmlentities($info['Key']); ?>" name="Key" disabled class="form-control form-boxed"
+                                   style="width:300px;">
+                        </div>
+                    </div>
+
+                    <div class="form-group-col-2">
+                        <div class="form-label">默认值：</div>
+                        <div class="form-cont">
+                            <input type="text" value="<?php echo htmlentities($info['Default']); ?>" name="Default" class="form-control form-boxed"
+                                   style="width:300px;">
+                        </div>
+                    </div>
+
+                    <div class="form-group-col-2">
+                        <div class="form-label">自增长：</div>
+                        <div class="form-cont">
+                            <input type="text" value="<?php echo htmlentities($info['Extra']); ?>" name="Extra" disabled class="form-control form-boxed"
+                                   style="width:300px;">
+                        </div>
+                    </div>
+
+                    <div class="form-group-col-2">
+                        <div class="form-label">备注：</div>
+                        <div class="form-cont">
+                            <textarea name="Comment" id="" cols="30" rows="4" style="width:1200px;"><?php echo htmlentities($info['Comment']); ?></textarea>
+
+                        </div>
+                    </div>
+
                     <div class="form-group-col-2">
                         <div class="form-label"></div>
                         <div class="form-cont">
-                            <input type="button" onclick="ajax_submit()" class="btn btn-primary" value="提交表单" />
+                            <input type="button" onclick="ajax_submit()" class="btn btn-primary" value="提交表单"/>
                             <!--<input type="reset" class="btn btn-disabled" value="禁止" />-->
                         </div>
                     </div>
                 </form>
-
                 <!--开始::结束-->
             </div>
         </main>
@@ -266,42 +312,28 @@
         <!--底部-->
     </div>
 </div>
+
 <script>
     function ajax_submit() {
 
         var form_data = $('#form_data').serializeArray();
-//        console.log(form_data);
-        if(form_data[0].value == ""){
-            layer.msg('名称不能为空');
-            return false;
-        }
-        $.post('<?php echo url("Auth/add_group_do"); ?>', form_data, function (data) {
-//            console.log(data);
+        /*if(form_data[0].value == ''){
+         layer.msg('请上传图片');
+         return false;
+         }*/
+        //console.log(form_data);
+        $.post('<?php echo url("Database/editor_field_do"); ?>', form_data, function (data) {
+            //console.log(data);
             if (data.status == 200) {
                 layer.msg(data.tips);
-                setTimeout("location.reload();",500);
+                location.href = "<?php echo url('Database/editor_table_field'); ?>" + "?tableName=" + data.tableName;
             } else {
                 layer.msg(data.tips);
+                setTimeout("location.reload();", 500);
             }
         })
-        //console.log(a);
     }
-</script>
-<script>
-    $('.xunz_box').click(function () {
-        var select = $(this).data('id');
-        var ifSelect = parseInt($(this).data('select'));
-        if(!ifSelect){
-            $(this).parents('tr').find('.input_box').prop('checked',true);
-            $(this).parents('tr').find('.input_box').parent().addClass('checked');
-            $(this).data('select',1)
-        }
-        else {
-            $(this).parents('tr').find('.input_box').prop('checked',false);
-            $(this).parents('tr').find('.input_box').parent().removeClass('checked');
-            $(this).data('select',0)
-        }
-    });
+
 </script>
 </body>
 </html>

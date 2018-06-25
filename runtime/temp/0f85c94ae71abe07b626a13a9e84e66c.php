@@ -1,4 +1,4 @@
-<?php /*a:6:{s:66:"E:\www-web\ThinkPHP_CMS\application\admin\view\auth\add_group.html";i:1529550076;s:65:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\static.html";i:1529542576;s:63:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\menu.html";i:1528855708;s:65:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\header.html";i:1529387612;s:62:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\nav.html";i:1528625773;s:65:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\footer.html";i:1529573972;}*/ ?>
+<?php /*a:6:{s:68:"H:\web\ThinkPHP_CMS\application\admin\view\news\editor_newstype.html";i:1529403638;s:61:"H:\web\ThinkPHP_CMS\application\admin\view\public\static.html";i:1529542576;s:59:"H:\web\ThinkPHP_CMS\application\admin\view\public\menu.html";i:1528855708;s:61:"H:\web\ThinkPHP_CMS\application\admin\view\public\header.html";i:1529387612;s:58:"H:\web\ThinkPHP_CMS\application\admin\view\public\nav.html";i:1528625773;s:61:"H:\web\ThinkPHP_CMS\application\admin\view\public\footer.html";i:1529573972;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -178,46 +178,116 @@
         <a href="">首页</a> > <a href=""><?php echo htmlentities($controller_name); ?></a> > <a href=""><?php echo htmlentities($action_name); ?></a>
     </p>
 </div>
-                        <a href="<?php echo url('Auth/group_index'); ?>"><button class="btn btn-primary fr icon-undo"><?php echo htmlentities(app('lang')->get('back')); ?></button></a>
+                        <a href="<?php echo url('News/news_type'); ?>">
+                            <button class="btn btn-primary fr icon-undo"><?php echo htmlentities(app('lang')->get('back')); ?></button>
+                        </a>
                         <!--<a onclick="window.history.back();"><button class="btn btn-primary fr">返回上层</button></a>-->
                     </header>
                     <hr>
 
                 </section>
-                <form id="form_data">
+
+                <form id="form_data" enctype="multipart/form-data">
+                    <input type="hidden" name="id" value="<?php echo htmlentities($info['id']); ?>">
                     <div class="form-group-col-2">
-                        <div class="form-label">权限组名称：</div>
+                        <div class="form-label">分类名称：</div>
                         <div class="form-cont">
-                            <input type="text" placeholder="例：管理员、经理" id="title" name="title" class="form-control form-boxed" style="width:300px;">
+                            <input type="text" value="<?php echo htmlentities($info['news_type_name']); ?>" name="news_type_name" class="form-control form-boxed"
+                                   style="width:300px;">
                         </div>
                     </div>
+
                     <div class="form-group-col-2">
-                        <table class=" mb-15" style="line-height: 40px">
-                            <thead>
-                            </thead>
-                            <tbody>
-                            <?php if(is_array($info) || $info instanceof \think\Collection || $info instanceof \think\Paginator): $k = 0; $__LIST__ = $info;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($k % 2 );++$k;?>
-                            <tr class="cen">
-                                <td  class="lt"><input type="checkbox" class="xunz_box" data-id="<?php echo htmlentities($k); ?>" data-select="0" /><?php echo htmlentities($v['title']); ?>：&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;</td>
-                                <?php if($v['items']): if(is_array($v['items']) || $v['items'] instanceof \think\Collection || $v['items'] instanceof \think\Paginator): $i = 0; $__LIST__ = $v['items'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vv): $mod = ($i % 2 );++$i;?>
-                                <td  class="lt"><input type="checkbox" class="input_box" data-id="<?php echo htmlentities($k); ?>" name="rules[]" value="<?php echo htmlentities($vv['id']); ?>" /><?php echo htmlentities($vv['title']); ?>&nbsp;&nbsp;</td>
-                                <?php endforeach; endif; else: echo "" ;endif; endif; ?>
-                            </tr>
-                            <?php endforeach; endif; else: echo "" ;endif; ?>
-                            </tbody>
-                        </table>
+                        <div class="form-label">父级规则：</div>
+                        <div class="form-cont">
+                            <select style="width:auto;" name="p_id">
+                                <option value="0">顶级规则</option>
+                                <?php if(is_array($newsTypes) || $newsTypes instanceof \think\Collection || $newsTypes instanceof \think\Paginator): $i = 0; $__LIST__ = $newsTypes;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($i % 2 );++$i;?>
+                                <option value="<?php echo htmlentities($v['id']); ?>" <?php if($v['id'] == $info['p_id']): ?>selected<?php endif; ?> >
+                                    |--<?php echo htmlentities($v['news_type_name']); ?>
+                                </option>
+                                <?php endforeach; endif; else: echo "" ;endif; ?>
+                            </select>
+                        </div>
                     </div>
-                    <hr>
-                    <br>
+
+                    <div class="form-group-col-2">
+                        <div class="form-label">状态：</div>
+                        <div class="form-cont">
+                            <label class="radio">
+                                <input type="radio" name="state" value="1" <?php if(1 == $info['state']): ?>checked<?php endif; ?> />
+                                <span>显示</span>
+                            </label>
+                            <label class="radio">
+                                <input type="radio" name="state" value="0" <?php if(0 == $info['state']): ?>checked<?php endif; ?> />
+                                <span>隐藏</span>
+                            </label>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group-col-2">
+                        <div class="form-label">点击修改：</div>
+                        <div class="form-cont">
+                            <input type="file" name="filename" id="upload" class="form-control form-boxed"
+                                   style="width:300px;">
+                            <!--<button type="button" class="btn btn-primary" id="upload">上传</button>-->
+                            <input type="hidden" name="news_type_img" id="news_type_img" disabled="disabled" value="">
+                        </div>
+                    </div>
+
+                    <div class="form-group-col-2">
+                        <div class="form-label">原配图：</div>
+                        <div class="form-cont">
+                            <a href="/static/upload/<?php echo htmlentities($info['news_type_img']); ?>" target="_blank">
+                                <img src="/static/upload/<?php echo htmlentities($info['news_type_img']); ?>" style="width:200px;height:200px;" alt="">
+                            </a>
+                        </div>
+                    </div>
+
+                    <script>
+                        //图片上传
+                        $('#upload').change(function () {
+                            $.ajaxFileUpload({
+                                url: "<?php echo url('News/upload_img'); ?>", //你处理上传文件的服务端
+                                secureuri: false,
+                                fileElementId: 'upload',//与页面处理代码中file相对应的ID值
+                                type: "post",
+                                processData: false,
+                                contentType: false,
+                                dataType: 'json', //返回数据类型:看后端返回的是什么数据,在IE下后端要设置请求头的Content-Type:text/html; charset=UTF-8
+                                success: function (data) {
+                                    if (data.status == 200) {
+                                        layer.msg(data.tips);
+                                        $('#news_type_img').removeAttr("disabled");
+                                        $('#news_type_img').val(data.url);
+                                    } else {
+                                        layer.msg(data.tips);
+                                    }
+                                },
+                                error: function (data, status, e) { //提交失败自动执行的处理函数
+                                    layer.msg(e);
+                                }
+                            })
+                        });
+                    </script>
+
+                    <div class="form-group-col-2">
+                        <div class="form-label">排序：</div>
+                        <div class="form-cont">
+                            <input type="number" value="<?php echo htmlentities($info['show_order']); ?>" name="show_order" class="form-control form-boxed"
+                                   style="width:300px;">
+                        </div>
+                    </div>
+
                     <div class="form-group-col-2">
                         <div class="form-label"></div>
                         <div class="form-cont">
-                            <input type="button" onclick="ajax_submit()" class="btn btn-primary" value="提交表单" />
+                            <input type="button" onclick="ajax_submit()" class="btn btn-primary" value="提交表单"/>
                             <!--<input type="reset" class="btn btn-disabled" value="禁止" />-->
                         </div>
                     </div>
                 </form>
-
                 <!--开始::结束-->
             </div>
         </main>
@@ -270,38 +340,19 @@
     function ajax_submit() {
 
         var form_data = $('#form_data').serializeArray();
-//        console.log(form_data);
-        if(form_data[0].value == ""){
-            layer.msg('名称不能为空');
-            return false;
-        }
-        $.post('<?php echo url("Auth/add_group_do"); ?>', form_data, function (data) {
-//            console.log(data);
+        /*if(form_data[0].value == ''){
+         layer.msg('请上传图片');
+         return false;
+         }*/
+        $.post('<?php echo url("News/editor_newstype_do"); ?>', form_data, function (data) {
             if (data.status == 200) {
                 layer.msg(data.tips);
-                setTimeout("location.reload();",500);
+                setTimeout("location.reload();", 2000);
             } else {
                 layer.msg(data.tips);
             }
         })
-        //console.log(a);
     }
-</script>
-<script>
-    $('.xunz_box').click(function () {
-        var select = $(this).data('id');
-        var ifSelect = parseInt($(this).data('select'));
-        if(!ifSelect){
-            $(this).parents('tr').find('.input_box').prop('checked',true);
-            $(this).parents('tr').find('.input_box').parent().addClass('checked');
-            $(this).data('select',1)
-        }
-        else {
-            $(this).parents('tr').find('.input_box').prop('checked',false);
-            $(this).parents('tr').find('.input_box').parent().removeClass('checked');
-            $(this).data('select',0)
-        }
-    });
 </script>
 </body>
 </html>

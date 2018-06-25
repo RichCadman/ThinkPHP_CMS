@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {include file="public/static" /}
+</head>
+<body>
+<div class="main-wrap">
+    <!--菜单-->
+    {include file="public/menu" /}
+    <!--菜单-->
+    <div class="content-wrap">
+        <!--头部-->
+        {include file="public/header" /}
+        <!--头部-->
+        <main class="main-cont content mCustomScrollbar">
+            <div class="page-wrap">
+                <!--开始::内容-->
+                <section class="page-hd">
+                    <header style="clearfix">
+                        {include file="public/nav" /}
+                        <!--<a href="{:url('News/news')}">-->
+                            <!--<button class="btn btn-primary fr icon-undo">{$Think.lang.back}</button>-->
+                        <!--</a>-->
+                        <a onclick="window.history.back();"><button class="btn btn-primary fr icon-undo">返回上层</button></a>
+                    </header>
+                    <hr>
+
+                </section>
+
+                <form id="form_data" enctype="multipart/form-data">
+                    <!--表名-->
+                    <input type="hidden" name="tableName" value="{$tableName}">
+                    <!--旧字段名-->
+                    <input type="hidden" name="oldField" value="{$info.Field}">
+
+                    <div class="form-group-col-2">
+                        <div class="form-label">字段名：</div>
+                        <div class="form-cont">
+                            <input type="text" value="{$info.Field}" name="Field" class="form-control form-boxed"
+                                   style="width:300px;">
+                        </div>
+                    </div>
+
+                    <div class="form-group-col-2">
+                        <div class="form-label">字段类型：</div>
+                        <div class="form-cont">
+                            <select style="width:auto;" name="Type">
+                                <option value="0">暂无匹配</option>
+                                {volist name="fieldType" id="v"}
+                                <option value="{$v.field_type}" {eq name="v.field_type" value="$info.Type"}selected{/eq} >{$v.field_type}</option>
+                                {/volist}
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group-col-2">
+                        <div class="form-label" title="是否可为NULL">是否可为NULL：</div>
+                        <div class="form-cont">
+                            <select style="width:auto;" name="Null">
+                                {volist name="IsNull" id="v"}
+                                    <option value="{$v}" {eq name="key" value="$info.Null"}selected{/eq} >{$v}</option>
+                                {/volist}
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group-col-2">
+                        <div class="form-label">主键类型：</div>
+                        <div class="form-cont">
+                            <input type="text" value="{$info.Key}" name="Key" disabled class="form-control form-boxed"
+                                   style="width:300px;">
+                        </div>
+                    </div>
+
+                    <div class="form-group-col-2">
+                        <div class="form-label">默认值：</div>
+                        <div class="form-cont">
+                            <input type="text" value="{$info.Default}" name="Default" class="form-control form-boxed"
+                                   style="width:300px;">
+                        </div>
+                    </div>
+
+                    <div class="form-group-col-2">
+                        <div class="form-label">自增长：</div>
+                        <div class="form-cont">
+                            <input type="text" value="{$info.Extra}" name="Extra" disabled class="form-control form-boxed"
+                                   style="width:300px;">
+                        </div>
+                    </div>
+
+                    <div class="form-group-col-2">
+                        <div class="form-label">备注：</div>
+                        <div class="form-cont">
+                            <textarea name="Comment" id="" cols="30" rows="4" style="width:1200px;">{$info.Comment}</textarea>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group-col-2">
+                        <div class="form-label"></div>
+                        <div class="form-cont">
+                            <input type="button" onclick="ajax_submit()" class="btn btn-primary" value="提交表单"/>
+                            <!--<input type="reset" class="btn btn-disabled" value="禁止" />-->
+                        </div>
+                    </div>
+                </form>
+                <!--开始::结束-->
+            </div>
+        </main>
+        <!--底部-->
+        {include file="public/footer" /}
+        <!--底部-->
+    </div>
+</div>
+
+<script>
+    function ajax_submit() {
+
+        var form_data = $('#form_data').serializeArray();
+        /*if(form_data[0].value == ''){
+         layer.msg('请上传图片');
+         return false;
+         }*/
+        //console.log(form_data);
+        $.post('{:url("Database/editor_field_do")}', form_data, function (data) {
+            //console.log(data);
+            if (data.status == 200) {
+                layer.msg(data.tips);
+                location.href = "{:url('Database/table_field')}" + "?tableName=" + data.tableName;
+            } else {
+                layer.msg(data.tips);
+                setTimeout("location.reload();", 500);
+            }
+        })
+    }
+
+</script>
+</body>
+</html>

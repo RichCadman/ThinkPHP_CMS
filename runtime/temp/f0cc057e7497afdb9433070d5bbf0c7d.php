@@ -1,4 +1,4 @@
-<?php /*a:6:{s:69:"E:\www-web\ThinkPHP_CMS\application\admin\view\database\database.html";i:1529550108;s:65:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\static.html";i:1529542576;s:63:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\menu.html";i:1528855708;s:65:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\header.html";i:1529387612;s:62:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\nav.html";i:1528625773;s:65:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\footer.html";i:1529573972;}*/ ?>
+<?php /*a:6:{s:69:"E:\www-web\ThinkPHP_CMS\application\admin\view\database\database.html";i:1529662747;s:65:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\static.html";i:1529542576;s:63:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\menu.html";i:1528855708;s:65:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\header.html";i:1529387612;s:62:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\nav.html";i:1528625773;s:65:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\footer.html";i:1529573972;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -205,7 +205,7 @@
                         <th>引擎</th>
                         <th>备注</th>
                         <th>创建时间</th>
-
+                        <th>操作</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -218,11 +218,12 @@
                         <td><?php echo htmlentities($v['Comment']); ?></td>
                         <td><?php echo htmlentities($v['Create_time']); ?></td>
 
-                        <!--<td>-->
-                            <!--<a href="javascript:void(0)" onclick="editor(this,)" title="<?php echo htmlentities(app('lang')->get('editor')); ?>" class="mr-5"><?php echo htmlentities(app('lang')->get('editor')); ?></a>-->
-                            <!--&lt;!&ndash;<a title="详情" class="mr-5">详情</a>&ndash;&gt;-->
-                            <!--<a href="javascript:void(0)" onclick="del(this,)" title="<?php echo htmlentities(app('lang')->get('del')); ?>"><?php echo htmlentities(app('lang')->get('del')); ?></a>-->
-                        <!--</td>-->
+                        <td>
+                            <a href="javascript:void(0)" onclick="editor(this,'<?php echo htmlentities($v['Name']); ?>')" title="<?php echo htmlentities(app('lang')->get('editor_field')); ?>" class="mr-5 icon-edit"><?php echo htmlentities(app('lang')->get('editor_field')); ?></a>
+                            <a href="javascript:void(0)" onclick="editor_table(this,'<?php echo htmlentities($v['Name']); ?>')" title="<?php echo htmlentities(app('lang')->get('editor')); ?>" class="mr-5 icon-edit"><?php echo htmlentities(app('lang')->get('editor')); ?></a>
+                            <!--<a title="详情" class="mr-5">详情</a>-->
+                            <a href="javascript:void(0)" onclick="del(this,'<?php echo htmlentities($v['Name']); ?>')" title="<?php echo htmlentities(app('lang')->get('del')); ?>" class="icon-trash"><?php echo htmlentities(app('lang')->get('del')); ?></a>
+                        </td>
                     </tr>
                     <?php endforeach; endif; else: echo "" ;endif; ?>
                     </tbody>
@@ -291,6 +292,49 @@
                     layer.msg(data.tips);
                 }
             });
+        });
+    }
+
+    // 删除数据方法
+    function del(obj, tableName) {
+        layer.confirm('确定删除吗？', {
+            title: '系统提示',
+            btn: ['确定', '取消']
+        }, function () {
+            $.post('<?php echo url("Database/del_table"); ?>', {tableName: tableName}, function (data) {
+                // 判断是否成功
+                if (data.status == 200) {
+                    $(obj).parent().parent().remove();
+                    layer.msg(data.tips);
+                    setTimeout("location.reload();", 500);
+                } else {
+                    layer.msg(data.tips);
+                }
+            });
+        });
+    }
+
+    // 编辑表字段方法
+    function editor(obj, tableName) {
+        $.get('<?php echo url("Database/editor_table_field"); ?>', {tableName: tableName}, function (data) {
+            // 判断是否成功
+            if (data.status == 400) {
+                layer.msg(data.tips);
+            } else {
+                location.href = "<?php echo url('Database/editor_table_field'); ?>" + "?tableName=" + tableName;
+            }
+        });
+    }
+
+    // 编辑数据表方法
+    function editor_table(obj, tableName) {
+        $.get('<?php echo url("Database/editor_table"); ?>', {tableName: tableName}, function (data) {
+            // 判断是否成功
+            if (data.status == 400) {
+                layer.msg(data.tips);
+            } else {
+                location.href = "<?php echo url('Database/editor_table'); ?>" + "?tableName=" + tableName;
+            }
         });
     }
 
