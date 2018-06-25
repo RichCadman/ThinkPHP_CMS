@@ -27,7 +27,7 @@
 <body class="login-page">
 <section class="login-contain">
     <header>
-        <h1>后台管理系统</h1>
+        <h1>{$system.title}</h1>
         <p>management system</p>
     </header>
     <div class="form-content">
@@ -54,12 +54,12 @@
                     <img src="{:captcha_src()}" alt="captcha" onclick="this.src='{:captcha_src()}?rnd=' + Math.random();" alt="">
                 </div>
             </li>
-            <li>
+            <!--<li>
                 <label class="check-box">
                     <input type="checkbox" name="remember"/>
                     <span>记住账号密码</span>
                 </label>
-            </li>
+            </li>-->
             <li>
                 <button class="btn btn-lg btn-block" id="entry">立即登录</button>
             </li>

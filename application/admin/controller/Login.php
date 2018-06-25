@@ -10,9 +10,10 @@
 namespace app\admin\controller;
 
 use \app\common\model\Admin;
+use \app\common\model\System;
 use log\Logs;
-
-class Login
+use think\Controller;
+class Login extends Controller
 {
     //登陆页面
     public function login()
@@ -21,6 +22,12 @@ class Login
             //添加日志
             Logs::write('登出系统', '登出');
         }
+        //系统配置
+        $system = System::find();
+        //渲染输出
+        $this->assign(array(
+            'system' => $system,
+        ));
         session('admin', null);
         return view();
     }

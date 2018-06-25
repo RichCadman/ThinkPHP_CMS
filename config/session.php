@@ -23,4 +23,6 @@ return [
     'type'           => '',
     // 是否自动开启 SESSION
     'auto_start'     => true,
+    // session 保存时间 0 永久保存
+    'expire'    => 0,
 ];

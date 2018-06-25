@@ -30,7 +30,7 @@ class Base extends Controller
             'system' => $system,
         ));
 
-        /*定义常量start*/
+        /*定义常量 */
         define('MODULE_NAME', request()->module());
         define('CONTROLLER_NAME', request()->controller());
         define('ACTION_NAME', request()->action());
@@ -50,22 +50,22 @@ class Base extends Controller
         ));
 
         //菜单
-        $menu = Rule::where(['is_visible' => 1,'p_id' => 0])->order('show_order desc')->select();
+        $menu = Rule::where(['is_visible' => 1,'p_id' => 0])->order('show_order desc')->cache(3600)->select();
         foreach($menu as &$v){
             $p_id = $v['id'];
-            $v['items'] = Rule::where(['is_visible' => 1,'p_id' => $p_id])->select();
+            $v['items'] = Rule::where(['is_visible' => 1,'p_id' => $p_id])->cache(3600)->select();
         }
         //渲染输出
         $this->assign('menu',$menu);
         //查询当前用户的所属权限组
         $admin = session('admin');
         $admin_id = $admin['id'];
-        $group_access_info = GroupAccess::where(['uid' => $admin_id])->find();
+        $group_access_info = GroupAccess::where(['uid' => $admin_id])->cache(3600)->find();
 
         //获取用户组ID
         $group_id = $group_access_info['group_id'];
         //根据用户组ID查询权限组的menu_id
-        $group_info = Group::where(['id' => $group_id])->find();
+        $group_info = Group::where(['id' => $group_id])->cache(3600)->find();
 
         //获取当前登录用户的一级菜单组
         $menu_info = $group_info['menu_id'];

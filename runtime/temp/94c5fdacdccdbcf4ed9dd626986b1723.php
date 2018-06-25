@@ -1,4 +1,4 @@
-<?php /*a:6:{s:69:"E:\www-web\ThinkPHP_CMS\application\admin\view\database\database.html";i:1529743838;s:65:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\static.html";i:1529542576;s:63:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\menu.html";i:1528855708;s:65:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\header.html";i:1529387612;s:62:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\nav.html";i:1528625773;s:65:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\footer.html";i:1529573972;}*/ ?>
+<?php /*a:6:{s:69:"E:\www-web\ThinkPHP_CMS\application\admin\view\system\field_type.html";i:1529748673;s:65:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\static.html";i:1529542576;s:63:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\menu.html";i:1528855708;s:65:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\header.html";i:1529387612;s:62:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\nav.html";i:1528625773;s:65:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\footer.html";i:1529573972;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -178,16 +178,15 @@
         <a href="">首页</a> > <a href=""><?php echo htmlentities($controller_name); ?></a> > <a href=""><?php echo htmlentities($action_name); ?></a>
     </p>
 </div>
-                        <button onclick="backups()" class="btn btn-primary fr icon-save"><?php echo htmlentities(app('lang')->get('backups')); ?></button>
-                        <button onclick="add()" class="btn btn-primary fr icon-plus"><?php echo htmlentities(app('lang')->get('add_table')); ?></button>
+                        <button onclick="add()" class="btn btn-primary fr icon-plus"><?php echo htmlentities(app('lang')->get('add_field_type')); ?></button>
                         <!--<a onclick="window.history.back();"><button class="btn btn-primary fr">返回上层</button></a>-->
                         <script>
                             function add() {
-                                $.get('<?php echo url("Database/add_table"); ?>', function (data) {
+                                $.get('<?php echo url("System/add_field_type"); ?>', function (data) {
                                     if (data.status == 400) {
                                         layer.msg(data.tips);
                                     } else {
-                                        location.href = "<?php echo url('Database/add_table'); ?>";
+                                        location.href = "<?php echo url('System/add_field_type'); ?>";
                                     }
                                 })
                             }
@@ -201,34 +200,29 @@
                     <thead>
                     <tr>
                         <th>id</th>
-                        <th>表名</th>
-                        <th>数据量(条)</th>
-                        <th>引擎</th>
-                        <th>备注</th>
-                        <th>创建时间</th>
+                        <th>字段类型</th>
                         <th>操作</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <?php if(is_array($info) || $info instanceof \think\Collection || $info instanceof \think\Paginator): $k = 0; $__LIST__ = $info;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($k % 2 );++$k;?>
+                    <?php if(is_array($info) || $info instanceof \think\Collection || $info instanceof \think\Paginator): $i = 0; $__LIST__ = $info;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($i % 2 );++$i;?>
                     <tr class="cen">
-                        <td><?php echo htmlentities($k); ?></td>
-                        <td ><?php echo htmlentities($v['Name']); ?></td>
-                        <td ><?php echo htmlentities($v['Rows']); ?></td>
-                        <td><?php echo htmlentities($v['Engine']); ?></td>
-                        <td><?php echo htmlentities($v['Comment']); ?></td>
-                        <td><?php echo htmlentities($v['Create_time']); ?></td>
+                        <td><?php echo htmlentities($v['id']); ?></td>
+                        <td><?php echo htmlentities($v['field_type']); ?></td>
 
                         <td>
-                            <a href="javascript:void(0)" onclick="editor(this,'<?php echo htmlentities($v['Name']); ?>')" title="<?php echo htmlentities(app('lang')->get('editor_field')); ?>" class="mr-5 icon-edit"><?php echo htmlentities(app('lang')->get('editor_field')); ?></a>
-                            <a href="javascript:void(0)" onclick="editor_table(this,'<?php echo htmlentities($v['Name']); ?>')" title="<?php echo htmlentities(app('lang')->get('editor')); ?>" class="mr-5 icon-edit"><?php echo htmlentities(app('lang')->get('editor')); ?></a>
+                            <a href="javascript:void(0)" onclick="editor(this,<?php echo htmlentities($v['id']); ?>)" title="<?php echo htmlentities(app('lang')->get('editor')); ?>"
+                               class="mr-5 icon-edit"><?php echo htmlentities(app('lang')->get('editor')); ?></a>
                             <!--<a title="详情" class="mr-5">详情</a>-->
-                            <a href="javascript:void(0)" onclick="del(this,'<?php echo htmlentities($v['Name']); ?>')" title="<?php echo htmlentities(app('lang')->get('del')); ?>" class="icon-trash"><?php echo htmlentities(app('lang')->get('del')); ?></a>
+                            <a href="javascript:void(0)" onclick="del(this,<?php echo htmlentities($v['id']); ?>)" title="<?php echo htmlentities(app('lang')->get('del')); ?>"
+                               class="icon-trash"><?php echo htmlentities(app('lang')->get('del')); ?></a>
                         </td>
                     </tr>
                     <?php endforeach; endif; else: echo "" ;endif; ?>
                     </tbody>
                 </table>
+                <?php echo $info; ?>
+
                 <!--开始::结束-->
             </div>
         </main>
@@ -278,67 +272,38 @@
     </div>
 </div>
 <script type="text/javascript">
-    // 数据备份
-    function backups() {
-        layer.confirm('确定备份数据吗？', {
-            title:'系统提示',
-            btn: ['确定','取消']
-        }, function(){
-            $.post('<?php echo url("Database/backups"); ?>', function (data) {
-                // 判断是否成功
-                if (data.status == 200) {
-                    layer.msg(data.tips);
-                    //setTimeout("location.reload();",500);
-                } else {
-                    layer.msg(data.tips);
-                }
-            });
-        });
-    }
-
     // 删除数据方法
-    function del(obj, tableName) {
+    function del(obj, id) {
         layer.confirm('确定删除吗？', {
             title: '系统提示',
             btn: ['确定', '取消']
         }, function () {
-            $.post('<?php echo url("Database/del_table"); ?>', {tableName: tableName}, function (data) {
+            $.post('<?php echo url("System/del_field_type"); ?>', {id: id}, function (data) {
                 // 判断是否成功
                 if (data.status == 200) {
                     $(obj).parent().parent().remove();
                     layer.msg(data.tips);
-                    setTimeout("location.reload();", 500);
-                } else {
+                    setTimeout("location.reload();", 2000);
+                } else if (data.status == 400) {
+                    layer.msg(data.tips);
+                } else if (data.status == 600) {
                     layer.msg(data.tips);
                 }
             });
         });
     }
 
-    // 编辑表字段方法
-    function editor(obj, tableName) {
-        $.get('<?php echo url("Database/table_field"); ?>', {tableName: tableName}, function (data) {
+    // 编辑数据方法
+    function editor(obj, id) {
+        $.get('<?php echo url("System/editor_field_type"); ?>',{id:id}, function (data) {
             // 判断是否成功
             if (data.status == 400) {
                 layer.msg(data.tips);
             } else {
-                location.href = "<?php echo url('Database/table_field'); ?>" + "?tableName=" + tableName;
+                location.href = "<?php echo url('System/editor_field_type'); ?>" + "?id=" + id;
             }
         });
     }
-
-    // 编辑数据表方法
-    function editor_table(obj, tableName) {
-        $.get('<?php echo url("Database/editor_table"); ?>', {tableName: tableName}, function (data) {
-            // 判断是否成功
-            if (data.status == 400) {
-                layer.msg(data.tips);
-            } else {
-                location.href = "<?php echo url('Database/editor_table'); ?>" + "?tableName=" + tableName;
-            }
-        });
-    }
-
 </script>
 </body>
 </html>
