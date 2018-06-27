@@ -98,7 +98,11 @@ class System extends Base
         $uid = $userinfo['id'];
         $res = $Auth->check(MODULE_NAME . '/' . CONTROLLER_NAME . '/' . ACTION_NAME, $uid);
         if ($res) {
-            $info = Log::order('id desc')->paginate(15);
+            $where = [];
+            if (input('get.search')){
+                $where[] = ['title', 'like', '%'.input('get.search').'%'];
+            }
+            $info = Log::where($where)->order('id desc')->paginate(15,false,['query'=>request()->param()]);
             $this->assign(array(
                 'info' => $info,
                 'display' => 'System',

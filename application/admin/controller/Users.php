@@ -22,7 +22,14 @@ class Users extends Base
         $uid = $userinfo['id'];
         $res = $Auth->check(MODULE_NAME . '/' . CONTROLLER_NAME . '/' . ACTION_NAME, $uid);
         if ($res) {
-            $info = \app\common\model\Users::order('id desc')->paginate(15);
+            $where = [];
+            if (input('get.search')){
+                $where[] = ['username', 'like', '%'.input('get.search').'%'];
+            }
+
+            $info = \app\common\model\Users::where($where)
+                                            ->order('id desc')
+                                            ->paginate(15,false,['query'=>request()->param()]);
             $this->assign(array(
                 'display' => 'Users',
                 'current' => 'users_index',
