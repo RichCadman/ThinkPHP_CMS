@@ -1,0 +1,1859 @@
+---------------------------------------------------------------
+[ 2018-06-27T10:03:48+08:00 ] 127.0.0.1 GET /admin/news/add_news
+[ info ] 127.0.0.5/admin/news/add_news [运行时间：0.149226s][吞吐率：6.70req/s] [内存消耗：1,654.12kb] [文件加载：74]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\application\admin\\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/admin/news/add_news' => '',
+)
+---------------------------------------------------------------
+[ 2018-06-27T10:03:49+08:00 ] 127.0.0.1 GET /admin/login/login
+[ info ] 127.0.0.5/admin/login/login [运行时间：0.188645s][吞吐率：5.30req/s] [内存消耗：2,617.86kb] [文件加载：86]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\application\admin\\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=dq8bq9g65vrvdj9oksq4sg9me7',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/admin/login/login' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\www-web\ThinkPHP_CMS\application\admin\view\login\login.html [ array (
+  0 => 'system',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.007794s ] mysql:host=127.0.0.1;dbname=thinkphp_cms;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_system` [ RunTime:0.094455s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_system` LIMIT 1 [ RunTime:0.002357s ]
+---------------------------------------------------------------
+[ 2018-06-27T10:03:49+08:00 ] 127.0.0.1 GET /admin/login/login
+[ info ] 127.0.0.5/admin/login/login [运行时间：0.108428s][吞吐率：9.22req/s] [内存消耗：2,617.86kb] [文件加载：86]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\application\admin\\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=dq8bq9g65vrvdj9oksq4sg9me7',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/admin/login/login' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\www-web\ThinkPHP_CMS\application\admin\view\login\login.html [ array (
+  0 => 'system',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000923s ] mysql:host=127.0.0.1;dbname=thinkphp_cms;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_system` [ RunTime:0.028539s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_system` LIMIT 1 [ RunTime:0.000429s ]
+---------------------------------------------------------------
+[ 2018-06-27T10:03:50+08:00 ] 127.0.0.1 GET /captcha
+[ info ] 127.0.0.5/captcha [运行时间：0.078954s][吞吐率：12.67req/s] [内存消耗：1,182.66kb] [文件加载：56]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'rule' => 'captcha/<id?>',
+  'route' => '\\think\\captcha\\CaptchaController@index',
+  'option' => 
+  array (
+    'merge_rule_regex' => false,
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=dq8bq9g65vrvdj9oksq4sg9me7',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.5/admin/login/login',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/captcha' => '',
+)
+---------------------------------------------------------------
+[ 2018-06-27T10:03:50+08:00 ] 127.0.0.1 GET /captcha
+[ info ] 127.0.0.5/captcha [运行时间：0.036722s][吞吐率：27.23req/s] [内存消耗：1,182.65kb] [文件加载：56]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'rule' => 'captcha/<id?>',
+  'route' => '\\think\\captcha\\CaptchaController@index',
+  'option' => 
+  array (
+    'merge_rule_regex' => false,
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=dq8bq9g65vrvdj9oksq4sg9me7',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.5/admin/login/login',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/captcha' => '',
+)
+---------------------------------------------------------------
+[ 2018-06-27T10:03:57+08:00 ] 127.0.0.1 POST /admin/login/login_do
+[ info ] 127.0.0.5/admin/login/login_do [运行时间：0.197108s][吞吐率：5.07req/s] [内存消耗：2,661.45kb] [文件加载：87]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\application\admin\\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=dq8bq9g65vrvdj9oksq4sg9me7',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.5/admin/login/login',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://127.0.0.5',
+  'accept' => '*/*',
+  'content-length' => '39',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/admin/login/login_do' => '',
+  'username' => 'admin',
+  'password' => '123',
+  'verify' => 'pthp',
+)
+[ info ] [ DB ] INIT mysql
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000839s ] mysql:host=127.0.0.1;dbname=thinkphp_cms;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_admin` [ RunTime:0.031540s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_admin` WHERE  `password` = '202cb962ac59075b964b07152d234b70'  AND `username` = 'admin' LIMIT 1 [ RunTime:0.001109s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000433s ]
+[ sql ] [ SQL ] UPDATE `cms_admin`  SET `unique_id` = 47301 , `last_time` = '2018-06-27 10:03:57' , `login_count` = 28  WHERE  `id` = 1 [ RunTime:0.027635s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000480s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_log` [ RunTime:0.037244s ]
+[ sql ] [ SQL ] INSERT INTO `cms_log` (`name` , `title` , `type` , `ip` , `browser` , `time`) VALUES ('admin' , '登陆系统' , '登陆' , '127.0.0.1' , 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36' , '2018-06-27 10:03:57') [ RunTime:0.041216s ]
+---------------------------------------------------------------
+[ 2018-06-27T10:03:57+08:00 ] 127.0.0.1 POST /admin/login/login_do
+[ info ] 127.0.0.5/admin/login/login_do [运行时间：0.046274s][吞吐率：21.61req/s] [内存消耗：1,898.66kb] [文件加载：80]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\application\admin\\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=dq8bq9g65vrvdj9oksq4sg9me7',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.5/admin/login/login',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://127.0.0.5',
+  'accept' => '*/*',
+  'content-length' => '39',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/admin/login/login_do' => '',
+  'username' => 'admin',
+  'password' => '123',
+  'verify' => 'pthp',
+)
+---------------------------------------------------------------
+[ 2018-06-27T10:03:57+08:00 ] 127.0.0.1 GET /admin/index/index
+[ info ] 127.0.0.5/admin/index/index [运行时间：0.267915s][吞吐率：3.73req/s] [内存消耗：2,906.76kb] [文件加载：93]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\application\admin\\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=dq8bq9g65vrvdj9oksq4sg9me7',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.5/admin/login/login',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/admin/index/index' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\www-web\ThinkPHP_CMS\application\admin\view\index\index.html [ array (
+  0 => 'system',
+  1 => 'controller_name',
+  2 => 'action_name',
+  3 => 'menu',
+  4 => 'menu_arr',
+  5 => 'rule_arr',
+  6 => 'display',
+  7 => 'config',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000738s ] mysql:host=127.0.0.1;dbname=thinkphp_cms;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_system` [ RunTime:0.021797s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_system` LIMIT 1 [ RunTime:0.000407s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_rule` [ RunTime:0.028373s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/Index' LIMIT 1 [ RunTime:0.000487s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/Index/index' LIMIT 1 [ RunTime:0.000603s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `is_visible` = 1  AND `p_id` = 0 ORDER BY `show_order` DESC [ RunTime:0.000668s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `is_visible` = 1  AND `p_id` = 41 [ RunTime:0.000642s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `is_visible` = 1  AND `p_id` = 27 [ RunTime:0.000583s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `is_visible` = 1  AND `p_id` = 19 [ RunTime:0.000740s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `is_visible` = 1  AND `p_id` = 17 [ RunTime:0.000638s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `is_visible` = 1  AND `p_id` = 10 [ RunTime:0.000601s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `is_visible` = 1  AND `p_id` = 1 [ RunTime:0.000596s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_group_access` [ RunTime:0.031493s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_group_access` WHERE  `uid` = 1 LIMIT 1 [ RunTime:0.000625s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_group` [ RunTime:0.037850s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_group` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000471s ]
+---------------------------------------------------------------
+[ 2018-06-27T10:04:07+08:00 ] 127.0.0.1 GET /admin/users/users_index
+[ info ] 127.0.0.5/admin/users/users_index [运行时间：0.245818s][吞吐率：4.07req/s] [内存消耗：3,185.23kb] [文件加载：101]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\application\admin\\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=dq8bq9g65vrvdj9oksq4sg9me7',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.5/admin/index/index',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/admin/users/users_index' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\www-web\ThinkPHP_CMS\application\admin\view\users\users_index.html [ array (
+  0 => 'system',
+  1 => 'controller_name',
+  2 => 'action_name',
+  3 => 'menu',
+  4 => 'menu_arr',
+  5 => 'rule_arr',
+  6 => 'display',
+  7 => 'current',
+  8 => 'info',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002070s ] mysql:host=127.0.0.1;dbname=thinkphp_cms;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_system` [ RunTime:0.023181s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_system` LIMIT 1 [ RunTime:0.000428s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_rule` [ RunTime:0.021403s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/Users' LIMIT 1 [ RunTime:0.000486s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/Users/users_index' LIMIT 1 [ RunTime:0.000540s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_group_access` [ RunTime:0.021976s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_group_access` `a` INNER JOIN `cms_group` `g` ON `a`.`group_id`=`g`.`id` WHERE  ( a.uid='1' and g.status='1' ) [ RunTime:0.010595s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `type` = 1  AND `status` = 1  AND `id` IN (2,3,4,5,6,7,8,9,11,12,13,14,15,16,18,25,26,52,53,54,55,20,21,22,23,24,45,46,47,48,49,50,51,28,29,30,31,32,33,34,35,37,38,39,40,42,43,44) [ RunTime:0.000716s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_users` [ RunTime:0.066967s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `cms_users` LIMIT 1 [ RunTime:0.000656s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_users` ORDER BY `id` DESC LIMIT 0,15 [ RunTime:0.000360s ]
+---------------------------------------------------------------
+[ 2018-06-27T10:04:20+08:00 ] 127.0.0.1 GET /admin/news/news_type
+[ info ] 127.0.0.5/admin/news/news_type [运行时间：0.307001s][吞吐率：3.26req/s] [内存消耗：3,221.62kb] [文件加载：101]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\application\admin\\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=dq8bq9g65vrvdj9oksq4sg9me7',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.5/admin/users/users_index',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/admin/news/news_type' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\www-web\ThinkPHP_CMS\application\admin\view\news\news_type.html [ array (
+  0 => 'system',
+  1 => 'controller_name',
+  2 => 'action_name',
+  3 => 'menu',
+  4 => 'menu_arr',
+  5 => 'rule_arr',
+  6 => 'info',
+  7 => 'display',
+  8 => 'current',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000874s ] mysql:host=127.0.0.1;dbname=thinkphp_cms;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_system` [ RunTime:0.019763s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_system` LIMIT 1 [ RunTime:0.000436s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_rule` [ RunTime:0.019565s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/News' LIMIT 1 [ RunTime:0.000601s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/News/news_type' LIMIT 1 [ RunTime:0.000437s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_group_access` [ RunTime:0.019112s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_group_access` `a` INNER JOIN `cms_group` `g` ON `a`.`group_id`=`g`.`id` WHERE  ( a.uid='1' and g.status='1' ) [ RunTime:0.000432s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `type` = 1  AND `status` = 1  AND `id` IN (2,3,4,5,6,7,8,9,11,12,13,14,15,16,18,25,26,52,53,54,55,20,21,22,23,24,45,46,47,48,49,50,51,28,29,30,31,32,33,34,35,37,38,39,40,42,43,44) [ RunTime:0.000724s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_news_type` [ RunTime:0.117255s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `cms_news_type` WHERE  `p_id` = 0 LIMIT 1 [ RunTime:0.001725s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_news_type` WHERE  `p_id` = 0 ORDER BY `id` DESC LIMIT 0,3 [ RunTime:0.001642s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_news_type` WHERE  `p_id` = 3 [ RunTime:0.001125s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_news_type` WHERE  `p_id` = 2 [ RunTime:0.001233s ]
+---------------------------------------------------------------
+[ 2018-06-27T10:05:07+08:00 ] 127.0.0.1 GET /admin/news/news
+[ info ] 127.0.0.5/admin/news/news [运行时间：0.234251s][吞吐率：4.27req/s] [内存消耗：3,338.88kb] [文件加载：105]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\application\admin\\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=dq8bq9g65vrvdj9oksq4sg9me7',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.5/admin/news/news_type',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/admin/news/news' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\www-web\ThinkPHP_CMS\application\admin\view\news\news.html [ array (
+  0 => 'system',
+  1 => 'controller_name',
+  2 => 'action_name',
+  3 => 'menu',
+  4 => 'menu_arr',
+  5 => 'rule_arr',
+  6 => 'info',
+  7 => 'display',
+  8 => 'current',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000905s ] mysql:host=127.0.0.1;dbname=thinkphp_cms;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_system` [ RunTime:0.019420s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_system` LIMIT 1 [ RunTime:0.000566s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_rule` [ RunTime:0.019442s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/News' LIMIT 1 [ RunTime:0.000506s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/News/news' LIMIT 1 [ RunTime:0.000435s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_group_access` [ RunTime:0.019858s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_group_access` `a` INNER JOIN `cms_group` `g` ON `a`.`group_id`=`g`.`id` WHERE  ( a.uid='1' and g.status='1' ) [ RunTime:0.000644s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `type` = 1  AND `status` = 1  AND `id` IN (2,3,4,5,6,7,8,9,11,12,13,14,15,16,18,25,26,52,53,54,55,20,21,22,23,24,45,46,47,48,49,50,51,28,29,30,31,32,33,34,35,37,38,39,40,42,43,44) [ RunTime:0.000814s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_news` [ RunTime:0.060989s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `cms_news` LIMIT 1 [ RunTime:0.000434s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_news` ORDER BY `id` DESC LIMIT 0,15 [ RunTime:0.000458s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_news_type` [ RunTime:0.019934s ]
+[ sql ] [ SQL ] SELECT `news_type_name`,`id` FROM `cms_news_type` WHERE  `id` IN (5) [ RunTime:0.000478s ]
+---------------------------------------------------------------
+[ 2018-06-27T10:05:12+08:00 ] 127.0.0.1 GET /admin/news/editor_news?id=3
+[ info ] 127.0.0.5/admin/news/editor_news?id=3 [运行时间：0.168602s][吞吐率：5.93req/s] [内存消耗：3,208.85kb] [文件加载：100]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\application\admin\\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=dq8bq9g65vrvdj9oksq4sg9me7',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.5/admin/news/news',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => '*/*',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/admin/news/editor_news' => '',
+  'id' => '3',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\www-web\ThinkPHP_CMS\application\admin\view\news\editor_news.html [ array (
+  0 => 'system',
+  1 => 'controller_name',
+  2 => 'action_name',
+  3 => 'menu',
+  4 => 'menu_arr',
+  5 => 'rule_arr',
+  6 => 'display',
+  7 => 'current',
+  8 => 'newsType',
+  9 => 'info',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000776s ] mysql:host=127.0.0.1;dbname=thinkphp_cms;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_system` [ RunTime:0.018589s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_system` LIMIT 1 [ RunTime:0.000437s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_rule` [ RunTime:0.018430s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/News' LIMIT 1 [ RunTime:0.000490s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/News/editor_news' LIMIT 1 [ RunTime:0.000397s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_group_access` [ RunTime:0.018511s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_group_access` `a` INNER JOIN `cms_group` `g` ON `a`.`group_id`=`g`.`id` WHERE  ( a.uid='1' and g.status='1' ) [ RunTime:0.000459s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `type` = 1  AND `status` = 1  AND `id` IN (2,3,4,5,6,7,8,9,11,12,13,14,15,16,18,25,26,52,53,54,55,20,21,22,23,24,45,46,47,48,49,50,51,28,29,30,31,32,33,34,35,37,38,39,40,42,43,44) [ RunTime:0.000656s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_news` [ RunTime:0.017920s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_news` WHERE  `id` = 3 LIMIT 1 [ RunTime:0.000398s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_news_type` [ RunTime:0.018060s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_news_type` WHERE  `p_id` = 0 ORDER BY `show_order` DESC [ RunTime:0.000467s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_news_type` WHERE  `p_id` = 2 [ RunTime:0.000377s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_news_type` WHERE  `p_id` = 3 [ RunTime:0.000357s ]
+---------------------------------------------------------------
+[ 2018-06-27T10:05:12+08:00 ] 127.0.0.1 GET /admin/news/editor_news?id=3
+[ info ] 127.0.0.5/admin/news/editor_news?id=3 [运行时间：0.196511s][吞吐率：5.09req/s] [内存消耗：3,055.03kb] [文件加载：98]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\application\admin\\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=dq8bq9g65vrvdj9oksq4sg9me7',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.5/admin/news/news',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/admin/news/editor_news' => '',
+  'id' => '3',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\www-web\ThinkPHP_CMS\application\admin\view\news\editor_news.html [ array (
+  0 => 'system',
+  1 => 'controller_name',
+  2 => 'action_name',
+  3 => 'menu',
+  4 => 'menu_arr',
+  5 => 'rule_arr',
+  6 => 'display',
+  7 => 'current',
+  8 => 'newsType',
+  9 => 'info',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000730s ] mysql:host=127.0.0.1;dbname=thinkphp_cms;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_system` [ RunTime:0.023055s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_system` LIMIT 1 [ RunTime:0.000578s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_rule` [ RunTime:0.026317s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/News' LIMIT 1 [ RunTime:0.000606s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/News/editor_news' LIMIT 1 [ RunTime:0.000522s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_group_access` [ RunTime:0.023685s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_group_access` `a` INNER JOIN `cms_group` `g` ON `a`.`group_id`=`g`.`id` WHERE  ( a.uid='1' and g.status='1' ) [ RunTime:0.001202s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `type` = 1  AND `status` = 1  AND `id` IN (2,3,4,5,6,7,8,9,11,12,13,14,15,16,18,25,26,52,53,54,55,20,21,22,23,24,45,46,47,48,49,50,51,28,29,30,31,32,33,34,35,37,38,39,40,42,43,44) [ RunTime:0.000932s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_news` [ RunTime:0.022827s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_news` WHERE  `id` = 3 LIMIT 1 [ RunTime:0.000427s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_news_type` [ RunTime:0.022519s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_news_type` WHERE  `p_id` = 0 ORDER BY `show_order` DESC [ RunTime:0.000482s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_news_type` WHERE  `p_id` = 2 [ RunTime:0.000316s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_news_type` WHERE  `p_id` = 3 [ RunTime:0.000436s ]
+---------------------------------------------------------------
+[ 2018-06-27T10:05:40+08:00 ] 127.0.0.1 POST /admin/news/editor_news_do
+[ info ] 127.0.0.5/admin/news/editor_news_do [运行时间：0.252143s][吞吐率：3.97req/s] [内存消耗：2,941.74kb] [文件加载：93]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\application\admin\\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=dq8bq9g65vrvdj9oksq4sg9me7',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.5/admin/news/editor_news?id=3',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://127.0.0.5',
+  'accept' => '*/*',
+  'content-length' => '681',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/admin/news/editor_news_do' => '',
+  'id' => '3',
+  'title' => '今年的济南热不热？',
+  'short_title' => '今年的济南热不热？',
+  'author' => '济南',
+  'click_num' => '1121',
+  'news_type_id' => '5',
+  'state' => '1',
+  'create_time' => '2018-06-21',
+  'short_content' => '今年的济南热不热？',
+  'content' => '<p>今年的济南热不热？</p><p>&nbsp;&nbsp;&nbsp;&nbsp;热不热自己心里没点B数吗？<br/></p><p><br/></p>',
+)
+[ info ] [ DB ] INIT mysql
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000822s ] mysql:host=127.0.0.1;dbname=thinkphp_cms;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_system` [ RunTime:0.018256s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_system` LIMIT 1 [ RunTime:0.000392s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_rule` [ RunTime:0.018193s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/News' LIMIT 1 [ RunTime:0.000472s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/News/editor_news_do' LIMIT 1 [ RunTime:0.000396s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_news` [ RunTime:0.018147s ]
+[ sql ] [ SQL ] UPDATE `cms_news`  SET `id` = 3 , `title` = '今年的济南热不热？' , `short_title` = '今年的济南热不热？' , `author` = '济南' , `click_num` = 1121 , `news_type_id` = 5 , `state` = 1 , `create_time` = '2018-06-21' , `short_content` = '今年的济南热不热？' , `content` = '<p>今年的济南热不热？</p><p>&nbsp;&nbsp;&nbsp;&nbsp;热不热自己心里没点B数吗？<br/></p><p><br/></p>'  WHERE  `id` = 3 [ RunTime:0.046345s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_log` [ RunTime:0.063099s ]
+[ sql ] [ SQL ] INSERT INTO `cms_log` (`name` , `title` , `type` , `ip` , `browser` , `time`) VALUES ('admin' , '编辑资讯' , '编辑' , '127.0.0.1' , 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36' , '2018-06-27 10:05:40') [ RunTime:0.024866s ]
+---------------------------------------------------------------
+[ 2018-06-27T10:05:41+08:00 ] 127.0.0.1 GET /admin/news/editor_news?id=3
+[ info ] 127.0.0.5/admin/news/editor_news?id=3 [运行时间：0.187521s][吞吐率：5.33req/s] [内存消耗：3,055.46kb] [文件加载：98]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\application\admin\\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=dq8bq9g65vrvdj9oksq4sg9me7',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.5/admin/news/editor_news?id=3',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/admin/news/editor_news' => '',
+  'id' => '3',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\www-web\ThinkPHP_CMS\application\admin\view\news\editor_news.html [ array (
+  0 => 'system',
+  1 => 'controller_name',
+  2 => 'action_name',
+  3 => 'menu',
+  4 => 'menu_arr',
+  5 => 'rule_arr',
+  6 => 'display',
+  7 => 'current',
+  8 => 'newsType',
+  9 => 'info',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000862s ] mysql:host=127.0.0.1;dbname=thinkphp_cms;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_system` [ RunTime:0.021393s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_system` LIMIT 1 [ RunTime:0.000428s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_rule` [ RunTime:0.019751s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/News' LIMIT 1 [ RunTime:0.000507s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/News/editor_news' LIMIT 1 [ RunTime:0.000432s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_group_access` [ RunTime:0.019186s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_group_access` `a` INNER JOIN `cms_group` `g` ON `a`.`group_id`=`g`.`id` WHERE  ( a.uid='1' and g.status='1' ) [ RunTime:0.000438s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `type` = 1  AND `status` = 1  AND `id` IN (2,3,4,5,6,7,8,9,11,12,13,14,15,16,18,25,26,52,53,54,55,20,21,22,23,24,45,46,47,48,49,50,51,28,29,30,31,32,33,34,35,37,38,39,40,42,43,44) [ RunTime:0.000643s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_news` [ RunTime:0.020491s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_news` WHERE  `id` = 3 LIMIT 1 [ RunTime:0.000444s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_news_type` [ RunTime:0.020753s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_news_type` WHERE  `p_id` = 0 ORDER BY `show_order` DESC [ RunTime:0.000447s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_news_type` WHERE  `p_id` = 2 [ RunTime:0.000330s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_news_type` WHERE  `p_id` = 3 [ RunTime:0.000322s ]
+---------------------------------------------------------------
+[ 2018-06-27T10:05:58+08:00 ] 127.0.0.1 GET /admin/news/news
+[ info ] 127.0.0.5/admin/news/news [运行时间：0.178552s][吞吐率：5.60req/s] [内存消耗：3,189.77kb] [文件加载：103]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\application\admin\\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=dq8bq9g65vrvdj9oksq4sg9me7',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.5/admin/news/editor_news?id=3',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/admin/news/news' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\www-web\ThinkPHP_CMS\application\admin\view\news\news.html [ array (
+  0 => 'system',
+  1 => 'controller_name',
+  2 => 'action_name',
+  3 => 'menu',
+  4 => 'menu_arr',
+  5 => 'rule_arr',
+  6 => 'info',
+  7 => 'display',
+  8 => 'current',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000797s ] mysql:host=127.0.0.1;dbname=thinkphp_cms;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_system` [ RunTime:0.018705s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_system` LIMIT 1 [ RunTime:0.000407s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_rule` [ RunTime:0.018988s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/News' LIMIT 1 [ RunTime:0.000601s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/News/news' LIMIT 1 [ RunTime:0.000424s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_group_access` [ RunTime:0.018510s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_group_access` `a` INNER JOIN `cms_group` `g` ON `a`.`group_id`=`g`.`id` WHERE  ( a.uid='1' and g.status='1' ) [ RunTime:0.000450s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `type` = 1  AND `status` = 1  AND `id` IN (2,3,4,5,6,7,8,9,11,12,13,14,15,16,18,25,26,52,53,54,55,20,21,22,23,24,45,46,47,48,49,50,51,28,29,30,31,32,33,34,35,37,38,39,40,42,43,44) [ RunTime:0.000701s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_news` [ RunTime:0.020515s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `cms_news` LIMIT 1 [ RunTime:0.000432s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_news` ORDER BY `id` DESC LIMIT 0,15 [ RunTime:0.000430s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_news_type` [ RunTime:0.019553s ]
+[ sql ] [ SQL ] SELECT `news_type_name`,`id` FROM `cms_news_type` WHERE  `id` IN (5) [ RunTime:0.000382s ]
+---------------------------------------------------------------
+[ 2018-06-27T10:06:10+08:00 ] 127.0.0.1 GET /admin/news/editor_news?id=1
+[ info ] 127.0.0.5/admin/news/editor_news?id=1 [运行时间：0.185669s][吞吐率：5.39req/s] [内存消耗：3,054.79kb] [文件加载：98]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\application\admin\\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=dq8bq9g65vrvdj9oksq4sg9me7',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.5/admin/news/news',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => '*/*',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/admin/news/editor_news' => '',
+  'id' => '1',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\www-web\ThinkPHP_CMS\application\admin\view\news\editor_news.html [ array (
+  0 => 'system',
+  1 => 'controller_name',
+  2 => 'action_name',
+  3 => 'menu',
+  4 => 'menu_arr',
+  5 => 'rule_arr',
+  6 => 'display',
+  7 => 'current',
+  8 => 'newsType',
+  9 => 'info',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000850s ] mysql:host=127.0.0.1;dbname=thinkphp_cms;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_system` [ RunTime:0.018414s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_system` LIMIT 1 [ RunTime:0.000410s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_rule` [ RunTime:0.018122s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/News' LIMIT 1 [ RunTime:0.000624s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/News/editor_news' LIMIT 1 [ RunTime:0.000484s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_group_access` [ RunTime:0.023039s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_group_access` `a` INNER JOIN `cms_group` `g` ON `a`.`group_id`=`g`.`id` WHERE  ( a.uid='1' and g.status='1' ) [ RunTime:0.000729s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `type` = 1  AND `status` = 1  AND `id` IN (2,3,4,5,6,7,8,9,11,12,13,14,15,16,18,25,26,52,53,54,55,20,21,22,23,24,45,46,47,48,49,50,51,28,29,30,31,32,33,34,35,37,38,39,40,42,43,44) [ RunTime:0.001269s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_news` [ RunTime:0.026098s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_news` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000580s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_news_type` [ RunTime:0.023939s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_news_type` WHERE  `p_id` = 0 ORDER BY `show_order` DESC [ RunTime:0.000461s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_news_type` WHERE  `p_id` = 2 [ RunTime:0.000295s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_news_type` WHERE  `p_id` = 3 [ RunTime:0.000268s ]
+---------------------------------------------------------------
+[ 2018-06-27T10:06:10+08:00 ] 127.0.0.1 GET /admin/news/editor_news?id=1
+[ info ] 127.0.0.5/admin/news/editor_news?id=1 [运行时间：0.192994s][吞吐率：5.18req/s] [内存消耗：3,054.98kb] [文件加载：98]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\application\admin\\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=dq8bq9g65vrvdj9oksq4sg9me7',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.5/admin/news/news',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/admin/news/editor_news' => '',
+  'id' => '1',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\www-web\ThinkPHP_CMS\application\admin\view\news\editor_news.html [ array (
+  0 => 'system',
+  1 => 'controller_name',
+  2 => 'action_name',
+  3 => 'menu',
+  4 => 'menu_arr',
+  5 => 'rule_arr',
+  6 => 'display',
+  7 => 'current',
+  8 => 'newsType',
+  9 => 'info',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000802s ] mysql:host=127.0.0.1;dbname=thinkphp_cms;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_system` [ RunTime:0.029367s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_system` LIMIT 1 [ RunTime:0.000398s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_rule` [ RunTime:0.021366s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/News' LIMIT 1 [ RunTime:0.000461s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/News/editor_news' LIMIT 1 [ RunTime:0.000348s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_group_access` [ RunTime:0.020922s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_group_access` `a` INNER JOIN `cms_group` `g` ON `a`.`group_id`=`g`.`id` WHERE  ( a.uid='1' and g.status='1' ) [ RunTime:0.000455s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `type` = 1  AND `status` = 1  AND `id` IN (2,3,4,5,6,7,8,9,11,12,13,14,15,16,18,25,26,52,53,54,55,20,21,22,23,24,45,46,47,48,49,50,51,28,29,30,31,32,33,34,35,37,38,39,40,42,43,44) [ RunTime:0.000807s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_news` [ RunTime:0.022250s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_news` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000922s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_news_type` [ RunTime:0.020008s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_news_type` WHERE  `p_id` = 0 ORDER BY `show_order` DESC [ RunTime:0.000448s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_news_type` WHERE  `p_id` = 2 [ RunTime:0.000377s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_news_type` WHERE  `p_id` = 3 [ RunTime:0.000550s ]
+---------------------------------------------------------------
+[ 2018-06-27T10:06:17+08:00 ] 127.0.0.1 POST /admin/news/editor_news_do
+[ info ] 127.0.0.5/admin/news/editor_news_do [运行时间：0.207479s][吞吐率：4.82req/s] [内存消耗：2,940.83kb] [文件加载：93]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\application\admin\\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=dq8bq9g65vrvdj9oksq4sg9me7',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.5/admin/news/editor_news?id=1',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://127.0.0.5',
+  'accept' => '*/*',
+  'content-length' => '394',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/admin/news/editor_news_do' => '',
+  'id' => '1',
+  'title' => '小猪佩奇身上纹。。。',
+  'short_title' => '小猪佩奇',
+  'author' => '喜羊羊',
+  'click_num' => '200',
+  'news_type_id' => '5',
+  'state' => '1',
+  'create_time' => '2018-06-21',
+  'short_content' => '谁是社会人',
+  'content' => '<p>小猪佩奇身上纹</p>',
+)
+[ info ] [ DB ] INIT mysql
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000837s ] mysql:host=127.0.0.1;dbname=thinkphp_cms;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_system` [ RunTime:0.018039s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_system` LIMIT 1 [ RunTime:0.000384s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_rule` [ RunTime:0.017932s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/News' LIMIT 1 [ RunTime:0.000529s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/News/editor_news_do' LIMIT 1 [ RunTime:0.000391s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_news` [ RunTime:0.018214s ]
+[ sql ] [ SQL ] UPDATE `cms_news`  SET `id` = 1 , `title` = '小猪佩奇身上纹。。。' , `short_title` = '小猪佩奇' , `author` = '喜羊羊' , `click_num` = 200 , `news_type_id` = 5 , `state` = 1 , `create_time` = '2018-06-21' , `short_content` = '谁是社会人' , `content` = '<p>小猪佩奇身上纹</p>'  WHERE  `id` = 1 [ RunTime:0.042938s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_log` [ RunTime:0.021460s ]
+[ sql ] [ SQL ] INSERT INTO `cms_log` (`name` , `title` , `type` , `ip` , `browser` , `time`) VALUES ('admin' , '编辑资讯' , '编辑' , '127.0.0.1' , 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36' , '2018-06-27 10:06:17') [ RunTime:0.026717s ]
+---------------------------------------------------------------
+[ 2018-06-27T10:06:18+08:00 ] 127.0.0.1 GET /admin/news/editor_news?id=1
+[ info ] 127.0.0.5/admin/news/editor_news?id=1 [运行时间：0.208598s][吞吐率：4.79req/s] [内存消耗：3,055.38kb] [文件加载：98]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\application\admin\\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=dq8bq9g65vrvdj9oksq4sg9me7',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.5/admin/news/editor_news?id=1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/admin/news/editor_news' => '',
+  'id' => '1',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\www-web\ThinkPHP_CMS\application\admin\view\news\editor_news.html [ array (
+  0 => 'system',
+  1 => 'controller_name',
+  2 => 'action_name',
+  3 => 'menu',
+  4 => 'menu_arr',
+  5 => 'rule_arr',
+  6 => 'display',
+  7 => 'current',
+  8 => 'newsType',
+  9 => 'info',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000916s ] mysql:host=127.0.0.1;dbname=thinkphp_cms;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_system` [ RunTime:0.018626s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_system` LIMIT 1 [ RunTime:0.000429s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_rule` [ RunTime:0.020424s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/News' LIMIT 1 [ RunTime:0.000512s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/News/editor_news' LIMIT 1 [ RunTime:0.000535s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_group_access` [ RunTime:0.022141s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_group_access` `a` INNER JOIN `cms_group` `g` ON `a`.`group_id`=`g`.`id` WHERE  ( a.uid='1' and g.status='1' ) [ RunTime:0.000579s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `type` = 1  AND `status` = 1  AND `id` IN (2,3,4,5,6,7,8,9,11,12,13,14,15,16,18,25,26,52,53,54,55,20,21,22,23,24,45,46,47,48,49,50,51,28,29,30,31,32,33,34,35,37,38,39,40,42,43,44) [ RunTime:0.000874s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_news` [ RunTime:0.023839s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_news` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000635s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_news_type` [ RunTime:0.022558s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_news_type` WHERE  `p_id` = 0 ORDER BY `show_order` DESC [ RunTime:0.000390s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_news_type` WHERE  `p_id` = 2 [ RunTime:0.000277s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_news_type` WHERE  `p_id` = 3 [ RunTime:0.000279s ]
+---------------------------------------------------------------
+[ 2018-06-27T10:06:19+08:00 ] 127.0.0.1 GET /admin/news/news
+[ info ] 127.0.0.5/admin/news/news [运行时间：0.178156s][吞吐率：5.61req/s] [内存消耗：3,189.77kb] [文件加载：103]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\application\admin\\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=dq8bq9g65vrvdj9oksq4sg9me7',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.5/admin/news/editor_news?id=1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/admin/news/news' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\www-web\ThinkPHP_CMS\application\admin\view\news\news.html [ array (
+  0 => 'system',
+  1 => 'controller_name',
+  2 => 'action_name',
+  3 => 'menu',
+  4 => 'menu_arr',
+  5 => 'rule_arr',
+  6 => 'info',
+  7 => 'display',
+  8 => 'current',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000865s ] mysql:host=127.0.0.1;dbname=thinkphp_cms;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_system` [ RunTime:0.021681s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_system` LIMIT 1 [ RunTime:0.000528s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_rule` [ RunTime:0.020155s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/News' LIMIT 1 [ RunTime:0.000486s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/News/news' LIMIT 1 [ RunTime:0.000424s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_group_access` [ RunTime:0.018416s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_group_access` `a` INNER JOIN `cms_group` `g` ON `a`.`group_id`=`g`.`id` WHERE  ( a.uid='1' and g.status='1' ) [ RunTime:0.000446s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `type` = 1  AND `status` = 1  AND `id` IN (2,3,4,5,6,7,8,9,11,12,13,14,15,16,18,25,26,52,53,54,55,20,21,22,23,24,45,46,47,48,49,50,51,28,29,30,31,32,33,34,35,37,38,39,40,42,43,44) [ RunTime:0.000650s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_news` [ RunTime:0.018884s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `cms_news` LIMIT 1 [ RunTime:0.000350s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_news` ORDER BY `id` DESC LIMIT 0,15 [ RunTime:0.000346s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_news_type` [ RunTime:0.018889s ]
+[ sql ] [ SQL ] SELECT `news_type_name`,`id` FROM `cms_news_type` WHERE  `id` IN (5) [ RunTime:0.000366s ]
+---------------------------------------------------------------
+[ 2018-06-27T10:06:34+08:00 ] 127.0.0.1 GET /admin/news/editor_news?id=1
+[ info ] 127.0.0.5/admin/news/editor_news?id=1 [运行时间：0.170627s][吞吐率：5.86req/s] [内存消耗：3,054.80kb] [文件加载：98]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\application\admin\\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=dq8bq9g65vrvdj9oksq4sg9me7',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.5/admin/news/news',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => '*/*',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/admin/news/editor_news' => '',
+  'id' => '1',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\www-web\ThinkPHP_CMS\application\admin\view\news\editor_news.html [ array (
+  0 => 'system',
+  1 => 'controller_name',
+  2 => 'action_name',
+  3 => 'menu',
+  4 => 'menu_arr',
+  5 => 'rule_arr',
+  6 => 'display',
+  7 => 'current',
+  8 => 'newsType',
+  9 => 'info',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000848s ] mysql:host=127.0.0.1;dbname=thinkphp_cms;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_system` [ RunTime:0.018080s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_system` LIMIT 1 [ RunTime:0.000420s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_rule` [ RunTime:0.019604s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/News' LIMIT 1 [ RunTime:0.000549s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/News/editor_news' LIMIT 1 [ RunTime:0.000429s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_group_access` [ RunTime:0.020335s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_group_access` `a` INNER JOIN `cms_group` `g` ON `a`.`group_id`=`g`.`id` WHERE  ( a.uid='1' and g.status='1' ) [ RunTime:0.000591s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `type` = 1  AND `status` = 1  AND `id` IN (2,3,4,5,6,7,8,9,11,12,13,14,15,16,18,25,26,52,53,54,55,20,21,22,23,24,45,46,47,48,49,50,51,28,29,30,31,32,33,34,35,37,38,39,40,42,43,44) [ RunTime:0.000662s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_news` [ RunTime:0.020814s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_news` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000505s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_news_type` [ RunTime:0.019505s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_news_type` WHERE  `p_id` = 0 ORDER BY `show_order` DESC [ RunTime:0.000430s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_news_type` WHERE  `p_id` = 2 [ RunTime:0.000487s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_news_type` WHERE  `p_id` = 3 [ RunTime:0.000494s ]
+---------------------------------------------------------------
+[ 2018-06-27T10:06:34+08:00 ] 127.0.0.1 GET /admin/news/editor_news?id=1
+[ info ] 127.0.0.5/admin/news/editor_news?id=1 [运行时间：0.178705s][吞吐率：5.60req/s] [内存消耗：3,055.00kb] [文件加载：98]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\application\admin\\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=dq8bq9g65vrvdj9oksq4sg9me7',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.5/admin/news/news',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/admin/news/editor_news' => '',
+  'id' => '1',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\www-web\ThinkPHP_CMS\application\admin\view\news\editor_news.html [ array (
+  0 => 'system',
+  1 => 'controller_name',
+  2 => 'action_name',
+  3 => 'menu',
+  4 => 'menu_arr',
+  5 => 'rule_arr',
+  6 => 'display',
+  7 => 'current',
+  8 => 'newsType',
+  9 => 'info',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000797s ] mysql:host=127.0.0.1;dbname=thinkphp_cms;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_system` [ RunTime:0.021854s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_system` LIMIT 1 [ RunTime:0.000421s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_rule` [ RunTime:0.019864s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/News' LIMIT 1 [ RunTime:0.000493s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/News/editor_news' LIMIT 1 [ RunTime:0.000387s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_group_access` [ RunTime:0.020770s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_group_access` `a` INNER JOIN `cms_group` `g` ON `a`.`group_id`=`g`.`id` WHERE  ( a.uid='1' and g.status='1' ) [ RunTime:0.000472s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `type` = 1  AND `status` = 1  AND `id` IN (2,3,4,5,6,7,8,9,11,12,13,14,15,16,18,25,26,52,53,54,55,20,21,22,23,24,45,46,47,48,49,50,51,28,29,30,31,32,33,34,35,37,38,39,40,42,43,44) [ RunTime:0.000851s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_news` [ RunTime:0.019061s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_news` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000437s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_news_type` [ RunTime:0.019713s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_news_type` WHERE  `p_id` = 0 ORDER BY `show_order` DESC [ RunTime:0.000418s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_news_type` WHERE  `p_id` = 2 [ RunTime:0.000324s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_news_type` WHERE  `p_id` = 3 [ RunTime:0.000307s ]
+---------------------------------------------------------------
+[ 2018-06-27T10:06:40+08:00 ] 127.0.0.1 GET /admin/database/database
+[ info ] 127.0.0.5/admin/database/database [运行时间：0.284445s][吞吐率：3.52req/s] [内存消耗：3,111.51kb] [文件加载：96]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\application\admin\\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=dq8bq9g65vrvdj9oksq4sg9me7',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.5/admin/news/editor_news?id=1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/admin/database/database' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\www-web\ThinkPHP_CMS\application\admin\view\database\database.html [ array (
+  0 => 'system',
+  1 => 'controller_name',
+  2 => 'action_name',
+  3 => 'menu',
+  4 => 'menu_arr',
+  5 => 'rule_arr',
+  6 => 'info',
+  7 => 'display',
+  8 => 'current',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000822s ] mysql:host=127.0.0.1;dbname=thinkphp_cms;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_system` [ RunTime:0.021540s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_system` LIMIT 1 [ RunTime:0.000408s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_rule` [ RunTime:0.018963s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/Database' LIMIT 1 [ RunTime:0.000461s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/Database/database' LIMIT 1 [ RunTime:0.000351s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_group_access` [ RunTime:0.019331s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_group_access` `a` INNER JOIN `cms_group` `g` ON `a`.`group_id`=`g`.`id` WHERE  ( a.uid='1' and g.status='1' ) [ RunTime:0.000466s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `type` = 1  AND `status` = 1  AND `id` IN (2,3,4,5,6,7,8,9,11,12,13,14,15,16,18,25,26,52,53,54,55,20,21,22,23,24,45,46,47,48,49,50,51,28,29,30,31,32,33,34,35,37,38,39,40,42,43,44) [ RunTime:0.000667s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000884s ] mysql:host=127.0.0.1;dbname=thinkphp_cms;charset=utf8
+[ sql ] [ SQL ] SHOW TABLE STATUS [ RunTime:0.118462s ]
+---------------------------------------------------------------
+[ 2018-06-27T10:06:51+08:00 ] 127.0.0.1 GET /admin/database/reduction
+[ info ] 127.0.0.5/admin/database/reduction [运行时间：0.143943s][吞吐率：6.95req/s] [内存消耗：3,230.20kb] [文件加载：99]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\application\admin\\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=dq8bq9g65vrvdj9oksq4sg9me7',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.5/admin/database/database',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/admin/database/reduction' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\www-web\ThinkPHP_CMS\application\admin\view\database\reduction.html [ array (
+  0 => 'system',
+  1 => 'controller_name',
+  2 => 'action_name',
+  3 => 'menu',
+  4 => 'menu_arr',
+  5 => 'rule_arr',
+  6 => 'info',
+  7 => 'display',
+  8 => 'current',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000792s ] mysql:host=127.0.0.1;dbname=thinkphp_cms;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_system` [ RunTime:0.019768s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_system` LIMIT 1 [ RunTime:0.000393s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_rule` [ RunTime:0.018987s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/Database' LIMIT 1 [ RunTime:0.000473s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/Database/reduction' LIMIT 1 [ RunTime:0.000342s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_group_access` [ RunTime:0.018774s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_group_access` `a` INNER JOIN `cms_group` `g` ON `a`.`group_id`=`g`.`id` WHERE  ( a.uid='1' and g.status='1' ) [ RunTime:0.000484s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `type` = 1  AND `status` = 1  AND `id` IN (2,3,4,5,6,7,8,9,11,12,13,14,15,16,18,25,26,52,53,54,55,20,21,22,23,24,45,46,47,48,49,50,51,28,29,30,31,32,33,34,35,37,38,39,40,42,43,44) [ RunTime:0.000651s ]
+---------------------------------------------------------------
+[ 2018-06-27T15:25:06+08:00 ] 127.0.0.1 GET /admin/news/news_type
+[ info ] 127.0.0.5/admin/news/news_type [运行时间：0.244967s][吞吐率：4.08req/s] [内存消耗：3,082.52kb] [文件加载：99]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\application\admin\\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=dq8bq9g65vrvdj9oksq4sg9me7',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.5/admin/database/reduction',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/admin/news/news_type' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\www-web\ThinkPHP_CMS\application\admin\view\news\news_type.html [ array (
+  0 => 'system',
+  1 => 'controller_name',
+  2 => 'action_name',
+  3 => 'menu',
+  4 => 'menu_arr',
+  5 => 'rule_arr',
+  6 => 'info',
+  7 => 'display',
+  8 => 'current',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.004675s ] mysql:host=127.0.0.1;dbname=thinkphp_cms;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_system` [ RunTime:0.033958s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_system` LIMIT 1 [ RunTime:0.001133s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_rule` [ RunTime:0.025693s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/News' LIMIT 1 [ RunTime:0.000530s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/News/news_type' LIMIT 1 [ RunTime:0.000489s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `is_visible` = 1  AND `p_id` = 0 ORDER BY `show_order` DESC [ RunTime:0.000579s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `is_visible` = 1  AND `p_id` = 41 [ RunTime:0.000808s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `is_visible` = 1  AND `p_id` = 27 [ RunTime:0.000750s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `is_visible` = 1  AND `p_id` = 19 [ RunTime:0.001048s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `is_visible` = 1  AND `p_id` = 17 [ RunTime:0.002523s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `is_visible` = 1  AND `p_id` = 10 [ RunTime:0.000566s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `is_visible` = 1  AND `p_id` = 1 [ RunTime:0.000625s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_group_access` [ RunTime:0.020589s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_group_access` WHERE  `uid` = 1 LIMIT 1 [ RunTime:0.000454s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_group` [ RunTime:0.018433s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_group` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000512s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_group_access` `a` INNER JOIN `cms_group` `g` ON `a`.`group_id`=`g`.`id` WHERE  ( a.uid='1' and g.status='1' ) [ RunTime:0.000502s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `type` = 1  AND `status` = 1  AND `id` IN (2,3,4,5,6,7,8,9,11,12,13,14,15,16,18,25,26,52,53,54,55,20,21,22,23,24,45,46,47,48,49,50,51,28,29,30,31,32,33,34,35,37,38,39,40,42,43,44) [ RunTime:0.000644s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_news_type` [ RunTime:0.019529s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `cms_news_type` WHERE  `p_id` = 0 LIMIT 1 [ RunTime:0.000673s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_news_type` WHERE  `p_id` = 0 ORDER BY `id` DESC LIMIT 0,3 [ RunTime:0.000431s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_news_type` WHERE  `p_id` = 3 [ RunTime:0.000381s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_news_type` WHERE  `p_id` = 2 [ RunTime:0.000390s ]
+---------------------------------------------------------------
+[ 2018-06-27T15:25:08+08:00 ] 127.0.0.1 GET /admin/news/editor_newstype?id=3
+[ info ] 127.0.0.5/admin/news/editor_newstype?id=3 [运行时间：0.150819s][吞吐率：6.63req/s] [内存消耗：3,157.69kb] [文件加载：99]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\application\admin\\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=dq8bq9g65vrvdj9oksq4sg9me7',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.5/admin/news/news_type',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => '*/*',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/admin/news/editor_newstype' => '',
+  'id' => '3',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\www-web\ThinkPHP_CMS\application\admin\view\news\editor_newstype.html [ array (
+  0 => 'system',
+  1 => 'controller_name',
+  2 => 'action_name',
+  3 => 'menu',
+  4 => 'menu_arr',
+  5 => 'rule_arr',
+  6 => 'display',
+  7 => 'current',
+  8 => 'info',
+  9 => 'newsTypes',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000868s ] mysql:host=127.0.0.1;dbname=thinkphp_cms;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_system` [ RunTime:0.016609s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_system` LIMIT 1 [ RunTime:0.000434s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_rule` [ RunTime:0.015713s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/News' LIMIT 1 [ RunTime:0.000534s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/News/editor_newstype' LIMIT 1 [ RunTime:0.000539s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_group_access` [ RunTime:0.015799s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_group_access` `a` INNER JOIN `cms_group` `g` ON `a`.`group_id`=`g`.`id` WHERE  ( a.uid='1' and g.status='1' ) [ RunTime:0.000481s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `type` = 1  AND `status` = 1  AND `id` IN (2,3,4,5,6,7,8,9,11,12,13,14,15,16,18,25,26,52,53,54,55,20,21,22,23,24,45,46,47,48,49,50,51,28,29,30,31,32,33,34,35,37,38,39,40,42,43,44) [ RunTime:0.000721s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_news_type` [ RunTime:0.016589s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_news_type` WHERE  `id` = 3 LIMIT 1 [ RunTime:0.000419s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_news_type` WHERE  `p_id` = 0 [ RunTime:0.000385s ]
+---------------------------------------------------------------
+[ 2018-06-27T15:25:08+08:00 ] 127.0.0.1 GET /admin/news/editor_newstype?id=3
+[ info ] 127.0.0.5/admin/news/editor_newstype?id=3 [运行时间：0.146159s][吞吐率：6.84req/s] [内存消耗：3,011.44kb] [文件加载：97]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\application\admin\\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=dq8bq9g65vrvdj9oksq4sg9me7',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.5/admin/news/news_type',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/admin/news/editor_newstype' => '',
+  'id' => '3',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\www-web\ThinkPHP_CMS\application\admin\view\news\editor_newstype.html [ array (
+  0 => 'system',
+  1 => 'controller_name',
+  2 => 'action_name',
+  3 => 'menu',
+  4 => 'menu_arr',
+  5 => 'rule_arr',
+  6 => 'display',
+  7 => 'current',
+  8 => 'info',
+  9 => 'newsTypes',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000872s ] mysql:host=127.0.0.1;dbname=thinkphp_cms;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_system` [ RunTime:0.019243s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_system` LIMIT 1 [ RunTime:0.000382s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_rule` [ RunTime:0.015100s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/News' LIMIT 1 [ RunTime:0.000479s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/News/editor_newstype' LIMIT 1 [ RunTime:0.000356s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_group_access` [ RunTime:0.019310s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_group_access` `a` INNER JOIN `cms_group` `g` ON `a`.`group_id`=`g`.`id` WHERE  ( a.uid='1' and g.status='1' ) [ RunTime:0.000438s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `type` = 1  AND `status` = 1  AND `id` IN (2,3,4,5,6,7,8,9,11,12,13,14,15,16,18,25,26,52,53,54,55,20,21,22,23,24,45,46,47,48,49,50,51,28,29,30,31,32,33,34,35,37,38,39,40,42,43,44) [ RunTime:0.000644s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_news_type` [ RunTime:0.017792s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_news_type` WHERE  `id` = 3 LIMIT 1 [ RunTime:0.000392s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_news_type` WHERE  `p_id` = 0 [ RunTime:0.000349s ]
+---------------------------------------------------------------
+[ 2018-06-27T15:25:44+08:00 ] 127.0.0.1 POST /admin/news/upload_img
+[ info ] 127.0.0.5/admin/news/upload_img [运行时间：0.121969s][吞吐率：8.20req/s] [内存消耗：2,930.13kb] [文件加载：91]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\application\admin\\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=dq8bq9g65vrvdj9oksq4sg9me7',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.5/admin/news/editor_newstype?id=3',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'content-type' => 'multipart/form-data; boundary=----WebKitFormBoundarykIg6uCzBPJUaqb5A',
+  'upgrade-insecure-requests' => '1',
+  'origin' => 'http://127.0.0.5',
+  'cache-control' => 'max-age=0',
+  'content-length' => '21399',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/admin/news/upload_img' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000825s ] mysql:host=127.0.0.1;dbname=thinkphp_cms;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_system` [ RunTime:0.015262s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_system` LIMIT 1 [ RunTime:0.000363s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_rule` [ RunTime:0.016310s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/News' LIMIT 1 [ RunTime:0.000495s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/News/upload_img' LIMIT 1 [ RunTime:0.000397s ]
+---------------------------------------------------------------
+[ 2018-06-27T15:26:55+08:00 ] 127.0.0.1 GET /admin/news/editor_newstype?id=3
+[ info ] 127.0.0.5/admin/news/editor_newstype?id=3 [运行时间：0.165183s][吞吐率：6.05req/s] [内存消耗：3,011.78kb] [文件加载：97]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\application\admin\\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=dq8bq9g65vrvdj9oksq4sg9me7',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.5/admin/news/news_type',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/admin/news/editor_newstype' => '',
+  'id' => '3',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\www-web\ThinkPHP_CMS\application\admin\view\news\editor_newstype.html [ array (
+  0 => 'system',
+  1 => 'controller_name',
+  2 => 'action_name',
+  3 => 'menu',
+  4 => 'menu_arr',
+  5 => 'rule_arr',
+  6 => 'display',
+  7 => 'current',
+  8 => 'info',
+  9 => 'newsTypes',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001780s ] mysql:host=127.0.0.1;dbname=thinkphp_cms;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_system` [ RunTime:0.024093s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_system` LIMIT 1 [ RunTime:0.000387s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_rule` [ RunTime:0.023537s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/News' LIMIT 1 [ RunTime:0.000925s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/News/editor_newstype' LIMIT 1 [ RunTime:0.000672s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_group_access` [ RunTime:0.018294s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_group_access` `a` INNER JOIN `cms_group` `g` ON `a`.`group_id`=`g`.`id` WHERE  ( a.uid='1' and g.status='1' ) [ RunTime:0.000448s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `type` = 1  AND `status` = 1  AND `id` IN (2,3,4,5,6,7,8,9,11,12,13,14,15,16,18,25,26,52,53,54,55,20,21,22,23,24,45,46,47,48,49,50,51,28,29,30,31,32,33,34,35,37,38,39,40,42,43,44) [ RunTime:0.000712s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_news_type` [ RunTime:0.016279s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_news_type` WHERE  `id` = 3 LIMIT 1 [ RunTime:0.000387s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_news_type` WHERE  `p_id` = 0 [ RunTime:0.000713s ]
+---------------------------------------------------------------
+[ 2018-06-27T15:28:49+08:00 ] 127.0.0.1 GET /admin/news/news_type
+[ info ] 127.0.0.5/admin/news/news_type [运行时间：0.166595s][吞吐率：6.00req/s] [内存消耗：3,076.38kb] [文件加载：99]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\application\admin\\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=dq8bq9g65vrvdj9oksq4sg9me7',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.5/admin/news/editor_newstype?id=3',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/admin/news/news_type' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\www-web\ThinkPHP_CMS\application\admin\view\news\news_type.html [ array (
+  0 => 'system',
+  1 => 'controller_name',
+  2 => 'action_name',
+  3 => 'menu',
+  4 => 'menu_arr',
+  5 => 'rule_arr',
+  6 => 'info',
+  7 => 'display',
+  8 => 'current',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000946s ] mysql:host=127.0.0.1;dbname=thinkphp_cms;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_system` [ RunTime:0.018777s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_system` LIMIT 1 [ RunTime:0.000411s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_rule` [ RunTime:0.016973s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/News' LIMIT 1 [ RunTime:0.000484s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/News/news_type' LIMIT 1 [ RunTime:0.000362s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_group_access` [ RunTime:0.017921s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_group_access` `a` INNER JOIN `cms_group` `g` ON `a`.`group_id`=`g`.`id` WHERE  ( a.uid='1' and g.status='1' ) [ RunTime:0.000436s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `type` = 1  AND `status` = 1  AND `id` IN (2,3,4,5,6,7,8,9,11,12,13,14,15,16,18,25,26,52,53,54,55,20,21,22,23,24,45,46,47,48,49,50,51,28,29,30,31,32,33,34,35,37,38,39,40,42,43,44) [ RunTime:0.000655s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_news_type` [ RunTime:0.017948s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `cms_news_type` WHERE  `p_id` = 0 LIMIT 1 [ RunTime:0.000538s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_news_type` WHERE  `p_id` = 0 ORDER BY `id` DESC LIMIT 0,3 [ RunTime:0.000336s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_news_type` WHERE  `p_id` = 3 [ RunTime:0.000885s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_news_type` WHERE  `p_id` = 2 [ RunTime:0.000398s ]
+---------------------------------------------------------------
+[ 2018-06-27T15:28:50+08:00 ] 127.0.0.1 GET /admin/news/add_newstype
+[ info ] 127.0.0.5/admin/news/add_newstype [运行时间：0.145496s][吞吐率：6.87req/s] [内存消耗：3,153.30kb] [文件加载：99]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\application\admin\\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=dq8bq9g65vrvdj9oksq4sg9me7',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.5/admin/news/news_type',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => '*/*',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/admin/news/add_newstype' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\www-web\ThinkPHP_CMS\application\admin\view\news\add_newstype.html [ array (
+  0 => 'system',
+  1 => 'controller_name',
+  2 => 'action_name',
+  3 => 'menu',
+  4 => 'menu_arr',
+  5 => 'rule_arr',
+  6 => 'display',
+  7 => 'current',
+  8 => 'info',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001331s ] mysql:host=127.0.0.1;dbname=thinkphp_cms;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_system` [ RunTime:0.014800s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_system` LIMIT 1 [ RunTime:0.000767s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_rule` [ RunTime:0.017042s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/News' LIMIT 1 [ RunTime:0.000479s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/News/add_newstype' LIMIT 1 [ RunTime:0.000353s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_group_access` [ RunTime:0.017599s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_group_access` `a` INNER JOIN `cms_group` `g` ON `a`.`group_id`=`g`.`id` WHERE  ( a.uid='1' and g.status='1' ) [ RunTime:0.000426s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `type` = 1  AND `status` = 1  AND `id` IN (2,3,4,5,6,7,8,9,11,12,13,14,15,16,18,25,26,52,53,54,55,20,21,22,23,24,45,46,47,48,49,50,51,28,29,30,31,32,33,34,35,37,38,39,40,42,43,44) [ RunTime:0.000615s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_news_type` [ RunTime:0.018646s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_news_type` WHERE  `p_id` = 0 [ RunTime:0.000395s ]
+---------------------------------------------------------------
+[ 2018-06-27T15:28:50+08:00 ] 127.0.0.1 GET /admin/news/add_newstype
+[ info ] 127.0.0.5/admin/news/add_newstype [运行时间：0.171310s][吞吐率：5.84req/s] [内存消耗：3,009.67kb] [文件加载：97]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\application\admin\\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=dq8bq9g65vrvdj9oksq4sg9me7',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.5/admin/news/news_type',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/admin/news/add_newstype' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\www-web\ThinkPHP_CMS\application\admin\view\news\add_newstype.html [ array (
+  0 => 'system',
+  1 => 'controller_name',
+  2 => 'action_name',
+  3 => 'menu',
+  4 => 'menu_arr',
+  5 => 'rule_arr',
+  6 => 'display',
+  7 => 'current',
+  8 => 'info',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000889s ] mysql:host=127.0.0.1;dbname=thinkphp_cms;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_system` [ RunTime:0.021807s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_system` LIMIT 1 [ RunTime:0.000643s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_rule` [ RunTime:0.022125s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/News' LIMIT 1 [ RunTime:0.000812s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/News/add_newstype' LIMIT 1 [ RunTime:0.000764s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_group_access` [ RunTime:0.016660s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_group_access` `a` INNER JOIN `cms_group` `g` ON `a`.`group_id`=`g`.`id` WHERE  ( a.uid='1' and g.status='1' ) [ RunTime:0.000516s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `type` = 1  AND `status` = 1  AND `id` IN (2,3,4,5,6,7,8,9,11,12,13,14,15,16,18,25,26,52,53,54,55,20,21,22,23,24,45,46,47,48,49,50,51,28,29,30,31,32,33,34,35,37,38,39,40,42,43,44) [ RunTime:0.000671s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_news_type` [ RunTime:0.018175s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_news_type` WHERE  `p_id` = 0 [ RunTime:0.000447s ]
+---------------------------------------------------------------
+[ 2018-06-27T15:28:55+08:00 ] 127.0.0.1 POST /admin/news/upload_img
+[ info ] 127.0.0.5/admin/news/upload_img [运行时间：0.105026s][吞吐率：9.52req/s] [内存消耗：2,930.00kb] [文件加载：91]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\application\admin\\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=dq8bq9g65vrvdj9oksq4sg9me7',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.5/admin/news/add_newstype',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'content-type' => 'multipart/form-data; boundary=----WebKitFormBoundary9ZrsB5BASpq8XLp9',
+  'upgrade-insecure-requests' => '1',
+  'origin' => 'http://127.0.0.5',
+  'cache-control' => 'max-age=0',
+  'content-length' => '12555',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/admin/news/upload_img' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000748s ] mysql:host=127.0.0.1;dbname=thinkphp_cms;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_system` [ RunTime:0.015843s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_system` LIMIT 1 [ RunTime:0.000363s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_rule` [ RunTime:0.016329s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/News' LIMIT 1 [ RunTime:0.000468s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/News/upload_img' LIMIT 1 [ RunTime:0.000354s ]
+---------------------------------------------------------------
+[ 2018-06-27T15:29:43+08:00 ] 127.0.0.1 GET /admin/news/news
+[ info ] 127.0.0.5/admin/news/news [运行时间：0.190402s][吞吐率：5.25req/s] [内存消耗：3,189.77kb] [文件加载：103]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\application\admin\\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=dq8bq9g65vrvdj9oksq4sg9me7',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.5/admin/news/add_newstype',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/admin/news/news' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\www-web\ThinkPHP_CMS\application\admin\view\news\news.html [ array (
+  0 => 'system',
+  1 => 'controller_name',
+  2 => 'action_name',
+  3 => 'menu',
+  4 => 'menu_arr',
+  5 => 'rule_arr',
+  6 => 'info',
+  7 => 'display',
+  8 => 'current',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000914s ] mysql:host=127.0.0.1;dbname=thinkphp_cms;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_system` [ RunTime:0.017273s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_system` LIMIT 1 [ RunTime:0.000475s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_rule` [ RunTime:0.017048s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/News' LIMIT 1 [ RunTime:0.000599s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/News/news' LIMIT 1 [ RunTime:0.000478s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_group_access` [ RunTime:0.017533s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_group_access` `a` INNER JOIN `cms_group` `g` ON `a`.`group_id`=`g`.`id` WHERE  ( a.uid='1' and g.status='1' ) [ RunTime:0.000489s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `type` = 1  AND `status` = 1  AND `id` IN (2,3,4,5,6,7,8,9,11,12,13,14,15,16,18,25,26,52,53,54,55,20,21,22,23,24,45,46,47,48,49,50,51,28,29,30,31,32,33,34,35,37,38,39,40,42,43,44) [ RunTime:0.000711s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_news` [ RunTime:0.028789s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `cms_news` LIMIT 1 [ RunTime:0.000404s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_news` ORDER BY `id` DESC LIMIT 0,15 [ RunTime:0.000333s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_news_type` [ RunTime:0.018637s ]
+[ sql ] [ SQL ] SELECT `news_type_name`,`id` FROM `cms_news_type` WHERE  `id` IN (5) [ RunTime:0.000477s ]
+---------------------------------------------------------------
+[ 2018-06-27T15:29:44+08:00 ] 127.0.0.1 GET /admin/news/add_news
+[ info ] 127.0.0.5/admin/news/add_news [运行时间：0.152242s][吞吐率：6.57req/s] [内存消耗：3,163.11kb] [文件加载：99]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\application\admin\\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=dq8bq9g65vrvdj9oksq4sg9me7',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.5/admin/news/news',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => '*/*',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/admin/news/add_news' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\www-web\ThinkPHP_CMS\application\admin\view\news\add_news.html [ array (
+  0 => 'system',
+  1 => 'controller_name',
+  2 => 'action_name',
+  3 => 'menu',
+  4 => 'menu_arr',
+  5 => 'rule_arr',
+  6 => 'display',
+  7 => 'current',
+  8 => 'newsType',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000878s ] mysql:host=127.0.0.1;dbname=thinkphp_cms;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_system` [ RunTime:0.017106s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_system` LIMIT 1 [ RunTime:0.000460s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_rule` [ RunTime:0.016172s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/News' LIMIT 1 [ RunTime:0.000560s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/News/add_news' LIMIT 1 [ RunTime:0.000463s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_group_access` [ RunTime:0.017103s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_group_access` `a` INNER JOIN `cms_group` `g` ON `a`.`group_id`=`g`.`id` WHERE  ( a.uid='1' and g.status='1' ) [ RunTime:0.000617s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `type` = 1  AND `status` = 1  AND `id` IN (2,3,4,5,6,7,8,9,11,12,13,14,15,16,18,25,26,52,53,54,55,20,21,22,23,24,45,46,47,48,49,50,51,28,29,30,31,32,33,34,35,37,38,39,40,42,43,44) [ RunTime:0.001091s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_news_type` [ RunTime:0.017381s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_news_type` WHERE  `p_id` = 0 ORDER BY `show_order` DESC [ RunTime:0.000455s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_news_type` WHERE  `p_id` = 2 [ RunTime:0.000334s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_news_type` WHERE  `p_id` = 3 [ RunTime:0.000375s ]
+---------------------------------------------------------------
+[ 2018-06-27T15:29:44+08:00 ] 127.0.0.1 GET /admin/news/add_news
+[ info ] 127.0.0.5/admin/news/add_news [运行时间：0.157296s][吞吐率：6.36req/s] [内存消耗：3,012.73kb] [文件加载：97]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\application\admin\\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=dq8bq9g65vrvdj9oksq4sg9me7',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.5/admin/news/news',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/admin/news/add_news' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\www-web\ThinkPHP_CMS\application\admin\view\news\add_news.html [ array (
+  0 => 'system',
+  1 => 'controller_name',
+  2 => 'action_name',
+  3 => 'menu',
+  4 => 'menu_arr',
+  5 => 'rule_arr',
+  6 => 'display',
+  7 => 'current',
+  8 => 'newsType',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000744s ] mysql:host=127.0.0.1;dbname=thinkphp_cms;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_system` [ RunTime:0.016638s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_system` LIMIT 1 [ RunTime:0.000422s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_rule` [ RunTime:0.017632s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/News' LIMIT 1 [ RunTime:0.000683s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/News/add_news' LIMIT 1 [ RunTime:0.000435s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_group_access` [ RunTime:0.019762s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_group_access` `a` INNER JOIN `cms_group` `g` ON `a`.`group_id`=`g`.`id` WHERE  ( a.uid='1' and g.status='1' ) [ RunTime:0.000436s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `type` = 1  AND `status` = 1  AND `id` IN (2,3,4,5,6,7,8,9,11,12,13,14,15,16,18,25,26,52,53,54,55,20,21,22,23,24,45,46,47,48,49,50,51,28,29,30,31,32,33,34,35,37,38,39,40,42,43,44) [ RunTime:0.000641s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_news_type` [ RunTime:0.017969s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_news_type` WHERE  `p_id` = 0 ORDER BY `show_order` DESC [ RunTime:0.000430s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_news_type` WHERE  `p_id` = 2 [ RunTime:0.000487s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_news_type` WHERE  `p_id` = 3 [ RunTime:0.000676s ]
+---------------------------------------------------------------
+[ 2018-06-27T15:29:48+08:00 ] 127.0.0.1 POST /admin/news/upload_img
+[ info ] 127.0.0.5/admin/news/upload_img [运行时间：0.102815s][吞吐率：9.73req/s] [内存消耗：2,929.95kb] [文件加载：91]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\application\admin\\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=dq8bq9g65vrvdj9oksq4sg9me7',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.5/admin/news/add_news',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'content-type' => 'multipart/form-data; boundary=----WebKitFormBoundarybYxm3OD8MtEZ76K3',
+  'upgrade-insecure-requests' => '1',
+  'origin' => 'http://127.0.0.5',
+  'cache-control' => 'max-age=0',
+  'content-length' => '39961',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/admin/news/upload_img' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000748s ] mysql:host=127.0.0.1;dbname=thinkphp_cms;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_system` [ RunTime:0.015873s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_system` LIMIT 1 [ RunTime:0.000380s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_rule` [ RunTime:0.016727s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/News' LIMIT 1 [ RunTime:0.000487s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/News/upload_img' LIMIT 1 [ RunTime:0.000346s ]
+---------------------------------------------------------------
+[ 2018-06-27T15:30:16+08:00 ] 127.0.0.1 GET /admin/system/config
+[ info ] 127.0.0.5/admin/system/config [运行时间：0.151605s][吞吐率：6.60req/s] [内存消耗：3,110.71kb] [文件加载：98]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\application\admin\\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=dq8bq9g65vrvdj9oksq4sg9me7',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.5/admin/news/add_news',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/admin/system/config' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\www-web\ThinkPHP_CMS\application\admin\view\system\config.html [ array (
+  0 => 'system',
+  1 => 'controller_name',
+  2 => 'action_name',
+  3 => 'menu',
+  4 => 'menu_arr',
+  5 => 'rule_arr',
+  6 => 'info',
+  7 => 'display',
+  8 => 'current',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001289s ] mysql:host=127.0.0.1;dbname=thinkphp_cms;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_system` [ RunTime:0.019379s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_system` LIMIT 1 [ RunTime:0.000518s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_rule` [ RunTime:0.016596s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/System' LIMIT 1 [ RunTime:0.000474s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/System/config' LIMIT 1 [ RunTime:0.000353s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_group_access` [ RunTime:0.016549s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_group_access` `a` INNER JOIN `cms_group` `g` ON `a`.`group_id`=`g`.`id` WHERE  ( a.uid='1' and g.status='1' ) [ RunTime:0.000524s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `type` = 1  AND `status` = 1  AND `id` IN (2,3,4,5,6,7,8,9,11,12,13,14,15,16,18,25,26,52,53,54,55,20,21,22,23,24,45,46,47,48,49,50,51,28,29,30,31,32,33,34,35,37,38,39,40,42,43,44) [ RunTime:0.000975s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_system` LIMIT 1 [ RunTime:0.000342s ]
+---------------------------------------------------------------
+[ 2018-06-27T15:30:20+08:00 ] 127.0.0.1 GET /admin/admin/admin_index
+[ info ] 127.0.0.5/admin/admin/admin_index [运行时间：0.211068s][吞吐率：4.74req/s] [内存消耗：3,296.57kb] [文件加载：103]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\application\admin\\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=dq8bq9g65vrvdj9oksq4sg9me7',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.5/admin/system/config',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/admin/admin/admin_index' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\www-web\ThinkPHP_CMS\application\admin\view\admin\admin_index.html [ array (
+  0 => 'system',
+  1 => 'controller_name',
+  2 => 'action_name',
+  3 => 'menu',
+  4 => 'menu_arr',
+  5 => 'rule_arr',
+  6 => 'display',
+  7 => 'current',
+  8 => 'info',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000980s ] mysql:host=127.0.0.1;dbname=thinkphp_cms;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_system` [ RunTime:0.017413s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_system` LIMIT 1 [ RunTime:0.000640s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_rule` [ RunTime:0.016680s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/Admin' LIMIT 1 [ RunTime:0.000533s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/Admin/admin_index' LIMIT 1 [ RunTime:0.000374s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_group_access` [ RunTime:0.017341s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_group_access` `a` INNER JOIN `cms_group` `g` ON `a`.`group_id`=`g`.`id` WHERE  ( a.uid='1' and g.status='1' ) [ RunTime:0.000488s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `type` = 1  AND `status` = 1  AND `id` IN (2,3,4,5,6,7,8,9,11,12,13,14,15,16,18,25,26,52,53,54,55,20,21,22,23,24,45,46,47,48,49,50,51,28,29,30,31,32,33,34,35,37,38,39,40,42,43,44) [ RunTime:0.000674s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_admin` [ RunTime:0.027622s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `cms_admin` LIMIT 1 [ RunTime:0.000349s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_admin` ORDER BY `id` ASC LIMIT 0,10 [ RunTime:0.000302s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_group` [ RunTime:0.016563s ]
+[ sql ] [ SQL ] SELECT `cms_group`.*,pivot.uid AS pivot__uid,pivot.group_id AS pivot__group_id FROM `cms_group` INNER JOIN `cms_group_access` `pivot` ON `pivot`.`group_id`=`cms_group`.`id` WHERE  `pivot`.`uid` IN ('1','2','7') [ RunTime:0.009904s ]
+---------------------------------------------------------------
+[ 2018-06-27T15:30:21+08:00 ] 127.0.0.1 GET /admin/admin/editor_admin?id=1
+[ info ] 127.0.0.5/admin/admin/editor_admin?id=1 [运行时间：0.164613s][吞吐率：6.07req/s] [内存消耗：3,126.41kb] [文件加载：98]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\application\admin\\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=dq8bq9g65vrvdj9oksq4sg9me7',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.5/admin/admin/admin_index',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => '*/*',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/admin/admin/editor_admin' => '',
+  'id' => '1',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\www-web\ThinkPHP_CMS\application\admin\view\admin\editor_admin.html [ array (
+  0 => 'system',
+  1 => 'controller_name',
+  2 => 'action_name',
+  3 => 'menu',
+  4 => 'menu_arr',
+  5 => 'rule_arr',
+  6 => 'display',
+  7 => 'current',
+  8 => 'info',
+  9 => 'group',
+  10 => 'group_access',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001462s ] mysql:host=127.0.0.1;dbname=thinkphp_cms;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_system` [ RunTime:0.017966s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_system` LIMIT 1 [ RunTime:0.000445s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_rule` [ RunTime:0.016418s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/Admin' LIMIT 1 [ RunTime:0.000508s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/Admin/editor_admin' LIMIT 1 [ RunTime:0.000387s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_group_access` [ RunTime:0.015530s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_group_access` `a` INNER JOIN `cms_group` `g` ON `a`.`group_id`=`g`.`id` WHERE  ( a.uid='1' and g.status='1' ) [ RunTime:0.000804s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `type` = 1  AND `status` = 1  AND `id` IN (2,3,4,5,6,7,8,9,11,12,13,14,15,16,18,25,26,52,53,54,55,20,21,22,23,24,45,46,47,48,49,50,51,28,29,30,31,32,33,34,35,37,38,39,40,42,43,44) [ RunTime:0.000731s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_admin` [ RunTime:0.015622s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000464s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_group` [ RunTime:0.016790s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_group` [ RunTime:0.000467s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_group_access` WHERE  `uid` = 1 LIMIT 1 [ RunTime:0.000438s ]
+---------------------------------------------------------------
+[ 2018-06-27T15:30:21+08:00 ] 127.0.0.1 GET /admin/admin/editor_admin?id=1
+[ info ] 127.0.0.5/admin/admin/editor_admin?id=1 [运行时间：0.195766s][吞吐率：5.11req/s] [内存消耗：2,969.95kb] [文件加载：96]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\application\admin\\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=dq8bq9g65vrvdj9oksq4sg9me7',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.5/admin/admin/admin_index',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/admin/admin/editor_admin' => '',
+  'id' => '1',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\www-web\ThinkPHP_CMS\application\admin\view\admin\editor_admin.html [ array (
+  0 => 'system',
+  1 => 'controller_name',
+  2 => 'action_name',
+  3 => 'menu',
+  4 => 'menu_arr',
+  5 => 'rule_arr',
+  6 => 'display',
+  7 => 'current',
+  8 => 'info',
+  9 => 'group',
+  10 => 'group_access',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000937s ] mysql:host=127.0.0.1;dbname=thinkphp_cms;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_system` [ RunTime:0.021469s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_system` LIMIT 1 [ RunTime:0.000393s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_rule` [ RunTime:0.026046s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/Admin' LIMIT 1 [ RunTime:0.000445s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/Admin/editor_admin' LIMIT 1 [ RunTime:0.000323s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_group_access` [ RunTime:0.024253s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_group_access` `a` INNER JOIN `cms_group` `g` ON `a`.`group_id`=`g`.`id` WHERE  ( a.uid='1' and g.status='1' ) [ RunTime:0.000468s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `type` = 1  AND `status` = 1  AND `id` IN (2,3,4,5,6,7,8,9,11,12,13,14,15,16,18,25,26,52,53,54,55,20,21,22,23,24,45,46,47,48,49,50,51,28,29,30,31,32,33,34,35,37,38,39,40,42,43,44) [ RunTime:0.000633s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_admin` [ RunTime:0.018100s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000844s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_group` [ RunTime:0.024648s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_group` [ RunTime:0.000588s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_group_access` WHERE  `uid` = 1 LIMIT 1 [ RunTime:0.000574s ]
+---------------------------------------------------------------
+[ 2018-06-27T15:30:27+08:00 ] 127.0.0.1 GET /admin/admin/admin_index
+[ info ] 127.0.0.5/admin/admin/admin_index [运行时间：0.176522s][吞吐率：5.67req/s] [内存消耗：3,154.89kb] [文件加载：101]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\application\admin\\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=dq8bq9g65vrvdj9oksq4sg9me7',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.5/admin/admin/editor_admin?id=1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/admin/admin/admin_index' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\www-web\ThinkPHP_CMS\application\admin\view\admin\admin_index.html [ array (
+  0 => 'system',
+  1 => 'controller_name',
+  2 => 'action_name',
+  3 => 'menu',
+  4 => 'menu_arr',
+  5 => 'rule_arr',
+  6 => 'display',
+  7 => 'current',
+  8 => 'info',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000775s ] mysql:host=127.0.0.1;dbname=thinkphp_cms;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_system` [ RunTime:0.018197s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_system` LIMIT 1 [ RunTime:0.000473s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_rule` [ RunTime:0.019963s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/Admin' LIMIT 1 [ RunTime:0.001043s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/Admin/admin_index' LIMIT 1 [ RunTime:0.000381s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_group_access` [ RunTime:0.015994s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_group_access` `a` INNER JOIN `cms_group` `g` ON `a`.`group_id`=`g`.`id` WHERE  ( a.uid='1' and g.status='1' ) [ RunTime:0.000446s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `type` = 1  AND `status` = 1  AND `id` IN (2,3,4,5,6,7,8,9,11,12,13,14,15,16,18,25,26,52,53,54,55,20,21,22,23,24,45,46,47,48,49,50,51,28,29,30,31,32,33,34,35,37,38,39,40,42,43,44) [ RunTime:0.000623s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_admin` [ RunTime:0.019170s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `cms_admin` LIMIT 1 [ RunTime:0.000772s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_admin` ORDER BY `id` ASC LIMIT 0,10 [ RunTime:0.000627s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_group` [ RunTime:0.018334s ]
+[ sql ] [ SQL ] SELECT `cms_group`.*,pivot.uid AS pivot__uid,pivot.group_id AS pivot__group_id FROM `cms_group` INNER JOIN `cms_group_access` `pivot` ON `pivot`.`group_id`=`cms_group`.`id` WHERE  `pivot`.`uid` IN ('1','2','7') [ RunTime:0.000454s ]

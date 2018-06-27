@@ -8,6 +8,7 @@
 
 namespace app\common\model;
 use think\Model;
+//规则表
 class Rule extends Model
 {
     //获取器--更改状态值

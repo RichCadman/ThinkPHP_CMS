@@ -9,7 +9,7 @@
 
 namespace app\common\model;
 use think\Model;
-
+//资讯表
 class News extends Model
 {
     //关联查询资讯分类

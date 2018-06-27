@@ -9,7 +9,7 @@
 
 namespace app\common\model;
 use think\Model;
-
+//资讯分类表
 class NewsType extends Model
 {
     //获取器--更改状态值

@@ -8,6 +8,7 @@
 
 namespace app\common\model;
 use think\Model;
+//权限组表
 class Group extends Model
 {
     //获取器--更改状态值

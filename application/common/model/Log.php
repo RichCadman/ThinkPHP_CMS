@@ -9,7 +9,7 @@
 
 namespace app\common\model;
 use think\Model;
-
+//日志表
 class Log extends Model
 {
 

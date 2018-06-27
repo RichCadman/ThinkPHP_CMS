@@ -80,7 +80,7 @@
                         <div class="form-label">原配图：</div>
                         <div class="form-cont">
                             <a href="__UPLOAD__/{$info.news_type_img}" target="_blank">
-                                <img src="__UPLOAD__/{$info.news_type_img}" style="width:200px;height:200px;" alt="">
+                                <img src="__UPLOAD__/{$info.news_type_img}" class="news_type_img" style="width:200px;height:200px;" alt="">
                             </a>
                         </div>
                     </div>
@@ -101,6 +101,7 @@
                                         layer.msg(data.tips);
                                         $('#news_type_img').removeAttr("disabled");
                                         $('#news_type_img').val(data.url);
+                                        //$('.news_type_img').attr('src','__UPLOAD__/'+data.url);
                                     } else {
                                         layer.msg(data.tips);
                                     }

@@ -8,6 +8,7 @@
 
 namespace app\common\model;
 use think\Model;
+//权限组关联表
 class GroupAccess extends Model
 {
 

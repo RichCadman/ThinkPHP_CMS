@@ -8,6 +8,7 @@
 
 namespace app\common\model;
 use think\Model;
+//数据表字段配置表
 class FieldConfig extends Model
 {
 
