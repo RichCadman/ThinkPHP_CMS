@@ -42,7 +42,12 @@
                             <select style="width:auto;" name="p_id">
                                 <option value="0">顶级规则</option>
                                 {volist name="info" id = "v"}
-                                <option value="{$v.id}">|--{$v.news_type_name}</option>
+                                <option value="{$v.id}">
+                                    {if $v.layer eq 1 }
+                                    {else /}{for start="1" end="$v.layer"}　　　{/for}├
+                                    {/if}
+                                    {$v.news_type_name}
+                                </option>
                                 {/volist}
                             </select>
                         </div>

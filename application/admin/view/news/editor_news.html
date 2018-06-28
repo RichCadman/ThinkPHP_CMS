@@ -65,14 +65,14 @@
                         <div class="form-label">资讯分类：</div>
                         <div class="form-cont">
                             <select style="width:auto;" name="news_type_id">
-                                <option value="0">无分类</option>
+                                <option value="0">暂无分类</option>
                                 {volist name="newsType" id = "v"}
-                                <option value="{$v.id}" disabled>|--{$v.news_type_name}</option>
-                                {if condition="$v['items']"}
-                                {volist name="v.items" id="vv"}
-                                <option value="{$vv.id}"  {eq name="vv.id" value="$info.news_type_id" }selected{/eq}>&nbsp;&nbsp;&nbsp;&nbsp;|--{$vv.news_type_name}</option>
-                                {/volist}
-                                {/if}
+                                <option value="{$v.id}" {eq name="v.id" value="$info.news_type_id" }selected{/eq}>
+                                    {if $v.layer eq 1 }
+                                    {else /}{for start="1" end="$v.layer"}　　　{/for}├
+                                    {/if}
+                                    {$v.news_type_name}
+                                </option>
                                 {/volist}
                             </select>
                         </div>

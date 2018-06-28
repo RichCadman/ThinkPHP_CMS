@@ -27,12 +27,12 @@ class News extends Base
         $res = $Auth->check(MODULE_NAME . '/' . CONTROLLER_NAME . '/' . ACTION_NAME, $uid);
         if ($res) {
             $where = [];
-            if (input('get.search')){
-                $where[] = ['title', 'like', '%'.input('get.search').'%'];
+            if (input('get.search')) {
+                $where[] = ['title', 'like', '%' . input('get.search') . '%'];
             }
-            $info = Newss::with(['newsType'=>function($query){
+            $info = Newss::with(['newsType' => function ($query) {
                 $query->field('news_type_name,id');
-            }])->where($where)->order('id desc')->paginate(15,false,['query'=>request()->param()]);
+            }])->where($where)->order('id desc')->paginate(15, false, ['query' => request()->param()]);
             //dump($info);exit;
             $this->assign(array(
                 'info' => $info,
@@ -54,15 +54,14 @@ class News extends Base
         $res = $Auth->check(MODULE_NAME . '/' . CONTROLLER_NAME . '/' . ACTION_NAME, $uid);
         if ($res) {
             //资讯分类
-            $newsType = NewsTypes::where(['p_id' => 0])->order('show_order desc')->select();
-            foreach ($newsType as $k => &$v){
-                $p_id = $v['id'];
-                $v['items'] = NewsTypes::where(['p_id' => $p_id])->select();
-            }
+            $info = NewsTypes::order('p_id asc')->select();
+            //递归创建无限分类树
+            $treeClass = new \buildTree\Tree();
+            $list = $treeClass->create($info);
             $this->assign(array(
                 'display' => 'News',
                 'current' => 'add_news',
-                'newsType' => $newsType,
+                'newsType' => $list,
             ));
             return view();
         } else {
@@ -81,11 +80,11 @@ class News extends Base
             $res = Newss::create($data);
             if ($res) {
                 //添加日志
-                Logs::write('添加资讯','添加');
+                Logs::write('添加资讯', '添加');
                 $msg['status'] = 200;
                 $msg['tips'] = '添加成功';
                 return json($msg);
-            }else{
+            } else {
                 $msg['status'] = 400;
                 $msg['tips'] = '添加失败';
                 return json($msg);
@@ -108,15 +107,14 @@ class News extends Base
             //资讯内容
             $info = Newss::get(input('get.id/d'))->getData();
             //资讯分类
-            $newsType = NewsTypes::where(['p_id' => 0])->order('show_order desc')->select();
-            foreach ($newsType as $k => &$v){
-                $p_id = $v['id'];
-                $v['items'] = NewsTypes::where(['p_id' => $p_id])->select();
-            }
+            $newsType = NewsTypes::order('p_id asc')->select();
+            //递归创建无限分类树
+            $treeClass = new \buildTree\Tree();
+            $list = $treeClass->create($newsType);
             $this->assign(array(
                 'display' => 'News',
                 'current' => 'add_news',
-                'newsType' => $newsType,
+                'newsType' => $list,
                 'info' => $info
             ));
             return view();
@@ -134,11 +132,11 @@ class News extends Base
         $res = Newss::where(['id' => $data['id']])->update($data);
         if ($res) {
             //添加日志
-            Logs::write('编辑资讯','编辑');
+            Logs::write('编辑资讯', '编辑');
             $msg['status'] = 200;
             $msg['tips'] = '编辑成功';
             return json($msg);
-        }else{
+        } else {
             $msg['status'] = 400;
             $msg['tips'] = '编辑失败';
             return json($msg);
@@ -155,13 +153,13 @@ class News extends Base
         if ($res) {
             $id = input('post.id/d');
             $del_res = Newss::where(['id' => $id])->delete();
-            if($del_res){
+            if ($del_res) {
                 //添加日志
-                Logs::write('删除资讯','删除');
+                Logs::write('删除资讯', '删除');
                 $msg['status'] = 200;
                 $msg['tips'] = '删除成功';
                 return json($msg);
-            }else{
+            } else {
                 $msg['status'] = 400;
                 $msg['tips'] = '删除失败';
                 return json($msg);
@@ -183,13 +181,19 @@ class News extends Base
         $uid = $userinfo['id'];
         $res = $Auth->check(MODULE_NAME . '/' . CONTROLLER_NAME . '/' . ACTION_NAME, $uid);
         if ($res) {
-            $info = NewsTypes::where(['p_id' => 0])->order('id desc')->paginate(3);
-            foreach ($info as $k => &$v) {
+            $info = NewsTypes::order('p_id asc')->select();
+            //递归创建无限分类树
+            $treeClass = new \buildTree\Tree();
+            $list = $treeClass->create($info);
+            /*dump($list);
+            exit;*/
+//            $info = NewsTypes::where(['p_id' => 0])->order('id desc')->paginate(3);
+            /*foreach ($info as $k => &$v) {
                 $p_id = $v['id'];
                 $v['items'] = NewsTypes::where(['p_id' => $p_id])->select();
-            }
+            }*/
             $this->assign(array(
-                'info' => $info,
+                'info' => $list,
                 'display' => 'News',
                 'current' => 'news_type',
             ));
@@ -207,11 +211,14 @@ class News extends Base
         $uid = $userinfo['id'];
         $res = $Auth->check(MODULE_NAME . '/' . CONTROLLER_NAME . '/' . ACTION_NAME, $uid);
         if ($res) {
-            $info = NewsTypes::where(['p_id' => 0])->select();
+            $info = NewsTypes::where(['state' => 1])->order('p_id asc')->select();
+            //递归创建无限分类树
+            $treeClass = new \buildTree\Tree();
+            $list = $treeClass->create($info);
             $this->assign(array(
                 'display' => 'News',
                 'current' => 'add_newstype',
-                'info' => $info,
+                'info' => $list,
             ));
             return view();
         } else {
@@ -251,11 +258,11 @@ class News extends Base
             $res = NewsTypes::create($data);
             if ($res) {
                 //添加日志
-                Logs::write('添加资讯分类','添加');
+                Logs::write('添加资讯分类', '添加');
                 $msg['status'] = 200;
                 $msg['tips'] = '添加成功';
                 return json($msg);
-            }else{
+            } else {
                 $msg['status'] = 400;
                 $msg['tips'] = '添加失败';
                 return json($msg);
@@ -279,12 +286,15 @@ class News extends Base
             //查询数据
             $info = NewsTypes::get($id)->getData();
             //查询规则组
-            $newsTypes = NewsTypes::where(['p_id' => 0])->select();
+            $newsTypes = NewsTypes::where(['state' => 1])->order('p_id asc')->select();
+            //递归创建无限分类树
+            $treeClass = new \buildTree\Tree();
+            $list = $treeClass->create($newsTypes);
             $this->assign(array(
                 'display' => 'News',
                 'current' => 'editor_rule',
                 'info' => $info,
-                'newsTypes' => $newsTypes,
+                'newsTypes' => $list,
             ));
             return view();
 
@@ -302,11 +312,11 @@ class News extends Base
         $res = NewsTypes::where(['id' => $data['id']])->update($data);
         if ($res) {
             //添加日志
-            Logs::write('编辑资讯分类','编辑');
+            Logs::write('编辑资讯分类', '编辑');
             $msg['status'] = 200;
             $msg['tips'] = '编辑成功';
             return json($msg);
-        }else{
+        } else {
             $msg['status'] = 400;
             $msg['tips'] = '编辑失败';
             return json($msg);
@@ -322,16 +332,18 @@ class News extends Base
         $res = $Auth->check(MODULE_NAME . '/' . CONTROLLER_NAME . '/' . ACTION_NAME, $uid);
         if ($res) {
             $id = input('post.id/d');
-            $del_res = NewsTypes::where(['id' => $id])->delete();
-            if($del_res){
-                //删除子数据
-                NewsTypes::where(['p_id' => $id])->delete();
+            //递归创建无限分类树
+            $treeClass = new \buildTree\Tree();
+            $buildList = $treeClass->buildTree_del($id);
+            //删除当前及子数据
+            $del_res = $treeClass->recursion_del($buildList);
+            if ($del_res) {
                 //添加日志
-                Logs::write('删除资讯分类','删除');
+                Logs::write('删除资讯分类', '删除');
                 $msg['status'] = 200;
                 $msg['tips'] = '删除成功';
                 return json($msg);
-            }else{
+            } else {
                 $msg['status'] = 400;
                 $msg['tips'] = '删除失败';
                 return json($msg);
@@ -342,4 +354,5 @@ class News extends Base
             return json($msg);
         }
     }
+
 }

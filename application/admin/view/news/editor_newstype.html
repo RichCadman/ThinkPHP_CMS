@@ -44,7 +44,10 @@
                                 <option value="0">顶级规则</option>
                                 {volist name="newsTypes" id = "v"}
                                 <option value="{$v.id}" {eq name="v.id" value="$info.p_id" }selected{/eq} >
-                                    |--{$v.news_type_name}
+                                    {if $v.layer eq 1 }
+                                    {else /}{for start="1" end="$v.layer"}　　　{/for}├
+                                    {/if}
+                                    {$v.news_type_name}
                                 </option>
                                 {/volist}
                             </select>
