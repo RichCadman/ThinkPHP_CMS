@@ -50,8 +50,8 @@
                 <div class="form-group">
                     <label class="control-label">验证码：</label>
                     <input type="text" placeholder="验证码" id="verify" name="verify" style="width: 30%" class="form-control form-underlined"
-                           />
-                    <img src="{:captcha_src()}" alt="captcha" onclick="this.src='{:captcha_src()}?rnd=' + Math.random();" alt="">
+                    />
+                    <img src="{:captcha_src()}" alt="captcha" id="captcha" onclick="this.src='{:captcha_src()}?rnd=' + Math.random();" alt="">
                 </div>
             </li>
             <!--<li>
@@ -64,9 +64,8 @@
                 <button class="btn btn-lg btn-block" id="entry">立即登录</button>
             </li>
             <li>
-                <p class="btm-info">©Copyright 2006-2010 <a href="#" target="_blank"
-                                                            title="DeathGhost">DeathGhost.cn</a></p>
-                <address class="btm-info">鼎赞科技</address>
+                <p class="btm-info">©Copyright 2018 <a href="http://www.dingzankj.com" target="_blank">鼎赞科技</a></p>
+                <!--<address class="btm-info"><a href="http://www.dingzankj.com" target="_blank">鼎赞科技</a></address>-->
             </li>
         </ul>
     </div>
@@ -107,6 +106,7 @@
                         setTimeout("location.href = '{:url(\"Index/index\")}'",500);
                     } else {
                         layer.msg(data.tips);
+                        $('#captcha').attr('src','{:captcha_src()}?rnd=' + Math.random());
                     }
                 })
             }
