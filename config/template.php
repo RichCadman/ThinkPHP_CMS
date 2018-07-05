@@ -46,9 +46,9 @@ return [
 
         //前台
         '__HSTATIC__'=>'/static/index',
-        '__HJS__' => '/static/index/javascript',
+        '__HJS__' => '/static/index/js',
         '__HCSS__' => '/static/index/css',
-        '__HIMG__' => '/static/index/images',
+        '__HIMAGES__' => '/static/index/images',
 
         //上传
         '__UPLOAD__' => '/static/upload',

@@ -42,38 +42,42 @@ class Login extends Controller
     //登陆
     public function login_do()
     {
-        $map = input('post.');
-        if (!captcha_check($map['verify'])) {
-            // 验证失败
-            $msg['status'] = 800;
-            $msg['tips'] = '验证码错误';
-            return json($msg);
-        } else {
-            $where['password'] = md5($map['password']);
-            $where['username'] = $map['username'];
-            $user = Admin::where($where)->find();
-            if ($user) {
-                //检查状态
-                if ($user['status'] == '正常') {
-                    $this->updateUser($user['id']);//更新用户信息
-                    $this->setSession($user['id']);//设置session
-                    //添加日志
-                    Logs::write('登陆系统', '登陆');
-                    $msg['status'] = 200;
-                    $msg['tips'] = '登陆成功';
-                    return json($msg);
+        if (request()->isPost()) {
+            $map = input('post.');
+            if (!captcha_check($map['verify'])) {
+                // 验证失败
+                $msg['status'] = 800;
+                $msg['tips'] = '验证码错误';
+                return json($msg);
+            } else {
+                $where['password'] = md5($map['password']);
+                $where['username'] = $map['username'];
+                $user = Admin::where($where)->find();
+                if ($user) {
+                    //检查状态
+                    if ($user['status'] == '正常') {
+                        $this->updateUser($user['id']);//更新用户信息
+                        $this->setSession($user['id']);//设置session
+                        //添加日志
+                        Logs::write('登陆系统', '登陆');
+                        $msg['status'] = 200;
+                        $msg['tips'] = '登陆成功';
+                        return json($msg);
+                    } else {
+                        //禁止登陆
+                        $msg['status'] = 600;
+                        $msg['tips'] = '禁止登陆';
+                        return json($msg);
+                    }
+
                 } else {
-                    //禁止登陆
-                    $msg['status'] = 600;
-                    $msg['tips'] = '禁止登陆';
+                    $msg['status'] = 400;
+                    $msg['tips'] = '登陆失败';
                     return json($msg);
                 }
-
-            } else {
-                $msg['status'] = 400;
-                $msg['tips'] = '登陆失败';
-                return json($msg);
             }
+        } else {
+            return 'request method error!';
         }
     }
 

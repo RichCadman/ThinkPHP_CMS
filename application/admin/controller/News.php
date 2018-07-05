@@ -74,7 +74,7 @@ class News extends Base
     //添加
     public function add_news_do()
     {
-        if (IS_POST) {
+        if (request()->isPost()) {
             $data = input('post.');
             $data['update_time'] = current_datetime();
             $res = Newss::create($data);
@@ -90,9 +90,7 @@ class News extends Base
                 return json($msg);
             }
         } else {
-            $msg['status'] = 600;
-            $msg['tips'] = '请求类型错误';
-            return json($msg);
+            return 'request method error!';
         }
     }
 
@@ -128,18 +126,22 @@ class News extends Base
     //编辑
     public function editor_news_do()
     {
-        $data = input('post.');
-        $res = Newss::where(['id' => $data['id']])->update($data);
-        if ($res) {
-            //添加日志
-            Logs::write('编辑资讯', '编辑');
-            $msg['status'] = 200;
-            $msg['tips'] = '编辑成功';
-            return json($msg);
+        if (request()->isPost()) {
+            $data = input('post.');
+            $res = Newss::where(['id' => $data['id']])->update($data);
+            if ($res) {
+                //添加日志
+                Logs::write('编辑资讯', '编辑');
+                $msg['status'] = 200;
+                $msg['tips'] = '编辑成功';
+                return json($msg);
+            } else {
+                $msg['status'] = 400;
+                $msg['tips'] = '编辑失败';
+                return json($msg);
+            }
         } else {
-            $msg['status'] = 400;
-            $msg['tips'] = '编辑失败';
-            return json($msg);
+            return 'request method error!';
         }
     }
 
@@ -162,6 +164,36 @@ class News extends Base
             } else {
                 $msg['status'] = 400;
                 $msg['tips'] = '删除失败';
+                return json($msg);
+            }
+        } else {
+            $msg['status'] = 600;
+            $msg['tips'] = '权限不足';
+            return json($msg);
+        }
+    }
+
+    //资讯推荐
+    public function recommend()
+    {
+        $Auth = new \auth\Auth;
+        $userinfo = session('admin');
+        $uid = $userinfo['id'];
+        $res = $Auth->check(MODULE_NAME . '/' . CONTROLLER_NAME . '/' . ACTION_NAME, $uid);
+        if ($res) {
+            $id = input('post.id/d');
+            $find_res = Newss::get($id)->getData();
+            $map['is_recommend'] = $find_res['is_recommend'] * -1;
+            $editor_res = Newss::where(['id' => $id])->update($map);
+            if ($editor_res) {
+                //添加日志
+                Logs::write('编辑资讯', '编辑');
+                $msg['status'] = 200;
+                $msg['tips'] = '操作成功';
+                return json($msg);
+            } else {
+                $msg['status'] = 400;
+                $msg['tips'] = '操作失败';
                 return json($msg);
             }
         } else {
@@ -252,7 +284,7 @@ class News extends Base
     //添加
     public function add_newstype_do()
     {
-        if (IS_POST) {
+        if (request()->isPost()) {
             $data = input('post.');
             $data['create_time'] = current_datetime();
             $res = NewsTypes::create($data);
@@ -268,9 +300,7 @@ class News extends Base
                 return json($msg);
             }
         } else {
-            $msg['status'] = 600;
-            $msg['tips'] = '请求类型错误';
-            return json($msg);
+            return 'request method error!';
         }
     }
 
@@ -308,18 +338,22 @@ class News extends Base
     //编辑
     public function editor_newstype_do()
     {
-        $data = input('post.');
-        $res = NewsTypes::where(['id' => $data['id']])->update($data);
-        if ($res) {
-            //添加日志
-            Logs::write('编辑资讯分类', '编辑');
-            $msg['status'] = 200;
-            $msg['tips'] = '编辑成功';
-            return json($msg);
+        if (request()->isPost()) {
+            $data = input('post.');
+            $res = NewsTypes::where(['id' => $data['id']])->update($data);
+            if ($res) {
+                //添加日志
+                Logs::write('编辑资讯分类', '编辑');
+                $msg['status'] = 200;
+                $msg['tips'] = '编辑成功';
+                return json($msg);
+            } else {
+                $msg['status'] = 400;
+                $msg['tips'] = '编辑失败';
+                return json($msg);
+            }
         } else {
-            $msg['status'] = 400;
-            $msg['tips'] = '编辑失败';
-            return json($msg);
+            return 'request method error!';
         }
     }
 

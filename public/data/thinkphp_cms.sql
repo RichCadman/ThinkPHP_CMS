@@ -1,7 +1,7 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : localhost_3306
+Source Server         : locahost
 Source Server Version : 50553
 Source Host           : localhost:3306
 Source Database       : thinkphp_cms
@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2018-06-24 15:30:27
+Date: 2018-07-05 15:50:59
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -38,9 +38,25 @@ CREATE TABLE `cms_admin` (
 -- ----------------------------
 -- Records of cms_admin
 -- ----------------------------
-INSERT INTO `cms_admin` VALUES ('1', 'admin', '202cb962ac59075b964b07152d234b70', '42708', '2018-06-24 14:43:46', '18', '1', '417626953', 'lqm_956', '18100386352', '济南', '<p>帅！！！</p><p><br/></p>');
+INSERT INTO `cms_admin` VALUES ('1', 'admin', '202cb962ac59075b964b07152d234b70', '39358', '2018-07-05 15:49:59', '33', '1', '417626953', 'lqm_956', '18100386352', '济南', '<p>帅！！！</p><p><br/></p>');
 INSERT INTO `cms_admin` VALUES ('2', '刘全明', '202cb962ac59075b964b07152d234b70', '84248', '2018-06-13 16:26:11', '6', '1', '417626953', 'lqm_956', '18100386352', '济南', '<p>帅！！！</p>');
 INSERT INTO `cms_admin` VALUES ('7', '小猪佩奇', '4297f44b13955235245b2497399d7a93', '0', '0000-00-00 00:00:00', '0', '1', '6666666', '7777777', '8888888', '社会人', '<p>人狠话不多，社会我奇哥！！！</p>');
+
+-- ----------------------------
+-- Table structure for cms_banner
+-- ----------------------------
+DROP TABLE IF EXISTS `cms_banner`;
+CREATE TABLE `cms_banner` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `img_path` varchar(255) DEFAULT NULL COMMENT '路径',
+  `type` varchar(255) DEFAULT NULL COMMENT '分类',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='banner 表';
+
+-- ----------------------------
+-- Records of cms_banner
+-- ----------------------------
+INSERT INTO `cms_banner` VALUES ('1', '20180704\\b6272d36d95292661199b2acb2127559.png', '首页');
 
 -- ----------------------------
 -- Table structure for cms_comment
@@ -69,7 +85,7 @@ CREATE TABLE `cms_field_config` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `field_type` varchar(255) DEFAULT '0' COMMENT '字段类型',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COMMENT='字段配置表';
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COMMENT='字段配置表';
 
 -- ----------------------------
 -- Records of cms_field_config
@@ -82,6 +98,26 @@ INSERT INTO `cms_field_config` VALUES ('5', 'tinyint(2)');
 INSERT INTO `cms_field_config` VALUES ('6', 'datetime');
 INSERT INTO `cms_field_config` VALUES ('7', 'decimal(10,2)');
 INSERT INTO `cms_field_config` VALUES ('8', 'float(10,2)');
+INSERT INTO `cms_field_config` VALUES ('9', 'date');
+
+-- ----------------------------
+-- Table structure for cms_goods
+-- ----------------------------
+DROP TABLE IF EXISTS `cms_goods`;
+CREATE TABLE `cms_goods` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `goods_name` varchar(255) DEFAULT '0' COMMENT '商品名称',
+  `goods_img` varchar(255) DEFAULT '0' COMMENT '商品图片',
+  `goods_num` int(11) DEFAULT '0' COMMENT '商品库存',
+  `create_time` datetime DEFAULT '2018-06-26 11:06:12' COMMENT '创建时间',
+  `goods_sell` int(11) DEFAULT '0' COMMENT '商品销量',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='商品表';
+
+-- ----------------------------
+-- Records of cms_goods
+-- ----------------------------
+INSERT INTO `cms_goods` VALUES ('1', '午餐', '', '20', '2018-06-26 11:06:12', '50');
 
 -- ----------------------------
 -- Table structure for cms_group
@@ -99,7 +135,7 @@ CREATE TABLE `cms_group` (
 -- ----------------------------
 -- Records of cms_group
 -- ----------------------------
-INSERT INTO `cms_group` VALUES ('1', '管理员', '1', '2,3,4,5,6,7,8,9,11,12,13,14,15,16,18,25,26,52,53,54,55,20,21,22,23,24,45,46,47,48,49,50,51,28,29,30,31,32,33,34,35,37,38,39,40,42,43,44', '1,10,17,19,27,36,41');
+INSERT INTO `cms_group` VALUES ('1', '管理员', '1', '2,3,4,5,6,7,8,9,11,12,13,14,15,16,18,25,26,52,53,54,55,20,21,22,23,24,45,46,47,48,49,50,51,28,29,30,31,32,33,34,35,37,38,39,40,42,43,44,57,58,59,60', '1,10,17,19,27,36,41,56');
 INSERT INTO `cms_group` VALUES ('2', '经理', '1', '2,3,4,5,6,7,8,9,11,12,13,14,15,16,18', '1,10,17');
 INSERT INTO `cms_group` VALUES ('4', '销售', '1', '11,15,16', '10');
 
@@ -137,7 +173,7 @@ CREATE TABLE `cms_log` (
   `browser` varchar(255) DEFAULT NULL COMMENT '浏览器信息',
   `time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=179 DEFAULT CHARSET=utf8 COMMENT='日志表';
+) ENGINE=InnoDB AUTO_INCREMENT=264 DEFAULT CHARSET=utf8 COMMENT='日志表';
 
 -- ----------------------------
 -- Records of cms_log
@@ -276,6 +312,91 @@ INSERT INTO `cms_log` VALUES ('175', 'admin', '编辑资讯', '编辑', '127.0.0
 INSERT INTO `cms_log` VALUES ('176', 'admin', '编辑评论', '编辑', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.108 Safari/537.36', '2018-06-24 15:24:17');
 INSERT INTO `cms_log` VALUES ('177', 'admin', '审核评论', '操作', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.108 Safari/537.36', '2018-06-24 15:26:17');
 INSERT INTO `cms_log` VALUES ('178', 'admin', '数据备份', '数据', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.108 Safari/537.36', '2018-06-24 15:29:47');
+INSERT INTO `cms_log` VALUES ('179', 'admin', '登陆系统', '登陆', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-06-25 09:49:24');
+INSERT INTO `cms_log` VALUES ('180', 'admin', '登出系统', '登出', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-06-25 09:50:57');
+INSERT INTO `cms_log` VALUES ('181', 'admin', '登出系统', '登出', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-06-25 09:51:25');
+INSERT INTO `cms_log` VALUES ('182', 'admin', '登出系统', '登出', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-06-25 09:52:05');
+INSERT INTO `cms_log` VALUES ('183', 'admin', '登出系统', '登出', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-06-25 09:52:59');
+INSERT INTO `cms_log` VALUES ('184', 'admin', '登出系统', '登出', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-06-25 09:53:01');
+INSERT INTO `cms_log` VALUES ('185', 'admin', '登出系统', '登出', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-06-25 09:53:01');
+INSERT INTO `cms_log` VALUES ('186', 'admin', '登出系统', '登出', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-06-25 09:53:01');
+INSERT INTO `cms_log` VALUES ('187', 'admin', '登出系统', '登出', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-06-25 09:53:19');
+INSERT INTO `cms_log` VALUES ('188', 'admin', '登出系统', '登出', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-06-25 09:53:19');
+INSERT INTO `cms_log` VALUES ('189', 'admin', '登出系统', '登出', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-06-25 09:53:20');
+INSERT INTO `cms_log` VALUES ('190', 'admin', '登出系统', '登出', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-06-25 09:53:20');
+INSERT INTO `cms_log` VALUES ('191', 'admin', '登出系统', '登出', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-06-25 09:53:40');
+INSERT INTO `cms_log` VALUES ('192', 'admin', '登陆系统', '登陆', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-06-25 09:53:58');
+INSERT INTO `cms_log` VALUES ('193', 'admin', '登出系统', '登出', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-06-25 10:05:38');
+INSERT INTO `cms_log` VALUES ('194', 'admin', '登陆系统', '登陆', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-06-25 10:14:28');
+INSERT INTO `cms_log` VALUES ('195', 'admin', '编辑权限组', '编辑', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-06-25 10:14:55');
+INSERT INTO `cms_log` VALUES ('196', 'admin', '编辑权限组', '编辑', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-06-25 10:15:27');
+INSERT INTO `cms_log` VALUES ('197', 'admin', '数据备份', '数据', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-06-25 10:21:13');
+INSERT INTO `cms_log` VALUES ('198', 'admin', '.cms_system.表添加字段.check_login', '添加', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-06-25 10:37:42');
+INSERT INTO `cms_log` VALUES ('199', 'admin', '编辑站点', '编辑', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-06-25 10:38:08');
+INSERT INTO `cms_log` VALUES ('200', 'admin', '登陆系统', '登陆', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36', '2018-06-25 10:38:53');
+INSERT INTO `cms_log` VALUES ('201', 'admin', '编辑站点', '编辑', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-06-25 10:39:03');
+INSERT INTO `cms_log` VALUES ('202', 'admin', '登出系统', '登出', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-06-25 10:42:47');
+INSERT INTO `cms_log` VALUES ('203', 'admin', '登陆系统', '登陆', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-06-25 10:42:58');
+INSERT INTO `cms_log` VALUES ('204', 'admin', '登出系统', '登出', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36', '2018-06-25 10:43:50');
+INSERT INTO `cms_log` VALUES ('205', 'admin', '登陆系统', '登陆', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36', '2018-06-25 10:44:02');
+INSERT INTO `cms_log` VALUES ('206', 'admin', '登出系统', '登出', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-06-25 10:44:09');
+INSERT INTO `cms_log` VALUES ('207', 'admin', '登陆系统', '登陆', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-06-25 10:44:26');
+INSERT INTO `cms_log` VALUES ('208', 'admin', '登出系统', '登出', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36', '2018-06-25 10:44:31');
+INSERT INTO `cms_log` VALUES ('209', 'admin', '编辑站点', '编辑', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-06-25 10:44:42');
+INSERT INTO `cms_log` VALUES ('210', 'admin', '登陆系统', '登陆', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36', '2018-06-25 10:45:02');
+INSERT INTO `cms_log` VALUES ('211', 'admin', '登陆系统', '登陆', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-06-26 11:01:28');
+INSERT INTO `cms_log` VALUES ('212', 'admin', '添加.cms_goods.表', '添加', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-06-26 11:01:45');
+INSERT INTO `cms_log` VALUES ('213', 'admin', '.cms_goods.表添加字段.goods_name', '添加', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-06-26 11:02:13');
+INSERT INTO `cms_log` VALUES ('214', 'admin', '.cms_goods.表添加字段.goods_img', '添加', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-06-26 11:02:30');
+INSERT INTO `cms_log` VALUES ('215', 'admin', '.cms_goods.表添加字段.goods_num', '添加', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-06-26 11:02:52');
+INSERT INTO `cms_log` VALUES ('216', 'admin', '.cms_goods.表添加字段.create_time', '添加', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-06-26 11:06:35');
+INSERT INTO `cms_log` VALUES ('217', 'admin', '.cms_goods.表添加字段.goods_sell', '添加', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-06-26 11:08:39');
+INSERT INTO `cms_log` VALUES ('218', 'admin', '添加.cms_orders.表', '添加', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-06-26 11:12:59');
+INSERT INTO `cms_log` VALUES ('219', 'admin', '.cms_orders.表添加字段.order_num', '添加', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-06-26 11:13:28');
+INSERT INTO `cms_log` VALUES ('220', 'admin', '.cms_orders.表添加字段.order_time', '添加', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-06-26 11:31:13');
+INSERT INTO `cms_log` VALUES ('221', 'admin', '.cms_orders.表添加字段.uid', '添加', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-06-26 11:31:49');
+INSERT INTO `cms_log` VALUES ('222', 'admin', '.cms_orders.表添加字段.status', '添加', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-06-26 11:32:28');
+INSERT INTO `cms_log` VALUES ('223', 'admin', '.cms_orders.表添加字段.count', '添加', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-06-26 14:50:11');
+INSERT INTO `cms_log` VALUES ('224', 'admin', '登陆系统', '登陆', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-06-27 10:03:57');
+INSERT INTO `cms_log` VALUES ('225', 'admin', '编辑资讯', '编辑', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-06-27 10:05:40');
+INSERT INTO `cms_log` VALUES ('226', 'admin', '编辑资讯', '编辑', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-06-27 10:06:17');
+INSERT INTO `cms_log` VALUES ('227', 'admin', '删除用户', '删除', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-06-27 15:46:15');
+INSERT INTO `cms_log` VALUES ('228', 'admin', '删除用户', '删除', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-06-27 15:46:17');
+INSERT INTO `cms_log` VALUES ('229', 'admin', '添加资讯分类', '添加', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-06-27 17:36:51');
+INSERT INTO `cms_log` VALUES ('230', 'admin', '添加资讯分类', '添加', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-06-27 17:51:32');
+INSERT INTO `cms_log` VALUES ('231', 'admin', '添加资讯分类', '添加', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-06-27 17:51:54');
+INSERT INTO `cms_log` VALUES ('232', 'admin', '编辑资讯分类', '编辑', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-06-27 17:52:25');
+INSERT INTO `cms_log` VALUES ('233', 'admin', '编辑资讯分类', '编辑', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-06-27 17:52:32');
+INSERT INTO `cms_log` VALUES ('234', 'admin', '编辑资讯分类', '编辑', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-06-27 17:55:05');
+INSERT INTO `cms_log` VALUES ('235', 'admin', '编辑资讯分类', '编辑', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-06-27 17:55:28');
+INSERT INTO `cms_log` VALUES ('236', 'admin', '添加资讯分类', '添加', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-06-27 18:07:38');
+INSERT INTO `cms_log` VALUES ('237', 'admin', '登陆系统', '登陆', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-06-28 09:18:35');
+INSERT INTO `cms_log` VALUES ('238', 'admin', '添加资讯分类', '添加', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-06-28 10:06:22');
+INSERT INTO `cms_log` VALUES ('239', 'admin', '添加资讯分类', '添加', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-06-28 10:06:43');
+INSERT INTO `cms_log` VALUES ('240', 'admin', '添加资讯分类', '添加', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-06-28 10:06:57');
+INSERT INTO `cms_log` VALUES ('241', 'admin', '添加资讯分类', '添加', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-06-28 10:07:10');
+INSERT INTO `cms_log` VALUES ('242', 'admin', '添加资讯分类', '添加', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-06-28 10:07:21');
+INSERT INTO `cms_log` VALUES ('243', 'admin', '删除资讯分类', '删除', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-06-28 10:07:57');
+INSERT INTO `cms_log` VALUES ('244', 'admin', '删除资讯分类', '删除', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-06-28 10:08:04');
+INSERT INTO `cms_log` VALUES ('245', 'admin', '编辑资讯分类', '编辑', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-06-28 10:08:32');
+INSERT INTO `cms_log` VALUES ('246', 'admin', '编辑资讯', '编辑', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-06-28 10:21:41');
+INSERT INTO `cms_log` VALUES ('247', 'admin', '登陆系统', '登陆', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-07-02 10:26:05');
+INSERT INTO `cms_log` VALUES ('248', 'admin', '登陆系统', '登陆', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-07-03 13:43:08');
+INSERT INTO `cms_log` VALUES ('249', 'admin', '登陆系统', '登陆', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-07-04 16:40:37');
+INSERT INTO `cms_log` VALUES ('250', 'admin', '添加规则', '添加', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-07-04 16:41:47');
+INSERT INTO `cms_log` VALUES ('251', 'admin', '添加规则', '添加', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-07-04 16:42:24');
+INSERT INTO `cms_log` VALUES ('252', 'admin', '添加规则', '添加', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-07-04 16:42:56');
+INSERT INTO `cms_log` VALUES ('253', 'admin', '添加规则', '添加', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-07-04 16:43:23');
+INSERT INTO `cms_log` VALUES ('254', 'admin', '添加规则', '添加', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-07-04 16:43:53');
+INSERT INTO `cms_log` VALUES ('255', 'admin', '编辑规则', '编辑', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-07-04 16:44:00');
+INSERT INTO `cms_log` VALUES ('256', 'admin', '编辑权限组', '编辑', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-07-04 16:44:07');
+INSERT INTO `cms_log` VALUES ('257', 'admin', '添加.cms_banner.表', '添加', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-07-04 16:44:59');
+INSERT INTO `cms_log` VALUES ('258', 'admin', '.cms_banner.表添加字段.img_path', '添加', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-07-04 16:49:05');
+INSERT INTO `cms_log` VALUES ('259', 'admin', '.cms_banner.表添加字段.type', '添加', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-07-04 16:49:16');
+INSERT INTO `cms_log` VALUES ('260', 'admin', '添加banner图', '添加', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-07-04 16:50:01');
+INSERT INTO `cms_log` VALUES ('261', 'admin', '登陆系统', '登陆', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-07-05 15:49:59');
+INSERT INTO `cms_log` VALUES ('262', 'admin', '添加字段类型', '添加', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-07-05 15:50:33');
+INSERT INTO `cms_log` VALUES ('263', 'admin', '数据备份', '数据', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-07-05 15:50:45');
 
 -- ----------------------------
 -- Table structure for cms_news
@@ -295,15 +416,26 @@ CREATE TABLE `cms_news` (
   `create_time` date DEFAULT NULL COMMENT '发布时间',
   `update_time` datetime DEFAULT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='资讯表';
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COMMENT='资讯表';
 
 -- ----------------------------
 -- Records of cms_news
 -- ----------------------------
-INSERT INTO `cms_news` VALUES ('1', '5', '小猪佩奇身上纹', '小猪佩奇', '<p>小猪佩奇身上纹</p>', '谁是社会人', '20180624\\fa9b88f7a2989d1bebb018cdfa057986.jpg', '200', '喜羊羊', '1', '2018-06-21', '2018-06-21 09:47:21');
-INSERT INTO `cms_news` VALUES ('3', '5', '今年的济南热不热？', '今年的济南热不热？', '<p>今年的济南热不热？</p>', '今年的济南热不热？', '20180624\\557de811b9585daaaa041a58f79b0de5.jpg', '1121', '济南', '1', '2018-06-21', '2018-06-21 10:15:43');
+INSERT INTO `cms_news` VALUES ('1', '6', '小猪佩奇身上纹。。。', '小猪佩奇', '<p>小猪佩奇身上纹</p>', '谁是社会人', '20180624\\fa9b88f7a2989d1bebb018cdfa057986.jpg', '200', '喜羊羊', '1', '2018-06-21', '2018-06-21 09:47:21');
+INSERT INTO `cms_news` VALUES ('3', '5', '今年的济南热不热？', '今年的济南热不热？', '<p>今年的济南热不热？</p><p>&nbsp;&nbsp;&nbsp;&nbsp;热不热自己心里没点B数吗？<br/></p><p><br/></p>', '今年的济南热不热？', '20180624\\557de811b9585daaaa041a58f79b0de5.jpg', '1121', '济南', '1', '2018-06-21', '2018-06-21 10:15:43');
 INSERT INTO `cms_news` VALUES ('4', '5', '济南', '济南', '<p>济南</p>', '济南', '20180624\\58d234b2c74134eb035b98706f91e336.jpg', '12312', '济南', '1', '2018-06-21', '2018-06-21 10:25:36');
-INSERT INTO `cms_news` VALUES ('5', '5', '济南呐', '济南呐', '<p>济南呐</p>', '济南呐', '20180624\\2a912aa903ce0b79e6213b9929b12c73.jpg', '1200', '济南呐', '0', '2018-06-22', '2018-06-21 10:56:20');
+INSERT INTO `cms_news` VALUES ('5', '5', '济南呐1', '济南呐', '<p>济南呐</p>', '济南呐', '20180624\\2a912aa903ce0b79e6213b9929b12c73.jpg', '1200', '济南呐', '0', '2018-06-22', '2018-06-21 10:56:20');
+INSERT INTO `cms_news` VALUES ('6', '5', '济南呐2', '济南呐', '<p>济南呐</p>', '济南呐', '20180624\\2a912aa903ce0b79e6213b9929b12c73.jpg', '1200', '济南呐', '0', '2018-06-22', '2018-06-21 10:56:20');
+INSERT INTO `cms_news` VALUES ('7', '5', '济南呐3', '济南呐', '<p>济南呐</p>', '济南呐', '20180624\\2a912aa903ce0b79e6213b9929b12c73.jpg', '1200', '济南呐', '0', '2018-06-22', '2018-06-21 10:56:20');
+INSERT INTO `cms_news` VALUES ('8', '5', '济南呐4', '济南呐', '<p>济南呐</p>', '济南呐', '20180624\\2a912aa903ce0b79e6213b9929b12c73.jpg', '1200', '济南呐', '0', '2018-06-22', '2018-06-21 10:56:20');
+INSERT INTO `cms_news` VALUES ('9', '5', '济南呐5', '济南呐', '<p>济南呐</p>', '济南呐', '20180624\\2a912aa903ce0b79e6213b9929b12c73.jpg', '1200', '济南呐', '0', '2018-06-22', '2018-06-21 10:56:20');
+INSERT INTO `cms_news` VALUES ('10', '5', '济南呐6', '济南呐', '<p>济南呐</p>', '济南呐', '20180624\\2a912aa903ce0b79e6213b9929b12c73.jpg', '1200', '济南呐', '0', '2018-06-22', '2018-06-21 10:56:20');
+INSERT INTO `cms_news` VALUES ('11', '5', '济南呐7', '济南呐', '<p>济南呐</p>', '济南呐', '20180624\\2a912aa903ce0b79e6213b9929b12c73.jpg', '1200', '济南呐', '0', '2018-06-22', '2018-06-21 10:56:20');
+INSERT INTO `cms_news` VALUES ('12', '5', '济南呐8', '济南呐', '<p>济南呐</p>', '济南呐', '20180624\\2a912aa903ce0b79e6213b9929b12c73.jpg', '1200', '济南呐', '0', '2018-06-22', '2018-06-21 10:56:20');
+INSERT INTO `cms_news` VALUES ('13', '5', '济南呐9', '济南呐', '<p>济南呐</p>', '济南呐', '20180624\\2a912aa903ce0b79e6213b9929b12c73.jpg', '1200', '济南呐', '0', '2018-06-22', '2018-06-21 10:56:20');
+INSERT INTO `cms_news` VALUES ('14', '5', '济南呐10', '济南呐', '<p>济南呐</p>', '济南呐', '20180624\\2a912aa903ce0b79e6213b9929b12c73.jpg', '1200', '济南呐', '0', '2018-06-22', '2018-06-21 10:56:20');
+INSERT INTO `cms_news` VALUES ('15', '5', '济南呐11', '济南呐', '<p>济南呐</p>', '济南呐', '20180624\\2a912aa903ce0b79e6213b9929b12c73.jpg', '1200', '济南呐', '0', '2018-06-22', '2018-06-21 10:56:20');
+INSERT INTO `cms_news` VALUES ('16', '5', '济南呐12', '济南呐', '<p>济南呐</p>', '济南呐', '20180624\\2a912aa903ce0b79e6213b9929b12c73.jpg', '1200', '济南呐', '0', '2018-06-22', '2018-06-21 10:56:20');
 
 -- ----------------------------
 -- Table structure for cms_news_type
@@ -318,14 +450,84 @@ CREATE TABLE `cms_news_type` (
   `state` tinyint(2) DEFAULT '1' COMMENT '显示状态   1显示   0隐藏',
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='资讯分类表';
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COMMENT='资讯分类表';
 
 -- ----------------------------
 -- Records of cms_news_type
 -- ----------------------------
-INSERT INTO `cms_news_type` VALUES ('2', '0', '国际新闻', '20180624\\599ab8933b2a1d325804868323358405.jpg', '20', '1', '2018-06-19 17:24:16');
 INSERT INTO `cms_news_type` VALUES ('3', '0', '国内新闻', '20180624\\de41b9f5a187b8afdcff6b0c6032d278.jpg', '10', '1', '2018-06-20 10:23:38');
 INSERT INTO `cms_news_type` VALUES ('5', '3', '济南早知道', '20180624\\31ab811171648781a19e4c6cbb33b07b.jpg', '11', '1', '2018-06-21 10:14:32');
+INSERT INTO `cms_news_type` VALUES ('6', '5', '天桥那些事', '20180627\\c5ae22a614e25d168debf7a707b3a92d.jpg', '0', '1', '2018-06-27 16:54:50');
+INSERT INTO `cms_news_type` VALUES ('11', '0', '一级分类', '20180628\\7d333590feeef7405a68d04ec3308fb6.jpg', '20', '1', '2018-06-28 10:06:22');
+INSERT INTO `cms_news_type` VALUES ('12', '11', '二级分类', '20180628\\80260d852e9f8d468f54f42e265b2084.jpg', '0', '1', '2018-06-28 10:06:43');
+
+-- ----------------------------
+-- Table structure for cms_orders
+-- ----------------------------
+DROP TABLE IF EXISTS `cms_orders`;
+CREATE TABLE `cms_orders` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `order_num` varchar(255) DEFAULT '0' COMMENT '订单号',
+  `order_time` datetime DEFAULT '2018-06-26 11:31:11' COMMENT '订单时间',
+  `uid` int(11) DEFAULT '0' COMMENT '用户id',
+  `status` tinyint(2) DEFAULT '0' COMMENT '订单 状态  1支付成功   0待支付',
+  `count` int(11) DEFAULT '0' COMMENT '购买数量',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8 COMMENT='订单表';
+
+-- ----------------------------
+-- Records of cms_orders
+-- ----------------------------
+INSERT INTO `cms_orders` VALUES ('1', '201806261549395b31f01324af4', '2018-06-26 15:49:39', '8884', '0', '1');
+INSERT INTO `cms_orders` VALUES ('2', '201806261549395b31f0133c349', '2018-06-26 15:49:39', '6573', '0', '1');
+INSERT INTO `cms_orders` VALUES ('3', '201806261549395b31f013407c7', '2018-06-26 15:49:39', '1736', '0', '1');
+INSERT INTO `cms_orders` VALUES ('4', '201806261549395b31f01345288', '2018-06-26 15:49:39', '9183', '0', '1');
+INSERT INTO `cms_orders` VALUES ('5', '201806261549395b31f013496d1', '2018-06-26 15:49:39', '1582', '0', '1');
+INSERT INTO `cms_orders` VALUES ('6', '201806261549395b31f01364a6e', '2018-06-26 15:49:39', '7875', '0', '1');
+INSERT INTO `cms_orders` VALUES ('7', '201806261549395b31f01378fef', '2018-06-26 15:49:39', '7961', '0', '1');
+INSERT INTO `cms_orders` VALUES ('8', '201806261549395b31f0137e96d', '2018-06-26 15:49:39', '6394', '0', '1');
+INSERT INTO `cms_orders` VALUES ('9', '201806261549395b31f01384bcd', '2018-06-26 15:49:39', '8498', '0', '1');
+INSERT INTO `cms_orders` VALUES ('10', '201806261549395b31f0138b20e', '2018-06-26 15:49:39', '9822', '0', '1');
+INSERT INTO `cms_orders` VALUES ('11', '201806261549395b31f01390afd', '2018-06-26 15:49:39', '7244', '0', '1');
+INSERT INTO `cms_orders` VALUES ('12', '201806261549395b31f01396387', '2018-06-26 15:49:39', '4852', '0', '1');
+INSERT INTO `cms_orders` VALUES ('13', '201806261549395b31f0139c600', '2018-06-26 15:49:39', '1291', '0', '1');
+INSERT INTO `cms_orders` VALUES ('14', '201806261549395b31f013a2aa2', '2018-06-26 15:49:39', '1833', '0', '1');
+INSERT INTO `cms_orders` VALUES ('15', '201806261549395b31f013a8073', '2018-06-26 15:49:39', '1569', '0', '1');
+INSERT INTO `cms_orders` VALUES ('16', '201806261549405b31f0145a963', '2018-06-26 15:49:40', '7596', '0', '1');
+INSERT INTO `cms_orders` VALUES ('17', '201806261549405b31f0145f1ec', '2018-06-26 15:49:40', '9052', '0', '1');
+INSERT INTO `cms_orders` VALUES ('18', '201806261549405b31f01463c95', '2018-06-26 15:49:40', '2681', '0', '1');
+INSERT INTO `cms_orders` VALUES ('19', '201806261549405b31f01467da5', '2018-06-26 15:49:40', '5200', '0', '1');
+INSERT INTO `cms_orders` VALUES ('20', '201806261549405b31f0146d282', '2018-06-26 15:49:40', '1039', '0', '1');
+INSERT INTO `cms_orders` VALUES ('21', '201806261549405b31f01478245', '2018-06-26 15:49:40', '1572', '0', '1');
+INSERT INTO `cms_orders` VALUES ('22', '201806261549405b31f014810e5', '2018-06-26 15:49:40', '4447', '0', '1');
+INSERT INTO `cms_orders` VALUES ('23', '201806261549405b31f0148f980', '2018-06-26 15:49:40', '1827', '0', '1');
+INSERT INTO `cms_orders` VALUES ('24', '201806261549405b31f0149458a', '2018-06-26 15:49:40', '1251', '0', '1');
+INSERT INTO `cms_orders` VALUES ('25', '201806261549405b31f0149a3da', '2018-06-26 15:49:40', '3850', '0', '1');
+INSERT INTO `cms_orders` VALUES ('26', '201806261549405b31f0149e60b', '2018-06-26 15:49:40', '4723', '0', '1');
+INSERT INTO `cms_orders` VALUES ('27', '201806261549405b31f014a7f5c', '2018-06-26 15:49:40', '9783', '0', '1');
+INSERT INTO `cms_orders` VALUES ('28', '201806261549405b31f014ac53c', '2018-06-26 15:49:40', '5515', '0', '1');
+INSERT INTO `cms_orders` VALUES ('29', '201806261549405b31f014b19d3', '2018-06-26 15:49:40', '4554', '0', '1');
+INSERT INTO `cms_orders` VALUES ('30', '201806261549405b31f014c19f3', '2018-06-26 15:49:40', '4231', '0', '1');
+INSERT INTO `cms_orders` VALUES ('31', '201806261549405b31f014c763e', '2018-06-26 15:49:40', '6394', '0', '1');
+INSERT INTO `cms_orders` VALUES ('32', '201806261549405b31f014d591b', '2018-06-26 15:49:40', '3602', '0', '1');
+INSERT INTO `cms_orders` VALUES ('33', '201806261549405b31f014da5ec', '2018-06-26 15:49:40', '9439', '0', '1');
+INSERT INTO `cms_orders` VALUES ('34', '201806261549405b31f014dea28', '2018-06-26 15:49:40', '8374', '0', '1');
+INSERT INTO `cms_orders` VALUES ('35', '201806261549405b31f014e44b2', '2018-06-26 15:49:40', '4183', '0', '1');
+INSERT INTO `cms_orders` VALUES ('36', '201806261549405b31f014e8da8', '2018-06-26 15:49:40', '4567', '0', '1');
+INSERT INTO `cms_orders` VALUES ('37', '201806261549415b31f0150057a', '2018-06-26 15:49:41', '2177', '0', '1');
+INSERT INTO `cms_orders` VALUES ('38', '201806261549415b31f01505f4c', '2018-06-26 15:49:41', '7485', '0', '1');
+INSERT INTO `cms_orders` VALUES ('39', '201806261549415b31f0150aab3', '2018-06-26 15:49:41', '6078', '0', '1');
+INSERT INTO `cms_orders` VALUES ('40', '201806261549415b31f01513ac7', '2018-06-26 15:49:41', '5439', '0', '1');
+INSERT INTO `cms_orders` VALUES ('41', '201806261549415b31f0151a2bd', '2018-06-26 15:49:41', '2885', '0', '1');
+INSERT INTO `cms_orders` VALUES ('42', '201806261549415b31f0151f7c8', '2018-06-26 15:49:41', '9223', '0', '1');
+INSERT INTO `cms_orders` VALUES ('43', '201806261549415b31f01527ec5', '2018-06-26 15:49:41', '8603', '0', '1');
+INSERT INTO `cms_orders` VALUES ('44', '201806261549415b31f015325d1', '2018-06-26 15:49:41', '9096', '0', '1');
+INSERT INTO `cms_orders` VALUES ('45', '201806261549415b31f01539a95', '2018-06-26 15:49:41', '2679', '0', '1');
+INSERT INTO `cms_orders` VALUES ('46', '201806261549415b31f015ea7e6', '2018-06-26 15:49:41', '2126', '0', '1');
+INSERT INTO `cms_orders` VALUES ('47', '201806261549425b31f01603141', '2018-06-26 15:49:42', '3309', '0', '1');
+INSERT INTO `cms_orders` VALUES ('48', '201806261549425b31f0160cb6f', '2018-06-26 15:49:42', '2712', '0', '1');
+INSERT INTO `cms_orders` VALUES ('49', '201806261549425b31f01613f25', '2018-06-26 15:49:42', '6726', '0', '1');
+INSERT INTO `cms_orders` VALUES ('50', '201806261549425b31f016194e4', '2018-06-26 15:49:42', '9507', '0', '1');
 
 -- ----------------------------
 -- Table structure for cms_rule
@@ -347,7 +549,7 @@ CREATE TABLE `cms_rule` (
   `show_order` int(11) DEFAULT NULL COMMENT '排序   越大越靠前',
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8 COMMENT='规则表';
+) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8 COMMENT='规则表';
 
 -- ----------------------------
 -- Records of cms_rule
@@ -407,6 +609,11 @@ INSERT INTO `cms_rule` VALUES ('52', '17', 'admin/System/field_type', '字段类
 INSERT INTO `cms_rule` VALUES ('53', '17', 'admin/System/add_field_type', '添加字段类型', '1', '1', '', '系统管理', '2', '', 'System', 'add_field_type', '0');
 INSERT INTO `cms_rule` VALUES ('54', '17', 'admin/System/editor_field_type', '编辑字段类型', '1', '1', '', '系统管理', '2', '', 'System', 'editor_field_type', '0');
 INSERT INTO `cms_rule` VALUES ('55', '17', 'admin/System/del_field_type', '删除字段类型', '1', '1', '', '系统管理', '2', '', 'System', 'del_field_type', '0');
+INSERT INTO `cms_rule` VALUES ('56', '0', 'admin/Banner', 'Banner管理', '1', '1', '', 'Banner管理', '1', 'icon-picture', 'Banner', '', '50');
+INSERT INTO `cms_rule` VALUES ('57', '56', 'admin/Banner/banner', 'banner列表', '1', '1', '', 'Banner管理', '1', '', 'Banner', 'banner', '0');
+INSERT INTO `cms_rule` VALUES ('58', '56', 'admin/Banner/add_banner', '添加banner', '1', '1', '', 'Banner管理', '2', '', 'Banner', 'add_banner', '0');
+INSERT INTO `cms_rule` VALUES ('59', '56', 'admin/Banner/editor_banner', '编辑banner', '1', '1', '', 'Banner管理', '2', '', 'Banner', 'editor_banner', '0');
+INSERT INTO `cms_rule` VALUES ('60', '56', 'admin/Banner/del_banner', '删除', '1', '1', '', 'Banner管理', '2', '', 'Banner', 'del_banner', '0');
 
 -- ----------------------------
 -- Table structure for cms_system
@@ -418,13 +625,29 @@ CREATE TABLE `cms_system` (
   `admin_id` int(11) DEFAULT NULL COMMENT '管理员权限组id',
   `home_url` varchar(255) DEFAULT NULL COMMENT '前台访问地址',
   `check` tinyint(2) DEFAULT NULL COMMENT '评论是否审核   1需要    0不需要',
+  `check_login` tinyint(2) DEFAULT '1' COMMENT '是否开启唯一登陆验证   1开启    0关闭',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='系统表';
 
 -- ----------------------------
 -- Records of cms_system
 -- ----------------------------
-INSERT INTO `cms_system` VALUES ('1', '模块化后台管理系统', '1', 'http://127.0.0.5', '1');
+INSERT INTO `cms_system` VALUES ('1', '模块化后台管理系统', '1', 'http://127.0.0.5', '1', '0');
+
+-- ----------------------------
+-- Table structure for cms_test
+-- ----------------------------
+DROP TABLE IF EXISTS `cms_test`;
+CREATE TABLE `cms_test` (
+  `test_name` varchar(255) DEFAULT '0' COMMENT '名称',
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='测试表';
+
+-- ----------------------------
+-- Records of cms_test
+-- ----------------------------
+INSERT INTO `cms_test` VALUES ('0', '1');
 
 -- ----------------------------
 -- Table structure for cms_users

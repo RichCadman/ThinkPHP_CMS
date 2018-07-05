@@ -59,29 +59,32 @@ class Database extends Base
     //添加
     public function add_table_do()
     {
-        $data = input('post.');
-        //表名
-        $tableName = $data['tableName'];
-        //引擎
-        $Engine = $data['Engine'];
-        //注释
-        $comment = $data['tableComment'];
-        try {
-            db()->execute("CREATE TABLE $tableName(
+        if (request()->isPost()) {
+            $data = input('post.');
+            //表名
+            $tableName = $data['tableName'];
+            //引擎
+            $Engine = $data['Engine'];
+            //注释
+            $comment = $data['tableComment'];
+            try {
+                db()->execute("CREATE TABLE $tableName(
                       id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
                     )ENGINE=$Engine AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='$comment'");
-            //添加日志
-            Logs::write("添加.$tableName.表",'添加');
-            $msg['status'] = 200;
-            $msg['tips'] = '添加成功';
-            $msg['tableName'] = $tableName;
-            return json($msg);
-        } catch (\Exception $e) {
-            $msg['status'] = 400;
-            $msg['tips'] = '表名格式错误';
-            return json($msg);
+                //添加日志
+                Logs::write("添加.$tableName.表",'添加');
+                $msg['status'] = 200;
+                $msg['tips'] = '添加成功';
+                $msg['tableName'] = $tableName;
+                return json($msg);
+            } catch (\Exception $e) {
+                $msg['status'] = 400;
+                $msg['tips'] = '表名格式错误';
+                return json($msg);
+            }
+        } else {
+            return 'request method error!';
         }
-
     }
 
     //编辑数据表
@@ -119,32 +122,36 @@ class Database extends Base
     //编辑
     public function editor_table_do()
     {
-        $data = input('post.');
-        //旧表名
-        $oldTableName = $data['oldTableName'];
-        //表名
-        $tableName = $data['tableName'];
-        //引擎
-        $Engine = $data['Engine'];
-        //注释
-        $comment = $data['tableComment'];
-        try {
-            //修改引擎
-            db()->execute("ALTER  TABLE $oldTableName ENGINE=$Engine");
-            //修改注释
-            db()->execute("ALTER  TABLE $oldTableName COMMENT '$comment'");
-            //修改表名
-            db()->execute("ALTER  TABLE $oldTableName RENAME TO $tableName");
-            //添加日志
-            Logs::write("编辑.$tableName.表",'编辑');
-            $msg['status'] = 200;
-            $msg['tips'] = '修改成功';
-            $msg['tableName'] = $tableName;
-            return json($msg);
-        } catch (\Exception $e) {
-            $msg['status'] = 400;
-            $msg['tips'] = '表名格式错误';
-            return json($msg);
+        if (request()->isPost()) {
+            $data = input('post.');
+            //旧表名
+            $oldTableName = $data['oldTableName'];
+            //表名
+            $tableName = $data['tableName'];
+            //引擎
+            $Engine = $data['Engine'];
+            //注释
+            $comment = $data['tableComment'];
+            try {
+                //修改引擎
+                db()->execute("ALTER  TABLE $oldTableName ENGINE=$Engine");
+                //修改注释
+                db()->execute("ALTER  TABLE $oldTableName COMMENT '$comment'");
+                //修改表名
+                db()->execute("ALTER  TABLE $oldTableName RENAME TO $tableName");
+                //添加日志
+                Logs::write("编辑.$tableName.表",'编辑');
+                $msg['status'] = 200;
+                $msg['tips'] = '修改成功';
+                $msg['tableName'] = $tableName;
+                return json($msg);
+            } catch (\Exception $e) {
+                $msg['status'] = 400;
+                $msg['tips'] = '表名格式错误';
+                return json($msg);
+            }
+        } else {
+            return 'request method error!';
         }
     }
 
@@ -238,42 +245,43 @@ class Database extends Base
     //添加
     public function add_filed_do()
     {
-        $data = input('post.');
-        //表名
-        $tableName = $data['tableName'];
-        //字段
-        $field = $data['Field'];
-        //字段类型
-        $type = $data['Type'];
-        //是否可为NULL
-        $isNull = $data['Null'];
-        //默认值
-        $default = $data['Default'] ? $data['Default'] : 0;
-        //是否自增长
-        $Extra = $data['Extra'];
-        //备注
-        $comment = $data['Comment'];
-        //新增
-        try {
-            if ($Extra) {
-                db()->execute("alter table $tableName add $field $type $isNull PRIMARY KEY $Extra $isNull COMMENT '$comment'");
-                /*return json("alter table $tableName add $field $type $isNull PRIMARY KEY $Extra $isNull COMMENT '$comment'");
-                exit;*/
-            } else {
-                db()->execute("alter table $tableName add $field $type $Extra $isNull DEFAULT '$default' COMMENT '$comment'");
-                /*return json("alter table $tableName add $field $type $Extra $isNull DEFAULT '$default' COMMENT '$comment'");
-                exit;*/
+        if (request()->isPost()) {
+            $data = input('post.');
+            //表名
+            $tableName = $data['tableName'];
+            //字段
+            $field = $data['Field'];
+            //字段类型
+            $type = $data['Type'];
+            //是否可为NULL
+            //$isNull = $data['Null'];
+            //默认值
+            //$default = $data['Default'] ? $data['Default'] : 0;
+            //是否自增长
+            //$Extra = $data['Extra'];
+            //备注
+            $comment = $data['Comment'];
+            //新增
+            try {
+                /*if ($Extra) {
+                    db()->execute("alter table $tableName add $field $type PRIMARY KEY $Extra COMMENT '$comment'");
+                } else {
+                    db()->execute("alter table $tableName add $field $type $Extra  COMMENT '$comment'");
+                }*/
+                db()->execute("alter table $tableName add $field $type COMMENT '$comment'");
+                //添加日志
+                Logs::write(".$tableName.表添加字段.$field",'添加');
+                $msg['status'] = 200;
+                $msg['tips'] = '添加成功';
+                $msg['tableName'] = $tableName;
+                return json($msg);
+            } catch (\Exception $e) {
+                $msg['status'] = 400;
+                $msg['tips'] = '字段类型或默认值错误';
+                return json($msg);
             }
-            //添加日志
-            Logs::write(".$tableName.表添加字段.$field",'添加');
-            $msg['status'] = 200;
-            $msg['tips'] = '添加成功';
-            $msg['tableName'] = $tableName;
-            return json($msg);
-        } catch (\Exception $e) {
-            $msg['status'] = 400;
-            $msg['tips'] = '字段类型或默认值错误';
-            return json($msg);
+        } else {
+            return 'request method error!';
         }
     }
 
@@ -316,34 +324,38 @@ class Database extends Base
     //编辑
     public function editor_field_do()
     {
-        $data = input('post.');
-        //表名
-        $tableName = $data['tableName'];
-        //旧字段
-        $oldField = $data['oldField'];
-        //新字段
-        $field = $data['Field'];
-        //字段类型
-        $type = $data['Type'];
-        //是否可为NULL
-        $isNull = $data['Null'];
-        //默认值
-        $default = $data['Default'];
-        //备注
-        $comment = $data['Comment'];
-        //更新
-        try {
-            db()->execute("alter table $tableName change $oldField $field $type DEFAULT '$default' $isNull COMMENT '$comment'");
-            //添加日志
-            Logs::write(".$tableName.表编辑字段.$field",'编辑');
-            $msg['status'] = 200;
-            $msg['tips'] = '编辑成功';
-            $msg['tableName'] = $tableName;
-            return json($msg);
-        } catch (\Exception $e) {
-            $msg['status'] = 400;
-            $msg['tips'] = '字段类型或默认值错误';
-            return json($msg);
+        if (request()->isPost()) {
+            $data = input('post.');
+            //表名
+            $tableName = $data['tableName'];
+            //旧字段
+            $oldField = $data['oldField'];
+            //新字段
+            $field = $data['Field'];
+            //字段类型
+            $type = $data['Type'];
+            //是否可为NULL
+            //$isNull = $data['Null'];
+            //默认值
+            //$default = $data['Default'];
+            //备注
+            $comment = $data['Comment'];
+            //更新
+            try {
+                db()->execute("alter table $tableName change $oldField $field $type COMMENT '$comment'");
+                //添加日志
+                Logs::write(".$tableName.表编辑字段.$field",'编辑');
+                $msg['status'] = 200;
+                $msg['tips'] = '编辑成功';
+                $msg['tableName'] = $tableName;
+                return json($msg);
+            } catch (\Exception $e) {
+                $msg['status'] = 400;
+                $msg['tips'] = '字段类型或默认值错误';
+                return json($msg);
+            }
+        } else {
+            return 'request method error!';
         }
     }
 

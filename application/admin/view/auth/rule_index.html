@@ -19,7 +19,7 @@
                     <header style="clearfix">
                         {include file="public/nav" /}
                         <button onclick="add()" class="btn btn-primary fr icon-plus">{$Think.lang.add}</button>
-                        <!--<a onclick="window.history.back();"><button class="btn btn-primary fr">返回上层</button></a>-->
+                        <!--<a onclick="window.history.back();"><button class="btn btn-primary fr icon-undo">返回上层</button></a>-->
                         <script>
                             function add() {
                                 $.get('{:url("Auth/add_rule")}', function (data) {
@@ -42,7 +42,8 @@
                         <th>id</th>
                         <th>规则名称</th>
                         <th>规则标识</th>
-                        <th>显示状态</th>
+                        <th>状态</th>
+                        <th>显示</th>
                         <th>操作</th>
                     </tr>
                     </thead>
@@ -53,6 +54,7 @@
                         <td class="lt">{$v.title}</td>
                         <td>{$v.name}</td>
                         <td>{$v.is_visible}</td>
+                        <td>{$v.show_order}</td>
                         <td>
                             <a href="javascript:void(0)" onclick="editor(this,{$v.id})" title="{$Think.lang.editor}" class="mr-5 icon-edit">{$Think.lang.editor}</a>
                             <!--<a title="详情" class="mr-5">详情</a>-->
@@ -69,6 +71,7 @@
                         </td>
                         <td>{$vv.name}</td>
                         <td>{$vv.is_visible}</td>
+                        <td>{$vv.show_order}</td>
                         <td>
                             <a href="javascript:void(0)" onclick="editor(this,{$vv.id})" title="{$Think.lang.editor}" class="mr-5 icon-edit">{$Think.lang.editor}</a>
                             <!--<a title="详情" class="mr-5">详情</a>-->

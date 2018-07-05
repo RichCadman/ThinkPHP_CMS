@@ -66,7 +66,7 @@ class Auth extends Base
     //添加规则
     public function add_rule_do()
     {
-        if (IS_POST) {
+        if (request()->isPost()) {
             $data = input('post.');
             $res = Rule::create($data);
             if ($res) {
@@ -81,9 +81,7 @@ class Auth extends Base
                 return json($msg);
             }
         } else {
-            $msg['status'] = 600;
-            $msg['tips'] = '请求类型错误';
-            return json($msg);
+            return 'request method error!';
         }
     }
 
@@ -118,20 +116,23 @@ class Auth extends Base
     //修改规则
     public function editor_rule_do()
     {
-        $data = input('post.');
-        $res = Rule::where(['id' => $data['id']])->update($data);
-        if ($res) {
-            //添加日志
-            Logs::write('编辑规则','编辑');
-            $msg['status'] = 200;
-            $msg['tips'] = '编辑成功';
-            return json($msg);
-        }else{
-            $msg['status'] = 400;
-            $msg['tips'] = '编辑失败';
-            return json($msg);
+        if (request()->isPost()) {
+            $data = input('post.');
+            $res = Rule::where(['id' => $data['id']])->update($data);
+            if ($res) {
+                //添加日志
+                Logs::write('编辑规则','编辑');
+                $msg['status'] = 200;
+                $msg['tips'] = '编辑成功';
+                return json($msg);
+            }else{
+                $msg['status'] = 400;
+                $msg['tips'] = '编辑失败';
+                return json($msg);
+            }
+        } else {
+            return 'request method error!';
         }
-
     }
 
     //删除规则
@@ -142,21 +143,21 @@ class Auth extends Base
         $uid = $userinfo['id'];
         $res = $Auth->check(MODULE_NAME . '/' . CONTROLLER_NAME . '/' . ACTION_NAME, $uid);
         if ($res) {
-        $id = input('post.id/d');
-        $del_res = Rule::where(['id' => $id])->delete();
-        if($del_res){
-            //删除子数据
-            Rule::where(['p_id' => $id])->delete();
-            //添加日志
-            Logs::write('删除规则','删除');
-            $msg['status'] = 200;
-            $msg['tips'] = '删除成功';
-            return json($msg);
-        }else{
-            $msg['status'] = 400;
-            $msg['tips'] = '删除失败';
-            return json($msg);
-        }
+            $id = input('post.id/d');
+            $del_res = Rule::where(['id' => $id])->delete();
+            if($del_res){
+                //删除子数据
+                Rule::where(['p_id' => $id])->delete();
+                //添加日志
+                Logs::write('删除规则','删除');
+                $msg['status'] = 200;
+                $msg['tips'] = '删除成功';
+                return json($msg);
+            }else{
+                $msg['status'] = 400;
+                $msg['tips'] = '删除失败';
+                return json($msg);
+            }
         } else {
             $msg['status'] = 600;
             $msg['tips'] = '权限不足';
@@ -217,7 +218,7 @@ class Auth extends Base
     //添加权限组
     public function add_group_do()
     {
-        if (IS_POST) {
+        if (request()->isPost()) {
             $data = input('post.');
             $check = Group::where('title',$data['title'])->find();
             if($check){
@@ -257,9 +258,7 @@ class Auth extends Base
             }
 
         } else {
-            $msg['status'] = 600;
-            $msg['tips'] = '请求类型错误';
-            return json($msg);
+            return 'request method error!';
         }
     }
 
@@ -299,7 +298,7 @@ class Auth extends Base
     //编辑权限组
     public function editor_group_do()
     {
-        if (IS_POST) {
+        if (request()->isPost()) {
             $data = input('post.');
             //权限组id
             $id = $data['id'];
@@ -342,9 +341,7 @@ class Auth extends Base
                 }
             }
         } else {
-            $msg['status'] = 800;
-            $msg['tips'] = '请求方式错误';
-            return json($msg);
+            return 'request method error!';
         }
 
     }
@@ -357,19 +354,19 @@ class Auth extends Base
         $uid = $userinfo['id'];
         $res = $Auth->check(MODULE_NAME . '/' . CONTROLLER_NAME . '/' . ACTION_NAME, $uid);
         if ($res) {
-        $id = input('post.id/d');
-        $del_res = Group::where(['id' => $id])->delete();
-        if($del_res){
-            //添加日志
-            Logs::write('删除权限组','删除');
-            $msg['status'] = 200;
-            $msg['tips'] = '删除成功';
-            return json($msg);
-        }else{
-            $msg['status'] = 400;
-            $msg['tips'] = '删除失败';
-            return json($msg);
-        }
+            $id = input('post.id/d');
+            $del_res = Group::where(['id' => $id])->delete();
+            if($del_res){
+                //添加日志
+                Logs::write('删除权限组','删除');
+                $msg['status'] = 200;
+                $msg['tips'] = '删除成功';
+                return json($msg);
+            }else{
+                $msg['status'] = 400;
+                $msg['tips'] = '删除失败';
+                return json($msg);
+            }
         } else {
             $msg['status'] = 600;
             $msg['tips'] = '权限不足';

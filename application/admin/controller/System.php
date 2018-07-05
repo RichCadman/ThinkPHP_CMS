@@ -40,18 +40,22 @@ class System extends Base
     //编辑站点
     public function editor_config_do()
     {
-        $data = input('post.');
-        $res = Systems::where(['id' => $data['id']])->update($data);
-        if ($res) {
-            //添加日志
-            Logs::write('编辑站点','编辑');
-            $msg['status'] = 200;
-            $msg['tips'] = '编辑成功';
-            return json($msg);
-        }else{
-            $msg['status'] = 400;
-            $msg['tips'] = '编辑失败';
-            return json($msg);
+        if (request()->isPost()) {
+            $data = input('post.');
+            $res = Systems::where(['id' => $data['id']])->update($data);
+            if ($res) {
+                //添加日志
+                Logs::write('编辑站点','编辑');
+                $msg['status'] = 200;
+                $msg['tips'] = '编辑成功';
+                return json($msg);
+            }else{
+                $msg['status'] = 400;
+                $msg['tips'] = '编辑失败';
+                return json($msg);
+            }
+        } else {
+            return 'request method error!';
         }
     }
 
@@ -183,7 +187,7 @@ class System extends Base
     //添加
     public function add_field_type_do()
     {
-        if (IS_POST) {
+        if (request()->isPost()) {
             $data = input('post.');
             $res = FieldConfig::create($data);
             if ($res) {
@@ -198,9 +202,7 @@ class System extends Base
                 return json($msg);
             }
         } else {
-            $msg['status'] = 600;
-            $msg['tips'] = '请求类型错误';
-            return json($msg);
+            return 'request method error!';
         }
     }
 
@@ -230,18 +232,22 @@ class System extends Base
     //编辑
     public function editor_field_type_do()
     {
-        $data = input('post.');
-        $res = FieldConfig::where(['id' => $data['id']])->update($data);
-        if ($res) {
-            //添加日志
-            Logs::write('编辑字段类型','编辑');
-            $msg['status'] = 200;
-            $msg['tips'] = '编辑成功';
-            return json($msg);
-        }else{
-            $msg['status'] = 400;
-            $msg['tips'] = '编辑失败';
-            return json($msg);
+        if (request()->isPost()) {
+            $data = input('post.');
+            $res = FieldConfig::where(['id' => $data['id']])->update($data);
+            if ($res) {
+                //添加日志
+                Logs::write('编辑字段类型','编辑');
+                $msg['status'] = 200;
+                $msg['tips'] = '编辑成功';
+                return json($msg);
+            }else{
+                $msg['status'] = 400;
+                $msg['tips'] = '编辑失败';
+                return json($msg);
+            }
+        } else {
+            return 'request method error!';
         }
     }
 

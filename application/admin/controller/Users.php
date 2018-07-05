@@ -28,8 +28,8 @@ class Users extends Base
             }
 
             $info = \app\common\model\Users::where($where)
-                                            ->order('id desc')
-                                            ->paginate(15,false,['query'=>request()->param()]);
+                ->order('id desc')
+                ->paginate(15,false,['query'=>request()->param()]);
             $this->assign(array(
                 'display' => 'Users',
                 'current' => 'users_index',
@@ -69,18 +69,22 @@ class Users extends Base
     //编辑
     public function editor_user_do()
     {
-        $data = input('post.');
-        $res = \app\common\model\Users::where(['id' => $data['id']])->update($data);
-        if ($res) {
-            //添加日志
-            Logs::write('编辑用户','编辑');
-            $msg['status'] = 200;
-            $msg['tips'] = '编辑成功';
-            return json($msg);
-        }else{
-            $msg['status'] = 400;
-            $msg['tips'] = '编辑失败';
-            return json($msg);
+        if (request()->isPost()) {
+            $data = input('post.');
+            $res = \app\common\model\Users::where(['id' => $data['id']])->update($data);
+            if ($res) {
+                //添加日志
+                Logs::write('编辑用户','编辑');
+                $msg['status'] = 200;
+                $msg['tips'] = '编辑成功';
+                return json($msg);
+            }else{
+                $msg['status'] = 400;
+                $msg['tips'] = '编辑失败';
+                return json($msg);
+            }
+        } else {
+            return 'request method error!';
         }
     }
 

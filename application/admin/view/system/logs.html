@@ -19,7 +19,7 @@
                     <header style="clearfix">
                         {include file="public/nav" /}
                         <button onclick="clearLogs()" class="btn btn-primary fr icon-trash">{$Think.lang.clear_logs}</button>
-                        <!--<a onclick="window.history.back();"><button class="btn btn-primary fr">返回上层</button></a>-->
+                        <!--<a onclick="window.history.back();"><button class="btn btn-primary fr icon-undo">{$Think.lang.back}</button></a>-->
                         <script>
                             function clearLogs() {
                                 layer.confirm('确定清空吗？', {

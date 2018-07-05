@@ -65,41 +65,46 @@ class Admin extends Base
     //添加
     public function add_admin_do()
     {
-        $data = input('post.');
-        //判断名称是否已经存在
-        $check = Admins::where('username', $data['username'])->find();
-        if ($check) {
-            $msg['status'] = 600;
-            $msg['tips'] = '该用户名已存在';
-            return json($msg);
-        } else {
-            //添加用户
-            //$add_res = Admins::create($data, ['username,password,qq,wx,phone,address']);
-            $add_res = Admins::create([
-                'username' => $data['username'],
-                'password' => md5($data['password']),
-                'qq' => $data['qq'],
-                'wx' => $data['wx'],
-                'phone' => $data['phone'],
-                'address' => $data['address'],
-            ]);
-            if ($add_res->id) {
-                //添加该用户权限组
-                GroupAccess::create([
-                    'uid' => $add_res->id,
-                    'group_id' => $data['group_id'],
-                ]);
-                //添加日志
-                Logs::write('添加用户', '添加');
-                $msg['status'] = 200;
-                $msg['tips'] = '添加成功';
+        if (request()->isPost()) {
+            $data = input('post.');
+            //判断名称是否已经存在
+            $check = Admins::where('username', $data['username'])->find();
+            if ($check) {
+                $msg['status'] = 600;
+                $msg['tips'] = '该用户名已存在';
                 return json($msg);
             } else {
-                $msg['status'] = 400;
-                $msg['tips'] = '添加失败';
-                return json($msg);
+                //添加用户
+                //$add_res = Admins::create($data, ['username,password,qq,wx,phone,address']);
+                $add_res = Admins::create([
+                    'username' => $data['username'],
+                    'password' => md5($data['password']),
+                    'qq' => $data['qq'],
+                    'wx' => $data['wx'],
+                    'phone' => $data['phone'],
+                    'address' => $data['address'],
+                ]);
+                if ($add_res->id) {
+                    //添加该用户权限组
+                    GroupAccess::create([
+                        'uid' => $add_res->id,
+                        'group_id' => $data['group_id'],
+                    ]);
+                    //添加日志
+                    Logs::write('添加用户', '添加');
+                    $msg['status'] = 200;
+                    $msg['tips'] = '添加成功';
+                    return json($msg);
+                } else {
+                    $msg['status'] = 400;
+                    $msg['tips'] = '添加失败';
+                    return json($msg);
+                }
             }
+        } else {
+            return 'request method error!';
         }
+
     }
 
     //编辑用户页面
@@ -136,25 +141,50 @@ class Admin extends Base
     //编辑基本信息
     public function editor_admin_do()
     {
-        $data = input('post.');
-        //判断名称是否已经存在
-        //查看提交标题是否与其他权限组标题冲突
-        $check = Admins::where('id', '<>', $data['id'])
-            ->where('username', $data['username'])
-            ->find();
-        if ($check) {
-            $msg['status'] = 600;
-            $msg['tips'] = '该用户名已存在';
-            return json($msg);
+        if (request()->isPost()) {
+            $data = input('post.');
+            //判断名称是否已经存在
+            //查看提交标题是否与其他权限组标题冲突
+            $check = Admins::where('id', '<>', $data['id'])
+                ->where('username', $data['username'])
+                ->find();
+            if ($check) {
+                $msg['status'] = 600;
+                $msg['tips'] = '该用户名已存在';
+                return json($msg);
+            } else {
+                $res = Admins::where(['id' => $data['id']])->update($data);
+                if ($res) {
+                    //添加日志
+                    $users = session('admin');
+                    Logs::write('编辑基本信息', '编辑');
+                    //更新session
+                    $userinfo = Admins::get($users['id']);
+                    session('admin', $userinfo);
+                    $msg['status'] = 200;
+                    $msg['tips'] = '编辑成功';
+                    return json($msg);
+                } else {
+                    $msg['status'] = 400;
+                    $msg['tips'] = '编辑失败';
+                    return json($msg);
+                }
+            }
         } else {
+            return 'request method error!';
+        }
+    }
+
+    //修改密码
+    public function editor_password_do()
+    {
+        if (request()->isPost()) {
+            $data = input('post.');
+            $data['password'] = md5($data['password']);
             $res = Admins::where(['id' => $data['id']])->update($data);
             if ($res) {
                 //添加日志
-                $users = session('admin');
-                Logs::write('编辑基本信息', '编辑');
-                //更新session
-                $userinfo = Admins::get($users['id']);
-                session('admin', $userinfo);
+                Logs::write('修改密码', '编辑');
                 $msg['status'] = 200;
                 $msg['tips'] = '编辑成功';
                 return json($msg);
@@ -163,43 +193,31 @@ class Admin extends Base
                 $msg['tips'] = '编辑失败';
                 return json($msg);
             }
-        }
-    }
-
-    //修改密码
-    public function editor_password_do()
-    {
-        $data = input('post.');
-        $data['password'] = md5($data['password']);
-        $res = Admins::where(['id' => $data['id']])->update($data);
-        if ($res) {
-            //添加日志
-            Logs::write('修改密码', '编辑');
-            $msg['status'] = 200;
-            $msg['tips'] = '编辑成功';
-            return json($msg);
         } else {
-            $msg['status'] = 400;
-            $msg['tips'] = '编辑失败';
-            return json($msg);
+            return 'request method error!';
         }
     }
 
     //修改权限组
     public function editor_group_do()
     {
-        $data = input('post.');
-        $res = GroupAccess::where(['uid' => $data['uid']])->update($data);
-        if ($res) {
-            //添加日志
-            Logs::write('编辑权限组', '编辑');
-            $msg['status'] = 200;
-            $msg['tips'] = '编辑成功';
-            return json($msg);
+        if (request()->isPost()) {
+            $data = input('post.');
+            $data['password'] = md5($data['password']);
+            $res = Admins::where(['id' => $data['id']])->update($data);
+            if ($res) {
+                //添加日志
+                Logs::write('修改密码', '编辑');
+                $msg['status'] = 200;
+                $msg['tips'] = '编辑成功';
+                return json($msg);
+            } else {
+                $msg['status'] = 400;
+                $msg['tips'] = '编辑失败';
+                return json($msg);
+            }
         } else {
-            $msg['status'] = 400;
-            $msg['tips'] = '编辑失败';
-            return json($msg);
+            return 'request method error!';
         }
     }
 

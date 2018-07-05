@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {include file="public/static" /}
+</head>
+<body>
+<div class="main-wrap">
+    <!--菜单-->
+    {include file="public/menu" /}
+    <!--菜单-->
+    <div class="content-wrap">
+        <!--头部-->
+        {include file="public/header" /}
+        <!--头部-->
+        <main class="main-cont content mCustomScrollbar">
+            <div class="page-wrap">
+                <!--开始::内容-->
+                <section class="page-hd">
+                    <header style="clearfix">
+                        {include file="public/nav" /}
+                        <button onclick="add()" class="btn btn-primary fr icon-plus">{$Think.lang.add}</button>
+                        <!--<a onclick="window.history.back();"><button class="btn btn-primary fr icon-undo">返回上层</button></a>-->
+                        <script>
+                            function add() {
+                                $.get('{:url("Banner/add_banner")}', function (data) {
+                                    if (data.status == 400) {
+                                        layer.msg(data.tips);
+                                    } else {
+                                        location.href = "{:url('Banner/add_banner')}";
+                                    }
+                                })
+                            }
+                        </script>
+                    </header>
+                    <hr>
+
+                </section>
+
+                <table class="table table-bordered table-striped table-hover">
+                    <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>分类名称</th>
+                        <th>分类配图</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {volist name="info" id="v"}
+                    <tr class="cen">
+                        <td>{$v.id}</td>
+                        <td>{$v.type}</td>
+                        <td>
+                            <a href="__UPLOAD__/{$v.img_path}" target="_blank">
+                                <img src="__UPLOAD__/{$v.img_path}" style="width: 50px;height: 50px;" alt="">
+                            </a>
+                        </td>
+                        <td>
+                            <a href="javascript:void(0)" onclick="editor(this,{$v.id})" title="{$Think.lang.editor}" class="mr-5 icon-edit">{$Think.lang.editor}</a>
+                            <!--<a title="详情" class="mr-5">详情</a>-->
+                            <a href="javascript:void(0)" onclick="del(this,{$v.id})" title="{$Think.lang.del}" class="icon-trash">{$Think.lang.del}</a>
+                        </td>
+                    </tr>
+                    {/volist}
+                    </tbody>
+                </table>
+
+
+                <!--开始::结束-->
+            </div>
+        </main>
+        <!--底部-->
+        {include file="public/footer" /}
+        <!--底部-->
+    </div>
+</div>
+<script type="text/javascript">
+    // 删除数据方法
+    function del(obj, id) {
+        layer.confirm('确定删除吗？', {
+            title: '系统提示',
+            btn: ['确定', '取消']
+        }, function () {
+            $.post('{:url("Banner/del_banner")}', {id: id}, function (data) {
+                // 判断是否成功
+                if (data.status == 200) {
+                    $(obj).parent().parent().remove();
+                    layer.msg(data.tips);
+                    setTimeout("location.reload();", 500);
+                } else if (data.status == 400) {
+                    layer.msg(data.tips);
+                } else if (data.status == 600) {
+                    layer.msg(data.tips);
+                }
+            });
+        });
+    }
+
+    // 编辑数据方法
+    function editor(obj, id) {
+        $.get('{:url("Banner/editor_banner")}',{id:id}, function (data) {
+            // 判断是否成功
+            if (data.status == 400) {
+                layer.msg(data.tips);
+            } else {
+                location.href = "{:url('Banner/editor_banner')}" + "?id=" + id;
+            }
+        });
+    }
+</script>
+</body>
+</html>

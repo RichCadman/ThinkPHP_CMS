@@ -75,18 +75,22 @@ class Comment extends Base
     //编辑
     public function editor_comment_do()
     {
-        $data = input('post.');
-        $editor_res = \app\common\model\Comment::where(['id' => $data['id']])->update($data);
-        if ($editor_res) {
-            //添加日志
-            Logs::write('编辑评论','编辑');
-            $msg['status'] = 200;
-            $msg['tips'] = '编辑成功';
-            return json($msg);
-        }else{
-            $msg['status'] = 400;
-            $msg['tips'] = '编辑失败';
-            return json($msg);
+        if (request()->isPost()) {
+            $data = input('post.');
+            $editor_res = \app\common\model\Comment::where(['id' => $data['id']])->update($data);
+            if ($editor_res) {
+                //添加日志
+                Logs::write('编辑评论','编辑');
+                $msg['status'] = 200;
+                $msg['tips'] = '编辑成功';
+                return json($msg);
+            }else{
+                $msg['status'] = 400;
+                $msg['tips'] = '编辑失败';
+                return json($msg);
+            }
+        } else {
+            return 'request method error!';
         }
     }
 
@@ -122,6 +126,9 @@ class Comment extends Base
     public function details()
     {
         $comment_id = input('comment_id/d');
+        if (!$comment_id) {
+            return 'no param!';
+        }
         $info = \app\common\model\Comment::get($comment_id);
         return json($info);
     }
@@ -129,18 +136,22 @@ class Comment extends Base
     //审核评论
     public function check_state()
     {
-        $data = input('post.');
-        $editor_res = \app\common\model\Comment::where(['id' => $data['id']])->update($data);
-        if($editor_res){
-            //添加日志
-            Logs::write('审核评论','操作');
-            $msg['status'] = 200;
-            $msg['tips'] = '操作成功';
-            return json($msg);
-        }else{
-            $msg['status'] = 400;
-            $msg['tips'] = '操作失败';
-            return json($msg);
+        if (request()->isPost()) {
+            $data = input('post.');
+            $editor_res = \app\common\model\Comment::where(['id' => $data['id']])->update($data);
+            if($editor_res){
+                //添加日志
+                Logs::write('审核评论','操作');
+                $msg['status'] = 200;
+                $msg['tips'] = '操作成功';
+                return json($msg);
+            }else{
+                $msg['status'] = 400;
+                $msg['tips'] = '操作失败';
+                return json($msg);
+            }
+        } else {
+            return 'request method error!';
         }
     }
 }
