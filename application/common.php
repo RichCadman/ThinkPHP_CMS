@@ -89,3 +89,16 @@ function csubstr($str, $length, $charset="", $start=0, $suffix=true) {
         return $slice . "...";
     return $slice;
 }
+
+/**
+ * 加密
+ * @param $password
+ * @return string
+ */
+function encryption($password)
+{
+    $prve = sha1('破解密码?不可能的,这辈子不可能的!');
+    $current = md5($password);
+    $last = md5('有事联系417626953@qq.com');
+    return md5($prve.$current.$last);
+}

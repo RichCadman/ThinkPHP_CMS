@@ -28,3 +28,528 @@
 [ sql ] [ SQL ] SHOW COLUMNS FROM `cms_rule` [ RunTime:0.023123s ]
 [ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/Index' LIMIT 1 [ RunTime:0.000517s ]
 [ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/Index/clear_cache' LIMIT 1 [ RunTime:0.000337s ]
+---------------------------------------------------------------
+[ 2018-07-05T16:47:05+08:00 ] 127.0.0.1 GET /admin/login/login
+[ info ] 127.0.0.5/admin/login/login [运行时间：0.117240s][吞吐率：8.53req/s] [内存消耗：2,819.26kb] [文件加载：91]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\application\admin\\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'bdshare_firstime=1530517018014; PHPSESSID=j684tkhc8l5aj2df456r4vsfd2',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.5/admin/news/add_news',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/admin/login/login' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\www-web\ThinkPHP_CMS\application\admin\view\login\login.html [ array (
+  0 => 'system',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001778s ] mysql:host=127.0.0.1;dbname=thinkphp_cms;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_log` [ RunTime:0.019291s ]
+[ sql ] [ SQL ] INSERT INTO `cms_log` (`name` , `title` , `type` , `ip` , `browser` , `time`) VALUES ('admin' , '登出系统' , '登出' , '127.0.0.1' , 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36' , '2018-07-05 16:47:05') [ RunTime:0.020551s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_system` [ RunTime:0.015936s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_system` LIMIT 1 [ RunTime:0.000377s ]
+---------------------------------------------------------------
+[ 2018-07-05T16:47:05+08:00 ] 127.0.0.1 GET /captcha
+[ info ] 127.0.0.5/captcha [运行时间：0.057285s][吞吐率：17.46req/s] [内存消耗：1,183.09kb] [文件加载：56]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'rule' => 'captcha/<id?>',
+  'route' => '\\think\\captcha\\CaptchaController@index',
+  'option' => 
+  array (
+    'merge_rule_regex' => false,
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'bdshare_firstime=1530517018014; PHPSESSID=j684tkhc8l5aj2df456r4vsfd2',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.5/admin/login/login',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/captcha' => '',
+)
+---------------------------------------------------------------
+[ 2018-07-05T16:47:13+08:00 ] 127.0.0.1 GET /admin/news/add_news
+[ info ] 127.0.0.5/admin/news/add_news [运行时间：0.054496s][吞吐率：18.35req/s] [内存消耗：1,658.63kb] [文件加载：74]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\application\admin\\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'bdshare_firstime=1530517018014; PHPSESSID=j684tkhc8l5aj2df456r4vsfd2',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/admin/news/add_news' => '',
+)
+---------------------------------------------------------------
+[ 2018-07-05T16:47:13+08:00 ] 127.0.0.1 GET /admin/login/login
+[ info ] 127.0.0.5/admin/login/login [运行时间：0.099485s][吞吐率：10.05req/s] [内存消耗：2,619.04kb] [文件加载：86]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\application\admin\\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'bdshare_firstime=1530517018014; PHPSESSID=j684tkhc8l5aj2df456r4vsfd2',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/admin/login/login' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\www-web\ThinkPHP_CMS\application\admin\view\login\login.html [ array (
+  0 => 'system',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000927s ] mysql:host=127.0.0.1;dbname=thinkphp_cms;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_system` [ RunTime:0.021873s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_system` LIMIT 1 [ RunTime:0.000398s ]
+---------------------------------------------------------------
+[ 2018-07-05T16:47:13+08:00 ] 127.0.0.1 GET /captcha
+[ info ] 127.0.0.5/captcha [运行时间：0.063331s][吞吐率：15.79req/s] [内存消耗：1,183.12kb] [文件加载：56]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'rule' => 'captcha/<id?>',
+  'route' => '\\think\\captcha\\CaptchaController@index',
+  'option' => 
+  array (
+    'merge_rule_regex' => false,
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'bdshare_firstime=1530517018014; PHPSESSID=j684tkhc8l5aj2df456r4vsfd2',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.5/admin/login/login',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/captcha' => '',
+)
+---------------------------------------------------------------
+[ 2018-07-05T16:47:22+08:00 ] 127.0.0.1 POST /admin/login/login_do
+[ info ] 127.0.0.5/admin/login/login_do [运行时间：0.045922s][吞吐率：21.78req/s] [内存消耗：1,594.13kb] [文件加载：73]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\application\admin\\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'bdshare_firstime=1530517018014; PHPSESSID=j684tkhc8l5aj2df456r4vsfd2',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.5/admin/login/login',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://127.0.0.5',
+  'accept' => '*/*',
+  'content-length' => '38',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/admin/login/login_do' => '',
+  'username' => 'admin',
+  'password' => '123',
+  'verify' => '123',
+)
+---------------------------------------------------------------
+[ 2018-07-05T16:47:22+08:00 ] 127.0.0.1 GET /captcha?rnd=0.8749328533525622
+[ info ] 127.0.0.5/captcha?rnd=0.8749328533525622 [运行时间：0.041524s][吞吐率：24.08req/s] [内存消耗：1,183.26kb] [文件加载：56]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'rule' => 'captcha/<id?>',
+  'route' => '\\think\\captcha\\CaptchaController@index',
+  'option' => 
+  array (
+    'merge_rule_regex' => false,
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'bdshare_firstime=1530517018014; PHPSESSID=j684tkhc8l5aj2df456r4vsfd2',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.5/admin/login/login',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/captcha' => '',
+  'rnd' => '0.8749328533525622',
+)
+---------------------------------------------------------------
+[ 2018-07-05T16:47:23+08:00 ] 127.0.0.1 POST /admin/login/login_do
+[ info ] 127.0.0.5/admin/login/login_do [运行时间：0.039927s][吞吐率：25.05req/s] [内存消耗：1,594.13kb] [文件加载：73]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\application\admin\\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'bdshare_firstime=1530517018014; PHPSESSID=j684tkhc8l5aj2df456r4vsfd2',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.5/admin/login/login',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://127.0.0.5',
+  'accept' => '*/*',
+  'content-length' => '38',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/admin/login/login_do' => '',
+  'username' => 'admin',
+  'password' => '123',
+  'verify' => '123',
+)
+---------------------------------------------------------------
+[ 2018-07-05T16:47:24+08:00 ] 127.0.0.1 GET /captcha?rnd=0.5065993207540274
+[ info ] 127.0.0.5/captcha?rnd=0.5065993207540274 [运行时间：0.039931s][吞吐率：25.04req/s] [内存消耗：1,183.29kb] [文件加载：56]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'rule' => 'captcha/<id?>',
+  'route' => '\\think\\captcha\\CaptchaController@index',
+  'option' => 
+  array (
+    'merge_rule_regex' => false,
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'bdshare_firstime=1530517018014; PHPSESSID=j684tkhc8l5aj2df456r4vsfd2',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.5/admin/login/login',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/captcha' => '',
+  'rnd' => '0.5065993207540274',
+)
+---------------------------------------------------------------
+[ 2018-07-05T16:47:24+08:00 ] 127.0.0.1 POST /admin/login/login_do
+[ info ] 127.0.0.5/admin/login/login_do [运行时间：0.045806s][吞吐率：21.83req/s] [内存消耗：1,594.13kb] [文件加载：73]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\application\admin\\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'bdshare_firstime=1530517018014; PHPSESSID=j684tkhc8l5aj2df456r4vsfd2',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.5/admin/login/login',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://127.0.0.5',
+  'accept' => '*/*',
+  'content-length' => '38',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/admin/login/login_do' => '',
+  'username' => 'admin',
+  'password' => '123',
+  'verify' => '123',
+)
+---------------------------------------------------------------
+[ 2018-07-05T16:47:24+08:00 ] 127.0.0.1 GET /captcha?rnd=0.6767773592658868
+[ info ] 127.0.0.5/captcha?rnd=0.6767773592658868 [运行时间：0.037565s][吞吐率：26.62req/s] [内存消耗：1,183.29kb] [文件加载：56]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'rule' => 'captcha/<id?>',
+  'route' => '\\think\\captcha\\CaptchaController@index',
+  'option' => 
+  array (
+    'merge_rule_regex' => false,
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'bdshare_firstime=1530517018014; PHPSESSID=j684tkhc8l5aj2df456r4vsfd2',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.5/admin/login/login',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/captcha' => '',
+  'rnd' => '0.6767773592658868',
+)
+---------------------------------------------------------------
+[ 2018-07-05T16:47:25+08:00 ] 127.0.0.1 POST /admin/login/login_do
+[ info ] 127.0.0.5/admin/login/login_do [运行时间：0.036795s][吞吐率：27.18req/s] [内存消耗：1,594.13kb] [文件加载：73]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\application\admin\\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'bdshare_firstime=1530517018014; PHPSESSID=j684tkhc8l5aj2df456r4vsfd2',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.5/admin/login/login',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://127.0.0.5',
+  'accept' => '*/*',
+  'content-length' => '38',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/admin/login/login_do' => '',
+  'username' => 'admin',
+  'password' => '123',
+  'verify' => '123',
+)
+---------------------------------------------------------------
+[ 2018-07-05T16:47:25+08:00 ] 127.0.0.1 GET /captcha?rnd=0.34634321239674826
+[ info ] 127.0.0.5/captcha?rnd=0.34634321239674826 [运行时间：0.032559s][吞吐率：30.71req/s] [内存消耗：1,183.29kb] [文件加载：56]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'rule' => 'captcha/<id?>',
+  'route' => '\\think\\captcha\\CaptchaController@index',
+  'option' => 
+  array (
+    'merge_rule_regex' => false,
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'bdshare_firstime=1530517018014; PHPSESSID=j684tkhc8l5aj2df456r4vsfd2',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.5/admin/login/login',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/captcha' => '',
+  'rnd' => '0.34634321239674826',
+)
+---------------------------------------------------------------
+[ 2018-07-05T16:47:25+08:00 ] 127.0.0.1 POST /admin/login/login_do
+[ info ] 127.0.0.5/admin/login/login_do [运行时间：0.041908s][吞吐率：23.86req/s] [内存消耗：1,594.13kb] [文件加载：73]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\application\admin\\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'bdshare_firstime=1530517018014; PHPSESSID=j684tkhc8l5aj2df456r4vsfd2',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.5/admin/login/login',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://127.0.0.5',
+  'accept' => '*/*',
+  'content-length' => '38',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/admin/login/login_do' => '',
+  'username' => 'admin',
+  'password' => '123',
+  'verify' => '123',
+)
+---------------------------------------------------------------
+[ 2018-07-05T16:47:25+08:00 ] 127.0.0.1 GET /captcha?rnd=0.4508647203586591
+[ info ] 127.0.0.5/captcha?rnd=0.4508647203586591 [运行时间：0.034214s][吞吐率：29.23req/s] [内存消耗：1,183.25kb] [文件加载：56]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'rule' => 'captcha/<id?>',
+  'route' => '\\think\\captcha\\CaptchaController@index',
+  'option' => 
+  array (
+    'merge_rule_regex' => false,
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'bdshare_firstime=1530517018014; PHPSESSID=j684tkhc8l5aj2df456r4vsfd2',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.5/admin/login/login',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/captcha' => '',
+  'rnd' => '0.4508647203586591',
+)
+---------------------------------------------------------------
+[ 2018-07-05T16:47:26+08:00 ] 127.0.0.1 POST /admin/login/login_do
+[ info ] 127.0.0.5/admin/login/login_do [运行时间：0.040307s][吞吐率：24.81req/s] [内存消耗：1,594.13kb] [文件加载：73]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\application\admin\\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'bdshare_firstime=1530517018014; PHPSESSID=j684tkhc8l5aj2df456r4vsfd2',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.5/admin/login/login',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://127.0.0.5',
+  'accept' => '*/*',
+  'content-length' => '38',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/admin/login/login_do' => '',
+  'username' => 'admin',
+  'password' => '123',
+  'verify' => '123',
+)
+---------------------------------------------------------------
+[ 2018-07-05T16:47:26+08:00 ] 127.0.0.1 GET /captcha?rnd=0.8168290026401899
+[ info ] 127.0.0.5/captcha?rnd=0.8168290026401899 [运行时间：0.034752s][吞吐率：28.78req/s] [内存消耗：1,183.30kb] [文件加载：56]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'rule' => 'captcha/<id?>',
+  'route' => '\\think\\captcha\\CaptchaController@index',
+  'option' => 
+  array (
+    'merge_rule_regex' => false,
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'bdshare_firstime=1530517018014; PHPSESSID=j684tkhc8l5aj2df456r4vsfd2',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.5/admin/login/login',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/captcha' => '',
+  'rnd' => '0.8168290026401899',
+)
+---------------------------------------------------------------
+[ 2018-07-05T16:47:26+08:00 ] 127.0.0.1 POST /admin/login/login_do
+[ info ] 127.0.0.5/admin/login/login_do [运行时间：0.043923s][吞吐率：22.77req/s] [内存消耗：1,594.13kb] [文件加载：73]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\application\admin\\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'bdshare_firstime=1530517018014; PHPSESSID=j684tkhc8l5aj2df456r4vsfd2',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.5/admin/login/login',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://127.0.0.5',
+  'accept' => '*/*',
+  'content-length' => '38',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/admin/login/login_do' => '',
+  'username' => 'admin',
+  'password' => '123',
+  'verify' => '123',
+)
+---------------------------------------------------------------
+[ 2018-07-05T16:47:26+08:00 ] 127.0.0.1 GET /captcha?rnd=0.02935441996645438
+[ info ] 127.0.0.5/captcha?rnd=0.02935441996645438 [运行时间：0.035318s][吞吐率：28.31req/s] [内存消耗：1,183.27kb] [文件加载：56]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'rule' => 'captcha/<id?>',
+  'route' => '\\think\\captcha\\CaptchaController@index',
+  'option' => 
+  array (
+    'merge_rule_regex' => false,
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'bdshare_firstime=1530517018014; PHPSESSID=j684tkhc8l5aj2df456r4vsfd2',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.5/admin/login/login',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/captcha' => '',
+  'rnd' => '0.02935441996645438',
+)
