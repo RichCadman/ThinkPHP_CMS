@@ -51,7 +51,7 @@ function deldir($dir, $folder = 'n')
  */
 function current_datetime()
 {
-    $datetime = date("Y-m-d H:i:s",time());
+    $datetime = date("Y-m-d H:i:s", time());
     return $datetime;
 }
 
@@ -68,14 +68,15 @@ function current_datetime()
  * @date 2018年2月2日
  * @throws
  */
-function csubstr($str, $length, $charset="", $start=0, $suffix=true) {
+function csubstr($str, $length, $charset = "", $start = 0, $suffix = true)
+{
     if (empty($charset))
         $charset = "utf-8";
     if (function_exists("mb_substr")) {
         if (mb_strlen($str, $charset) <= $length)
             return $str;
         $slice = mb_substr($str, $start, $length, $charset);
-    }else {
+    } else {
         $re['utf-8'] = "/[\x01-\x7f]¦[\xc2-\xdf][\x80-\xbf]¦[\xe0-\xef][\x80-\xbf]{2}¦[\xf0-\xff][\x80-\xbf]{3}/";
         $re['gb2312'] = "/[\x01-\x7f]¦[\xb0-\xf7][\xa0-\xfe]/";
         $re['gbk'] = "/[\x01-\x7f]¦[\x81-\xfe][\x40-\xfe]/";
@@ -91,6 +92,20 @@ function csubstr($str, $length, $charset="", $start=0, $suffix=true) {
 }
 
 /**
+ * 会员剩余时间
+ * @param $end_time
+ */
+function remain($end_time)
+{
+    $days = ceil(($end_time - time()) / 86400);
+    if ($days >= 0) {
+        return $days;
+    } else {
+        return 0;
+    }
+}
+
+/**
  * 加密
  * @param $password
  * @return string
@@ -101,4 +116,57 @@ function encryption($password)
     $current = md5($password);
     $last = md5('有事联系417626953@qq.com');
     return md5($prve.$current.$last);
+}
+
+/**
+ * 生成订单
+ * @param $uid
+ */
+function setOrder($uid)
+{
+    $len = strlen($uid);
+    switch ($len)
+    {
+        case 1:
+            $uid = '0000000'.$uid;
+            break;
+        case 2:
+            $uid = '000000'.$uid;
+            break;
+        case 3:
+            $uid = '00000'.$uid;
+            break;
+        case 4:
+            $uid = '0000'.$uid;
+            break;
+        case 5:
+            $uid = '000'.$uid;
+            break;
+        case 6:
+            $uid = '00'.$uid;
+            break;
+        case 7:
+            $uid = '0'.$uid;
+            break;
+        default:
+            $uid = $uid;
+            break;
+    }
+    return $uid.date('YmdHis',time()).rand(1000,9999);
+}
+
+/**
+ * 生成指定长度随机字符串
+ * @param $len
+ * @return null|string
+ */
+function randStr($len)
+{
+    $randStr = null;
+    $strPol = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz";
+    $max = strlen($strPol) - 1;
+    for ($i = 0; $i < $len; $i++) {
+        $randStr .= $strPol[rand(0, $max)];
+    }
+    return $randStr;
 }
