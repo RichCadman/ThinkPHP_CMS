@@ -24,6 +24,7 @@ class System extends Base
         $userinfo = session('admin');
         $uid = $userinfo['id'];
         $res = $Auth->check(MODULE_NAME . '/' . CONTROLLER_NAME . '/' . ACTION_NAME, $uid);
+        unset($userinfo);
         if ($res) {
             $info = Systems::find();
             $this->assign(array(
@@ -31,6 +32,7 @@ class System extends Base
                 'display' => 'System',
                 'current' => 'config',
             ));
+            unset($info);
             return view();
         } else {
             echo "<script>alert('权限不足！');window.history.back();</script>";
@@ -43,6 +45,7 @@ class System extends Base
         if (request()->isPost()) {
             $data = input('post.');
             $res = Systems::where(['id' => $data['id']])->update($data);
+            unset($data);
             if ($res) {
                 //添加日志
                 Logs::write('编辑站点','编辑');
@@ -65,6 +68,7 @@ class System extends Base
         //权限组管理员id
         $system = Systems::find();
         $admin_id = $system['admin_id'];
+        unset($system);
         //查询所有二级规则
         $rules = Rule::where('p_id','<>',0)->select();
         //二维数组转为一维数组
@@ -77,12 +81,15 @@ class System extends Base
         foreach ($rules as $v){
             $menu_id[] = $v['p_id'];
         }
+        unset($rules);
         //数组去重
         $menu_id = array_unique($menu_id);
         //数组转为字符串
         $data['menu_id'] = implode(",", $menu_id);
+        unset($menu_id);
         //更新管理员权限组
         $update_res = Group::where(['id' => $admin_id])->update($data);
+        unset($data);
         if($update_res){
             $msg['status'] = 200;
             $msg['tips'] = '还原成功';
@@ -101,17 +108,20 @@ class System extends Base
         $userinfo = session('admin');
         $uid = $userinfo['id'];
         $res = $Auth->check(MODULE_NAME . '/' . CONTROLLER_NAME . '/' . ACTION_NAME, $uid);
+        unset($userinfo);
         if ($res) {
             $where = [];
             if (input('get.search')){
                 $where[] = ['title', 'like', '%'.input('get.search').'%'];
             }
             $info = Log::where($where)->order('id desc')->paginate(15,false,['query'=>request()->param()]);
+            unset($where);
             $this->assign(array(
                 'info' => $info,
                 'display' => 'System',
                 'current' => 'logs',
             ));
+            unset($info);
             return view();
         } else {
             echo "<script>alert('权限不足！');window.history.back();</script>";
@@ -125,6 +135,7 @@ class System extends Base
         $userinfo = session('admin');
         $uid = $userinfo['id'];
         $res = $Auth->check(MODULE_NAME . '/' . CONTROLLER_NAME . '/' . ACTION_NAME, $uid);
+        unset($userinfo);
         if ($res) {
             //清空日志
             $delete_res = Log::where('id','>',0)->delete();
@@ -151,6 +162,7 @@ class System extends Base
         $userinfo = session('admin');
         $uid = $userinfo['id'];
         $res = $Auth->check(MODULE_NAME . '/' . CONTROLLER_NAME . '/' . ACTION_NAME, $uid);
+        unset($userinfo);
         if ($res) {
             $info = FieldConfig::order('id desc')->paginate(15);
             $this->assign(array(
@@ -158,6 +170,7 @@ class System extends Base
                 'display' => 'System',
                 'current' => 'field_type',
             ));
+            unset($info);
             return view();
         } else {
             echo "<script>alert('权限不足！');window.history.back();</script>";
@@ -171,6 +184,7 @@ class System extends Base
         $userinfo = session('admin');
         $uid = $userinfo['id'];
         $res = $Auth->check(MODULE_NAME . '/' . CONTROLLER_NAME . '/' . ACTION_NAME, $uid);
+        unset($userinfo);
         if ($res) {
             $this->assign(array(
                 'display' => 'System',
@@ -190,6 +204,7 @@ class System extends Base
         if (request()->isPost()) {
             $data = input('post.');
             $res = FieldConfig::create($data);
+            unset($data);
             if ($res) {
                 //添加日志
                 Logs::write('添加字段类型','添加');
@@ -213,6 +228,7 @@ class System extends Base
         $userinfo = session('admin');
         $uid = $userinfo['id'];
         $res = $Auth->check(MODULE_NAME . '/' . CONTROLLER_NAME . '/' . ACTION_NAME, $uid);
+        unset($userinfo);
         if ($res) {
             //资讯内容
             $info = FieldConfig::get(input('get.id/d'));
@@ -221,6 +237,7 @@ class System extends Base
                 'current' => 'editor_field_type',
                 'info' => $info
             ));
+            unset($info);
             return view();
         } else {
             $msg['status'] = 400;
@@ -235,6 +252,7 @@ class System extends Base
         if (request()->isPost()) {
             $data = input('post.');
             $res = FieldConfig::where(['id' => $data['id']])->update($data);
+            unset($data);
             if ($res) {
                 //添加日志
                 Logs::write('编辑字段类型','编辑');
@@ -258,6 +276,7 @@ class System extends Base
         $userinfo = session('admin');
         $uid = $userinfo['id'];
         $res = $Auth->check(MODULE_NAME . '/' . CONTROLLER_NAME . '/' . ACTION_NAME, $uid);
+        unset($userinfo);
         if ($res) {
             $id = input('post.id/d');
             $del_res = FieldConfig::where(['id' => $id])->delete();

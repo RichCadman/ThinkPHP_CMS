@@ -18,8 +18,8 @@ class Index extends Base
      */
     public function index()
     {
-        /*//添加日志
-        Logs::write('下载备份','数据');*/
+        //发送邮件
+
         //系统配置
         $config = [
             '操作系统' => PHP_OS,
@@ -45,6 +45,7 @@ class Index extends Base
             'display' => 'Index',
             'config' => $config,
         ));
+        unset($config);
         return view();
     }
 
@@ -57,5 +58,14 @@ class Index extends Base
         return json($msg);
         //添加日志
         Logs::write('清除缓存','清除缓存');
+    }
+
+    public function requestUrl($param)
+    {
+        if (request()->isPost()) {
+           return 'is post request!'.$param;
+        } else {
+            return 'request method error!';
+        }
     }
 }

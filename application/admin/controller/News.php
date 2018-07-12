@@ -25,6 +25,7 @@ class News extends Base
         $userinfo = session('admin');
         $uid = $userinfo['id'];
         $res = $Auth->check(MODULE_NAME . '/' . CONTROLLER_NAME . '/' . ACTION_NAME, $uid);
+        unset($userinfo);
         if ($res) {
             $where = [];
             if (input('get.search')) {
@@ -34,11 +35,13 @@ class News extends Base
                 $query->field('news_type_name,id');
             }])->where($where)->order('id desc')->paginate(15, false, ['query' => request()->param()]);
             //dump($info);exit;
+            unset($where);
             $this->assign(array(
                 'info' => $info,
                 'display' => 'News',
                 'current' => 'news_type',
             ));
+            unset($info);
             return view();
         } else {
             echo "<script>alert('权限不足！');window.history.back();</script>";
@@ -52,6 +55,7 @@ class News extends Base
         $userinfo = session('admin');
         $uid = $userinfo['id'];
         $res = $Auth->check(MODULE_NAME . '/' . CONTROLLER_NAME . '/' . ACTION_NAME, $uid);
+        unset($userinfo);
         if ($res) {
             //资讯分类
             $info = NewsTypes::order('p_id asc')->select();
@@ -63,6 +67,8 @@ class News extends Base
                 'current' => 'add_news',
                 'newsType' => $list,
             ));
+            unset($info);
+            unset($list);
             return view();
         } else {
             $msg['status'] = 400;
@@ -78,6 +84,7 @@ class News extends Base
             $data = input('post.');
             $data['update_time'] = current_datetime();
             $res = Newss::create($data);
+            unset($data);
             if ($res) {
                 //添加日志
                 Logs::write('添加资讯', '添加');
@@ -101,6 +108,7 @@ class News extends Base
         $userinfo = session('admin');
         $uid = $userinfo['id'];
         $res = $Auth->check(MODULE_NAME . '/' . CONTROLLER_NAME . '/' . ACTION_NAME, $uid);
+        unset($userinfo);
         if ($res) {
             //资讯内容
             $info = Newss::get(input('get.id/d'))->getData();
@@ -115,6 +123,9 @@ class News extends Base
                 'newsType' => $list,
                 'info' => $info
             ));
+            unset($info);
+            unset($list);
+            unset($newsType);
             return view();
         } else {
             $msg['status'] = 400;
@@ -152,6 +163,7 @@ class News extends Base
         $userinfo = session('admin');
         $uid = $userinfo['id'];
         $res = $Auth->check(MODULE_NAME . '/' . CONTROLLER_NAME . '/' . ACTION_NAME, $uid);
+        unset($userinfo);
         if ($res) {
             $id = input('post.id/d');
             $del_res = Newss::where(['id' => $id])->delete();
@@ -180,11 +192,13 @@ class News extends Base
         $userinfo = session('admin');
         $uid = $userinfo['id'];
         $res = $Auth->check(MODULE_NAME . '/' . CONTROLLER_NAME . '/' . ACTION_NAME, $uid);
+        unset($userinfo);
         if ($res) {
             $id = input('post.id/d');
             $find_res = Newss::get($id)->getData();
             $map['is_recommend'] = $find_res['is_recommend'] * -1;
             $editor_res = Newss::where(['id' => $id])->update($map);
+            unset($map);
             if ($editor_res) {
                 //添加日志
                 Logs::write('编辑资讯', '编辑');
@@ -212,6 +226,7 @@ class News extends Base
         $userinfo = session('admin');
         $uid = $userinfo['id'];
         $res = $Auth->check(MODULE_NAME . '/' . CONTROLLER_NAME . '/' . ACTION_NAME, $uid);
+        unset($userinfo);
         if ($res) {
             $info = NewsTypes::order('p_id asc')->select();
             //递归创建无限分类树
@@ -229,6 +244,8 @@ class News extends Base
                 'display' => 'News',
                 'current' => 'news_type',
             ));
+            unset($info);
+            unset($list);
             return view();
         } else {
             echo "<script>alert('权限不足！');window.history.back();</script>";
@@ -242,6 +259,7 @@ class News extends Base
         $userinfo = session('admin');
         $uid = $userinfo['id'];
         $res = $Auth->check(MODULE_NAME . '/' . CONTROLLER_NAME . '/' . ACTION_NAME, $uid);
+        unset($userinfo);
         if ($res) {
             $info = NewsTypes::where(['state' => 1])->order('p_id asc')->select();
             //递归创建无限分类树
@@ -288,6 +306,7 @@ class News extends Base
             $data = input('post.');
             $data['create_time'] = current_datetime();
             $res = NewsTypes::create($data);
+            unset($data);
             if ($res) {
                 //添加日志
                 Logs::write('添加资讯分类', '添加');
@@ -311,6 +330,7 @@ class News extends Base
         $userinfo = session('admin');
         $uid = $userinfo['id'];
         $res = $Auth->check(MODULE_NAME . '/' . CONTROLLER_NAME . '/' . ACTION_NAME, $uid);
+        unset($userinfo);
         if ($res) {
             $id = input('id/d');
             //查询数据
@@ -326,6 +346,8 @@ class News extends Base
                 'info' => $info,
                 'newsTypes' => $list,
             ));
+            unset($info);
+            unset($list);
             return view();
 
         } else {
@@ -341,6 +363,7 @@ class News extends Base
         if (request()->isPost()) {
             $data = input('post.');
             $res = NewsTypes::where(['id' => $data['id']])->update($data);
+            unset($data);
             if ($res) {
                 //添加日志
                 Logs::write('编辑资讯分类', '编辑');
@@ -364,6 +387,7 @@ class News extends Base
         $userinfo = session('admin');
         $uid = $userinfo['id'];
         $res = $Auth->check(MODULE_NAME . '/' . CONTROLLER_NAME . '/' . ACTION_NAME, $uid);
+        unset($userinfo);
         if ($res) {
             $id = input('post.id/d');
             //递归创建无限分类树
@@ -371,6 +395,7 @@ class News extends Base
             $buildList = $treeClass->buildTree_del($id);
             //删除当前及子数据
             $del_res = $treeClass->recursion_del($buildList);
+            unset($buildList);
             if ($del_res) {
                 //添加日志
                 Logs::write('删除资讯分类', '删除');

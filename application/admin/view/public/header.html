@@ -44,7 +44,7 @@
             title:'系统提示',
             btn: ['确定','取消']
         }, function(){
-            $.post('{:url("Index/clear_cache")}', function (data) {
+            $.get('{:url("Index/clear_cache")}', function (data) {
                 if (data.status == 200) {
                     layer.msg(data.tips);
                 } else {
@@ -62,7 +62,7 @@
             title:'系统提示',
             btn: ['确定','取消']
         }, function(){
-            $.post('{:url("System/restore")}', function (data) {
+            $.get('{:url("System/restore")}', function (data) {
                 if (data.status == 200) {
                     layer.msg(data.tips);
                     setTimeout("location.reload();",2000);

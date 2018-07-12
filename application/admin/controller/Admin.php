@@ -33,6 +33,7 @@ class Admin extends Base
                 'current' => 'admin_index',
                 'info' => $info,
             ));
+            unset($info);
             return view();
         } else {
             echo "<script>alert('权限不足！');window.history.back();</script>";
@@ -54,6 +55,7 @@ class Admin extends Base
                 'current' => 'add_admin',
                 'group' => $group,
             ));
+            unset($group);
             return view();
         } else {
             $msg['status'] = 400;
@@ -90,6 +92,7 @@ class Admin extends Base
                         'uid' => $add_res->id,
                         'group_id' => $data['group_id'],
                     ]);
+                    unset($data);
                     //添加日志
                     Logs::write('添加用户', '添加');
                     $msg['status'] = 200;
@@ -104,7 +107,6 @@ class Admin extends Base
         } else {
             return 'request method error!';
         }
-
     }
 
     //编辑用户页面
@@ -129,6 +131,9 @@ class Admin extends Base
                 'group' => $group,
                 'group_access' => $group_access,
             ));
+            unset($info);
+            unset($group);
+            unset($group_access);
             return view();
 
         } else {
@@ -161,6 +166,9 @@ class Admin extends Base
                     //更新session
                     $userinfo = Admins::get($users['id']);
                     session('admin', $userinfo);
+                    unset($data);
+                    unset($users);
+                    unset($userinfo);
                     $msg['status'] = 200;
                     $msg['tips'] = '编辑成功';
                     return json($msg);
@@ -182,6 +190,7 @@ class Admin extends Base
             $data = input('post.');
             $data['password'] = md5($data['password']);
             $res = Admins::where(['id' => $data['id']])->update($data);
+            unset($data);
             if ($res) {
                 //添加日志
                 Logs::write('修改密码', '编辑');
@@ -205,6 +214,7 @@ class Admin extends Base
             $data = input('post.');
             $data['password'] = md5($data['password']);
             $res = Admins::where(['id' => $data['id']])->update($data);
+            unset($data);
             if ($res) {
                 //添加日志
                 Logs::write('修改密码', '编辑');
@@ -228,15 +238,18 @@ class Admin extends Base
         $userinfo = session('admin');
         $uid = $userinfo['id'];
         $res = $Auth->check(MODULE_NAME . '/' . CONTROLLER_NAME . '/' . ACTION_NAME, $uid);
+        unset($userinfo);
         if ($res) {
             $id = input('post.id/d');
             if ($id == 1) {
+                unset($id);
                 $msg['status'] = 800;
                 $msg['tips'] = '无法删除管理员';
                 return json($msg);
             } else {
                 $del_res = Admins::where(['id' => $id])->delete();
                 if ($del_res) {
+                    unset($del_res);
                     //添加日志
                     Logs::write('删除用户', '删除');
                     $msg['status'] = 200;
@@ -270,6 +283,7 @@ class Admin extends Base
                 'current' => 'my',
                 'info' => $info,
             ));
+            unset($info);
             return view();
         } else {
             echo "<script>alert('权限不足！');window.history.back();</script>";
@@ -292,6 +306,7 @@ class Admin extends Base
                 'current' => 'editor_admin',
                 'info' => $info,
             ));
+            unset($info);
             return view();
 
         } else {

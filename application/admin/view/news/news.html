@@ -74,9 +74,7 @@
                             <!--</a>-->
                         <!--</td>-->
                         {notempty name="$v['news_type']"}
-                            {//volist name="v.news_type" id="vv"}
-                                <td>{$v.news_type.news_type_name}</td>
-                            {///volist}
+                            <td>{$v.news_type.news_type_name}</td>
                         {else /}
                             <td>暂无分类</td>
                         {/notempty}

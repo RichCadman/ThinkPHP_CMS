@@ -1,4 +1,4 @@
-<?php /*a:6:{s:63:"E:\www-web\ThinkPHP_CMS\application\admin\view\system\logs.html";i:1530710888;s:65:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\static.html";i:1529542576;s:63:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\menu.html";i:1528855708;s:65:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\header.html";i:1529387612;s:62:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\nav.html";i:1528625773;s:65:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\footer.html";i:1529573972;}*/ ?>
+<?php /*a:6:{s:67:"E:\www-web\ThinkPHP_CMS\application\admin\view\admin\editor_my.html";i:1530710547;s:65:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\static.html";i:1529542576;s:63:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\menu.html";i:1528855708;s:65:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\header.html";i:1529387612;s:62:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\nav.html";i:1528625773;s:65:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\footer.html";i:1529573972;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -178,79 +178,114 @@
         <a href="">首页</a> > <a href=""><?php echo htmlentities($controller_name); ?></a> > <a href=""><?php echo htmlentities($action_name); ?></a>
     </p>
 </div>
-                        <button onclick="clearLogs()" class="btn btn-primary fr icon-trash"><?php echo htmlentities(app('lang')->get('clear_logs')); ?></button>
-                        <!--<a onclick="window.history.back();"><button class="btn btn-primary fr icon-undo"><?php echo htmlentities(app('lang')->get('back')); ?></button></a>-->
-                        <script>
-                            function clearLogs() {
-                                layer.confirm('确定清空吗？', {
-                                    title: '系统提示',
-                                    btn: ['确定', '取消']
-                                }, function () {
-                                    $.post('<?php echo url("System/clearLogs"); ?>', function (data) {
-                                        if (data.status == 200) {
-                                            layer.msg(data.tips);
-                                            setTimeout("location.reload();", 1500);
-                                        } else {
-                                            layer.msg(data.tips);
-                                        }
-                                    })
-                                });
-                            }
-                        </script>
+                        <a href="<?php echo url('Admin/my'); ?>"><button class="btn btn-primary fr icon-undo"><?php echo htmlentities(app('lang')->get('back')); ?></button></a>
+                        <!--<a onclick="window.history.back();"><button class="btn btn-primary fr icon-undo">返回上层</button></a>-->
                     </header>
                     <hr>
 
                 </section>
 
-                <div class="clear mt-20" style="padding-bottom: 20px;margin-top: -10px">
-                    <!--<div class="fl">-->
-                    <!--<button class="btn btn-secondary"><i class="icon-double-angle-left"></i>上一周</button>-->
-                    <!--<button class="btn btn-secondary">下一周<i class="icon-double-angle-right"></i></button>-->
-                    <!--</div>-->
-                    <div class="fr input-group">
-                        <form action="" method="get">
-                            <input type="text" name="search" class="form-control" placeholder="搜索标题..." style="width:290px;"/>
-                            <button type="submit" class="btn btn-secondary-outline">搜索</button>
-                        </form>
+                <div class="panel panel-default">
+                    <!--<div class="panel-hd">按钮</div>-->
+                    <div class="panel-bd">
+                        <div class="card">
+                            <div class="card-header">
+                                <ul class="tab-nav">
+                                    <li class="active">基本信息</li>
+                                    <li>修改密码</li>
+                                </ul>
+                            </div>
+                            <!--基本信息-->
+                            <div class="tab-cont" style="display: block;">
+                                <form id="form_data">
+                                    <input type="hidden" name="id" value="<?php echo htmlentities($info['id']); ?>">
+                                    <div class="form-group-col-2">
+                                        <div class="form-label">名称：</div>
+                                        <div class="form-cont">
+                                            <input type="text" value="<?php echo htmlentities($info['username']); ?>" name="username" class="form-control form-boxed" style="width:300px;">
+                                        </div>
+                                    </div>
 
+                                    <div class="form-group-col-2">
+                                        <div class="form-label">QQ：</div>
+                                        <div class="form-cont">
+                                            <input type="text" placeholder="" value="<?php echo htmlentities($info['qq']); ?>" name="qq" class="form-control form-boxed" style="width:300px;">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group-col-2">
+                                        <div class="form-label">微信：</div>
+                                        <div class="form-cont">
+                                            <input type="text" placeholder="" value="<?php echo htmlentities($info['wx']); ?>" name="wx" class="form-control form-boxed" style="width:300px;">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group-col-2">
+                                        <div class="form-label">手机：</div>
+                                        <div class="form-cont">
+                                            <input type="text" placeholder="" value="<?php echo htmlentities($info['phone']); ?>" name="phone" class="form-control form-boxed" style="width:300px;">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group-col-2">
+                                        <div class="form-label">地址：</div>
+                                        <div class="form-cont">
+                                            <input type="text" placeholder="" value="<?php echo htmlentities($info['address']); ?>" name="address" class="form-control form-boxed" style="width:300px;">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group-col-2">
+                                        <div class="form-label">用户信息：</div>
+                                        <div class="form-cont">
+                                            <!-- 加载编辑器的容器 -->
+                                            <script id="intro" name="intro" type="text/plain"><?php echo $info['intro']; ?></script>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group-col-2">
+                                        <div class="form-label"></div>
+                                        <div class="form-cont">
+                                            <input type="button" onclick="ajax_submit()" class="btn btn-primary" value="提交表单" />
+                                            <!--<input type="reset" class="btn btn-disabled" value="禁止" />-->
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <!--修改密码-->
+                            <div class="tab-cont">
+                                <form id="form_password">
+                                    <input type="hidden" name="id" value="<?php echo htmlentities($info['id']); ?>">
+                                    <div class="form-group-col-2">
+                                        <div class="form-label">新密码：</div>
+                                        <div class="form-cont">
+                                            <input type="password" placeholder="新密码" id="password" name="password" class="form-control form-boxed" style="width:300px;">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group-col-2">
+                                        <div class="form-label">确认密码：</div>
+                                        <div class="form-cont">
+                                            <input type="password" placeholder="再次输入密码" id="password_rep" class="form-control form-boxed" style="width:300px;">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group-col-2">
+                                        <div class="form-label"></div>
+                                        <div class="form-cont">
+                                            <input type="button" onclick="ajax_submit_password()" class="btn btn-primary" value="提交表单" />
+                                            <!--<input type="reset" class="btn btn-disabled" value="禁止" />-->
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <!--权限组-->
+                        </div>
                     </div>
                 </div>
-
-                <table class="table table-bordered table-striped table-hover">
-                    <thead>
-                    <tr>
-                        <th>id</th>
-                        <th>操作内容</th>
-                        <th>操作人</th>
-                        <th>IP地址</th>
-                        <th>浏览器信息</th>
-                        <th>操作时间</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <?php if(is_array($info) || $info instanceof \think\Collection || $info instanceof \think\Paginator): $i = 0; $__LIST__ = $info;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($i % 2 );++$i;?>
-                    <tr class="cen">
-                        <td><?php echo htmlentities($v['id']); ?></td>
-                        <td class="lt"><?php echo htmlentities($v['title']); ?></td>
-                        <td><?php echo htmlentities($v['name']); ?></td>
-                        <td><?php echo htmlentities($v['ip']); ?></td>
-                        <td><?php echo htmlentities($v['browser']); ?></td>
-                        <td><?php echo htmlentities($v['time']); ?></td>
-                        <!--<td>-->
-                            <!--<a href="javascript:void(0)" onclick="editor(this,<?php echo htmlentities($v['id']); ?>)" title="<?php echo htmlentities(app('lang')->get('editor')); ?>" class="mr-5 icon-edit"><?php echo htmlentities(app('lang')->get('editor')); ?></a>-->
-                            <!--&lt;!&ndash;<a title="详情" class="mr-5">详情</a>&ndash;&gt;-->
-                            <!--<a href="javascript:void(0)" onclick="del(this,<?php echo htmlentities($v['id']); ?>)" title="<?php echo htmlentities(app('lang')->get('del')); ?>" class="icon-trash"><?php echo htmlentities(app('lang')->get('del')); ?></a>-->
-                        <!--</td>-->
-                    </tr>
-                    <?php endforeach; endif; else: echo "" ;endif; ?>
-                    </tbody>
-                </table>
-                <?php echo $info; ?>
-
                 <!--开始::结束-->
             </div>
         </main>
-        <!--底部-->
         <footer class="btm-ft">
     <p class="clear">
         <span class="fl">©Copyright 2016 <a href="#" title="DeathGhost" target="_blank">DeathGhost.cn</a></span>
@@ -292,42 +327,74 @@
         });
     }
 </script>
-        <!--底部-->
     </div>
 </div>
+</body>
+<!-- 实例化编辑器 -->
 <script type="text/javascript">
-    // 删除数据方法
-    function del(obj, id) {
-        layer.confirm('确定删除吗？', {
-            title: '系统提示',
-            btn: ['确定', '取消']
-        }, function () {
-            $.post('<?php echo url("Auth/del_rule"); ?>', {id: id}, function (data) {
-                // 判断是否成功
-                if (data.status == 200) {
-                    $(obj).parent().parent().remove();
-                    layer.msg(data.tips);
-                    setTimeout("location.reload();", 2000);
-                } else if (data.status == 400) {
-                    layer.msg(data.tips);
-                } else if (data.status == 600) {
-                    layer.msg(data.tips);
-                }
-            });
-        });
+    var ue = UE.getEditor('intro', {
+//        toolbars: [
+//            ['fullscreen', 'source', 'undo', 'redo', 'bold']
+//        ],
+        initialFrameWidth :1200,//初始化编辑器宽度，默认1000
+        initialFrameHeight :400,//初始化编辑器高度，默认320
+        autoHeightEnabled: true,//是否自动长高，默认true
+        autoFloatEnabled: true,//是否保持toolbar的位置不动，默认true
+    });
+    //修改基本信息
+    function ajax_submit() {
+        var form_data = $('#form_data').serializeArray();
+//        console.log(form_data);
+        $.post('<?php echo url("Admin/editor_admin_do"); ?>', form_data, function (data) {
+//            console.log(data);
+            if (data.status == 200) {
+                layer.msg(data.tips);
+                setTimeout("location.reload();",500);
+            } else {
+                layer.msg(data.tips);
+            }
+        })
+        //console.log(a);
     }
 
-    // 编辑数据方法
-    function editor(obj, id) {
-        $.get('<?php echo url("Auth/editor_rule"); ?>',{id:id}, function (data) {
-            // 判断是否成功
-            if (data.status == 400) {
+    //修改密码
+    function ajax_submit_password() {
+        if($('#password').val() == ''){
+            layer.msg('请填写新密码');
+            return false;
+        }
+        if($('#password').val() != $('#password_rep').val()){
+            layer.msg('两次密码不一致');
+            return false;
+        }
+        var form_data = $('#form_password').serializeArray();
+//        console.log(form_data);
+        $.post('<?php echo url("Admin/editor_password_do"); ?>', form_data, function (data) {
+            if (data.status == 200) {
                 layer.msg(data.tips);
+                setTimeout("location.reload();",500);
             } else {
-                location.href = "<?php echo url('Auth/editor_rule'); ?>" + "?id=" + id;
+                layer.msg(data.tips);
             }
-        });
+        })
+        //console.log(a);
     }
+
+    //修改权限组
+    function ajax_submit_group() {
+        var form_data = $('#form_group').serializeArray();
+        console.log(form_data);
+        $.post('<?php echo url("Admin/editor_group_do"); ?>', form_data, function (data) {
+            if (data.status == 200) {
+                layer.msg(data.tips);
+                setTimeout("location.reload();",500);
+            } else {
+                layer.msg(data.tips);
+            }
+        })
+        //console.log(a);
+    }
+
 </script>
-</body>
+
 </html>

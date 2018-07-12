@@ -21,6 +21,7 @@ class Banner extends Base
         $userinfo = session('admin');
         $uid = $userinfo['id'];
         $res = $Auth->check(MODULE_NAME . '/' . CONTROLLER_NAME . '/' . ACTION_NAME, $uid);
+        unset($userinfo);
         if ($res) {
             $where = [];
             if (input('get.search')) {
@@ -29,12 +30,14 @@ class Banner extends Base
             $info = \app\common\model\Banner::where($where)
                 ->order('id desc')
                 ->paginate(15, false, ['query' => request()->param()]);
+            unset($where);
             //dump($info);exit;
             $this->assign(array(
                 'info' => $info,
                 'display' => 'Banner',
                 'current' => 'banner',
             ));
+            unset($info);
             return view();
         } else {
             echo "<script>alert('权限不足！');window.history.back();</script>";
@@ -48,6 +51,7 @@ class Banner extends Base
         $userinfo = session('admin');
         $uid = $userinfo['id'];
         $res = $Auth->check(MODULE_NAME . '/' . CONTROLLER_NAME . '/' . ACTION_NAME, $uid);
+        unset($userinfo);
         if ($res) {
             //banner分类
             $types = [
@@ -75,6 +79,7 @@ class Banner extends Base
                 'current' => 'add_banner',
                 'types' => $types,
             ));
+            unset($types);
             return view();
         } else {
             $msg['status'] = 400;
@@ -90,6 +95,7 @@ class Banner extends Base
             $data = input('post.');
             $data['update_time'] = current_datetime();
             $res = \app\common\model\Banner::create($data);
+            unset($data);
             if ($res) {
                 //添加日志
                 Logs::write('添加banner图', '添加');
@@ -113,6 +119,7 @@ class Banner extends Base
         $userinfo = session('admin');
         $uid = $userinfo['id'];
         $res = $Auth->check(MODULE_NAME . '/' . CONTROLLER_NAME . '/' . ACTION_NAME, $uid);
+        unset($userinfo);
         if ($res) {
             //资讯内容
             $info = \app\common\model\Banner::get(input('get.id/d'));
@@ -143,6 +150,8 @@ class Banner extends Base
                 'types' => $types,
                 'info' => $info
             ));
+            unset($types);
+            unset($info);
             return view();
         } else {
             $msg['status'] = 400;
@@ -157,6 +166,7 @@ class Banner extends Base
         if (request()->isPost()) {
             $data = input('post.');
             $res = \app\common\model\Banner::where(['id' => $data['id']])->update($data);
+            unset($data);
             if ($res) {
                 //添加日志
                 Logs::write('编辑banner图', '编辑');
@@ -180,6 +190,7 @@ class Banner extends Base
         $userinfo = session('admin');
         $uid = $userinfo['id'];
         $res = $Auth->check(MODULE_NAME . '/' . CONTROLLER_NAME . '/' . ACTION_NAME, $uid);
+        unset($userinfo);
         if ($res) {
             $id = input('post.id/d');
             $del_res = \app\common\model\Banner::where(['id' => $id])->delete();

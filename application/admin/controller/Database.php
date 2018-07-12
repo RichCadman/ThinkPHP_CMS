@@ -30,6 +30,7 @@ class Database extends Base
                 'display' => 'Database',
                 'current' => 'database',
             ));
+            unset($info);
             return view();
         } else {
             echo "<script>alert('权限不足！');window.history.back();</script>";
@@ -43,6 +44,7 @@ class Database extends Base
         $userinfo = session('admin');
         $uid = $userinfo['id'];
         $res = $Auth->check(MODULE_NAME . '/' . CONTROLLER_NAME . '/' . ACTION_NAME, $uid);
+        unset($userinfo);
         if ($res) {
             $this->assign(array(
                 'display' => 'Database',
@@ -67,6 +69,7 @@ class Database extends Base
             $Engine = $data['Engine'];
             //注释
             $comment = $data['tableComment'];
+            unset($data);
             try {
                 db()->execute("CREATE TABLE $tableName(
                       id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
@@ -94,6 +97,7 @@ class Database extends Base
         $userinfo = session('admin');
         $uid = $userinfo['id'];
         $res = $Auth->check(MODULE_NAME . '/' . CONTROLLER_NAME . '/' . ACTION_NAME, $uid);
+        unset($userinfo);
         if ($res) {
             $database = config('database.database');
             $tableName = input('get.tableName');
@@ -111,6 +115,7 @@ class Database extends Base
                 'current' => 'editor_table',
                 'Engine'  => $Engine,
             ));
+            unset($info);
             return view();
         } else {
             $msg['status'] = 400;
@@ -132,6 +137,7 @@ class Database extends Base
             $Engine = $data['Engine'];
             //注释
             $comment = $data['tableComment'];
+            unset($data);
             try {
                 //修改引擎
                 db()->execute("ALTER  TABLE $oldTableName ENGINE=$Engine");
@@ -162,6 +168,7 @@ class Database extends Base
         $userinfo = session('admin');
         $uid = $userinfo['id'];
         $res = $Auth->check(MODULE_NAME . '/' . CONTROLLER_NAME . '/' . ACTION_NAME, $uid);
+        unset($userinfo);
         if ($res) {
             $tableName = input('post.tableName');
             try {
@@ -193,6 +200,7 @@ class Database extends Base
         $userinfo = session('admin');
         $uid = $userinfo['id'];
         $res = $Auth->check(MODULE_NAME . '/' . CONTROLLER_NAME . '/' . ACTION_NAME, $uid);
+        unset($userinfo);
         if ($res) {
             $tableName = input('get.tableName');
             $info = db()->query("show full fields from $tableName");
@@ -202,6 +210,7 @@ class Database extends Base
                 'current' => 'database',
                 'tableName' => $tableName,
             ));
+            unset($info);
             return view();
         } else {
             $msg['status'] = 400;
@@ -217,6 +226,7 @@ class Database extends Base
         $userinfo = session('admin');
         $uid = $userinfo['id'];
         $res = $Auth->check(MODULE_NAME . '/' . CONTROLLER_NAME . '/' . ACTION_NAME, $uid);
+        unset($userinfo);
         if ($res) {
             $tableName = input('get.tableName');
             //字段类型
@@ -234,6 +244,7 @@ class Database extends Base
                 'fieldType' => $fieldType,
                 'IsNull' => $IsNull,
             ));
+            unset($fieldType);
             return view();
         } else {
             $msg['status'] = 400;
@@ -261,6 +272,7 @@ class Database extends Base
             //$Extra = $data['Extra'];
             //备注
             $comment = $data['Comment'];
+            unset($data);
             //新增
             try {
                 /*if ($Extra) {
@@ -292,6 +304,7 @@ class Database extends Base
         $userinfo = session('admin');
         $uid = $userinfo['id'];
         $res = $Auth->check(MODULE_NAME . '/' . CONTROLLER_NAME . '/' . ACTION_NAME, $uid);
+        unset($userinfo);
         if ($res) {
             $tableName = input('get.tableName');
             $field = input('get.field');
@@ -313,6 +326,9 @@ class Database extends Base
                 'fieldType' => $fieldType,
                 'IsNull' => $IsNull,
             ));
+            unset($info);
+            unset($fieldType);
+            unset($IsNull);
             return view();
         } else {
             $msg['status'] = 400;
@@ -340,6 +356,7 @@ class Database extends Base
             //$default = $data['Default'];
             //备注
             $comment = $data['Comment'];
+            unset($data);
             //更新
             try {
                 db()->execute("alter table $tableName change $oldField $field $type COMMENT '$comment'");
@@ -366,6 +383,7 @@ class Database extends Base
         $userinfo = session('admin');
         $uid = $userinfo['id'];
         $res = $Auth->check(MODULE_NAME . '/' . CONTROLLER_NAME . '/' . ACTION_NAME, $uid);
+        unset($userinfo);
         if ($res) {
             $tableName = input('post.tableName');
             $field = input('post.field');
@@ -397,10 +415,12 @@ class Database extends Base
         $userinfo = session('admin');
         $uid = $userinfo['id'];
         $res = $Auth->check(MODULE_NAME . '/' . CONTROLLER_NAME . '/' . ACTION_NAME, $uid);
+        unset($userinfo);
         if ($res) {
             $config = Config::get();
             $sql = new \database\Baksql($config['database']);
             $res = $sql->backup();//此处可以以数组形式传入表名$table = array('table1','table2');用于备份单个表或多个表
+            unset($config);
             if ($res == 1) {
                 //添加日志
                 Logs::write('数据备份', '数据');
@@ -426,15 +446,18 @@ class Database extends Base
         $userinfo = session('admin');
         $uid = $userinfo['id'];
         $res = $Auth->check(MODULE_NAME . '/' . CONTROLLER_NAME . '/' . ACTION_NAME, $uid);
+        unset($userinfo);
         if ($res) {
             $config = Config::get();
             $sql = new \database\Baksql($config['database']);
             $info = $sql->get_filelist(1);//按时间倒序排列
+            unset($config);
             $this->assign(array(
                 'info' => $info,
                 'display' => 'Database',
                 'current' => 'reduction',
             ));
+            unset($info);
             return view();
         } else {
             echo "<script>alert('权限不足！');window.history.back();</script>";
@@ -448,6 +471,7 @@ class Database extends Base
         $userinfo = session('admin');
         $uid = $userinfo['id'];
         $res = $Auth->check(MODULE_NAME . '/' . CONTROLLER_NAME . '/' . ACTION_NAME, $uid);
+        unset($userinfo);
         if ($res) {
             $filename = input('filename');
             $config = Config::get();
@@ -479,6 +503,7 @@ class Database extends Base
         $userinfo = session('admin');
         $uid = $userinfo['id'];
         $res = $Auth->check(MODULE_NAME . '/' . CONTROLLER_NAME . '/' . ACTION_NAME, $uid);
+        unset($userinfo);
         if ($res) {
             $filename = input('filename');
             $config = Config::get();

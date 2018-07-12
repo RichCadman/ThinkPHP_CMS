@@ -1,4 +1,4 @@
-<?php /*a:6:{s:65:"E:\www-web\ThinkPHP_CMS\application\admin\view\banner\banner.html";i:1530710625;s:65:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\static.html";i:1529542576;s:63:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\menu.html";i:1528855708;s:65:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\header.html";i:1529387612;s:62:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\nav.html";i:1528625773;s:65:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\footer.html";i:1529573972;}*/ ?>
+<?php /*a:6:{s:65:"E:\www-web\ThinkPHP_CMS\application\admin\view\news\add_news.html";i:1530694889;s:65:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\static.html";i:1529542576;s:63:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\menu.html";i:1528855708;s:65:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\header.html";i:1529387612;s:62:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\nav.html";i:1528625773;s:65:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\footer.html";i:1529573972;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -178,54 +178,170 @@
         <a href="">首页</a> > <a href=""><?php echo htmlentities($controller_name); ?></a> > <a href=""><?php echo htmlentities($action_name); ?></a>
     </p>
 </div>
-                        <button onclick="add()" class="btn btn-primary fr icon-plus"><?php echo htmlentities(app('lang')->get('add')); ?></button>
+                        <a href="<?php echo url('News/news'); ?>">
+                            <button class="btn btn-primary fr icon-undo"><?php echo htmlentities(app('lang')->get('back')); ?></button>
+                        </a>
                         <!--<a onclick="window.history.back();"><button class="btn btn-primary fr icon-undo">返回上层</button></a>-->
-                        <script>
-                            function add() {
-                                $.get('<?php echo url("Banner/add_banner"); ?>', function (data) {
-                                    if (data.status == 400) {
-                                        layer.msg(data.tips);
-                                    } else {
-                                        location.href = "<?php echo url('Banner/add_banner'); ?>";
-                                    }
-                                })
-                            }
-                        </script>
                     </header>
                     <hr>
 
                 </section>
 
-                <table class="table table-bordered table-striped table-hover">
-                    <thead>
-                    <tr>
-                        <th>id</th>
-                        <th>分类名称</th>
-                        <th>分类配图</th>
-                        <th>操作</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <?php if(is_array($info) || $info instanceof \think\Collection || $info instanceof \think\Paginator): $i = 0; $__LIST__ = $info;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($i % 2 );++$i;?>
-                    <tr class="cen">
-                        <td><?php echo htmlentities($v['id']); ?></td>
-                        <td><?php echo htmlentities($v['type']); ?></td>
-                        <td>
-                            <a href="/static/upload/<?php echo htmlentities($v['img_path']); ?>" target="_blank">
-                                <img src="/static/upload/<?php echo htmlentities($v['img_path']); ?>" style="width: 50px;height: 50px;" alt="">
-                            </a>
-                        </td>
-                        <td>
-                            <a href="javascript:void(0)" onclick="editor(this,<?php echo htmlentities($v['id']); ?>)" title="<?php echo htmlentities(app('lang')->get('editor')); ?>" class="mr-5 icon-edit"><?php echo htmlentities(app('lang')->get('editor')); ?></a>
-                            <!--<a title="详情" class="mr-5">详情</a>-->
-                            <a href="javascript:void(0)" onclick="del(this,<?php echo htmlentities($v['id']); ?>)" title="<?php echo htmlentities(app('lang')->get('del')); ?>" class="icon-trash"><?php echo htmlentities(app('lang')->get('del')); ?></a>
-                        </td>
-                    </tr>
-                    <?php endforeach; endif; else: echo "" ;endif; ?>
-                    </tbody>
-                </table>
+                <form id="form_data" enctype="multipart/form-data">
+                    <div class="form-group-col-2">
+                        <div class="form-label">标题：</div>
+                        <div class="form-cont">
+                            <input type="text" placeholder="" name="title" class="form-control form-boxed"
+                                   style="width:300px;">
+                        </div>
+                    </div>
 
+                    <div class="form-group-col-2">
+                        <div class="form-label">短标题：</div>
+                        <div class="form-cont">
+                            <input type="text" placeholder="" name="short_title" class="form-control form-boxed"
+                                   style="width:300px;">
+                        </div>
+                    </div>
 
+                    <div class="form-group-col-2">
+                        <div class="form-label">作者：</div>
+                        <div class="form-cont">
+                            <input type="text" placeholder="" name="author" class="form-control form-boxed"
+                                   style="width:300px;">
+                        </div>
+                    </div>
+
+                    <div class="form-group-col-2">
+                        <div class="form-label">点击量：</div>
+                        <div class="form-cont">
+                            <input type="number" placeholder="" name="click_num" class="form-control form-boxed"
+                                   style="width:300px;">
+                        </div>
+                    </div>
+
+                    <div class="form-group-col-2">
+                        <div class="form-label">资讯分类：</div>
+                        <div class="form-cont">
+                            <select style="width:auto;" name="news_type_id">
+                                <?php if(is_array($newsType) || $newsType instanceof \think\Collection || $newsType instanceof \think\Paginator): $i = 0; $__LIST__ = $newsType;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($i % 2 );++$i;?>
+                                <option value="<?php echo htmlentities($v['id']); ?>">
+                                    <?php if($v['layer'] == 1): else: $__FOR_START_23908__=1;$__FOR_END_23908__=$v['layer'];for($i=$__FOR_START_23908__;$i < $__FOR_END_23908__;$i+=1){ ?>　　　<?php } ?>├
+                                    <?php endif; ?>
+                                    <?php echo htmlentities($v['news_type_name']); ?>
+                                </option>
+                                <?php endforeach; endif; else: echo "" ;endif; ?>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group-col-2">
+                        <div class="form-label">状态：</div>
+                        <div class="form-cont">
+                            <label class="radio">
+                                <input type="radio" name="state" value="1" checked="checked"/>
+                                <span>显示</span>
+                            </label>
+                            <label class="radio">
+                                <input type="radio" name="state" value="0"/>
+                                <span>隐藏</span>
+                            </label>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group-col-2">
+                        <div class="form-label">配图：</div>
+                        <div class="form-cont">
+                            <input type="file" name="filename" id="upload" class="form-control form-boxed"
+                                   style="width:300px;">
+                            <!--<button type="button" class="btn btn-primary" id="upload">上传</button>-->
+                            <input type="hidden" name="news_img" id="news_img" value="">
+                        </div>
+                    </div>
+
+                    <div class="form-group-col-2">
+                        <div class="form-label">展示：</div>
+                        <div class="form-cont">
+                            <img src="" class="news_img" style="width:200px;height:200px;" alt="">
+                        </div>
+                    </div>
+                    <script>
+                        //图片上传
+                        $('#upload').change(function () {
+                            $.ajaxFileUpload({
+                                url: "<?php echo url('News/upload_img'); ?>", //你处理上传文件的服务端
+                                secureuri: false,
+                                fileElementId: 'upload',//与页面处理代码中file相对应的ID值
+                                type: "post",
+                                processData: false,
+                                contentType: false,
+                                dataType: 'json', //返回数据类型:看后端返回的是什么数据,在IE下后端要设置请求头的Content-Type:text/html; charset=UTF-8
+                                success: function (data) {
+                                    if (data.status == 200) {
+                                        layer.msg(data.tips);
+                                        $('#news_img').val(data.url);
+                                        $('.news_img').attr('src','/static/upload/'+data.url);
+                                    } else {
+                                        layer.msg(data.tips);
+                                    }
+                                },
+                                error: function (data, status, e) { //提交失败自动执行的处理函数
+                                    layer.msg(e);
+                                }
+                            })
+                        });
+                    </script>
+
+                    <div class="form-group-col-2">
+                        <div class="form-label">时间：</div>
+                        <div class="form-cont">
+                            <input type="text" readonly id="create_time"  name="create_time" class="form-control form-boxed" style="width:300px;">
+                        </div>
+                    </div>
+                    <script type="text/javascript">
+                        jeDate("#create_time",{
+                            format: "YYYY-MM-DD",
+                            isinitVal: true
+                        });
+                    </script>
+
+                    <div class="form-group-col-2">
+                        <div class="form-label">短内容：</div>
+                        <div class="form-cont">
+                            <textarea name="short_content" id="" cols="30" rows="4" style="width:1200px;"></textarea>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group-col-2">
+                        <div class="form-label">资讯内容：</div>
+                        <div class="form-cont">
+                            <!-- 加载编辑器的容器 -->
+                            <script id="content" name="content" type="text/plain"></script>
+
+                        </div>
+                    </div>
+                    <script>
+                        var ue = UE.getEditor('content', {
+                            /*toolbars: [
+                                ['fullscreen', 'source', 'undo', 'redo', 'bold']
+                            ],*/
+                            initialFrameWidth :1200,//初始化编辑器宽度，默认1000
+                            initialFrameHeight :400,//初始化编辑器高度，默认320
+                            autoHeightEnabled: true,//是否自动长高，默认true
+                            autoFloatEnabled: true,//是否保持toolbar的位置不动，默认true
+                        });
+                    </script>
+
+                    <div class="form-group-col-2">
+                        <div class="form-label"></div>
+                        <div class="form-cont">
+                            <input type="button" onclick="ajax_submit()" class="btn btn-primary" value="提交表单"/>
+                            <!--<input type="reset" class="btn btn-disabled" value="禁止" />-->
+                        </div>
+                    </div>
+                </form>
                 <!--开始::结束-->
             </div>
         </main>
@@ -274,39 +390,24 @@
         <!--底部-->
     </div>
 </div>
-<script type="text/javascript">
-    // 删除数据方法
-    function del(obj, id) {
-        layer.confirm('确定删除吗？', {
-            title: '系统提示',
-            btn: ['确定', '取消']
-        }, function () {
-            $.post('<?php echo url("Banner/del_banner"); ?>', {id: id}, function (data) {
-                // 判断是否成功
-                if (data.status == 200) {
-                    $(obj).parent().parent().remove();
-                    layer.msg(data.tips);
-                    setTimeout("location.reload();", 500);
-                } else if (data.status == 400) {
-                    layer.msg(data.tips);
-                } else if (data.status == 600) {
-                    layer.msg(data.tips);
-                }
-            });
-        });
+<script>
+    function ajax_submit() {
+
+        var form_data = $('#form_data').serializeArray();
+        /*if(form_data[0].value == ''){
+         layer.msg('请上传图片');
+         return false;
+         }*/
+        $.post('<?php echo url("News/add_news_do"); ?>', form_data, function (data) {
+            if (data.status == 200) {
+                layer.msg(data.tips);
+                setTimeout("location.reload();", 500);
+            } else {
+                layer.msg(data.tips);
+            }
+        })
     }
 
-    // 编辑数据方法
-    function editor(obj, id) {
-        $.get('<?php echo url("Banner/editor_banner"); ?>',{id:id}, function (data) {
-            // 判断是否成功
-            if (data.status == 400) {
-                layer.msg(data.tips);
-            } else {
-                location.href = "<?php echo url('Banner/editor_banner'); ?>" + "?id=" + id;
-            }
-        });
-    }
 </script>
 </body>
 </html>

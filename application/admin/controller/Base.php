@@ -40,7 +40,7 @@ class Base extends Controller
                 echo "<script>alert('账号在别处登陆!');window.location='/admin/Login/login'</script>";
             }
         }
-
+        unset($system);
         /*定义常量*/
         define('MODULE_NAME', request()->module());
         define('CONTROLLER_NAME', request()->controller());
@@ -59,7 +59,8 @@ class Base extends Controller
             'controller_name' => $controller['title'],
             'action_name' => $action['title'],
         ));
-
+        unset($controller);
+        unset($action);
         //菜单
         $menu = Rule::where(['is_visible' => 1,'p_id' => 0])->order('show_order desc')->cache(3600)->select();
         foreach($menu as &$v){
@@ -68,11 +69,13 @@ class Base extends Controller
         }
         //渲染输出
         $this->assign('menu',$menu);
+        unset($menu);
         //查询当前用户的所属权限组
         $group_access_info = GroupAccess::where(['uid' => $admin_id])->cache(3600)->find();
 
         //获取用户组ID
         $group_id = $group_access_info['group_id'];
+        unset($group_access_info);
         //根据用户组ID查询权限组的menu_id
         $group_info = Group::where(['id' => $group_id])->cache(3600)->find();
 
@@ -82,13 +85,15 @@ class Base extends Controller
         $menu_arr = explode(',',$menu_info);
         //渲染输出
         $this->assign('menu_arr',$menu_arr);
-
+        unset($menu_arr);
         //获取当前登录用户的二级菜单组
         $rule_info = $group_info['rules'];
+        unset($group_info);
         //转为数组
         $rule_arr = explode(',',$rule_info);
         //渲染输出
         $this->assign('rule_arr',$rule_arr);
+        unset($rule_arr);
 
     }
 }

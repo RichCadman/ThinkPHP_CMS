@@ -32,6 +32,7 @@ class Auth extends Base
                 'display' => 'Auth',
                 'current' => 'rule_index',
             ));
+            unset($info);
             return view();
         } else {
             echo "<script>alert('权限不足！');window.history.back();</script>";
@@ -54,6 +55,7 @@ class Auth extends Base
                 'current' => 'add_rule',
                 'info' => $info,
             ));
+            unset($info);
             return view();
         } else {
             $msg['status'] = 400;
@@ -69,6 +71,7 @@ class Auth extends Base
         if (request()->isPost()) {
             $data = input('post.');
             $res = Rule::create($data);
+            unset($data);
             if ($res) {
                 //添加日志
                 Logs::write('添加规则','添加');
@@ -92,6 +95,7 @@ class Auth extends Base
         $userinfo = session('admin');
         $uid = $userinfo['id'];
         $res = $Auth->check(MODULE_NAME . '/' . CONTROLLER_NAME . '/' . ACTION_NAME, $uid);
+        unset($userinfo);
         if ($res) {
             $id = input('id/d');
             //查询数据
@@ -104,6 +108,8 @@ class Auth extends Base
                 'info' => $info,
                 'rule' => $rule,
             ));
+            unset($info);
+            unset($rule);
             return view();
 
         } else {
@@ -119,6 +125,7 @@ class Auth extends Base
         if (request()->isPost()) {
             $data = input('post.');
             $res = Rule::where(['id' => $data['id']])->update($data);
+            unset($data);
             if ($res) {
                 //添加日志
                 Logs::write('编辑规则','编辑');
@@ -142,6 +149,7 @@ class Auth extends Base
         $userinfo = session('admin');
         $uid = $userinfo['id'];
         $res = $Auth->check(MODULE_NAME . '/' . CONTROLLER_NAME . '/' . ACTION_NAME, $uid);
+        unset($userinfo);
         if ($res) {
             $id = input('post.id/d');
             $del_res = Rule::where(['id' => $id])->delete();
@@ -174,6 +182,7 @@ class Auth extends Base
         $userinfo = session('admin');
         $uid = $userinfo['id'];
         $res = $Auth->check(MODULE_NAME . '/' . CONTROLLER_NAME . '/' . ACTION_NAME, $uid);
+        unset($userinfo);
         if ($res) {
             $info = Group::order('id asc')->paginate(10);
 
@@ -182,6 +191,7 @@ class Auth extends Base
                 'current' => 'group_index',
                 'info' => $info,
             ));
+            unset($info);
             return view();
         } else {
             echo "<script>alert('权限不足！');window.history.back();</script>";
@@ -206,6 +216,7 @@ class Auth extends Base
                 'current' => 'add_group',
                 'info' => $info,
             ));
+            unset($info);
             return view();
         } else {
             $msg['status'] = 400;
@@ -231,6 +242,7 @@ class Auth extends Base
                 //处理操作权限组
                 //数组转为字符串
                 $data['rules'] = $rules_str = implode(",", $rules);
+                unset($rules);
                 //处理显示权限组
                 //根据提交过来的规则id组查询他们的p_id
                 $info = Rule::all($rules_str);
@@ -238,10 +250,12 @@ class Auth extends Base
                 foreach ($info as $k => $v) {
                     $menu_id[] = $v['p_id'];
                 }
+                unset($info);
                 //数组去重
                 $menu_id = array_unique($menu_id);
                 //数组转为字符串
                 $data['menu_id'] = implode(",", $menu_id);
+                unset($menu_id);
                 //添加到用户组
                 $add_res = Group::create($data);
                 if ($add_res) {
@@ -269,6 +283,7 @@ class Auth extends Base
         $userinfo = session('admin');
         $uid = $userinfo['id'];
         $res = $Auth->check(MODULE_NAME . '/' . CONTROLLER_NAME . '/' . ACTION_NAME, $uid);
+        unset($userinfo);
         if ($res) {
             $info = Rule::where(['p_id' => 0])->select();
             foreach ($info as $k => &$v){
@@ -287,6 +302,10 @@ class Auth extends Base
                 'str' => $rules_str,
                 'group' => $group,
             ));
+            unset($info);
+            unset($group);
+            unset($rules);
+            unset($rules_str);
             return view();
         } else {
             $msg['status'] = 400;
@@ -312,22 +331,24 @@ class Auth extends Base
                 $msg['tips'] = '该用户组已存在';
                 return json($msg);
             } else {
+                unset($check);
                 //数组转为字符串
                 $data['rules'] = $rules_str = implode(",",  $data['rules']);
                 //处理显示权限组
                 //根据提交过来的规则id组查询他们的p_id
                 $info = Rule::all($rules_str);
+                unset($rules_str);
                 //循环得出p_id
                 foreach ($info as $k => $v) {
                     $menu_id[] = $v['p_id'];
                 }
+                unset($info);
                 //数组去重
                 $menu_id = array_unique($menu_id);
                 //数组转为字符串
                 $data['menu_id'] = implode(",", $menu_id);
                 $editor_res = Group::where(['id'=>$id])->update($data);
-                //var_dump($msg);exit;
-//                $res = db('group')->where("id", "$id")->update($msg);
+                unset($data);
                 if ($editor_res) {
                     //添加日志
                     Logs::write('编辑权限组','编辑');
@@ -353,6 +374,7 @@ class Auth extends Base
         $userinfo = session('admin');
         $uid = $userinfo['id'];
         $res = $Auth->check(MODULE_NAME . '/' . CONTROLLER_NAME . '/' . ACTION_NAME, $uid);
+        unset($userinfo);
         if ($res) {
             $id = input('post.id/d');
             $del_res = Group::where(['id' => $id])->delete();

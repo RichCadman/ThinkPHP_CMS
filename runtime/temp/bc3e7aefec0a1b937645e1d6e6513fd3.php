@@ -1,4 +1,4 @@
-<?php /*a:6:{s:66:"E:\www-web\ThinkPHP_CMS\application\admin\view\news\news_type.html";i:1530710790;s:65:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\static.html";i:1529542576;s:63:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\menu.html";i:1528855708;s:65:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\header.html";i:1529387612;s:62:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\nav.html";i:1528625773;s:65:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\footer.html";i:1529573972;}*/ ?>
+<?php /*a:6:{s:60:"E:\www-web\ThinkPHP_CMS\application\admin\view\admin\my.html";i:1530710557;s:65:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\static.html";i:1529542576;s:63:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\menu.html";i:1528855708;s:65:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\header.html";i:1529387612;s:62:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\nav.html";i:1528625773;s:65:"E:\www-web\ThinkPHP_CMS\application\admin\view\public\footer.html";i:1529573972;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -178,19 +178,19 @@
         <a href="">首页</a> > <a href=""><?php echo htmlentities($controller_name); ?></a> > <a href=""><?php echo htmlentities($action_name); ?></a>
     </p>
 </div>
-                        <button onclick="add()" class="btn btn-primary fr icon-plus"><?php echo htmlentities(app('lang')->get('add')); ?></button>
+                        <!--<button onclick="add()" class="btn btn-primary fr"><?php echo htmlentities(app('lang')->get('add')); ?></button>-->
                         <!--<a onclick="window.history.back();"><button class="btn btn-primary fr icon-undo">返回上层</button></a>-->
-                        <script>
+                        <!--<script>
                             function add() {
-                                $.get('<?php echo url("News/add_newstype"); ?>', function (data) {
+                                $.get('<?php echo url("Admin/add_admin"); ?>', function (data) {
                                     if (data.status == 400) {
                                         layer.msg(data.tips);
                                     } else {
-                                        location.href = "<?php echo url('News/add_newstype'); ?>";
+                                        location.href = "<?php echo url('Admin/add_admin'); ?>";
                                     }
                                 })
                             }
-                        </script>
+                        </script>-->
                     </header>
                     <hr>
 
@@ -200,10 +200,10 @@
                     <thead>
                     <tr>
                         <th>id</th>
-                        <th>分类名称</th>
-                        <th>分类配图</th>
-                        <th>显示排序(默认降序)</th>
+                        <th>名称</th>
                         <th>状态</th>
+                        <th>权限组</th>
+                        <th>最后登陆时间</th>
                         <th>操作</th>
                     </tr>
                     </thead>
@@ -211,29 +211,23 @@
                     <?php if(is_array($info) || $info instanceof \think\Collection || $info instanceof \think\Paginator): $i = 0; $__LIST__ = $info;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($i % 2 );++$i;?>
                     <tr class="cen">
                         <td><?php echo htmlentities($v['id']); ?></td>
-                        <td class="lt">
-                            <?php if($v['layer'] == 1): else: $__FOR_START_12924__=1;$__FOR_END_12924__=$v['layer'];for($i=$__FOR_START_12924__;$i < $__FOR_END_12924__;$i+=1){ ?>　　　<?php } ?>├
-                            <?php endif; ?>
-                            <?php echo htmlentities($v['news_type_name']); ?>
-                        </td>
-                        <td>
-                            <a href="/static/upload/<?php echo htmlentities($v['news_type_img']); ?>" target="_blank">
-                                <img src="/static/upload/<?php echo htmlentities($v['news_type_img']); ?>" style="width: 50px;height: 50px;" alt="">
-                            </a>
-                        </td>
-                        <td><?php echo htmlentities($v['show_order']); ?></td>
-                        <td><?php echo htmlentities($v['state']); ?></td>
+                        <td ><?php echo htmlentities($v['username']); ?></td>
+                        <td ><?php echo htmlentities($v['status']); ?></td>
+                        <?php if(!(empty($v['group_name']) || (($v['group_name'] instanceof \think\Collection || $v['group_name'] instanceof \think\Paginator ) && $v['group_name']->isEmpty()))): if(is_array($v['group_name']) || $v['group_name'] instanceof \think\Collection || $v['group_name'] instanceof \think\Paginator): $i = 0; $__LIST__ = $v['group_name'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vv): $mod = ($i % 2 );++$i;?>
+                        <td><?php echo htmlentities($vv['title']); ?></td>
+                        <?php endforeach; endif; else: echo "" ;endif; else: ?>
+                        <td>暂无</td>
+                        <?php endif; ?>
+                        <td><?php echo htmlentities($v['last_time']); ?></td>
                         <td>
                             <a href="javascript:void(0)" onclick="editor(this,<?php echo htmlentities($v['id']); ?>)" title="<?php echo htmlentities(app('lang')->get('editor')); ?>" class="mr-5 icon-edit"><?php echo htmlentities(app('lang')->get('editor')); ?></a>
                             <!--<a title="详情" class="mr-5">详情</a>-->
-                            <a href="javascript:void(0)" onclick="del(this,<?php echo htmlentities($v['id']); ?>)" title="<?php echo htmlentities(app('lang')->get('del')); ?>" class="icon-trash"><?php echo htmlentities(app('lang')->get('del')); ?></a>
+                            <!--<a href="javascript:void(0)" onclick="del(this,<?php echo htmlentities($v['id']); ?>)" title="<?php echo htmlentities(app('lang')->get('del')); ?>"><?php echo htmlentities(app('lang')->get('del')); ?></a>-->
                         </td>
                     </tr>
                     <?php endforeach; endif; else: echo "" ;endif; ?>
                     </tbody>
                 </table>
-
-
                 <!--开始::结束-->
             </div>
         </main>
@@ -284,17 +278,17 @@
 </div>
 <script type="text/javascript">
     // 删除数据方法
-    function del(obj, id) {
+    /*function del(obj, id) {
         layer.confirm('确定删除吗？', {
-            title: '系统提示',
-            btn: ['确定', '取消']
-        }, function () {
-            $.post('<?php echo url("News/del_newstype"); ?>', {id: id}, function (data) {
+            title:'系统提示',
+            btn: ['确定','取消']
+        }, function(){
+            $.post('<?php echo url(""); ?>', {id: id}, function (data) {
                 // 判断是否成功
                 if (data.status == 200) {
                     $(obj).parent().parent().remove();
                     layer.msg(data.tips);
-                    setTimeout("location.reload();", 2000);
+                    setTimeout("location.reload();",500);
                 } else if (data.status == 400) {
                     layer.msg(data.tips);
                 } else if (data.status == 600) {
@@ -302,16 +296,16 @@
                 }
             });
         });
-    }
+    }*/
 
     // 编辑数据方法
     function editor(obj, id) {
-        $.get('<?php echo url("News/editor_newstype"); ?>',{id:id}, function (data) {
+        $.get('<?php echo url("Admin/editor_my"); ?>',{id:id}, function (data) {
             // 判断是否成功
             if (data.status == 400) {
                 layer.msg(data.tips);
             } else {
-                location.href = "<?php echo url('News/editor_newstype'); ?>" + "?id=" + id;
+                location.href = "<?php echo url('Admin/editor_my'); ?>" + "?id=" + id;
             }
         });
     }

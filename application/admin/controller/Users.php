@@ -21,6 +21,7 @@ class Users extends Base
         $userinfo = session('admin');
         $uid = $userinfo['id'];
         $res = $Auth->check(MODULE_NAME . '/' . CONTROLLER_NAME . '/' . ACTION_NAME, $uid);
+        unset($userinfo);
         if ($res) {
             $where = [];
             if (input('get.search')){
@@ -30,11 +31,13 @@ class Users extends Base
             $info = \app\common\model\Users::where($where)
                 ->order('id desc')
                 ->paginate(15,false,['query'=>request()->param()]);
+            unset($where);
             $this->assign(array(
                 'display' => 'Users',
                 'current' => 'users_index',
                 'info' => $info,
             ));
+            unset($info);
             return view();
         } else {
             echo "<script>alert('权限不足！');window.history.back();</script>";
@@ -48,6 +51,7 @@ class Users extends Base
         $userinfo = session('admin');
         $uid = $userinfo['id'];
         $res = $Auth->check(MODULE_NAME . '/' . CONTROLLER_NAME . '/' . ACTION_NAME, $uid);
+        unset($userinfo);
         if ($res) {
             $id = input('id/d');
             //查询用户数据
@@ -57,6 +61,7 @@ class Users extends Base
                 'current' => 'editor_admin',
                 'info' => $info,
             ));
+            unset($info);
             return view();
 
         } else {
@@ -72,6 +77,7 @@ class Users extends Base
         if (request()->isPost()) {
             $data = input('post.');
             $res = \app\common\model\Users::where(['id' => $data['id']])->update($data);
+            unset($data);
             if ($res) {
                 //添加日志
                 Logs::write('编辑用户','编辑');
@@ -95,6 +101,7 @@ class Users extends Base
         $userinfo = session('admin');
         $uid = $userinfo['id'];
         $res = $Auth->check(MODULE_NAME . '/' . CONTROLLER_NAME . '/' . ACTION_NAME, $uid);
+        unset($userinfo);
         if ($res) {
             $id = input('post.id/d');
             $del_res = \app\common\model\Users::where(['id' => $id])->delete();

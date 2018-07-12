@@ -20,6 +20,7 @@ class Comment extends Base
         $userinfo = session('admin');
         $uid = $userinfo['id'];
         $res = $Auth->check(MODULE_NAME . '/' . CONTROLLER_NAME . '/' . ACTION_NAME, $uid);
+        unset($userinfo);
         if ($res) {
             $where = [];
             if (input('get.search')){
@@ -33,12 +34,14 @@ class Comment extends Base
                 ->where(['a.id' => $news_id])
                 ->where($where)
                 ->paginate(15,false,['query'=>request()->param()]);
+            unset($where);
             $this->assign(array(
                 'commentList' => $commentList,
                 'display' => 'News',
                 'current' => 'comment',
                 'news_id' => $news_id,
             ));
+            unset($commentList);
             return view();
 
         } else {
@@ -55,6 +58,7 @@ class Comment extends Base
         $userinfo = session('admin');
         $uid = $userinfo['id'];
         $res = $Auth->check(MODULE_NAME . '/' . CONTROLLER_NAME . '/' . ACTION_NAME, $uid);
+        unset($userinfo);
         if ($res) {
             $comment_id = input('comment_id/d');
             $info = \app\common\model\Comment::get($comment_id);
@@ -63,6 +67,7 @@ class Comment extends Base
                 'display' => 'News',
                 'current' => 'editor_comment',
             ));
+            unset($info);
             return view();
 
         } else {
@@ -78,6 +83,7 @@ class Comment extends Base
         if (request()->isPost()) {
             $data = input('post.');
             $editor_res = \app\common\model\Comment::where(['id' => $data['id']])->update($data);
+            unset($data);
             if ($editor_res) {
                 //添加日志
                 Logs::write('编辑评论','编辑');
@@ -101,6 +107,7 @@ class Comment extends Base
         $userinfo = session('admin');
         $uid = $userinfo['id'];
         $res = $Auth->check(MODULE_NAME . '/' . CONTROLLER_NAME . '/' . ACTION_NAME, $uid);
+        unset($userinfo);
         if ($res) {
             $id = input('post.id/d');
             $del_res = \app\common\model\Comment::where(['id' => $id])->delete();
