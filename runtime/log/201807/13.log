@@ -1,0 +1,302 @@
+---------------------------------------------------------------
+[ 2018-07-13T13:52:39+08:00 ] 127.0.0.1 GET 127.0.0.5/admin
+[运行时间：0.078954s] [吞吐率：12.67req/s] [内存消耗：1,662.95kb] [文件加载：74]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\application\admin\\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'bdshare_firstime=1530517018014',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/admin' => '',
+)
+---------------------------------------------------------------
+[ 2018-07-13T13:52:39+08:00 ] 127.0.0.1 GET 127.0.0.5/admin/login/login
+[运行时间：0.138216s] [吞吐率：7.24req/s] [内存消耗：2,795.48kb] [文件加载：88]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\application\admin\\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'bdshare_firstime=1530517018014; PHPSESSID=qiija5occmdg1a48sgnsa09it5',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/admin/login/login' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\www-web\ThinkPHP_CMS\application\admin\view\login\login.html [ array (
+  0 => 'system',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002142s ] mysql:host=127.0.0.1;dbname=thinkphp_cms;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_system` [ RunTime:0.054727s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_system` LIMIT 1 [ RunTime:0.001117s ]
+---------------------------------------------------------------
+[ 2018-07-13T13:52:39+08:00 ] 127.0.0.1 GET 127.0.0.5/captcha
+[运行时间：0.034690s] [吞吐率：28.83req/s] [内存消耗：1,219.84kb] [文件加载：56]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'rule' => 'captcha/<id?>',
+  'route' => '\\think\\captcha\\CaptchaController@index',
+  'option' => 
+  array (
+    'merge_rule_regex' => false,
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'bdshare_firstime=1530517018014; PHPSESSID=qiija5occmdg1a48sgnsa09it5',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.5/admin/login/login',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/captcha' => '',
+)
+---------------------------------------------------------------
+[ 2018-07-13T13:52:40+08:00 ] 127.0.0.1 GET 127.0.0.5/admin/login/login
+[运行时间：0.086293s] [吞吐率：11.59req/s] [内存消耗：2,673.27kb] [文件加载：86]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\application\admin\\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'bdshare_firstime=1530517018014; PHPSESSID=qiija5occmdg1a48sgnsa09it5',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/admin/login/login' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\www-web\ThinkPHP_CMS\application\admin\view\login\login.html [ array (
+  0 => 'system',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000821s ] mysql:host=127.0.0.1;dbname=thinkphp_cms;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_system` [ RunTime:0.021157s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_system` LIMIT 1 [ RunTime:0.000431s ]
+---------------------------------------------------------------
+[ 2018-07-13T13:52:40+08:00 ] 127.0.0.1 GET 127.0.0.5/captcha
+[运行时间：0.059774s] [吞吐率：16.73req/s] [内存消耗：1,219.85kb] [文件加载：56]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'rule' => 'captcha/<id?>',
+  'route' => '\\think\\captcha\\CaptchaController@index',
+  'option' => 
+  array (
+    'merge_rule_regex' => false,
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'bdshare_firstime=1530517018014; PHPSESSID=qiija5occmdg1a48sgnsa09it5',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.5/admin/login/login',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/captcha' => '',
+)
+---------------------------------------------------------------
+[ 2018-07-13T13:52:51+08:00 ] 127.0.0.1 POST 127.0.0.5/admin/login/login_do
+[运行时间：0.246007s] [吞吐率：4.06req/s] [内存消耗：2,717.14kb] [文件加载：87]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\application\admin\\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'bdshare_firstime=1530517018014; PHPSESSID=qiija5occmdg1a48sgnsa09it5',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.5/admin/login/login',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://127.0.0.5',
+  'accept' => '*/*',
+  'content-length' => '39',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/admin/login/login_do' => '',
+  'username' => 'admin',
+  'password' => '123',
+  'verify' => 'rjyb',
+)
+[ info ] [ DB ] INIT mysql
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000841s ] mysql:host=127.0.0.1;dbname=thinkphp_cms;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_admin` [ RunTime:0.047095s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_admin` WHERE  `password` = '202cb962ac59075b964b07152d234b70'  AND `username` = 'admin' LIMIT 1 [ RunTime:0.000523s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000369s ]
+[ sql ] [ SQL ] UPDATE `cms_admin`  SET `unique_id` = 46529 , `last_time` = '2018-07-13 13:52:51' , `login_count` = 39  WHERE  `id` = 1 [ RunTime:0.000433s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000458s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_log` [ RunTime:0.045816s ]
+[ sql ] [ SQL ] INSERT INTO `cms_log` (`name` , `title` , `type` , `ip` , `browser` , `time`) VALUES ('admin' , '登陆系统' , '登陆' , '127.0.0.1' , 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36' , '2018-07-13 13:52:51') [ RunTime:0.000508s ]
+---------------------------------------------------------------
+[ 2018-07-13T13:52:52+08:00 ] 127.0.0.1 GET 127.0.0.5/admin/index/index
+[运行时间：0.282031s] [吞吐率：3.55req/s] [内存消耗：3,139.98kb] [文件加载：95]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\application\admin\\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'bdshare_firstime=1530517018014; PHPSESSID=qiija5occmdg1a48sgnsa09it5',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.5/admin/login/login',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/admin/index/index' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\www-web\ThinkPHP_CMS\application\admin\view\index\index.html [ array (
+  0 => 'system',
+  1 => 'controller_name',
+  2 => 'action_name',
+  3 => 'menu',
+  4 => 'menu_arr',
+  5 => 'rule_arr',
+  6 => 'display',
+  7 => 'config',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000777s ] mysql:host=127.0.0.1;dbname=thinkphp_cms;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_system` [ RunTime:0.016384s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_system` LIMIT 1 [ RunTime:0.000370s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_rule` [ RunTime:0.043876s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/Index' LIMIT 1 [ RunTime:0.000518s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/Index/index' LIMIT 1 [ RunTime:0.000397s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `is_visible` = 1  AND `p_id` = 0 ORDER BY `show_order` DESC [ RunTime:0.015585s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `is_visible` = 1  AND `p_id` = 41 [ RunTime:0.000718s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `is_visible` = 1  AND `p_id` = 56 [ RunTime:0.000596s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `is_visible` = 1  AND `p_id` = 27 [ RunTime:0.000716s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `is_visible` = 1  AND `p_id` = 19 [ RunTime:0.000733s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `is_visible` = 1  AND `p_id` = 17 [ RunTime:0.000727s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `is_visible` = 1  AND `p_id` = 10 [ RunTime:0.000607s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `is_visible` = 1  AND `p_id` = 1 [ RunTime:0.000602s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_group_access` [ RunTime:0.032454s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_group_access` WHERE  `uid` = 1 LIMIT 1 [ RunTime:0.000422s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_group` [ RunTime:0.031271s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_group` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000430s ]
+---------------------------------------------------------------
+[ 2018-07-13T13:54:06+08:00 ] 127.0.0.1 GET 127.0.0.5/admin/index/index
+[运行时间：0.071276s] [吞吐率：14.03req/s] [内存消耗：2,268.46kb] [文件加载：76]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\application\admin\\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'bdshare_firstime=1530517018014; PHPSESSID=qiija5occmdg1a48sgnsa09it5',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.5/admin/login/login',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/admin/index/index' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ error ] [0]method not exist:think\db\Query->getTables[E:\www-web\ThinkPHP_CMS\thinkphp\library\think\db\Query.php:178]
+---------------------------------------------------------------
+[ 2018-07-13T13:55:22+08:00 ] 127.0.0.1 GET 127.0.0.5/admin/index/index
+[运行时间：0.039494s] [吞吐率：25.32req/s] [内存消耗：1,811.88kb] [文件加载：74]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\application\admin\\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'bdshare_firstime=1530517018014; PHPSESSID=qiija5occmdg1a48sgnsa09it5',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.5/admin/login/login',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/admin/index/index' => '',
+)
+[ error ] [1]Class '\think\db\builder\' not found[E:\www-web\ThinkPHP_CMS\thinkphp\library\think\db\Connection.php:157]
+---------------------------------------------------------------
+[ 2018-07-13T13:59:19+08:00 ] 127.0.0.1 GET 127.0.0.5/admin/index/index
+[运行时间：0.114310s] [吞吐率：8.75req/s] [内存消耗：2,966.09kb] [文件加载：93]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\application\admin\\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'bdshare_firstime=1530517018014; PHPSESSID=qiija5occmdg1a48sgnsa09it5',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.5/admin/login/login',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/admin/index/index' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\www-web\ThinkPHP_CMS\application\admin\view\index\index.html [ array (
+  0 => 'system',
+  1 => 'controller_name',
+  2 => 'action_name',
+  3 => 'menu',
+  4 => 'menu_arr',
+  5 => 'rule_arr',
+  6 => 'display',
+  7 => 'config',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001096s ] mysql:host=127.0.0.1;dbname=thinkphp_cms;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_system` [ RunTime:0.018642s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_system` LIMIT 1 [ RunTime:0.000502s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_rule` [ RunTime:0.029541s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/Index' LIMIT 1 [ RunTime:0.000468s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/Index/index' LIMIT 1 [ RunTime:0.000340s ]

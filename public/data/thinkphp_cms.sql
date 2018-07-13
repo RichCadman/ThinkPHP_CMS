@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2018-07-05 15:50:59
+Date: 2018-07-13 21:06:13
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -38,7 +38,7 @@ CREATE TABLE `cms_admin` (
 -- ----------------------------
 -- Records of cms_admin
 -- ----------------------------
-INSERT INTO `cms_admin` VALUES ('1', 'admin', '202cb962ac59075b964b07152d234b70', '39358', '2018-07-05 15:49:59', '33', '1', '417626953', 'lqm_956', '18100386352', '济南', '<p>帅！！！</p><p><br/></p>');
+INSERT INTO `cms_admin` VALUES ('1', 'admin', '202cb962ac59075b964b07152d234b70', '46529', '2018-07-13 13:52:51', '39', '1', '417626953', 'lqm_956', '18100386352', '济南', '<p>帅！！！</p><p><br/></p>');
 INSERT INTO `cms_admin` VALUES ('2', '刘全明', '202cb962ac59075b964b07152d234b70', '84248', '2018-06-13 16:26:11', '6', '1', '417626953', 'lqm_956', '18100386352', '济南', '<p>帅！！！</p>');
 INSERT INTO `cms_admin` VALUES ('7', '小猪佩奇', '4297f44b13955235245b2497399d7a93', '0', '0000-00-00 00:00:00', '0', '1', '6666666', '7777777', '8888888', '社会人', '<p>人狠话不多，社会我奇哥！！！</p>');
 
@@ -136,7 +136,7 @@ CREATE TABLE `cms_group` (
 -- Records of cms_group
 -- ----------------------------
 INSERT INTO `cms_group` VALUES ('1', '管理员', '1', '2,3,4,5,6,7,8,9,11,12,13,14,15,16,18,25,26,52,53,54,55,20,21,22,23,24,45,46,47,48,49,50,51,28,29,30,31,32,33,34,35,37,38,39,40,42,43,44,57,58,59,60', '1,10,17,19,27,36,41,56');
-INSERT INTO `cms_group` VALUES ('2', '经理', '1', '2,3,4,5,6,7,8,9,11,12,13,14,15,16,18', '1,10,17');
+INSERT INTO `cms_group` VALUES ('2', '经理', '1', '2,3,4,5,6,7,8,9,11,12,13,14,15,16,18,28,29,30,31,32,33,34,35', '1,10,17,27');
 INSERT INTO `cms_group` VALUES ('4', '销售', '1', '11,15,16', '10');
 
 -- ----------------------------
@@ -159,6 +159,7 @@ INSERT INTO `cms_group_access` VALUES ('2', '2');
 INSERT INTO `cms_group_access` VALUES ('6', '4');
 INSERT INTO `cms_group_access` VALUES ('7', '4');
 INSERT INTO `cms_group_access` VALUES ('8', '4');
+INSERT INTO `cms_group_access` VALUES ('9', '4');
 
 -- ----------------------------
 -- Table structure for cms_log
@@ -173,7 +174,7 @@ CREATE TABLE `cms_log` (
   `browser` varchar(255) DEFAULT NULL COMMENT '浏览器信息',
   `time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=264 DEFAULT CHARSET=utf8 COMMENT='日志表';
+) ENGINE=InnoDB AUTO_INCREMENT=275 DEFAULT CHARSET=utf8 COMMENT='日志表';
 
 -- ----------------------------
 -- Records of cms_log
@@ -397,6 +398,17 @@ INSERT INTO `cms_log` VALUES ('260', 'admin', '添加banner图', '添加', '127.
 INSERT INTO `cms_log` VALUES ('261', 'admin', '登陆系统', '登陆', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-07-05 15:49:59');
 INSERT INTO `cms_log` VALUES ('262', 'admin', '添加字段类型', '添加', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-07-05 15:50:33');
 INSERT INTO `cms_log` VALUES ('263', 'admin', '数据备份', '数据', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-07-05 15:50:45');
+INSERT INTO `cms_log` VALUES ('264', 'admin', '编辑权限组', '编辑', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-07-05 15:51:25');
+INSERT INTO `cms_log` VALUES ('265', 'admin', '登陆系统', '登陆', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-07-05 16:13:21');
+INSERT INTO `cms_log` VALUES ('266', 'admin', '登出系统', '登出', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-07-05 16:47:05');
+INSERT INTO `cms_log` VALUES ('267', 'admin', '登陆系统', '登陆', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-07-06 15:25:41');
+INSERT INTO `cms_log` VALUES ('268', 'admin', '登陆系统', '登陆', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-07-09 13:17:13');
+INSERT INTO `cms_log` VALUES ('269', 'admin', '登陆系统', '登陆', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-07-10 11:00:34');
+INSERT INTO `cms_log` VALUES ('270', 'admin', '添加用户', '添加', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-07-10 11:05:01');
+INSERT INTO `cms_log` VALUES ('271', 'admin', '删除用户', '删除', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-07-10 11:05:31');
+INSERT INTO `cms_log` VALUES ('272', 'admin', '删除用户', '删除', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-07-10 11:05:33');
+INSERT INTO `cms_log` VALUES ('273', 'admin', '登陆系统', '登陆', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36', '2018-07-10 11:24:45');
+INSERT INTO `cms_log` VALUES ('274', 'admin', '登陆系统', '登陆', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', '2018-07-13 13:52:51');
 
 -- ----------------------------
 -- Table structure for cms_news

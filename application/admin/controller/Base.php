@@ -14,6 +14,7 @@ use app\common\model\Rule;
 use app\common\model\System;
 use \app\common\model\Admin;
 use think\Controller;
+use think\Db;
 use think\Request;
 
 class Base extends Controller

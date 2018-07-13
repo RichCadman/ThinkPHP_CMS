@@ -9,7 +9,7 @@
 // | Author: liu21st <liu21st@gmail.com>
 // +----------------------------------------------------------------------
 
-Route::get('think', function () {
+/*Route::get('think', function () {
     return 'hello,ThinkPHP5!';
 });
 
@@ -20,7 +20,7 @@ Route::get('hello/:name', 'index/hello');
 
 Route::rule('/','index/Index/index');
 Route::rule('hello','index/Index/hello');
-Route::rule('get/:id','index/Index/get')->pattern(['id' => '\d+']);
+Route::rule('get/:id','index/Index/get')->pattern(['id' => '\d+']);*/
 
 return [
 
