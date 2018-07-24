@@ -10,29 +10,54 @@
 namespace app\admin\controller;
 use app\common\model\News;
 //静态页面生成类
-class CreateHtml
+class CreateHtml extends Base
 {
+    //初始化
+    public function initialize()
+    {
+        parent::initialize();
+        $this->expire_time = 3600;
+    }
+
+    //生成静态页
+    public function create()
+    {
+        $this->assign(array(
+            'display' => 'CreateHtml',
+            'current' => 'create',
+        ));
+        return view();
+    }
     //生成所有
     public function createAll()
     {
         $this->createIndex();
         $this->articleList();
         $this->articleDetail();
+
+        $msg['status'] = 200;
+        $msg['tips'] = '操作成功';
+        return json($msg);
     }
 
     //删除静态文件并生成
     public function deleteCreateAll()
     {
         deldir('./html');
+        unlink('./index.html');
         $this->createIndex();
         $this->articleList();
         $this->articleDetail();
+
+        $msg['status'] = 200;
+        $msg['tips'] = '操作成功';
+        return json($msg);
     }
 
     //生成首页
     public function createIndex()
     {
-        if(is_file('./index.html') && (time() - filemtime('./index.html') < 1200))
+        if(is_file('./index.html') && (time() - filemtime('./index.html') < $this->expire_time))
         {
             //缓存未失效则直接加载静态文件
             require_once('./index.html');
@@ -67,7 +92,7 @@ class CreateHtml
         if($total_page>0){
             for ($ii=1;$ii<=$total_page;$ii++){
                 $filename = './html/newsList_p'.$ii.'.html';
-                if(is_file($filename) && (time() - filemtime($filename) < 1200))
+                if(is_file($filename) && (time() - filemtime($filename) < $this->expire_time))
                 {
                     //缓存未失效则直接加载静态文件
                     require($filename);
@@ -138,6 +163,9 @@ class CreateHtml
                     }
                     ob_start();
                     require('template/newsList.php');//引入模版文件
+                    if ($ii == 1) {
+                        file_put_contents('./html/newsList.html', ob_get_contents());//生成静态文件
+                    }
                     file_put_contents('./html/newsList_p'.$ii.'.html', ob_get_contents());//生成静态文件
                     ob_clean();
                 }
@@ -152,7 +180,7 @@ class CreateHtml
         foreach ($info as $k => $v){
             $id = $v['id'];
             $filename = './html/newsDetail_'.$id.'.html';
-            if(is_file($filename) && (time() - filemtime($filename) < 1200))
+            if(is_file($filename) && (time() - filemtime($filename) < $this->expire_time))
             {
                 //缓存未失效则直接加载静态文件
                 require('./html/newsDetail_'.$id.'.html');

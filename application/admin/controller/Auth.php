@@ -377,6 +377,11 @@ class Auth extends Base
         unset($userinfo);
         if ($res) {
             $id = input('post.id/d');
+            if ($id == 1) {
+                $msg['status'] = 700;
+                $msg['tips'] = '不能删除管理员';
+                return json($msg);
+            }
             $del_res = Group::where(['id' => $id])->delete();
             if($del_res){
                 //添加日志

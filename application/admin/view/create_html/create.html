@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {include file="public/static" /}
+</head>
+<body>
+<div class="main-wrap">
+    <!--菜单-->
+    {include file="public/menu" /}
+    <!--菜单-->
+    <div class="content-wrap">
+        <!--头部-->
+        {include file="public/header" /}
+        <!--头部-->
+        <main class="main-cont content mCustomScrollbar">
+            <div class="page-wrap">
+                <!--开始::内容-->
+                <section class="page-hd">
+                    <header style="clearfix">
+                        {include file="public/nav" /}
+                        <!--<a onclick="window.history.back();"><button class="btn btn-primary fr icon-undo">返回上层</button></a>-->
+                    </header>
+                    <hr>
+
+                </section>
+
+                <form id="form_data">
+                    <div class="form-group-col-2">
+                        <div class="form-label"></div>
+                        <div class="form-cont">
+                            <input type="button" onclick="createArr()" class="btn btn-primary" value="生成全站静态页" />
+                            <!--<input type="reset" class="btn btn-disabled" value="禁止" />-->
+                        </div>
+                    </div>
+
+                    <div class="form-group-col-2">
+                        <div class="form-label"></div>
+                        <div class="form-cont">
+                            <input type="button" onclick="delAndCreateArr()" class="btn btn-primary" value="删除原有静态页并生成全站静态页" />
+                            <!--<input type="reset" class="btn btn-disabled" value="禁止" />-->
+                        </div>
+                    </div>
+                </form>
+                <!--开始::结束-->
+            </div>
+        </main>
+        <!--底部-->
+        {include file="public/footer" /}
+        <!--底部-->
+    </div>
+</div>
+
+<script>
+    // 在原有文件基础上生成
+    function createArr() {
+        layer.confirm('确定操作吗？', {
+            title: '系统提示',
+            btn: ['确定', '取消']
+        }, function () {
+            $.post('{:url("CreateHtml/createAll")}', function (data) {
+                // 判断是否成功
+                if (data.status == 200) {
+                    layer.msg(data.tips);
+                } else {
+                    layer.msg(data.tips);
+                }
+            });
+        });
+    }
+
+    // 删除原有文件并生成
+    function delAndCreateArr() {
+        layer.confirm('确定操作吗？', {
+            title: '系统提示',
+            btn: ['确定', '取消']
+        }, function () {
+            $.post('{:url("CreateHtml/deleteCreateAll")}', function (data) {
+                // 判断是否成功
+                if (data.status == 200) {
+                    layer.msg(data.tips);
+                } else {
+                    layer.msg(data.tips);
+                }
+            });
+        });
+    }
+</script>
+</body>
+</html>

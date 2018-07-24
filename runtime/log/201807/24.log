@@ -1,0 +1,28 @@
+---------------------------------------------------------------
+[ 2018-07-24T13:53:13+08:00 ] 127.0.0.1 GET 127.0.0.5/admin/index/clear_cache
+[运行时间：0.130463s] [吞吐率：7.67req/s] [内存消耗：2,890.89kb] [文件加载：90]
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] E:\www-web\ThinkPHP_CMS\application\admin\\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'bdshare_firstime=1530517018014; PHPSESSID=h44dnjk2l7qih7o9q7frqeetf1',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.5/admin/index/index',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => '*/*',
+  'connection' => 'close',
+  'host' => '127.0.0.5',
+)
+[ info ] [ PARAM ] array (
+  '/admin/index/clear_cache' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001092s ] mysql:host=127.0.0.1;dbname=thinkphp_cms;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_system` [ RunTime:0.017067s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_system` LIMIT 1 [ RunTime:0.000499s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cms_rule` [ RunTime:0.016702s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/Index' LIMIT 1 [ RunTime:0.000512s ]
+[ sql ] [ SQL ] SELECT * FROM `cms_rule` WHERE  `name` = 'admin/Index/clear_cache' LIMIT 1 [ RunTime:0.000407s ]

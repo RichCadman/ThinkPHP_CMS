@@ -1,118 +1,191 @@
 <!doctype html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <title>黑色个人博客HTML5模板</title>
-    <meta name="keywords" content="个人博客模板,博客模板,响应式" />
-    <meta name="description" content="个人博客模板，神秘、俏皮。" />
-    <link href="./static/index/css/base.css" rel="stylesheet">
-    <link href="./static/index/css/index.css" rel="stylesheet">
-    <link href="./static/index/css/media.css" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+    <meta charset="gbk">
+    <title>首页_杨青个人博客 - 一个站在web前端设计之路的女技术员个人博客网站</title>
+    <meta name="keywords" content="个人博客,杨青个人博客,个人博客模板,杨青" />
+    <meta name="description" content="杨青个人博客，是一个站在web前端设计之路的女程序员个人网站，提供个人博客模板免费资源下载的个人原创网站。" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../static/index/css/base.css" rel="stylesheet">
+    <link href="../static/index/css/index.css" rel="stylesheet">
+    <link href="../static/index/css/m.css" rel="stylesheet">
+    <script src="../static/index/js/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../static/index/js/hc-sticky.js"></script>
+    <script type="text/javascript" src="../static/index/js/comm.js"></script>
     <!--[if lt IE 9]>
-    <script src="./static/index/js/modernizr.js"></script>
+    <script src="../static/index/js/modernizr.js"></script>
     <![endif]-->
 </head>
 <body>
-<div class="ibody">
-    <header>
-        <h1>如影随形</h1>
-        <h2>影子是一个会撒谎的精灵，它在虚空中流浪和等待被发现之间;在存在与不存在之间....</h2>
-        <div class="logo"><a href="/"></a></div>
-        <nav id="topnav"><a href="index.html">首页</a><a href="about.html">关于我</a><a href="newlist.html">慢生活</a><a href="share.html">模板分享</a><a href="new.html">模板主题</a></nav>
-    </header>
-    <article>
-        <div class="banner">
-            <ul class="texts">
-                <p>The best life is use of willing attitude, a happy-go-lucky life. </p>
-                <p>最好的生活是用心甘情愿的态度，过随遇而安的生活。</p>
-            </ul>
-        </div>
-        <div class="bloglist">
-            <h2>
-                <p><span>推荐</span>文章</p>
-            </h2>
-            <?php foreach ($info as $k => $v){ ?>
-            <div class="blogs">
-                <h3><a href="/"><?php echo $v['title'] ?></a></h3>
-                <figure><img src="./static/upload/<?php echo $v['news_img'] ?>" ></figure>
-                <ul>
-                    <p><?php echo $v['content'] ?></p>
-                    <a href="./html/newsDetail_<?php echo $v['id'] ?>.html" target="_blank" class="readmore">阅读全文&gt;&gt;</a>
-                </ul>
-                <p class="autor"><span>作者：<?php echo $v['author'] ?></span><span>分类：【<a href="/">日记</a>】</span><span>浏览（<a href="/">459</a>）</span><span>评论（<a href="/"><?php echo $v['click_num'] ?></a>）</span></p>
-                <div class="dateview"><?php echo $v['create_time'] ?></div>
-            </div>
-            <?php } ?>
+<header class="header-navigation" id="header">
+    <nav><div class="logo"><a href="/">杨青个人博客</a></div>
+        <h2 id="mnavh"><span class="navicon"></span></h2>
+        <ul id="starlist">
+            <li><a href="index.html">网站首页</a></li>
+            <li><a href="share.html">我的相册</a></li>
+            <li><a href="list.html">我的日记</a></li>
+            <li><a href="about.html">关于我</a></li>
+            <li><a href="gbook.html">留言</a></li>
+            <li><a href="info.html">内容页</a></li>
+            <li><a href="infopic.html">内容页</a></li>
+        </ul>
+    </nav>
+</header>
 
-
-        </div>
-    </article>
+<article>
     <aside>
-        <div class="avatar"><a href="about.html"><span>关于杨青</span></a></div>
-        <div class="topspaceinfo">
-            <h1>执子之手，与子偕老</h1>
-            <p>于千万人之中，我遇见了我所遇见的人....</p>
-        </div>
-        <div class="about_c">
-            <p>网名：DanceSmile | 即步非烟</p>
-            <p>职业：Web前端设计师、网页设计 </p>
-            <p>籍贯：四川省—成都市</p>
-            <p>电话：13662012345</p>
-            <p>邮箱：dancesmiling@qq.com</p>
-        </div>
-        <div class="bdsharebuttonbox"><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_more" data-cmd="more"></a></div>
-        <div class="tj_news">
-            <h2>
-                <p class="tj_t1">最新文章</p>
-            </h2>
-            <ul>
-                <li><a href="/">犯错了怎么办？</a></li>
-                <li><a href="/">两只蜗牛艰难又浪漫的一吻</a></li>
-                <li><a href="/">春暖花开-走走停停-发现美</a></li>
-                <li><a href="/">琰智国际-Nativ for Life官方网站</a></li>
-                <li><a href="/">个人博客模板（2014草根寻梦）</a></li>
-                <li><a href="/">简单手工纸玫瑰</a></li>
-                <li><a href="/">响应式个人博客模板（蓝色清新）</a></li>
-                <li><a href="/">蓝色政府（卫生计划生育局）网站</a></li>
-            </ul>
-            <h2>
-                <p class="tj_t2">推荐文章</p>
-            </h2>
-            <ul>
-                <li><a href="/">犯错了怎么办？</a></li>
-                <li><a href="/">两只蜗牛艰难又浪漫的一吻</a></li>
-                <li><a href="/">春暖花开-走走停停-发现美</a></li>
-                <li><a href="/">琰智国际-Nativ for Life官方网站</a></li>
-                <li><a href="/">个人博客模板（2014草根寻梦）</a></li>
-                <li><a href="/">简单手工纸玫瑰</a></li>
-                <li><a href="/">响应式个人博客模板（蓝色清新）</a></li>
-                <li><a href="/">蓝色政府（卫生计划生育局）网站</a></li>
-            </ul>
-        </div>
-        <div class="links">
-            <h2>
-                <p>友情链接</p>
-            </h2>
-            <ul>
-                <li><a href="/">杨青个人博客</a></li>
-                <li><a href="/">3DST技术社区</a></li>
-            </ul>
-        </div>
-        <div class="copyright">
-            <ul>
-                <p> Design by <a href="/">DanceSmile</a></p>
-                <p>蜀ICP备11002373号-1</p>
-                </p>
-            </ul>
+        <div class="l_box" id="stickMe">
+            <div class="about_me">
+                <h2>关于我</h2>
+                <ul>
+                    <i><img src="../static/index/images/4.jpg"></i>
+                    <p><b>杨青</b>，一个80后草根女站长！09年入行。一直潜心研究web前端技术，一边工作一边积累经验，分享一些个人博客模板，以及SEO优化等心得。</p>
+                </ul>
+            </div>
+            <div class="wdxc">
+                <h2>我的相册</h2>
+                <ul>
+                    <li><a href="/"><img src="../static/index/images/7.jpg"></a></li>
+                    <li><a href="/"><img src="../static/index/images/8.jpg"></a></li>
+                    <li><a href="/"><img src="../static/index/images/9.jpg"></a></li>
+                    <li><a href="/"><img src="../static/index/images/10.jpg"></a></li>
+                    <li><a href="/"><img src="../static/index/images/11.jpg"></a></li>
+                    <li><a href="/"><img src="../static/index/images/12.jpg"></a></li>
+                </ul>
+            </div>
+            <div class="search">
+                <form action="/e/search/index.php" method="post" name="searchform" id="searchform">
+                    <input name="keyboard" id="keyboard" class="input_text" value="请输入关键字词" style="color: rgb(153, 153, 153);" onfocus="if(value=='请输入关键字词'){this.style.color='#000';value=''}" onblur="if(value==''){this.style.color='#999';value='请输入关键字词'}" type="text">
+                    <input name="show" value="title" type="hidden">
+                    <input name="tempid" value="1" type="hidden">
+                    <input name="tbname" value="news" type="hidden">
+                    <input name="Submit" class="input_submit" value="搜索" type="submit">
+                </form>
+            </div>
+            <div class="fenlei">
+                <h2>文章分类</h2>
+                <ul>
+                    <li><a href="/">学无止境（33）</a></li>
+                    <li><a href="/">日记（19）</a></li>
+                    <li><a href="/">慢生活（520）</a></li>
+                    <li><a href="/">美文欣赏（40）</a></li>
+                </ul>
+            </div>
+            <div class="tuijian">
+                <h2>站长推荐</h2>
+                <ul>
+                    <li><a href="/">你是什么人便会遇上什么人</a></li>
+                    <li><a href="/">帝国cms 列表页调用子栏目，没有则不显示栏目名称</a></li>
+                    <li><a href="/">第二届 优秀个人博客模板比赛参选活动</a></li>
+                    <li><a href="/">个人博客模板《绅士》后台管理</a></li>
+                    <li><a href="/">你是什么人便会遇上什么人</a></li>
+                    <li><a href="/">帝国cms 列表页调用子栏目，没有则不显示栏目名称</a></li>
+                    <li><a href="/">第二届 优秀个人博客模板比赛参选活动</a></li>
+                    <li><a href="/">个人博客模板《绅士》后台管理</a></li>
+                </ul>
+            </div>
+            <div class="links">
+                <h2>友情链接</h2>
+                <ul>
+                    <a href="http://www.yangqq.com">杨青个人博客</a> <a href="http://www.yangqq.com">杨青博客</a>
+                </ul>
+            </div>
+            <div class="guanzhu">
+                <h2>关注我 么么哒</h2>
+                <ul>
+                    <img src="../static/index/images/wx.jpg">
+                </ul>
+            </div>
         </div>
     </aside>
-    <script src="./static/index/js/silder.js"></script>
-    <div class="clear"></div>
-    <!-- 清除浮动 -->
-</div>
-<div style="text-align:center;">
-    <p>来源：More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>
-</div>
+    <div class="r_box">
+        <main>
+            <li><i><a href="/"><img src="../static/index/images/1.jpg"></a></i>
+                <h3><a href="/">你是什么人便会遇上什么人</a></h3>
+                <p>有时就为了一句狠话，像心头一口毒钉，永远麻痺着亲密感情交流。恶言，真要慎出，平日多誠心爱语，乃最简易之佈施。</p>
+            </li>
+            <li><i><a href="/"><img src="../static/index/images/2.jpg"></a></i>
+                <h3><a href="/">爱情没有永远，地老天荒也走不完</a></h3>
+                <p>也许，爱情没有永远，地老天荒也走不完，生命终结的末端，苦短情长。站在岁月的边端，那些美丽的定格，心伤的绝恋，都被四季的掩埋，一去不返。徒剩下这荒芜的花好月圆，一路相随，流离天涯背负了谁的思念？</p>
+            </li>
+            <li><i><a href="/"><img src="../static/index/images/3.jpg"></a></i>
+                <h3><a href="/">女孩都有浪漫的小情怀——浪漫的求婚词</a></h3>
+                <p>还在为浪漫的求婚词而烦恼不知道该怎么说吗？女孩子都有着浪漫的小情怀，对于求婚更是抱着满满的浪漫期待，也希望在求婚那一天对方可以给自己一个最浪漫的求婚词。</p>
+            </li>
+            <li><i><a href="/"><img src="../static/index/images/4.jpg"></a></i>
+                <h3><a href="/">擦肩而过</a></h3>
+                <p>《擦肩而过》文/清河鱼 编绘/天朝羽打开一扇窗，我不曾把你想得平常。看季节一一过往。你停留的那个地方，是否依然花儿开放？在夜里守靠着梦中的，想那仿佛前世铭刻进心肠的</p>
+            </li>
+            <li>
+                <h3><a href="/">女孩都有浪漫的小情怀——浪漫的求婚词</a></h3>
+                <p>还在为浪漫的求婚词而烦恼不知道该怎么说吗？女孩子都有着浪漫的小情怀，对于求婚更是抱着满满的浪漫期待，也希望在求婚那一天对方可以给自己一个最浪漫的求婚词。</p>
+            </li>
+            <li><i><a href="/"><img src="../static/index/images/5.jpg"></a></i>
+                <h3><a href="/">擦肩而过</a></h3>
+                <p>《擦肩而过》文/清河鱼 编绘/天朝羽打开一扇窗，我不曾把你想得平常。看季节一一过往。你停留的那个地方，是否依然花儿开放？在夜里守靠着梦中的，想那仿佛前世铭刻进心肠的</p>
+            </li>
+            <li><i><a href="/"><img src="../static/index/images/6.jpg"></a></i>
+                <h3><a href="/">女孩都有浪漫的小情怀——浪漫的求婚词</a></h3>
+                <p>还在为浪漫的求婚词而烦恼不知道该怎么说吗？女孩子都有着浪漫的小情怀，对于求婚更是抱着满满的浪漫期待，也希望在求婚那一天对方可以给自己一个最浪漫的求婚词。</p>
+            </li>
+            <li><i><a href="/"><img src="../static/index/images/7.jpg"></a></i>
+                <h3><a href="/">你是什么人便会遇上什么人</a></h3>
+                <p>有时就为了一句狠话，像心头一口毒钉，永远麻痺着亲密感情交流。恶言，真要慎出，平日多誠心爱语，乃最简易之佈施。</p>
+            </li>
+            <li><i><a href="/"><img src="../static/index/images/8.jpg"></a></i>
+                <h3><a href="/">爱情没有永远，地老天荒也走不完</a></h3>
+                <p>也许，爱情没有永远，地老天荒也走不完，生命终结的末端，苦短情长。站在岁月的边端，那些美丽的定格，心伤的绝恋，都被四季的掩埋，一去不返。徒剩下这荒芜的花好月圆，一路相随，流离天涯背负了谁的思念？</p>
+            </li>
+            <li><i><a href="/"><img src="../static/index/images/9.jpg"></a></i>
+                <h3><a href="/">擦肩而过</a></h3>
+                <p>《擦肩而过》文/清河鱼 编绘/天朝羽打开一扇窗，我不曾把你想得平常。看季节一一过往。你停留的那个地方，是否依然花儿开放？在夜里守靠着梦中的，想那仿佛前世铭刻进心肠的</p>
+            </li>
+            <li><i><a href="/"><img src="../static/index/images/1.jpg"></a></i>
+                <h3><a href="/">你是什么人便会遇上什么人</a></h3>
+                <p>有时就为了一句狠话，像心头一口毒钉，永远麻痺着亲密感情交流。恶言，真要慎出，平日多誠心爱语，乃最简易之佈施。</p>
+            </li>
+            <li><i><a href="/"><img src="../static/index/images/2.jpg"></a></i>
+                <h3><a href="/">爱情没有永远，地老天荒也走不完</a></h3>
+                <p>也许，爱情没有永远，地老天荒也走不完，生命终结的末端，苦短情长。站在岁月的边端，那些美丽的定格，心伤的绝恋，都被四季的掩埋，一去不返。徒剩下这荒芜的花好月圆，一路相随，流离天涯背负了谁的思念？</p>
+            </li>
+            <li><i><a href="/"><img src="../static/index/images/3.jpg"></a></i>
+                <h3><a href="/">女孩都有浪漫的小情怀——浪漫的求婚词</a></h3>
+                <p>还在为浪漫的求婚词而烦恼不知道该怎么说吗？女孩子都有着浪漫的小情怀，对于求婚更是抱着满满的浪漫期待，也希望在求婚那一天对方可以给自己一个最浪漫的求婚词。</p>
+            </li>
+            <li><i><a href="/"><img src="../static/index/images/4.jpg"></a></i>
+                <h3><a href="/">擦肩而过</a></h3>
+                <p>《擦肩而过》文/清河鱼 编绘/天朝羽打开一扇窗，我不曾把你想得平常。看季节一一过往。你停留的那个地方，是否依然花儿开放？在夜里守靠着梦中的，想那仿佛前世铭刻进心肠的</p>
+            </li>
+            <li>
+                <h3><a href="/">女孩都有浪漫的小情怀——浪漫的求婚词</a></h3>
+                <p>还在为浪漫的求婚词而烦恼不知道该怎么说吗？女孩子都有着浪漫的小情怀，对于求婚更是抱着满满的浪漫期待，也希望在求婚那一天对方可以给自己一个最浪漫的求婚词。</p>
+            </li>
+            <li><i><a href="/"><img src="../static/index/images/5.jpg"></a></i>
+                <h3><a href="/">擦肩而过</a></h3>
+                <p>《擦肩而过》文/清河鱼 编绘/天朝羽打开一扇窗，我不曾把你想得平常。看季节一一过往。你停留的那个地方，是否依然花儿开放？在夜里守靠着梦中的，想那仿佛前世铭刻进心肠的</p>
+            </li>
+            <li><i><a href="/"><img src="../static/index/images/6.jpg"></a></i>
+                <h3><a href="/">女孩都有浪漫的小情怀——浪漫的求婚词</a></h3>
+                <p>还在为浪漫的求婚词而烦恼不知道该怎么说吗？女孩子都有着浪漫的小情怀，对于求婚更是抱着满满的浪漫期待，也希望在求婚那一天对方可以给自己一个最浪漫的求婚词。</p>
+            </li>
+            <li><i><a href="/"><img src="../static/index/images/7.jpg"></a></i>
+                <h3><a href="/">你是什么人便会遇上什么人</a></h3>
+                <p>有时就为了一句狠话，像心头一口毒钉，永远麻痺着亲密感情交流。恶言，真要慎出，平日多誠心爱语，乃最简易之佈施。</p>
+            </li>
+            <li><i><a href="/"><img src="../static/index/images/8.jpg"></a></i>
+                <h3><a href="/">爱情没有永远，地老天荒也走不完</a></h3>
+                <p>也许，爱情没有永远，地老天荒也走不完，生命终结的末端，苦短情长。站在岁月的边端，那些美丽的定格，心伤的绝恋，都被四季的掩埋，一去不返。徒剩下这荒芜的花好月圆，一路相随，流离天涯背负了谁的思念？</p>
+            </li>
+            <li><i><a href="/"><img src="../static/index/images/9.jpg"></a></i>
+                <h3><a href="/">擦肩而过</a></h3>
+                <p>《擦肩而过》文/清河鱼 编绘/天朝羽打开一扇窗，我不曾把你想得平常。看季节一一过往。你停留的那个地方，是否依然花儿开放？在夜里守靠着梦中的，想那仿佛前世铭刻进心肠的</p>
+            </li>
+        </main>
+    </div>
+</article>
+<footer>
+    <p>Design by <a href="http://www.yangqq.com" target="_blank">杨青个人博客</a> <a href="/">蜀ICP备11002373号-1</a></p>
+</footer>
+<a href="#" class="cd-top">Top</a>
 </body>
 </html>

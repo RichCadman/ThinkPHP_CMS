@@ -25,7 +25,12 @@ class Admin extends Base
         $uid = $userinfo['id'];
         $res = $Auth->check(MODULE_NAME . '/' . CONTROLLER_NAME . '/' . ACTION_NAME, $uid);
         if ($res) {
-            $info = Admins::with("groupName")->order('id asc')->paginate(10);
+            $info = Admins::alias('a')
+                ->join(['cms_group_access' => 'b'],'a.id = b.uid')
+                ->join(['cms_group' => 'c'],'b.group_id = c.id')
+                ->field('a.*,c.title')
+                ->order('a.id asc')
+                ->paginate(10);
             //$info = $info->groupName;
             //dump($info);exit;
             $this->assign(array(

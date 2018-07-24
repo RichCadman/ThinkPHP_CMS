@@ -19,7 +19,7 @@
                     <header style="clearfix">
                         {include file="public/nav" /}
                         <button onclick="add()" class="btn btn-primary fr icon-plus">{$Think.lang.add}</button>
-                        <!--<a onclick="window.history.back();"><button class="btn btn-primary fr icon-undo">返回上层</button></a>-->
+                        <!--<a onclick="window.history.back();"><button class="btn btn-primary fr">返回上层</button></a>-->
                         <script>
                             function add() {
                                 $.get('{:url("Admin/add_admin")}', function (data) {
@@ -41,8 +41,8 @@
                     <tr>
                         <th>id</th>
                         <th>名称</th>
-                        <th>状态</th>
                         <th>权限组</th>
+                        <th>状态</th>
                         <th>最后登陆时间</th>
                         <th>操作</th>
                     </tr>
@@ -52,14 +52,8 @@
                     <tr class="cen">
                         <td>{$v.id}</td>
                         <td>{$v.username}</td>
+                        <td>{$v.title}</td>
                         <td>{$v.status}</td>
-                        {notempty name="$v['group_name']"}
-                        {volist name="v.group_name" id="vv"}
-                        <td>{$vv.title}</td>
-                        {/volist}
-                        {else /}
-                        <td>暂无</td>
-                        {/notempty}
                         <td>{$v.last_time}</td>
                         <td>
                             <a href="javascript:void(0)" onclick="editor(this,{$v.id})" title="{$Think.lang.editor}"

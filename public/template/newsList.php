@@ -19,7 +19,7 @@
         <h1>如影随形</h1>
         <h2>影子是一个会撒谎的精灵，它在虚空中流浪和等待被发现之间;在存在与不存在之间....</h2>
         <div class="logo"><a href="/"></a></div>
-        <nav id="topnav"><a href="index.html">首页</a><a href="about.html">关于我</a><a href="newlist.html">慢生活</a><a href="share.html">模板分享</a><a href="new.html">模板主题</a></nav>
+        <nav id="topnav"><a href="index.html">首页</a><a href="html/about.html">关于我</a><a href="html/newsList.html">慢生活</a><a href="html/share.html">模板分享</a><a href="html/news.html">模板主题</a></nav>
     </header>
     <article>
         <h2 class="about_h">您现在的位置是：<a href="/">首页</a>><a href="1/">慢生活</a></h2>
@@ -29,7 +29,7 @@
                 <ul>
                     <h3><a href="/"><?php echo $v['title'] ?></a></h3>
                     <div class="autor"><span>作者：<?php echo $v['author'] ?></span><span>分类：[<a href="/">日记</a>]</span><span>浏览（<a href="/"><?php echo $v['click_num'] ?></a>）</span><span>评论（<a href="/">30</a>）</span></div>
-                    <p><?php echo $v['content'] ?><a href="./html/newsDetail_<?php echo $v['id'] ?>" target="_blank" class="readmore">全文</a></p>
+                    <p><?php echo $v['content'] ?><a href="./newsDetail_<?php echo $v['id'] ?>.html" target="_blank" class="readmore">全文</a></p>
                 </ul>
                 <figure><img src="../static/upload/<?php echo $v['news_img'] ?>" ></figure>
                 <div class="dateview"><?php echo $v['create_time'] ?></div>

@@ -1,4 +1,0 @@
-<?php
-//000000003600
- exit();?>
-think_serialize:a:2:{i:0;a:13:{s:2:"id";i:20;s:4:"p_id";i:19;s:4:"name";s:23:"admin/Database/database";s:5:"title";s:15:"数据库列表";s:4:"type";i:1;s:6:"status";i:1;s:9:"condition";s:0:"";s:3:"nav";s:15:"数据库管理";s:10:"is_visible";i:1;s:4:"icon";s:0:"";s:10:"controller";s:8:"Database";s:8:"function";s:8:"database";s:10:"show_order";i:0;}i:1;a:13:{s:2:"id";i:22;s:4:"p_id";i:19;s:4:"name";s:24:"admin/Database/reduction";s:5:"title";s:12:"备份列表";s:4:"type";i:1;s:6:"status";i:1;s:9:"condition";s:0:"";s:3:"nav";s:15:"数据库管理";s:10:"is_visible";i:1;s:4:"icon";s:0:"";s:10:"controller";s:8:"Database";s:8:"function";s:9:"reduction";s:10:"show_order";i:0;}}
