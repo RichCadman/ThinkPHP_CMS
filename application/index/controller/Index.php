@@ -14,6 +14,7 @@ class Index
 {
     public function index()
     {
+        echo '测试git上传';
         return view();
     }
 
