@@ -14,7 +14,7 @@ class Index
 {
     public function index()
     {
-        echo '测试git上传';
+        echo '小哥哥，快来玩';
         return view();
     }
 
